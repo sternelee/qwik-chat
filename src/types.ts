@@ -1,7 +1,8 @@
-import { type SessionSettings } from "./env";
+import { type SessionSettings, defaultEnv } from "./env";
+import { type IProvider } from "~/store"
 
 export const enum LocalStorageKey {
-  globalSettings = "gpt-global-APIKeys",
+  GLOBALSETTINGS = "gpt-global-APIKeys",
   THEME = "gpt-theme",
   PREFIXSESSION = "gpt-session-",
 }
@@ -25,11 +26,12 @@ export interface Prompt {
   detail: string;
 }
 
-export interface Session {
+export type Session = typeof defaultEnv.CLIENT_SESSION_SETTINGS & {
   id: string;
   lastVisit: number;
   messages: ChatMessage[];
   settings: SessionSettings;
+  provider: IProvider;
 }
 
 export interface Option {

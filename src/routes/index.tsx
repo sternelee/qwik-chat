@@ -24,9 +24,10 @@ import {
   shownTokens,
   StoreContext,
 } from "~/store";
+import { LocalStorageKey } from "~/types";
 import type { ChatMessage, Model } from "~/types";
 import { scrollToBottom } from "~/utils";
-import { setSession } from "~/utils/storage";
+import { getSession, setSession } from "~/utils/storage";
 
 import "~/styles/main.css";
 import "katex/dist/katex.min.css";
@@ -56,14 +57,14 @@ export default component$(() => {
     deleteSessionConfirm: false,
     inputBoxHeight: defaultInputBoxHeight,
     remainingToken: 0,
-    remainingToken$: $(function (this) {
+    remainingToken$: $(function(this) {
       this.remainingToken = (maxInputTokens[this.sessionSettings.model] || 8192)
         - this.contextToken
         - this.inputContentToken;
       return this.remainingToken;
     }),
     validContext: [],
-    fetchGPT: $(async function (this, messages) {
+    fetchGPT: $(async function(this, messages) {
       const provider = this.sessionSettings.provider;
       // controller.value = new AbortController();
       let response: Response;
@@ -181,13 +182,13 @@ export default component$(() => {
         parser.feed(decoder.decode(value));
       }
     }),
-    stopStreamFetch: $(function () {
+    stopStreamFetch: $(function() {
       // if (controller.value) {
       //   controller.value?.abort();
       //   this.archiveCurrentMessage();
       // }
     }),
-    sendMessage: $(async function (this, content, fakeRole) {
+    sendMessage: $(async function(this, content, fakeRole) {
       const inputValue = content ?? this.inputContent;
       if (!inputValue) return;
       this.inputContent = "";
@@ -311,7 +312,7 @@ export default component$(() => {
       }
       this.archiveCurrentMessage();
     }),
-    archiveCurrentMessage: $(function () {
+    archiveCurrentMessage: $(function() {
       if (this.currentAssistantMessage) {
         // batch(() => {
         //   setStore("messageList", k => k.type === "temporary", "type", "default")
@@ -343,6 +344,31 @@ export default component$(() => {
         console.log(e);
       }
     }
+    try {
+      const globalSettings = localStorage.getItem(
+        LocalStorageKey.GLOBALSETTINGS,
+      );
+      const session = getSession("index");
+      if (globalSettings) {
+        const parsed = JSON.parse(globalSettings);
+        store.globalSettings = parsed;
+      }
+      if (session) {
+        const { settings, messages } = session;
+        if (settings) {
+          store.sessionSettings = settings;
+        }
+        if (messages) {
+          if (store.sessionSettings.saveSession) {
+            store.messageList = messages;
+          } else {
+            store.messageList = messages.filter((m) => m.type === "locked");
+          }
+        }
+      }
+    } catch {
+      console.log("Localstorage parse error");
+    }
   });
 
   // const provider$ = useComputed$(() => ProviderMap[store.sessionSettings.provider])
@@ -369,7 +395,7 @@ export default component$(() => {
 
   useVisibleTask$(({ track }) => {
     track(() => store.messageList.length);
-    scrollToBottom()
+    scrollToBottom();
     setSession(store.sessionId, {
       id: store.sessionId,
       lastVisit: Date.now(),
@@ -381,13 +407,16 @@ export default component$(() => {
   });
 
   useVisibleTask$(({ track }) => {
-    track(() => store.currentAssistantMessage)
-    scrollToBottom()
-  })
+    track(() => store.currentAssistantMessage);
+    scrollToBottom();
+  });
 
   return (
     <main class="mt-4">
-      <div class="px-1em" style={{ "margin-bottom": `calc(6em + ${defaultInputBoxHeight}px)` }}>
+      <div
+        class="px-1em"
+        style={{ "margin-bottom": `calc(6em + ${defaultInputBoxHeight}px)` }}
+      >
         <div class="px-1em">
           {!store.messageList.length && <MessageItem hiddenAction={true} message={defaultMessage$.value} />}
           {store.messageList.map((message, index) => (
@@ -401,44 +430,48 @@ export default component$(() => {
         </div>
         {!store.loading
           && (store.contextToken || store.inputContentToken) > 0 && (
-            <div class="flex items-center px-1em text-0.8em">
-              <hr class="flex-1 border-slate/40" />
-              {store.inputContentToken && (
-                <span class="mx-1 text-slate/40">
-                  {`有效上下文 + 提问 Tokens : ${shownTokens(
+          <div class="flex items-center px-1em text-0.8em">
+            <hr class="flex-1 border-slate/40" />
+            {store.inputContentToken && (
+              <span class="mx-1 text-slate/40">
+                {`有效上下文 + 提问 Tokens : ${
+                  shownTokens(
                     store.contextToken + store.inputContentToken,
                   )
-                    }(`}
-                  <span
-                    class={{
-                      "text-red-500": store.remainingToken < 0,
-                    }}
-                  >
-                    {shownTokens(store.remainingToken)}
-                  </span>
-                  {`)/$${countContextTokensDollar(
+                }(`}
+                <span
+                  class={{
+                    "text-red-500": store.remainingToken < 0,
+                  }}
+                >
+                  {shownTokens(store.remainingToken)}
+                </span>
+                {`)/$${
+                  countContextTokensDollar(
                     store.contextToken,
                     store.inputContentToken,
                     store.sessionSettings.model,
                   )
-                    }`}
-                </span>
-              )}
-              {!store.inputContentToken && (
-                <span class="mx-1 text-slate/40">
-                  {`有效上下文 Tokens : ${shownTokens(
+                }`}
+              </span>
+            )}
+            {!store.inputContentToken && (
+              <span class="mx-1 text-slate/40">
+                {`有效上下文 Tokens : ${
+                  shownTokens(
                     store.contextToken,
                   )
-                    }/$${countContextToken(
-                      store.contextToken,
-                      store.sessionSettings.model,
-                    )
-                    }`}
-                </span>
-              )}
-              <hr class="flex-1  border-slate/30" />
-            </div>
-          )}
+                }/$${
+                  countContextToken(
+                    store.contextToken,
+                    store.sessionSettings.model,
+                  )
+                }`}
+              </span>
+            )}
+            <hr class="flex-1  border-slate/30" />
+          </div>
+        )}
       </div>
       <InputBox width={containerWidth.value} />
     </main>

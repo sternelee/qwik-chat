@@ -12,6 +12,7 @@ import type { ParsedEvent, ReconnectInterval } from "eventsource-parser";
 import { createParser } from "eventsource-parser";
 import InputBox from "~/components/chat/InputBox";
 import MessageItem from "~/components/chat/MessageItem";
+import ThemeToggle from "~/components/chat/ThemeToggle"
 import ProviderMap from "~/providers";
 import {
   countTokensDollar,
@@ -356,7 +357,7 @@ export default component$(() => {
       if (session) {
         const { settings, messages } = session;
         if (settings) {
-          store.sessionSettings = settings;
+          store.sessionSettings = { ...store.sessionSettings, ...settings };
         }
         if (messages) {
           if (store.sessionSettings.saveSession) {
@@ -399,6 +400,7 @@ export default component$(() => {
     setSession(store.sessionId, {
       id: store.sessionId,
       lastVisit: Date.now(),
+      ...store.sessionSettings,
       messages: store.sessionSettings.saveSession
         ? store.messageList
         : store.messageList.filter((m) => m.type === "locked"),
@@ -413,6 +415,7 @@ export default component$(() => {
 
   return (
     <main class="mt-4">
+      <ThemeToggle />
       <div
         class="px-1em"
         style={{ "margin-bottom": `calc(6em + ${defaultInputBoxHeight}px)` }}

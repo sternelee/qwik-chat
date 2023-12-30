@@ -27,7 +27,7 @@ export default component$(() => {
   return (
     <button
       id="theme-toggle"
-      class="flex items-center justify-center w-10 h-10 rounded-md border transition-colors border-0 hover:animate-rubber-band"
+      class="flex items-center justify-center w-10 h-10 rounded-md border transition-colors border-0 hover:animate-rubber-band ml-auto mr-2"
       onClick$={handleToggleTheme}
     >
       <svg width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

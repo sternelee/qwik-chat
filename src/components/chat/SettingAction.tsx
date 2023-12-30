@@ -452,6 +452,7 @@ const handleSession = $(() => {
   do {
     sessionID = generateId();
   } while (getSession(sessionID));
+  // @ts-ignore
   setSession(sessionID, {
     id: sessionID,
     lastVisit: Date.now(),
@@ -459,6 +460,7 @@ const handleSession = $(() => {
       ...defaultEnv.CLIENT_SESSION_SETTINGS,
       title: "新的对话",
     },
+    provider: "openai",
     messages: [],
   });
   // navigator(`/session/${sessionID}`);

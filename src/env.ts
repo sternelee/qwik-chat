@@ -18,7 +18,7 @@ export const defaultEnv = {
   },
   CLIENT_SESSION_SETTINGS: {
     title: "",
-    saveSession: false,
+    saveSession: true,
     APITemperature: 0.6,
     APITopP: 1,
     continuousDialogue: false,

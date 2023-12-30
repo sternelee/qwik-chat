@@ -124,6 +124,7 @@ export default component$<Props>((props) => {
       </div>
       <div
         class="message prose prose-slate break-all dark:prose-invert dark:text-slate break-words overflow-hidden"
+        style="max-width:100%"
         dangerouslySetInnerHTML={renderedMarkdown.value}
       />
       {!props.hiddenAction && (

@@ -192,7 +192,7 @@ export default component$(() => {
       if (!inputValue) return;
       this.inputContent = "";
       if (fakeRole === "system") {
-        // TODO: 更换system
+        // TODO: 更换 system
         this.messageList = [
           {
             role: "system",
@@ -387,7 +387,7 @@ export default component$(() => {
 
   return (
     <main class="mt-4">
-      <div class="px-1em" style="margin-bottom: calc(5em + 10px)">
+      <div class="px-1em" style={{ "margin-bottom": `calc(6em + ${defaultInputBoxHeight}px)` }}>
         <div class="px-1em">
           {!store.messageList.length && <MessageItem hiddenAction={true} message={defaultMessage$.value} />}
           {store.messageList.map((message, index) => (
@@ -405,7 +405,7 @@ export default component$(() => {
               <hr class="flex-1 border-slate/40" />
               {store.inputContentToken && (
                 <span class="mx-1 text-slate/40">
-                  {`有效上下文+提问 Tokens : ${shownTokens(
+                  {`有效上下文 + 提问 Tokens : ${shownTokens(
                     store.contextToken + store.inputContentToken,
                   )
                     }(`}

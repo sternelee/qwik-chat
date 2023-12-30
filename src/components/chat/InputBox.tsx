@@ -91,12 +91,13 @@ export default component$<{
   useVisibleTask$(({ track }) => {
     track(() => store.inputContent);
     if (store.inputContent) {
-      store.inputBoxHeight = defaultInputBoxHeight;
       if (store.inputContent === "") {
         candidateOptions.value = [];
       } else {
         setSuitableheight();
       }
+    } else {
+      store.inputBoxHeight = defaultInputBoxHeight;
     }
   });
 

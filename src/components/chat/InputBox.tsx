@@ -1,4 +1,5 @@
 import { $, component$, useComputed$, useContext, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { useNavigate } from '@builder.io/qwik-city';
 import { countTokensDollar, defaultInputBoxHeight, FZFData, shownTokens, StoreContext } from "~/store";
 import type { Option } from "~/types";
 import { blobToBase64, isMobile, scrollToBottom } from "~/utils";
@@ -8,9 +9,10 @@ import SlashSelector from "./SlashSelector";
 export default component$<{
   width: string;
 }>(({ width }) => {
+  const navigator = useNavigate()
   const store = useContext(StoreContext);
   const candidateOptions = useSignal<Option[]>([]);
-  const compositionend = useSignal(true);
+  const compositionEnd = useSignal(true);
   const inputRef = useSignal<HTMLTextAreaElement | undefined>();
   const currentModel = useComputed$(() => store.sessionSettings.model);
 
@@ -107,7 +109,8 @@ export default component$<{
         if (option.extra?.id === "index") window.location.href = "/";
         else {
           // navgiate(`/session/${option.extra.id}`)
-          // loadSession(option.extra.id)
+          navigator('/?session=' + option.extra.id)
+          store.loadSession(option.extra.id)
           store.inputContent = "";
         }
       } else {
@@ -151,7 +154,7 @@ export default component$<{
   const handleInput = $(() => {
     // 重新设置高度，让输入框可以自适应高度，-1 是为了标记不是初始状态
     store.inputBoxHeight = defaultInputBoxHeight - 1;
-    if (!compositionend.value) return;
+    if (!compositionEnd.value) return;
     const value = inputRef.value?.value;
     if (value) {
       store.inputContent = value;
@@ -230,11 +233,11 @@ export default component$<{
                 onClick$={() => scrollToBottom()}
                 onInput$={[handleInput, setSuitableheight]}
                 onCompositionstart$={$(() => {
-                  compositionend.value = false;
+                  compositionEnd.value = false;
                 })}
                 onCompositionEnd$={[
                   $(() => {
-                    compositionend.value = true;
+                    compositionEnd.value = true;
                   }),
                   handleInput,
                 ]}

@@ -206,6 +206,7 @@ export interface IStore {
   >;
   stopStreamFetch: QRL<(this: IStore) => void>;
   archiveCurrentMessage: QRL<(this: IStore) => void>;
+  loadSession: QRL<(this: IStore, sessionId: string) => void>;
 }
 
 export const StoreContext = createContextId<IStore>("globalStore");

@@ -1,15 +1,40 @@
-import { $, component$, Slot, useContext, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import {
+  $,
+  component$,
+  Slot,
+  useContext,
+  useSignal,
+  useVisibleTask$,
+} from "@builder.io/qwik";
+import { useNavigate, type RouteNavigate } from "@builder.io/qwik-city";
 import { toBlob, toJpeg } from "html-to-image";
 import { defaultEnv } from "~/env";
 import ProviderMap, { PROVIDER_LIST } from "~/providers";
-import { type FakeRoleUnion, imgIcons, type IProvider, roleIcons, StoreContext } from "~/store";
+import {
+  type FakeRoleUnion,
+  imgIcons,
+  type IProvider,
+  roleIcons,
+  StoreContext,
+  type IStore,
+} from "~/store";
 import type { ChatMessage, SimpleModel } from "~/types";
-import { copyToClipboard, dateFormat, delSession, generateId, getSession, isMobile, setSession } from "~/utils";
+import {
+  copyToClipboard,
+  dateFormat,
+  delSession,
+  generateId,
+  getSession,
+  isMobile,
+  setSession,
+} from "~/utils";
 import { Selector, Switch as SwitchButton } from "./Common";
 
 export default component$(() => {
   const store = useContext(StoreContext);
   const isFirst = useSignal(true);
+
+  const navigator = useNavigate();
 
   const clearSession = $(() => {
     store.messageList = store.messageList.filter((k) => k.type === "locked");
@@ -35,13 +60,32 @@ export default component$(() => {
     cleanup(() => document.removeEventListener("click", listener));
   });
 
+  const handleSession = $(() => {
+    let sessionID: string;
+    do {
+      sessionID = generateId();
+    } while (getSession(sessionID));
+    // @ts-ignore
+    setSession(sessionID, {
+      id: sessionID,
+      lastVisit: Date.now(),
+      settings: {
+        ...defaultEnv.CLIENT_SESSION_SETTINGS,
+        title: "新的对话",
+      },
+      provider: "openai",
+      messages: [],
+    });
+    navigator(`/?session=${sessionID}`);
+    store.loadSession(sessionID);
+  });
+
   return (
     <div class="text-sm text-slate-7 dark:text-slate my-2" id="setting-action">
       {store.showSetting === "global" && (
         <>
           <div class="<sm:max-h-10em max-h-14em overflow-y-auto">
-            {
-              /**
+            {/**
             <SettingItem icon="i-ri:lock-password-line" label="网站访问密码">
               <input
                 type="password"
@@ -54,8 +98,7 @@ export default component$(() => {
                 }}
               />
             </SettingItem>
-               */
-            }
+               */}
             <SettingItem icon="i-carbon:machine-learning-model" label="AI服务">
               <Selector
                 class="max-w-150px"
@@ -64,21 +107,27 @@ export default component$(() => {
                   store.sessionSettings.provider = (
                     e.target as HTMLSelectElement
                   ).value as IProvider;
-                  store.sessionSettings.model = ProviderMap[store.sessionSettings.provider].defaultModel;
+                  store.sessionSettings.model =
+                    ProviderMap[store.sessionSettings.provider].defaultModel;
                 })}
                 options={PROVIDER_LIST}
               />
             </SettingItem>
             <SettingItem
               icon="i-carbon:api"
-              label={`${ProviderMap[store.sessionSettings.provider].name} APIKey`}
+              label={`${
+                ProviderMap[store.sessionSettings.provider].name
+              } APIKey`}
             >
               <input
                 type="password"
-                value={store.globalSettings.APIKeys[store.sessionSettings.provider]}
+                value={
+                  store.globalSettings.APIKeys[store.sessionSettings.provider]
+                }
                 class="input-box"
                 onInput$={(e) => {
-                  store.globalSettings.APIKeys[store.sessionSettings.provider] = (e.target as HTMLInputElement).value;
+                  store.globalSettings.APIKeys[store.sessionSettings.provider] =
+                    (e.target as HTMLInputElement).value;
                 }}
               />
             </SettingItem>
@@ -149,7 +198,8 @@ export default component$(() => {
                   value={String(store.sessionSettings.APITemperature * 50)}
                   class="bg-slate max-w-100px w-full h-2 bg-op-15 rounded-lg appearance-none cursor-pointer accent-slate"
                   onInput$={(e) => {
-                    store.sessionSettings.APITemperature = Number(e.target as HTMLInputElement) / 50;
+                    store.sessionSettings.APITemperature =
+                      Number(e.target as HTMLInputElement) / 50;
                   }}
                 />
                 <span class="bg-slate bg-op-15 rounded-sm px-1 text-10px">
@@ -188,14 +238,16 @@ export default component$(() => {
         <div class="flex">
           <ActionItem
             onClick={$(() => {
-              store.showSetting = store.showSetting !== "global" ? "global" : "none";
+              store.showSetting =
+                store.showSetting !== "global" ? "global" : "none";
             })}
             icon="i-carbon:settings"
             label="全局设置"
           />
           <ActionItem
             onClick={$(() => {
-              store.showSetting = store.showSetting !== "session" ? "session" : "none";
+              store.showSetting =
+                store.showSetting !== "session" ? "session" : "none";
             })}
             icon="i-carbon:settings-services"
             label="对话设置"
@@ -227,16 +279,18 @@ export default component$(() => {
                 <ActionItem
                   onClick={$(async () => {
                     await copyToClipboard(
-                      window.location.origin + window.location.pathname,
+                      window.location.origin + window.location.pathname
                     );
                     store.success = "link";
                     setTimeout(() => {
                       store.success = false;
                     }, 1000);
                   })}
-                  icon={store.success === "link"
-                    ? "i-carbon:status-resolved dark:text-yellow text-yellow-6"
-                    : "i-carbon:link"}
+                  icon={
+                    store.success === "link"
+                      ? "i-carbon:status-resolved dark:text-yellow text-yellow-6"
+                      : "i-carbon:link"
+                  }
                   label="复制链接"
                 />
                 <ActionItem
@@ -246,6 +300,8 @@ export default component$(() => {
                       delSession(store.sessionId);
                       // navigator("/", { replace: true });
                       // store.loadSession("index");
+                      store.loadSession("index");
+                      navigator("/");
                     } else {
                       store.deleteSessionConfirm = true;
                       setTimeout(() => {
@@ -253,9 +309,11 @@ export default component$(() => {
                       }, 3000);
                     }
                   })}
-                  icon={store.deleteSessionConfirm
-                    ? "i-carbon:checkmark animate-bounce text-red-6 dark:text-red"
-                    : "i-carbon:trash-can"}
+                  icon={
+                    store.deleteSessionConfirm
+                      ? "i-carbon:checkmark animate-bounce text-red-6 dark:text-red"
+                      : "i-carbon:trash-can"
+                  }
                   label={store.deleteSessionConfirm ? "确定" : "删除对话"}
                 />
               </>
@@ -276,12 +334,14 @@ export default component$(() => {
                 store.fakeRole = _[(_.indexOf(store.fakeRole) + 1) % _.length];
               })}
               icon={roleIcons[store.fakeRole]}
-              label={{
-                system: "系统角色",
-                assistant: "智能AI",
-                user: "普通用户",
-                normal: "伪装角色",
-              }[store.fakeRole]}
+              label={
+                {
+                  system: "系统角色",
+                  assistant: "智能AI",
+                  user: "普通用户",
+                  normal: "伪装角色",
+                }[store.fakeRole]
+              }
             />
             <ActionItem
               onClick={$(async () => {
@@ -303,9 +363,11 @@ export default component$(() => {
                   store.success = false;
                 }, 1000);
               })}
-              icon={store.success === "markdown"
-                ? "i-carbon:status-resolved dark:text-yellow text-yellow-6"
-                : "i-ri:markdown-line"}
+              icon={
+                store.success === "markdown"
+                  ? "i-carbon:status-resolved dark:text-yellow text-yellow-6"
+                  : "i-ri:markdown-line"
+              }
             />
             <ActionItem
               onClick={$(() => {
@@ -319,9 +381,11 @@ export default component$(() => {
                   }, 3000);
                 }
               })}
-              icon={store.clearSessionConfirm
-                ? "i-carbon:checkmark animate-bounce text-red-6 dark:text-red"
-                : "i-carbon:clean"}
+              icon={
+                store.clearSessionConfirm
+                  ? "i-carbon:checkmark animate-bounce text-red-6 dark:text-red"
+                  : "i-carbon:clean"
+              }
               label={store.clearSessionConfirm ? "确定" : "清空对话"}
             />
           </div>
@@ -367,7 +431,7 @@ const ActionItem = component$<{
 async function exportJpg() {
   try {
     const messageContainer = document.querySelector(
-      "#message-container-img",
+      "#message-container-img"
     ) as HTMLElement;
     // const header = document.querySelector("header") as HTMLElement
     // eslint-disable-next-line no-inner-declarations
@@ -381,8 +445,8 @@ async function exportJpg() {
     if (!isMobile() && navigator.clipboard) {
       try {
         const blob = await toBlob(messageContainer);
-        blob
-          && (await navigator.clipboard.write([
+        blob &&
+          (await navigator.clipboard.write([
             new ClipboardItem({
               [blob.type]: blob,
             }),
@@ -415,14 +479,14 @@ async function exportMD(messages: ChatMessage[]) {
       .map((k) => {
         return `> ${k[0].content}\n\n${k[1].content}`;
       })
-      .join("\n\n---\n\n"),
+      .join("\n\n---\n\n")
   );
 }
 
 const exportData = $(() => {
   const a = document.createElement("a");
   a.href = URL.createObjectURL(
-    new Blob([JSON.stringify(localStorage)], { type: "application/json" }),
+    new Blob([JSON.stringify(localStorage)], { type: "application/json" })
   );
   a.download = `ChatGPT-${dateFormat(new Date(), "HH-MM-SS")}.json`;
   a.click();
@@ -445,24 +509,4 @@ const importData = $(() => {
       window.location.href = "/";
     }
   };
-});
-
-const handleSession = $(() => {
-  let sessionID: string;
-  do {
-    sessionID = generateId();
-  } while (getSession(sessionID));
-  // @ts-ignore
-  setSession(sessionID, {
-    id: sessionID,
-    lastVisit: Date.now(),
-    settings: {
-      ...defaultEnv.CLIENT_SESSION_SETTINGS,
-      title: "新的对话",
-    },
-    provider: "openai",
-    messages: [],
-  });
-  // navigator(`/session/${sessionID}`);
-  // store.loadSession(sessionID);
 });

@@ -1,10 +1,11 @@
-import { type SessionSettings, defaultEnv } from "./env";
+import type { defaultEnv } from "./env";
+import { type SessionSettings } from "./env";
 import { type IProvider } from "~/store"
 
 export const enum LocalStorageKey {
-  GLOBALSETTINGS = "gpt-global-APIKeys",
+  GLOBAL_SETTINGS = "gpt-global-APIKeys",
   THEME = "gpt-theme",
-  PREFIXSESSION = "gpt-session-",
+  PREFIX_SESSION = "gpt-session-",
 }
 
 export interface ChatMessage {

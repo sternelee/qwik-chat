@@ -15,7 +15,7 @@ export const fetchChat = async (body: any) => {
 };
 
 export const fetchImage = async (body: any) => {
-  const { key, model, ...rest } = body;
+  const { key, model, messages, ...rest } = body;
   return await fetch(
     `${baseUrl}/v1/wenxinworkshop/text2image/${model}?access_token=${key}`,
     {

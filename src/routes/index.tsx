@@ -416,12 +416,12 @@ export default component$(() => {
   });
 
   // const provider$ = useComputed$(() => ProviderMap[store.sessionSettings.provider])
-  const defaultMessage$ = useComputed$(() => {
-    return {
-      ...defaultMessage,
-      content: `Powered by ${store.sessionSettings.provider}\n ${defaultMessage.content}`,
-    };
-  });
+  // const defaultMessage$ = useComputed$(() => {
+  //   return {
+  //     ...defaultMessage,
+  //     content: `Powered by ${store.sessionSettings.provider}\n ${defaultMessage.content}`,
+  //   };
+  // });
 
   const countContextToken = (contextToken: number, model: Model) => {
     return countTokensDollar(contextToken, model, "input");
@@ -458,14 +458,41 @@ export default component$(() => {
 
   return (
     <main class="mt-4">
-      <ThemeToggle />
+      <div class="flex items-center px-2em">
+        <div class="flex-1 ml-4">
+          {store.sessionSettings.title && (
+            <span class="ml-1 font-extrabold text-slate-7 dark:text-slate" onClick$={() => store.loadSession("index")}>
+              {store.sessionSettings.title}
+            </span>
+          )}
+          {!store.sessionSettings.title && (
+            <p class="ml-4">
+              Powered by
+              <a
+                href={ProviderMap[store.sessionSettings.provider].href}
+                target="_blank"
+                style="border-bottom:0;margin-left: 6px"
+              >
+                <span
+                  class={{
+                    "inline-block mr-1": true,
+                    [ProviderMap[store.sessionSettings.provider].icon]: true,
+                  }}
+                ></span>
+                {ProviderMap[store.sessionSettings.provider].name} Chat
+              </a>
+            </p>
+          )}
+        </div>
+        <ThemeToggle />
+      </div>
       <div
         class="px-1em"
         style={{ "margin-bottom": `calc(6em + ${defaultInputBoxHeight}px)` }}
       >
         <div class="px-1em">
           {!store.messageList.length && (
-            <MessageItem hiddenAction={true} message={defaultMessage$.value} />
+            <MessageItem hiddenAction={true} message={defaultMessage} />
           )}
           {store.messageList.map((message, index) => (
             <MessageItem

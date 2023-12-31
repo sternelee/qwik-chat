@@ -24,7 +24,7 @@ export const defaultEnv = {
     continuousDialogue: false,
     model: "gpt-3.5-turbo-0613",
   },
-  CLIENT_DEFAULT_MESSAGE: `
+  CLIENT_DEFAULT_MESSAGE: `Tip: 点击标题服务名称可跳转申请API
 - 点击每条消息前的头像，可以锁定对话，作为角色设定。[查看更多使用技巧](https://github.com/sternelee/qwik-chat#使用技巧)。
 - 现在支持多个对话，打开对话设置，点击新建对话。在输入框里输入 [[/]][[/]] 或者 [[空格]][[空格]] 可以切换对话，搜索历史消息。
 - [[Shift]] + [[Enter]] 换行。开头输入 [[/]] 或者 [[空格]] 搜索 Prompt 预设。[[↑]] 可编辑最近一次提问。点击顶部名称滚动到顶部，点击输入框滚动到底部。

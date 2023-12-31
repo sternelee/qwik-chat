@@ -1,6 +1,6 @@
 import { SignJWT } from "jose";
 
-const baseUrl = "https://open.chatglm.cn/api/paas";
+const baseUrl = "https://open.bigmodel.cn/api/paas";
 
 export const fetchChat = async (body: any) => {
   const { key, model, ...rest } = body;
@@ -27,7 +27,7 @@ export const fetchChat = async (body: any) => {
 export default {
   icon: "i-carbon-navaid-ndb",
   name: "智谱AI",
-  href: "https://open.chatglm.cn/usercenter/apikeys",
+  href: "https://open.bigmodel.cn/usercenter/apikeys",
   baseUrl,
   defaultModel: "chatglm_turbo",
   models: [

@@ -31,10 +31,6 @@ import type { ChatMessage, Model } from "~/types";
 import { scrollToBottom } from "~/utils";
 import { getSession, setSession, fetchAllSessions } from "~/utils/storage";
 
-import "~/styles/main.css";
-import "katex/dist/katex.min.css";
-import "highlight.js/styles/atom-one-dark.css";
-
 export default component$(() => {
   const containerWidth = useSignal("init");
   // const controller = useSignal<AbortController | undefined>();

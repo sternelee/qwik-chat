@@ -429,6 +429,7 @@ export default component$(() => {
   useVisibleTask$(({ track }) => {
     track(() => store.messageList.length);
     scrollToBottom();
+    if (store.messageList.length === 0) return
     setSession(store.sessionId, {
       id: store.sessionId,
       lastVisit: Date.now(),

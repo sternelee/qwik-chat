@@ -18,18 +18,18 @@ import {
   countTokensDollar,
   defaultInputBoxHeight,
   defaultMessage,
+  FZFData,
   globalSettings,
   type IStore,
   maxInputTokens,
   sessionSettings,
   shownTokens,
   StoreContext,
-  FZFData,
 } from "~/store";
 import { LocalStorageKey } from "~/types";
 import type { ChatMessage, Model } from "~/types";
 import { scrollToBottom } from "~/utils";
-import { getSession, setSession, fetchAllSessions } from "~/utils/storage";
+import { fetchAllSessions, getSession, setSession } from "~/utils/storage";
 
 export default component$(() => {
   const containerWidth = useSignal("init");
@@ -54,15 +54,14 @@ export default component$(() => {
     deleteSessionConfirm: false,
     inputBoxHeight: defaultInputBoxHeight,
     remainingToken: 0,
-    remainingToken$: $(function (this) {
-      this.remainingToken =
-        (maxInputTokens[this.sessionSettings.model] || 8192) -
-        this.contextToken -
-        this.inputContentToken;
+    remainingToken$: $(function(this) {
+      this.remainingToken = (maxInputTokens[this.sessionSettings.model] || 8192)
+        - this.contextToken
+        - this.inputContentToken;
       return this.remainingToken;
     }),
     validContext: [],
-    archiveCurrentMessage: $(function () {
+    archiveCurrentMessage: $(function() {
       if (this.currentAssistantMessage) {
         window.abortController = undefined;
         this.messageList = this.messageList.map((k) => ({
@@ -75,7 +74,7 @@ export default component$(() => {
       }
       this.validContent = this.validContext.map((k) => k.content).join("\n");
     }),
-    fetchGPT: $(async function (this, messages) {
+    fetchGPT: $(async function(this, messages) {
       const provider = this.sessionSettings.provider;
       window.abortController = new AbortController();
       let response: Response;
@@ -89,9 +88,8 @@ export default component$(() => {
           signal: window.abortController.signal,
           body: JSON.stringify({
             provider,
-            key:
-              this.globalSettings.APIKeys[this.sessionSettings.provider] ||
-              undefined,
+            key: this.globalSettings.APIKeys[this.sessionSettings.provider]
+              || undefined,
             messages,
             temperature: this.sessionSettings.APITemperature,
             model: this.sessionSettings.model,
@@ -102,9 +100,8 @@ export default component$(() => {
         // 前端请求
         const fetchChat = ProviderMap[provider].fetchChat;
         response = await fetchChat({
-          key:
-            this.globalSettings.APIKeys[this.sessionSettings.provider] ||
-            undefined,
+          key: this.globalSettings.APIKeys[this.sessionSettings.provider]
+            || undefined,
           messages,
           temperature: this.sessionSettings.APITemperature,
           signal: window.abortController.signal,
@@ -149,10 +146,9 @@ export default component$(() => {
                   this.loading = false;
                   return;
                 }
-                char =
-                  provider === "baidu"
-                    ? json.result
-                    : json.choices[0].delta?.content;
+                char = provider === "baidu"
+                  ? json.result
+                  : json.choices[0].delta?.content;
               }
             }
             if (char) {
@@ -196,13 +192,13 @@ export default component$(() => {
         parser.feed(decoder.decode(value));
       }
     }),
-    stopStreamFetch: $(function () {
+    stopStreamFetch: $(function() {
       if (window.abortController) {
         window.abortController.abort();
         this.archiveCurrentMessage();
       }
     }),
-    sendMessage: $(async function (this, content, fakeRole) {
+    sendMessage: $(async function(this, content, fakeRole) {
       const inputValue = content ?? this.inputContent;
       if (!inputValue) return;
       this.inputContent = "";
@@ -217,8 +213,8 @@ export default component$(() => {
       } else if (fakeRole === "assistant") {
         this.fakeRole = "normal";
         if (
-          this.messageList.at(-1)?.role !== "user" &&
-          this.messageList.at(-2)?.role === "user"
+          this.messageList.at(-1)?.role !== "user"
+          && this.messageList.at(-2)?.role === "user"
         ) {
           this.messageList[this.messageList.length - 1] = {
             role: "assistant",
@@ -254,18 +250,18 @@ export default component$(() => {
         try {
           const content = this.inputImage
             ? [
-                {
-                  type: "image_url",
-                  image_url: {
-                    url: this.inputImage,
-                    detail: "low",
-                  },
+              {
+                type: "image_url",
+                image_url: {
+                  url: this.inputImage,
+                  detail: "low",
                 },
-                {
-                  type: "text",
-                  text: inputValue,
-                },
-              ]
+              },
+              {
+                type: "text",
+                text: inputValue,
+              },
+            ]
             : inputValue;
           this.messageList = [
             ...this.messageList,
@@ -279,7 +275,7 @@ export default component$(() => {
             throw new Error(
               this.sessionSettings.continuousDialogue
                 ? "本次对话过长，请清除之前部分对话或者缩短当前提问。"
-                : "当前提问太长了，请缩短。"
+                : "当前提问太长了，请缩短。",
             );
           }
           this.loading = true;
@@ -287,28 +283,28 @@ export default component$(() => {
           // 在关闭连续对话时，有效上下文只包含了锁定的对话。
           this.validContext = this.sessionSettings.continuousDialogue
             ? this.messageList.filter(
-                (k, i, _) =>
-                  (["assistant", "system"].includes(k.role) &&
-                    k.type !== "temporary" &&
-                    _[i - 1]?.role === "user") ||
-                  (k.role === "user" &&
-                    _[i + 1]?.role !== "error" &&
-                    _[i + 1]?.type !== "temporary")
-              )
+              (k, i, _) =>
+                (["assistant", "system"].includes(k.role)
+                  && k.type !== "temporary"
+                  && _[i - 1]?.role === "user")
+                || (k.role === "user"
+                  && _[i + 1]?.role !== "error"
+                  && _[i + 1]?.type !== "temporary"),
+            )
             : this.messageList.filter(
-                (k) => k.role === "system" || k.type === "locked"
-              );
+              (k) => k.role === "system" || k.type === "locked",
+            );
           await this.fetchGPT(
             // @ts-ignore
             this.sessionSettings.continuousDialogue
               ? this.validContext
               : [
-                  ...this.validContext,
-                  {
-                    role: "user",
-                    content,
-                  },
-                ]
+                ...this.validContext,
+                {
+                  role: "user",
+                  content,
+                },
+              ],
           );
         } catch (error: any) {
           this.loading = false;
@@ -326,11 +322,11 @@ export default component$(() => {
       }
       this.archiveCurrentMessage();
     }),
-    loadSession: $(async function (this, sessionId: string) {
+    loadSession: $(async function(this, sessionId: string) {
       this.sessionId = sessionId;
       try {
         const globalSettings = localStorage.getItem(
-          LocalStorageKey.GLOBAL_SETTINGS
+          LocalStorageKey.GLOBAL_SETTINGS,
         );
         const session = getSession(sessionId);
         if (globalSettings) {
@@ -370,9 +366,8 @@ export default component$(() => {
         if (sessionId !== "index") {
           FZFData.sessionOptions.unshift({
             title: "回到主对话",
-            desc:
-              "其实点击顶部 Logo 也可以直接回到主对话。" +
-                seesions
+            desc: "其实点击顶部 Logo 也可以直接回到主对话。"
+                + seesions
                   .find((k) => k.id === "index")
                   ?.messages.map((k) => k.content)
                   .join("\n") ?? "",
@@ -399,8 +394,7 @@ export default component$(() => {
         console.log(e);
       }
     }
-    const sessionId =
-      new URLSearchParams(location.search).get("session") || "index";
+    const sessionId = new URLSearchParams(location.search).get("session") || "index";
     store.loadSession(sessionId);
   });
 
@@ -419,7 +413,7 @@ export default component$(() => {
   const countContextTokensDollar = (
     contextToken: number,
     inputContentToken: number,
-    model: Model
+    model: Model,
   ) => {
     const c1 = countTokensDollar(contextToken, model, "input");
     const c2 = countTokensDollar(inputContentToken, model, "input");
@@ -429,7 +423,7 @@ export default component$(() => {
   useVisibleTask$(({ track }) => {
     track(() => store.messageList.length);
     scrollToBottom();
-    if (store.messageList.length === 0) return
+    if (store.messageList.length === 0) return;
     setSession(store.sessionId, {
       id: store.sessionId,
       lastVisit: Date.now(),
@@ -449,29 +443,46 @@ export default component$(() => {
   return (
     <main class="mt-4">
       <div class="flex items-center px-2em">
-        <div class="flex-1 ml-4">
+        <div class="flex-1 flex items-center">
           {store.sessionSettings.title && (
-            <span class="ml-1 font-extrabold text-slate-7 dark:text-slate" onClick$={() => store.loadSession("index")}>
-              {store.sessionSettings.title}
-            </span>
+            <>
+              <a
+                href={ProviderMap[store.sessionSettings.provider].href}
+                target="_blank"
+                class={{
+                  "inline-block text-8 mr-4": true,
+                  [ProviderMap[store.sessionSettings.provider].icon]: true,
+                }}
+              >
+              </a>
+              <span
+                class="font-extrabold text-slate-7 cursor-pointer dark:text-slate"
+                onClick$={() => store.loadSession("index")}
+              >
+                {store.sessionSettings.title}
+              </span>
+            </>
           )}
           {!store.sessionSettings.title && (
-            <p class="ml-4">
+            <>
+              <a
+                href={ProviderMap[store.sessionSettings.provider].href}
+                target="_blank"
+                class={{
+                  "inline-block text-8 mr-4": true,
+                  [ProviderMap[store.sessionSettings.provider].icon]: true,
+                }}
+              >
+              </a>
               Powered by
               <a
                 href={ProviderMap[store.sessionSettings.provider].href}
                 target="_blank"
-                style="border-bottom:0;margin-left: 6px"
+                class="font-extrabold ml-2"
               >
-                <span
-                  class={{
-                    "inline-block mr-1": true,
-                    [ProviderMap[store.sessionSettings.provider].icon]: true,
-                  }}
-                ></span>
                 {ProviderMap[store.sessionSettings.provider].name} Chat
               </a>
-            </p>
+            </>
           )}
         </div>
         <ThemeToggle />
@@ -481,9 +492,7 @@ export default component$(() => {
         style={{ "margin-bottom": `calc(6em + ${defaultInputBoxHeight}px)` }}
       >
         <div class="px-1em">
-          {!store.messageList.length && (
-            <MessageItem hiddenAction={true} message={defaultMessage} />
-          )}
+          {!store.messageList.length && <MessageItem hiddenAction={true} message={defaultMessage} />}
           {store.messageList.map((message, index) => (
             <MessageItem
               message={message}
@@ -493,42 +502,50 @@ export default component$(() => {
             />
           ))}
         </div>
-        {!store.loading &&
-          (store.contextToken || store.inputContentToken) > 0 && (
-            <div class="flex items-center px-1em text-0.8em">
-              <hr class="flex-1 border-slate/40" />
-              {store.inputContentToken > 0 && (
-                <span class="mx-1 text-slate/40">
-                  {`有效上下文 + 提问 Tokens : ${shownTokens(
-                    store.contextToken + store.inputContentToken
-                  )}(`}
-                  <span
-                    class={{
-                      "text-red-500": store.remainingToken < 0,
-                    }}
-                  >
-                    {shownTokens(store.remainingToken)}
-                  </span>
-                  {`)/$${countContextTokensDollar(
+        {!store.loading
+          && (store.contextToken || store.inputContentToken) > 0 && (
+          <div class="flex items-center px-1em text-0.8em">
+            <hr class="flex-1 border-slate/40" />
+            {store.inputContentToken > 0 && (
+              <span class="mx-1 text-slate/40">
+                {`有效上下文 + 提问 Tokens : ${
+                  shownTokens(
+                    store.contextToken + store.inputContentToken,
+                  )
+                }(`}
+                <span
+                  class={{
+                    "text-red-500": store.remainingToken < 0,
+                  }}
+                >
+                  {shownTokens(store.remainingToken)}
+                </span>
+                {`)/$${
+                  countContextTokensDollar(
                     store.contextToken,
                     store.inputContentToken,
-                    store.sessionSettings.model
-                  )}`}
-                </span>
-              )}
-              {store.inputContentToken === 0 && (
-                <span class="mx-1 text-slate/40">
-                  {`有效上下文 Tokens : ${shownTokens(
-                    store.contextToken
-                  )}/$${countContextToken(
+                    store.sessionSettings.model,
+                  )
+                }`}
+              </span>
+            )}
+            {store.inputContentToken === 0 && (
+              <span class="mx-1 text-slate/40">
+                {`有效上下文 Tokens : ${
+                  shownTokens(
                     store.contextToken,
-                    store.sessionSettings.model
-                  )}`}
-                </span>
-              )}
-              <hr class="flex-1  border-slate/30" />
-            </div>
-          )}
+                  )
+                }/$${
+                  countContextToken(
+                    store.contextToken,
+                    store.sessionSettings.model,
+                  )
+                }`}
+              </span>
+            )}
+            <hr class="flex-1  border-slate/30" />
+          </div>
+        )}
       </div>
       <InputBox width={containerWidth.value} />
     </main>

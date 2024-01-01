@@ -64,7 +64,7 @@ export default component$<{
       store.inputContentToken = res;
     });
     countTokensInWorker(store.validContent).then((res) => {
-      store.inputContentToken = res;
+      store.contextToken = res;
     });
   });
 

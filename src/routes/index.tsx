@@ -33,7 +33,6 @@ import { getSession, setSession, fetchAllSessions } from "~/utils/storage";
 
 export default component$(() => {
   const containerWidth = useSignal("init");
-  // const controller = useSignal<AbortController | undefined>();
   const store = useStore<IStore>({
     sessionId: "index",
     globalSettings,
@@ -63,9 +62,22 @@ export default component$(() => {
       return this.remainingToken;
     }),
     validContext: [],
+    archiveCurrentMessage: $(function () {
+      if (this.currentAssistantMessage) {
+        window.abortController = undefined;
+        this.messageList = this.messageList.map((k) => ({
+          ...k,
+          type: k.type === "temporary" ? "default" : k.type,
+        }));
+        this.currentAssistantMessage = "";
+        this.currentMessageToken = 0;
+        this.loading = false;
+      }
+      this.validContent = this.validContext.map((k) => k.content).join("\n");
+    }),
     fetchGPT: $(async function (this, messages) {
       const provider = this.sessionSettings.provider;
-      // controller.value = new AbortController();
+      window.abortController = new AbortController();
       let response: Response;
       if (this.globalSettings.requestWithBackend) {
         // 后端请求
@@ -74,7 +86,7 @@ export default component$(() => {
           headers: {
             "Content-Type": "application/json",
           },
-          // signal: controller.value?.signal,
+          signal: window.abortController.signal,
           body: JSON.stringify({
             provider,
             key:
@@ -95,7 +107,7 @@ export default component$(() => {
             undefined,
           messages,
           temperature: this.sessionSettings.APITemperature,
-          // signal: controller.value?.signal,
+          signal: window.abortController.signal,
           model: this.sessionSettings.model,
           stream: true,
         });
@@ -185,10 +197,10 @@ export default component$(() => {
       }
     }),
     stopStreamFetch: $(function () {
-      // if (controller.value) {
-      //   controller.value?.abort();
-      //   this.archiveCurrentMessage();
-      // }
+      if (window.abortController) {
+        window.abortController.abort();
+        this.archiveCurrentMessage();
+      }
     }),
     sendMessage: $(async function (this, content, fakeRole) {
       const inputValue = content ?? this.inputContent;
@@ -300,7 +312,7 @@ export default component$(() => {
           );
         } catch (error: any) {
           this.loading = false;
-          // controller.value = undefined;
+          window.abortController = undefined;
           if (!error.message.includes("abort")) {
             this.messageList = [
               ...this.messageList,
@@ -313,25 +325,6 @@ export default component$(() => {
         }
       }
       this.archiveCurrentMessage();
-    }),
-    archiveCurrentMessage: $(function () {
-      if (this.currentAssistantMessage) {
-        // batch(() => {
-        //   setStore("messageList", k => k.type === "temporary", "type", "default")
-        //   setStore("currentAssistantMessage", "")
-        //   setStore("currentMessageToken", 0)
-        //   setStore("loading", false)
-        // })
-        // controller.value = undefined;
-        this.messageList = this.messageList.map((k) => ({
-          ...k,
-          type: k.type === "temporary" ? "default" : k.type,
-        }));
-        this.currentAssistantMessage = "";
-        this.currentMessageToken = 0;
-        this.loading = false;
-      }
-      this.validContent = this.validContext.map((k) => k.content).join("\n");
     }),
     loadSession: $(async function (this, sessionId: string) {
       this.sessionId = sessionId;
@@ -503,7 +496,7 @@ export default component$(() => {
           (store.contextToken || store.inputContentToken) > 0 && (
             <div class="flex items-center px-1em text-0.8em">
               <hr class="flex-1 border-slate/40" />
-              {store.inputContentToken && (
+              {store.inputContentToken > 0 && (
                 <span class="mx-1 text-slate/40">
                   {`有效上下文 + 提问 Tokens : ${shownTokens(
                     store.contextToken + store.inputContentToken
@@ -522,7 +515,7 @@ export default component$(() => {
                   )}`}
                 </span>
               )}
-              {!store.inputContentToken && (
+              {store.inputContentToken === 0 && (
                 <span class="mx-1 text-slate/40">
                   {`有效上下文 Tokens : ${shownTokens(
                     store.contextToken

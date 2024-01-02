@@ -469,16 +469,15 @@ export default component$(() => {
                 href={ProviderMap[store.sessionSettings.provider].href}
                 target="_blank"
                 class={{
-                  "inline-block text-8 mr-4": true,
+                  "inline-block text-8": true,
                   [ProviderMap[store.sessionSettings.provider].icon]: true,
                 }}
               >
               </a>
-              Powered by
               <a
                 href={ProviderMap[store.sessionSettings.provider].href}
                 target="_blank"
-                class="font-extrabold ml-2"
+                class="font-extrabold ml-4"
               >
                 {ProviderMap[store.sessionSettings.provider].name} Chat
               </a>

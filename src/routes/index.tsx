@@ -63,7 +63,7 @@ export default component$(() => {
     validContext: [],
     archiveCurrentMessage: $(function() {
       if (this.currentAssistantMessage) {
-        window.abortController = undefined;
+        // window.abortController = undefined;
         this.messageList = this.messageList.map((k) => ({
           ...k,
           type: k.type === "temporary" ? "default" : k.type,
@@ -76,7 +76,7 @@ export default component$(() => {
     }),
     fetchGPT: $(async function(this, messages) {
       const provider = this.sessionSettings.provider;
-      window.abortController = new AbortController();
+      // window.abortController = new AbortController();
       let response: Response;
       if (this.globalSettings.requestWithBackend) {
         // 后端请求
@@ -85,7 +85,7 @@ export default component$(() => {
           headers: {
             "Content-Type": "application/json",
           },
-          signal: window.abortController.signal,
+          // signal: window.abortController.signal,
           body: JSON.stringify({
             provider,
             key: this.globalSettings.APIKeys[this.sessionSettings.provider]
@@ -104,7 +104,7 @@ export default component$(() => {
             || undefined,
           messages,
           temperature: this.sessionSettings.APITemperature,
-          signal: window.abortController.signal,
+          // signal: window.abortController.signal,
           model: this.sessionSettings.model,
           stream: true,
         });
@@ -192,11 +192,11 @@ export default component$(() => {
         parser.feed(decoder.decode(value));
       }
     }),
-    stopStreamFetch: $(function() {
-      if (window.abortController) {
-        window.abortController.abort();
-        this.archiveCurrentMessage();
-      }
+    stopStreamFetch: $(function(this) {
+      // if (window.abortController) {
+      //   window.abortController.abort();
+      // }
+      this.archiveCurrentMessage();
     }),
     sendMessage: $(async function(this, content, fakeRole) {
       const inputValue = content ?? this.inputContent;
@@ -308,7 +308,7 @@ export default component$(() => {
           );
         } catch (error: any) {
           this.loading = false;
-          window.abortController = undefined;
+          // window.abortController = undefined;
           if (!error.message.includes("abort")) {
             this.messageList = [
               ...this.messageList,
@@ -443,7 +443,7 @@ export default component$(() => {
   return (
     <main class="mt-4">
       <div class="flex items-center px-2em">
-        <div class="flex-1 flex items-center">
+        <div class="flex-1 flex items-center dark:prose-invert dark:text-slate">
           {store.sessionSettings.title && (
             <>
               <a

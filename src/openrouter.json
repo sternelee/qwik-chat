@@ -16,7 +16,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "56672568",
+        "completion_tokens": "14168142"
+      }
     },
     {
       "id": "openrouter/auto",
@@ -52,7 +55,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "mistralai/mistral-7b-instruct",
@@ -70,7 +76,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "huggingfaceh4/zephyr-7b-beta",
@@ -88,7 +97,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "openchat/openchat-7b",
@@ -106,7 +118,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "gryphe/mythomist-7b",
@@ -124,7 +139,10 @@
       "top_provider": {
         "max_completion_tokens": 2048
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "openrouter/cinematika-7b",
@@ -142,7 +160,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "rwkv/rwkv-5-world-3b",
@@ -160,7 +181,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "recursal/rwkv-5-3b-ai-town",
@@ -178,12 +202,15 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "jondurbin/bagel-34b",
       "name": "Bagel 34B v0.2",
-      "description": "An experimental fine-tune of [Yi 34b 200k](/models/01-ai/yi-34b-200k) using [bagel](https://github.com/jondurbin/bagel).\n\nThis is the state of the fine-tune before direct preference optimization (DPO) has been applied. DPO performs better on benchmarks, but this version is likely better for creative writing, roleplay, etc.",
+      "description": "An experimental fine-tune of [Yi 34b 200k](/models/01-ai/yi-34b-200k) using [bagel](https://github.com/jondurbin/bagel). This is the version of the fine-tune before direct preference optimization (DPO) has been applied. DPO performs better on benchmarks, but this version is likely better for creative writing, roleplay, etc.",
       "pricing": {
         "prompt": "0.000003",
         "completion": "0.000003"
@@ -196,12 +223,15 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "13223599",
+        "completion_tokens": "13223599"
+      }
     },
     {
       "id": "austism/chronos-hermes-13b",
       "name": "Chronos Hermes 13B v2",
-      "description": "A 75/25 merge of [Chronos 13b v2](https://huggingface.co/elinas/chronos-13b-v2) and [Nous Hermes Llama2 13b](/models/nousresearch/nous-hermes-llama2-13b).\n\nThis offers the imaginative writing style of Chronos while retaining coherency. Outputs are long and use exceptional prose.\n\n#merge",
+      "description": "A 75/25 merge of [Chronos 13b v2](https://huggingface.co/elinas/chronos-13b-v2) and [Nous Hermes Llama2 13b](/models/nousresearch/nous-hermes-llama2-13b). This offers the imaginative writing style of Chronos while retaining coherency. Outputs are long and use exceptional prose. #merge",
       "pricing": {
         "prompt": "0.000001",
         "completion": "0.000001"
@@ -214,7 +244,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "39670797",
+        "completion_tokens": "39670797"
+      }
     },
     {
       "id": "jebcarter/psyfighter-13b",
@@ -232,7 +265,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "39670797",
+        "completion_tokens": "39670797"
+      }
     },
     {
       "id": "koboldai/psyfighter-13b-2",
@@ -250,7 +286,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "39670797",
+        "completion_tokens": "39670797"
+      }
     },
     {
       "id": "neversleep/noromaid-mixtral-8x7b-instruct",
@@ -268,7 +307,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "13223599",
+        "completion_tokens": "13223599"
+      }
     },
     {
       "id": "nousresearch/nous-hermes-llama2-13b",
@@ -286,7 +328,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "264471985",
+        "completion_tokens": "264471985"
+      }
     },
     {
       "id": "meta-llama/codellama-34b-instruct",
@@ -304,7 +349,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "99176994",
+        "completion_tokens": "99176994"
+      }
     },
     {
       "id": "phind/phind-codellama-34b",
@@ -322,7 +370,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "99176994",
+        "completion_tokens": "99176994"
+      }
     },
     {
       "id": "intel/neural-chat-7b",
@@ -340,7 +391,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "7934159",
+        "completion_tokens": "7934159"
+      }
     },
     {
       "id": "mistralai/mixtral-8x7b-instruct",
@@ -358,7 +412,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "132235992",
+        "completion_tokens": "132235992"
+      }
     },
     {
       "id": "haotian-liu/llava-13b",
@@ -376,7 +433,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "7934159",
+        "completion_tokens": "7934159"
+      }
     },
     {
       "id": "nousresearch/nous-hermes-2-vision-7b",
@@ -394,7 +454,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "7934159",
+        "completion_tokens": "7934159"
+      }
     },
     {
       "id": "meta-llama/llama-2-13b-chat",
@@ -412,7 +475,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "269137026",
+        "completion_tokens": "269137026"
+      }
     },
     {
       "id": "openai/gpt-3.5-turbo",
@@ -430,7 +496,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "39670797",
+        "completion_tokens": "19835398"
+      }
     },
     {
       "id": "openai/gpt-3.5-turbo-1106",
@@ -448,7 +517,10 @@
       "top_provider": {
         "max_completion_tokens": 4096
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "39670797",
+        "completion_tokens": "19835398"
+      }
     },
     {
       "id": "openai/gpt-3.5-turbo-0301",
@@ -466,7 +538,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "39670797",
+        "completion_tokens": "19835398"
+      }
     },
     {
       "id": "openai/gpt-3.5-turbo-16k",
@@ -484,7 +559,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "13223599",
+        "completion_tokens": "9917699"
+      }
     },
     {
       "id": "openai/gpt-4-1106-preview",
@@ -502,7 +580,10 @@
       "top_provider": {
         "max_completion_tokens": 4096
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "3967079",
+        "completion_tokens": "1322359"
+      }
     },
     {
       "id": "openai/gpt-4",
@@ -520,7 +601,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "1322359",
+        "completion_tokens": "661179"
+      }
     },
     {
       "id": "openai/gpt-4-0314",
@@ -538,7 +622,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "1322359",
+        "completion_tokens": "661179"
+      }
     },
     {
       "id": "openai/gpt-4-32k",
@@ -556,7 +643,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "661179",
+        "completion_tokens": "330589"
+      }
     },
     {
       "id": "openai/gpt-4-32k-0314",
@@ -574,7 +664,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "661179",
+        "completion_tokens": "330589"
+      }
     },
     {
       "id": "openai/gpt-4-vision-preview",
@@ -592,7 +685,10 @@
       "top_provider": {
         "max_completion_tokens": 4096
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "3967079",
+        "completion_tokens": "1322359"
+      }
     },
     {
       "id": "openai/text-davinci-002",
@@ -610,7 +706,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "1983539",
+        "completion_tokens": "1983539"
+      }
     },
     {
       "id": "openai/gpt-3.5-turbo-instruct",
@@ -628,7 +727,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "26447198",
+        "completion_tokens": "19835398"
+      }
     },
     {
       "id": "google/palm-2-chat-bison",
@@ -646,7 +748,10 @@
       "top_provider": {
         "max_completion_tokens": 4096
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "158683191",
+        "completion_tokens": "79341595"
+      }
     },
     {
       "id": "google/palm-2-codechat-bison",
@@ -664,7 +769,10 @@
       "top_provider": {
         "max_completion_tokens": 4096
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "158683191",
+        "completion_tokens": "79341595"
+      }
     },
     {
       "id": "google/palm-2-chat-bison-32k",
@@ -682,7 +790,10 @@
       "top_provider": {
         "max_completion_tokens": 32768
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "158683191",
+        "completion_tokens": "79341595"
+      }
     },
     {
       "id": "google/palm-2-codechat-bison-32k",
@@ -700,7 +811,10 @@
       "top_provider": {
         "max_completion_tokens": 32768
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "158683191",
+        "completion_tokens": "79341595"
+      }
     },
     {
       "id": "google/gemini-pro",
@@ -718,7 +832,10 @@
       "top_provider": {
         "max_completion_tokens": 32768
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "158683191",
+        "completion_tokens": "79341595"
+      }
     },
     {
       "id": "google/gemini-pro-vision",
@@ -736,7 +853,10 @@
       "top_provider": {
         "max_completion_tokens": 8192
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "158683191",
+        "completion_tokens": "79341595"
+      }
     },
     {
       "id": "perplexity/pplx-70b-online",
@@ -754,7 +874,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "perplexity/pplx-7b-online",
@@ -772,7 +895,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "perplexity/pplx-7b-chat",
@@ -790,7 +916,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "566725682",
+        "completion_tokens": "141681420"
+      }
     },
     {
       "id": "perplexity/pplx-70b-chat",
@@ -808,7 +937,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "56672568",
+        "completion_tokens": "14168142"
+      }
     },
     {
       "id": "meta-llama/llama-2-70b-chat",
@@ -826,7 +958,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "56672568",
+        "completion_tokens": "44078664"
+      }
     },
     {
       "id": "nousresearch/nous-hermes-llama2-70b",
@@ -844,7 +979,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "44078664",
+        "completion_tokens": "44078664"
+      }
     },
     {
       "id": "jondurbin/airoboros-l2-70b",
@@ -862,7 +1000,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "56672568",
+        "completion_tokens": "44078664"
+      }
     },
     {
       "id": "migtissera/synthia-70b",
@@ -880,7 +1021,10 @@
       "top_provider": {
         "max_completion_tokens": 400
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "10578879",
+        "completion_tokens": "10578879"
+      }
     },
     {
       "id": "teknium/openhermes-2-mistral-7b",
@@ -898,7 +1042,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "198353988",
+        "completion_tokens": "198353988"
+      }
     },
     {
       "id": "teknium/openhermes-2.5-mistral-7b",
@@ -916,7 +1063,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "198353988",
+        "completion_tokens": "198353988"
+      }
     },
     {
       "id": "pygmalionai/mythalion-13b",
@@ -934,7 +1084,10 @@
       "top_provider": {
         "max_completion_tokens": 400
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "35262931",
+        "completion_tokens": "35262931"
+      }
     },
     {
       "id": "undi95/remm-slerp-l2-13b",
@@ -952,7 +1105,10 @@
       "top_provider": {
         "max_completion_tokens": 400
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "35262931",
+        "completion_tokens": "35262931"
+      }
     },
     {
       "id": "xwin-lm/xwin-lm-70b",
@@ -970,7 +1126,10 @@
       "top_provider": {
         "max_completion_tokens": 400
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "10578879",
+        "completion_tokens": "10578879"
+      }
     },
     {
       "id": "gryphe/mythomax-l2-13b-8k",
@@ -988,7 +1147,10 @@
       "top_provider": {
         "max_completion_tokens": 400
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "35262931",
+        "completion_tokens": "35262931"
+      }
     },
     {
       "id": "undi95/toppy-m-7b",
@@ -1006,7 +1168,10 @@
       "top_provider": {
         "max_completion_tokens": 2048
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "105788794",
+        "completion_tokens": "105788794"
+      }
     },
     {
       "id": "alpindale/goliath-120b",
@@ -1024,7 +1189,10 @@
       "top_provider": {
         "max_completion_tokens": 400
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "4231551",
+        "completion_tokens": "4231551"
+      }
     },
     {
       "id": "lizpreciatior/lzlv-70b-fp16-hf",
@@ -1042,7 +1210,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "56672568",
+        "completion_tokens": "44078664"
+      }
     },
     {
       "id": "neversleep/noromaid-20b",
@@ -1060,7 +1231,10 @@
       "top_provider": {
         "max_completion_tokens": 400
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "17631465",
+        "completion_tokens": "17631465"
+      }
     },
     {
       "id": "01-ai/yi-34b-chat",
@@ -1078,7 +1252,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "49588497",
+        "completion_tokens": "49588497"
+      }
     },
     {
       "id": "01-ai/yi-34b",
@@ -1096,7 +1273,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "49588497",
+        "completion_tokens": "49588497"
+      }
     },
     {
       "id": "01-ai/yi-6b",
@@ -1114,7 +1294,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "283362841",
+        "completion_tokens": "283362841"
+      }
     },
     {
       "id": "togethercomputer/stripedhyena-nous-7b",
@@ -1132,7 +1315,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "198353988",
+        "completion_tokens": "198353988"
+      }
     },
     {
       "id": "togethercomputer/stripedhyena-hessian-7b",
@@ -1150,7 +1336,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "198353988",
+        "completion_tokens": "198353988"
+      }
     },
     {
       "id": "mistralai/mixtral-8x7b",
@@ -1168,7 +1357,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "66117996",
+        "completion_tokens": "66117996"
+      }
     },
     {
       "id": "cognitivecomputations/dolphin-mixtral-8x7b",
@@ -1186,7 +1378,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "146928880",
+        "completion_tokens": "146928880"
+      }
     },
     {
       "id": "nousresearch/nous-hermes-yi-34b",
@@ -1204,7 +1399,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "49588497",
+        "completion_tokens": "49588497"
+      }
     },
     {
       "id": "anthropic/claude-2",
@@ -1222,7 +1420,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "4958849",
+        "completion_tokens": "1652949"
+      }
     },
     {
       "id": "anthropic/claude-2.0",
@@ -1240,7 +1441,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "4958849",
+        "completion_tokens": "1652949"
+      }
     },
     {
       "id": "anthropic/claude-instant-v1",
@@ -1258,7 +1462,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "24337912",
+        "completion_tokens": "7199781"
+      }
     },
     {
       "id": "anthropic/claude-v1",
@@ -1276,7 +1483,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "4958849",
+        "completion_tokens": "1652949"
+      }
     },
     {
       "id": "anthropic/claude-1.2",
@@ -1294,7 +1504,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "4958849",
+        "completion_tokens": "1652949"
+      }
     },
     {
       "id": "anthropic/claude-instant-v1-100k",
@@ -1312,7 +1525,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "24337912",
+        "completion_tokens": "7199781"
+      }
     },
     {
       "id": "anthropic/claude-v1-100k",
@@ -1330,7 +1546,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "4958849",
+        "completion_tokens": "1652949"
+      }
     },
     {
       "id": "anthropic/claude-instant-1.0",
@@ -1348,7 +1567,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "24337912",
+        "completion_tokens": "7199781"
+      }
     },
     {
       "id": "mancer/weaver",
@@ -1366,7 +1588,10 @@
       "top_provider": {
         "max_completion_tokens": 400
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "11754310",
+        "completion_tokens": "11754310"
+      }
     },
     {
       "id": "open-orca/mistral-7b-openorca",
@@ -1384,7 +1609,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "278390391",
+        "completion_tokens": "278390391"
+      }
     },
     {
       "id": "gryphe/mythomax-l2-13b",
@@ -1402,7 +1630,10 @@
       "top_provider": {
         "max_completion_tokens": null
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "66117996",
+        "completion_tokens": "66117996"
+      }
     }
   ]
 }

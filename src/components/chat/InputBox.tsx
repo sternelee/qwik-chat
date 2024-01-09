@@ -66,6 +66,9 @@ export default component$<{
     countTokensInWorker(store.validContent).then((res) => {
       store.contextToken = res;
     });
+    countTokensInWorker(store.currentAssistantMessage).then((res) => {
+      store.currentMessageToken = res;
+    });
   });
 
   useVisibleTask$(async ({ track }) => {

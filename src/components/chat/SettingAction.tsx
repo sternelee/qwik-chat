@@ -347,6 +347,8 @@ export default component$(() => {
                 }[store.fakeRole]
               }
             />
+            {
+              /**
             <ActionItem
               onClick={$(() => {
                 store.genImg = "loading";
@@ -358,6 +360,8 @@ export default component$(() => {
               icon={imgIcons[store.genImg]}
               label="导出图片"
             />
+               */
+            }
             <ActionItem
               label="导出MD"
               onClick={$(async () => {

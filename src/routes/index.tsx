@@ -14,7 +14,7 @@ import InputBox from "~/components/chat/InputBox";
 import MessageItem from "~/components/chat/MessageItem";
 import ThemeToggle from "~/components/chat/ThemeToggle";
 import ProviderMap from "~/providers";
-import type { IProvider } from "~/store";
+// import type { IProvider } from "~/store";
 import {
   countTokensDollar,
   defaultInputBoxHeight,
@@ -169,6 +169,7 @@ export default component$(() => {
               char = data;
             } else {
               const json = JSON.parse(data);
+              console.log(json)
               if (provider === "google") {
                 char = json.candidates[0].content.parts[0].text;
                 if (json.candidates[0].finishReason === "STOP") {
@@ -282,28 +283,17 @@ export default component$(() => {
         ];
       } else {
         try {
-          const content = this.inputImage
-            ? [
-                {
-                  type: "image_url",
-                  image_url: {
-                    url: this.inputImage,
-                    detail: "low",
-                  },
-                },
-                {
-                  type: "text",
-                  text: inputValue,
-                },
-              ]
-            : inputValue;
-          this.messageList = [
-            ...this.messageList,
-            {
-              role: "user",
-              content: inputValue,
-            },
-          ];
+          const currentMessage: ChatMessage = this.inputImage
+            ? {
+                role: "user",
+                content: inputValue,
+                images: [this.inputImage],
+              }
+            : {
+                role: "user",
+                content: inputValue,
+              };
+          this.messageList = [...this.messageList, currentMessage];
           const remainingToken = await this.remainingToken$();
           if (remainingToken < 0) {
             throw new Error(
@@ -332,13 +322,7 @@ export default component$(() => {
             // @ts-ignore
             this.sessionSettings.continuousDialogue
               ? this.validContext
-              : [
-                  ...this.validContext,
-                  {
-                    role: "user",
-                    content,
-                  },
-                ]
+              : [...this.validContext, currentMessage]
           );
         } catch (error: any) {
           this.loading = false;

@@ -12,6 +12,7 @@ export interface ChatMessage {
   role: Role;
   content: string;
   type?: "default" | "locked" | "temporary";
+  images?: string[]
 }
 
 export type Role = "system" | "user" | "assistant" | "error";

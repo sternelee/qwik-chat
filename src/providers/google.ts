@@ -8,6 +8,7 @@ export const fetchChat = async (body: any) => {
     key = process.env.GOOGLE_KEY;
   }
   const contents = parseMessageList(messages);
+  console.log(contents)
   return await fetch(
     `${baseUrl}/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${key}`,
     {
@@ -16,14 +17,24 @@ export const fetchChat = async (body: any) => {
       },
       method: "POST",
       body: JSON.stringify({ contents }),
-    },
+    }
   );
 };
 
 export const parseMessageList = (rawList: ChatMessage[]) => {
   interface GoogleGeminiMessage {
     role: "user" | "model";
-    parts: [{ text: string }];
+    parts:
+      | [{ text: string }]
+      | [
+          { text: string },
+          {
+            inline_data: {
+              mime_type: "image/jpeg";
+              data: string;
+            };
+          },
+        ];
   }
 
   if (rawList.length === 0) return [];
@@ -46,7 +57,14 @@ export const parseMessageList = (rawList: ChatMessage[]) => {
     parsedList.push({
       // @ts-ignore
       role: roleDict[message.role],
-      parts: [{ text: message.content }],
+      parts: message.images
+        ? [
+            { text: message.content },
+            {
+              inline_data: { mime_type: "image/jpeg", data: btoa(message.images[0]) },
+            },
+          ]
+        : [{ text: message.content }],
     });
   }
   return parsedList;
@@ -59,8 +77,8 @@ export default {
   baseUrl,
   defaultModel: "gemini-pro",
   models: [
-    { value: "gemini-pro", label: "Gemini-Pro", input: 0, output: 0 },
-    // { value: "gemini-pro-vision", label: "Gemini-Pro-Vision" },
+    { value: "gemini-pro", label: "Gemini-Pro" },
+    { value: "gemini-pro-vision", label: "Gemini-Pro-Vision" },
   ],
   fetchChat,
 };

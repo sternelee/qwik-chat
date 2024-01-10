@@ -7,7 +7,8 @@ import Models from "./openrouter.json";
 
 export const defaultMessage: ChatMessage = {
   role: "assistant",
-  content: import.meta.env.CLIENT_DEFAULT_MESSAGE || defaultEnv.CLIENT_DEFAULT_MESSAGE,
+  content:
+    import.meta.env.CLIENT_DEFAULT_MESSAGE || defaultEnv.CLIENT_DEFAULT_MESSAGE,
   type: "default",
 };
 
@@ -21,10 +22,10 @@ export const models = {
     "32k": "gpt-4-32k-0613",
   },
 } satisfies {
-    [k in SimpleModel]: {
-      [k: string]: Model;
-    };
+  [k in SimpleModel]: {
+    [k: string]: Model;
   };
+};
 
 const modelCostMap = {
   "gpt-3.5-turbo-0613": {
@@ -44,6 +45,10 @@ const modelCostMap = {
     output: 0.12,
   },
   "gemini-pro": {
+    input: 0,
+    output: 0,
+  },
+  "gemini-pro-vision": {
     input: 0,
     output: 0,
   },
@@ -80,11 +85,11 @@ const modelCostMap = {
     output: 0.008,
   },
 } satisfies {
-    [key in Model]: {
-      input: number;
-      output: number;
-    };
+  [key in Model]: {
+    input: number;
+    output: number;
   };
+};
 
 Models.data.forEach((v) => {
   // @ts-ignore
@@ -119,7 +124,7 @@ export const FZFData = {
 export function countTokensDollar(
   tokens: number,
   model: Model,
-  io: "input" | "output",
+  io: "input" | "output"
 ) {
   const tk = tokens / 1000;
   // @ts-ignore
@@ -130,7 +135,7 @@ export let globalSettings = {
   APIKeys,
   enterToSend: true,
   requestWithBackend: true,
-  password: ''
+  password: "",
 };
 let _ = import.meta.env.CLIENT_GLOBAL_APIKeys;
 if (_) {

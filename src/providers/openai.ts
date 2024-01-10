@@ -1,3 +1,5 @@
+import type { ChatMessage } from "~/types";
+
 const baseUrl = "https://api.openai.com";
 
 export const fetchChat = async (body: any) => {
@@ -5,6 +7,24 @@ export const fetchChat = async (body: any) => {
   if (password && password === process.env.PASSWORD) {
     key = process.env.OPENAI_KEY;
   }
+  rest.messages = rest.messages.map((m: ChatMessage) => {
+    if (m.images) {
+      return {
+        role: m.role,
+        content: [
+          { type: "text", text: m.content },
+          {
+            type: "image_url",
+            image_url: {
+              url: m.images[0],
+              detail: "auto",
+            },
+          },
+        ],
+      };
+    }
+    return m;
+  });
   return await fetch(`${baseUrl}/v1/chat/completions`, {
     headers: {
       "Content-Type": "application/json",

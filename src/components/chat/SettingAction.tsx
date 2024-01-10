@@ -21,6 +21,7 @@ import {
 import type { ChatMessage, SimpleModel } from "~/types";
 import {
   copyToClipboard,
+  blobToBase64,
   dateFormat,
   delSession,
   generateId,
@@ -33,6 +34,7 @@ import { Selector, Switch as SwitchButton } from "./Common";
 export default component$(() => {
   const store = useContext(StoreContext);
   const isFirst = useSignal(true);
+  const inputImageRef = useSignal<HTMLImageElement>();
 
   const navigator = useNavigate();
 
@@ -99,8 +101,7 @@ export default component$(() => {
                 options={PROVIDER_LIST}
               />
             </SettingItem>
-            {
-              !store.globalSettings.password &&
+            {!store.globalSettings.password && (
               <SettingItem
                 icon="i-carbon:api"
                 label={`${
@@ -114,12 +115,13 @@ export default component$(() => {
                   }
                   class="input-box"
                   onInput$={(e) => {
-                    store.globalSettings.APIKeys[store.sessionSettings.provider] =
-                      (e.target as HTMLInputElement).value;
+                    store.globalSettings.APIKeys[
+                      store.sessionSettings.provider
+                    ] = (e.target as HTMLInputElement).value;
                   }}
                 />
               </SettingItem>
-            }
+            )}
             <SettingItem icon="i-carbon:flow-modeler" label="请求代理后端">
               <SwitchButton
                 checked={store.globalSettings.requestWithBackend}
@@ -130,8 +132,7 @@ export default component$(() => {
                 })}
               />
             </SettingItem>
-            {
-              store.globalSettings.requestWithBackend &&
+            {store.globalSettings.requestWithBackend && (
               <SettingItem icon="i-ri:lock-password-line" label="网站访问密码">
                 <input
                   type="password"
@@ -144,7 +145,7 @@ export default component$(() => {
                   }}
                 />
               </SettingItem>
-            }
+            )}
             <SettingItem icon="i-carbon:keyboard" label="Enter 键发送消息">
               <SwitchButton
                 checked={store.globalSettings.enterToSend}
@@ -326,6 +327,25 @@ export default component$(() => {
         )}
         {store.showSetting === "none" && (
           <div class="flex">
+            <input
+              type="file"
+              accept="image/*"
+              ref={inputImageRef}
+              style={{ width: 0, visibility: "hidden" }}
+              onChange$={$(async (e: any) => {
+                if (e.target.files?.length === 0) return;
+                const file = e.target.files![0];
+                const url = await blobToBase64(file);
+                store.inputImage = url;
+              })}
+            />
+            <ActionItem
+              onClick={$(() => {
+                inputImageRef.value!.click();
+              })}
+              icon="i-carbon-image-search"
+              label="上传图片"
+            />
             <ActionItem
               onClick={$(() => {
                 // TODO
@@ -347,12 +367,10 @@ export default component$(() => {
                 }[store.fakeRole]
               }
             />
-            {
-              /**
             <ActionItem
-              onClick={$(() => {
+              onClick={$(async () => {
                 store.genImg = "loading";
-                exportJpg();
+                await exportJpg();
                 setTimeout(() => {
                   store.genImg = "normal";
                 }, 1000);
@@ -360,8 +378,6 @@ export default component$(() => {
               icon={imgIcons[store.genImg]}
               label="导出图片"
             />
-               */
-            }
             <ActionItem
               label="导出MD"
               onClick={$(async () => {
@@ -452,7 +468,7 @@ async function exportJpg() {
     if (!isMobile() && navigator.clipboard) {
       try {
         const blob = await toBlob(messageContainer);
-        console.log(blob)
+        console.log(blob);
         blob &&
           (await navigator.clipboard.write([
             new ClipboardItem({
@@ -460,7 +476,7 @@ async function exportJpg() {
             }),
           ]));
       } catch (err) {
-        console.log(err)
+        console.log(err);
         await downloadIMG();
       }
     } else {
@@ -470,7 +486,7 @@ async function exportJpg() {
   } catch (err) {
     // TODO: not work
     // store.genImg = "error"
-    console.log(err)
+    console.log(err);
   }
 }
 

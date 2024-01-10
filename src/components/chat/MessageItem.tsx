@@ -6,12 +6,11 @@ import {
   useVisibleTask$,
 } from "@builder.io/qwik";
 import { useCopyCode } from "~/hooks";
-import type { IProvider } from "~/store";
 import { StoreContext } from "~/store";
 import type { ChatMessage } from "~/types";
 import { copyToClipboard } from "~/utils";
-import ProviderMap from "~/providers"
 import MessageAction from "./MessageAction";
+// import { throttle } from "~/hooks"
 
 interface Props {
   message: ChatMessage;
@@ -88,16 +87,17 @@ export default component$<Props>((props) => {
       });
     }
   });
-
   useVisibleTask$(async ({ track }) => {
     const { renderMarkdownInWorker } = await import("~/wokers");
+    // const renderedMarkdownThrottle = throttle(() => {
+    //   renderMarkdownInWorker(content).then((html) => {
+    //     renderedMarkdown.value = html;
+    //   });
+    // }, 250)
     track(() => props.message.content);
-    renderMarkdownInWorker(props.message.content).then((html) => {
-      renderedMarkdown.value = html.replace(
-        /Powered by ([^<]+)/g,
-        (_, $1: IProvider) =>
-          `Powered by <a href="${ProviderMap[$1].href}" target="_blank"  style="border-bottom:0;margin-left: 6px"><span class="inline-block mr-1 ${ProviderMap[$1].icon}"></span>${ProviderMap[$1].name}</a>`
-      );
+    const content = (props.message.images || []).map(v => `![](${v})`) + props.message.content
+    renderMarkdownInWorker(content).then((html) => {
+      renderedMarkdown.value = html;
     });
   });
 

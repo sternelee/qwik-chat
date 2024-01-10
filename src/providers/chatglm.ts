@@ -3,8 +3,12 @@ import { SignJWT } from "jose";
 const baseUrl = "https://open.bigmodel.cn/api/paas";
 
 const cache = new Map();
+
 export const fetchChat = async (body: any) => {
-  const { key, model, messages, ...rest } = body;
+  let { key, password, model, messages, ...rest } = body;
+  if (password && password === process.env.PASSWORD) {
+    key = process.env.CHATGLM_KEY;
+  }
   const [id, secret] = key.split(".");
   let token = "";
   const cacheToken = cache.get(id);
@@ -17,9 +21,7 @@ export const fetchChat = async (body: any) => {
   }
   if (!token) {
     const timestamp = Date.now();
-
     const exp = timestamp + 3600 * 1000;
-    // TODO: token可缓存
     token = await new SignJWT({
       api_key: id,
       exp,
@@ -55,8 +57,6 @@ export default {
     {
       label: "ChatGLM-Turbo",
       value: "chatglm_turbo",
-      input: 0.005,
-      output: 0.005,
     },
   ],
   fetchChat,

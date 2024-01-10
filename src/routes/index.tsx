@@ -32,33 +32,33 @@ import type { ChatMessage, Model } from "~/types";
 import { scrollToBottom } from "~/utils";
 import { fetchAllSessions, getSession, setSession } from "~/utils/storage";
 
-const chatStream = server$(async function* ({
-  provider,
-  key,
-  messages,
-  temperature,
-  model,
-}) {
-  const fetchChat = ProviderMap[provider as IProvider].fetchChat;
-  const abortController = new AbortController();
-  const response = await fetchChat({
-    key,
-    messages,
-    temperature,
-    signal: abortController.signal,
-    model,
-    stream: true,
-  });
-  if (this.signal.aborted) {
-    abortController.abort()
-    yield null;
-  }
-  if (!response.ok) {
-    const json = await response.json();
-    yield JSON.stringify(json);
-    return;
-  }
-});
+// const chatStream = server$(async function* ({
+//   provider,
+//   key,
+//   messages,
+//   temperature,
+//   model,
+// }) {
+//   const fetchChat = ProviderMap[provider as IProvider].fetchChat;
+//   const abortController = new AbortController();
+//   const response = await fetchChat({
+//     key,
+//     messages,
+//     temperature,
+//     signal: abortController.signal,
+//     model,
+//     stream: true,
+//   });
+//   if (this.signal.aborted) {
+//     abortController.abort()
+//     yield null;
+//   }
+//   if (!response.ok) {
+//     const json = await response.json();
+//     yield JSON.stringify(json);
+//     return;
+//   }
+// });
 
 export default component$(() => {
   const containerWidth = useSignal("init");
@@ -118,6 +118,7 @@ export default component$(() => {
           // signal: window.abortController.signal,
           body: JSON.stringify({
             provider,
+            password: this.globalSettings.password,
             key:
               this.globalSettings.APIKeys[this.sessionSettings.provider] ||
               undefined,

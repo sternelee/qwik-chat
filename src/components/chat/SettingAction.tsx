@@ -85,20 +85,6 @@ export default component$(() => {
       {store.showSetting === "global" && (
         <>
           <div class="<sm:max-h-10em max-h-14em overflow-y-auto">
-            {/**
-            <SettingItem icon="i-ri:lock-password-line" label="网站访问密码">
-              <input
-                type="password"
-                value={store.globalSettings.password}
-                class="input-box"
-                onInput$={(e) => {
-                  store.globalSettings.password = (
-                    e.target as HTMLInputElement
-                  ).value;
-                }}
-              />
-            </SettingItem>
-               */}
             <SettingItem icon="i-carbon:machine-learning-model" label="AI服务">
               <Selector
                 class="max-w-150px"
@@ -113,24 +99,27 @@ export default component$(() => {
                 options={PROVIDER_LIST}
               />
             </SettingItem>
-            <SettingItem
-              icon="i-carbon:api"
-              label={`${
-                ProviderMap[store.sessionSettings.provider].name
-              } APIKey`}
-            >
-              <input
-                type="password"
-                value={
-                  store.globalSettings.APIKeys[store.sessionSettings.provider]
-                }
-                class="input-box"
-                onInput$={(e) => {
-                  store.globalSettings.APIKeys[store.sessionSettings.provider] =
-                    (e.target as HTMLInputElement).value;
-                }}
-              />
-            </SettingItem>
+            {
+              !store.globalSettings.password &&
+              <SettingItem
+                icon="i-carbon:api"
+                label={`${
+                  ProviderMap[store.sessionSettings.provider].name
+                } APIKey`}
+              >
+                <input
+                  type="password"
+                  value={
+                    store.globalSettings.APIKeys[store.sessionSettings.provider]
+                  }
+                  class="input-box"
+                  onInput$={(e) => {
+                    store.globalSettings.APIKeys[store.sessionSettings.provider] =
+                      (e.target as HTMLInputElement).value;
+                  }}
+                />
+              </SettingItem>
+            }
             <SettingItem icon="i-carbon:flow-modeler" label="请求代理后端">
               <SwitchButton
                 checked={store.globalSettings.requestWithBackend}
@@ -141,6 +130,21 @@ export default component$(() => {
                 })}
               />
             </SettingItem>
+            {
+              store.globalSettings.requestWithBackend &&
+              <SettingItem icon="i-ri:lock-password-line" label="网站访问密码">
+                <input
+                  type="password"
+                  value={store.globalSettings.password}
+                  class="input-box"
+                  onInput$={(e) => {
+                    store.globalSettings.password = (
+                      e.target as HTMLInputElement
+                    ).value;
+                  }}
+                />
+              </SettingItem>
+            }
             <SettingItem icon="i-carbon:keyboard" label="Enter 键发送消息">
               <SwitchButton
                 checked={store.globalSettings.enterToSend}
@@ -344,9 +348,9 @@ export default component$(() => {
               }
             />
             <ActionItem
-              onClick={$(async () => {
+              onClick={$(() => {
                 store.genImg = "loading";
-                await exportJpg();
+                exportJpg();
                 setTimeout(() => {
                   store.genImg = "normal";
                 }, 1000);
@@ -433,7 +437,6 @@ async function exportJpg() {
     const messageContainer = document.querySelector(
       "#message-container-img"
     ) as HTMLElement;
-    // const header = document.querySelector("header") as HTMLElement
     // eslint-disable-next-line no-inner-declarations
     async function downloadIMG() {
       const url = await toJpeg(messageContainer);
@@ -445,21 +448,25 @@ async function exportJpg() {
     if (!isMobile() && navigator.clipboard) {
       try {
         const blob = await toBlob(messageContainer);
+        console.log(blob)
         blob &&
           (await navigator.clipboard.write([
             new ClipboardItem({
               [blob.type]: blob,
             }),
           ]));
-      } catch (e) {
+      } catch (err) {
+        console.log(err)
         await downloadIMG();
       }
     } else {
       await downloadIMG();
     }
     // store.genImg = "success"
-  } catch {
+  } catch (err) {
+    // TODO: not work
     // store.genImg = "error"
+    console.log(err)
   }
 }
 

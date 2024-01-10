@@ -4,7 +4,7 @@ import type { IProvider } from "~/store";
 
 export const onPost: RequestHandler = async ({ parseBody, send }) => {
   const body = (await parseBody()) as any;
-  console.log(body);
+  // console.log(body);
   const { provider, ...rest } = body as {
     provider: IProvider;
     [prop: string]: any;

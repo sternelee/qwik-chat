@@ -3,7 +3,10 @@ import type { ChatMessage } from "~/types";
 const baseUrl = "https://generativelanguage.googleapis.com";
 
 export const fetchChat = async (body: any) => {
-  const { key, model, messages } = body;
+  let { key, password, model, messages } = body;
+  if (password && password === process.env.PASSWORD) {
+    key = process.env.GOOGLE_KEY;
+  }
   const contents = parseMessageList(messages);
   return await fetch(
     `${baseUrl}/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${key}`,

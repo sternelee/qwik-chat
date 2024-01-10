@@ -12,7 +12,7 @@ Models.data.forEach(v => {
  */
 export const defaultEnv = {
   CLIENT_GLOBAL_SETTINGS: {
-    // password: "",
+    password: "",
     requestWithBackend: false,
     enterToSend: true,
   },

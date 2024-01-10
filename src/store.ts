@@ -130,6 +130,7 @@ export let globalSettings = {
   APIKeys,
   enterToSend: true,
   requestWithBackend: true,
+  password: ''
 };
 let _ = import.meta.env.CLIENT_GLOBAL_APIKeys;
 if (_) {

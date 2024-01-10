@@ -1,7 +1,10 @@
 const baseUrl = "https://aip.baidubce.com/rpc/2.0/ai_custom";
 
 export const fetchChat = async (body: any) => {
-  const { key, model, ...rest } = body;
+  let { key, password, model, ...rest } = body;
+  if (password && password === process.env.PASSWORD) {
+    key = process.env.BAIDU_KEY;
+  }
   return await fetch(
     `${baseUrl}/v1/wenxinworkshop/chat/${model}?access_token=${key}`,
     {

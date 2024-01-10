@@ -2,7 +2,10 @@ const baseUrl = "https://openrouter.ai/api";
 import Models from "~/openrouter.json";
 
 export const fetchChat = async (body: any) => {
-  const { key, ...rest } = body;
+  let { key, password, ...rest } = body;
+  if (password && password === process.env.PASSWORD) {
+    key = process.env.OPENROUTER_KEY;
+  }
   return await fetch(`${baseUrl}/v1/chat/completions`, {
     headers: {
       "Content-Type": "application/json",

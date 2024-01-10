@@ -40,6 +40,7 @@ module.exports = {
     'no-control-regex': 'off',
     'no-constant-condition': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
-    'qwik/no-use-visible-task': 'off'
+    'qwik/no-use-visible-task': 'off',
+    'prefer-const': 'off'
   },
 };

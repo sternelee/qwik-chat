@@ -1,4 +1,4 @@
-import { createContextId, type QRL } from "@builder.io/qwik";
+import { createContextId, type QRL, type NoSerialize } from "@builder.io/qwik";
 import type { Fzf } from "fzf";
 import { APIKeys } from "~/providers";
 import type { ChatMessage, Model, Option, SimpleModel } from "~/types";
@@ -202,7 +202,7 @@ export interface IStore {
   clearSessionConfirm: boolean;
   deleteSessionConfirm: boolean;
   inputBoxHeight: number;
-  // controller: AbortController | undefined;
+  controller: NoSerialize<AbortController | undefined>;
   remainingToken$: QRL<(this: IStore) => number>;
   remainingToken: number;
   validContext: ChatMessage[];

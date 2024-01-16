@@ -1,30 +1,24 @@
 import {
   $,
   component$,
-  useComputed$,
   useContextProvider,
-  useSignal,
   useStore,
   useVisibleTask$,
+  noSerialize,
 } from "@builder.io/qwik";
-import { type DocumentHead, server$ } from "@builder.io/qwik-city";
+import { type DocumentHead } from "@builder.io/qwik-city";
 import type { ParsedEvent, ReconnectInterval } from "eventsource-parser";
 import { createParser } from "eventsource-parser";
-import InputBox from "~/components/chat/InputBox";
-import MessageItem from "~/components/chat/MessageItem";
-import ThemeToggle from "~/components/chat/ThemeToggle";
+import Chat from "~/components/chat";
 import ProviderMap from "~/providers";
-// import type { IProvider } from "~/store";
 import {
   countTokensDollar,
   defaultInputBoxHeight,
-  defaultMessage,
   FZFData,
   globalSettings,
   type IStore,
   maxInputTokens,
   sessionSettings,
-  shownTokens,
   StoreContext,
 } from "~/store";
 import { LocalStorageKey } from "~/types";
@@ -32,42 +26,14 @@ import type { ChatMessage, Model } from "~/types";
 import { scrollToBottom } from "~/utils";
 import { fetchAllSessions, getSession, setSession } from "~/utils/storage";
 
-// const chatStream = server$(async function* ({
-//   provider,
-//   key,
-//   messages,
-//   temperature,
-//   model,
-// }) {
-//   const fetchChat = ProviderMap[provider as IProvider].fetchChat;
-//   const abortController = new AbortController();
-//   const response = await fetchChat({
-//     key,
-//     messages,
-//     temperature,
-//     signal: abortController.signal,
-//     model,
-//     stream: true,
-//   });
-//   if (this.signal.aborted) {
-//     abortController.abort()
-//     yield null;
-//   }
-//   if (!response.ok) {
-//     const json = await response.json();
-//     yield JSON.stringify(json);
-//     return;
-//   }
-// });
-
 export default component$(() => {
-  const containerWidth = useSignal("init");
   const store = useStore<IStore>({
     sessionId: "index",
     globalSettings,
     sessionSettings,
     inputContent: "",
     inputImage: "",
+    controller: undefined,
     messageList: [] as ChatMessage[],
     currentAssistantMessage: "",
     contextToken: 0,
@@ -93,7 +59,7 @@ export default component$(() => {
     validContext: [],
     archiveCurrentMessage: $(function () {
       if (this.currentAssistantMessage) {
-        // window.abortController = undefined;
+        this.controller = undefined;
         this.messageList = this.messageList.map((k) => ({
           ...k,
           type: k.type === "temporary" ? "default" : k.type,
@@ -106,8 +72,8 @@ export default component$(() => {
     }),
     fetchGPT: $(async function (this, messages) {
       const provider = this.sessionSettings.provider;
-      // window.abortController = new AbortController();
       let response: Response;
+      this.controller = noSerialize(new AbortController());
       if (this.globalSettings.requestWithBackend) {
         // 后端请求
         response = await fetch("/api/chat", {
@@ -115,7 +81,7 @@ export default component$(() => {
           headers: {
             "Content-Type": "application/json",
           },
-          // signal: window.abortController.signal,
+          signal: this.controller?.signal,
           body: JSON.stringify({
             provider,
             password: this.globalSettings.password,
@@ -137,7 +103,7 @@ export default component$(() => {
             undefined,
           messages,
           temperature: this.sessionSettings.APITemperature,
-          // signal: window.abortController.signal,
+          signal: this.controller?.signal,
           model: this.sessionSettings.model,
           stream: true,
         });
@@ -169,7 +135,7 @@ export default component$(() => {
               char = data;
             } else {
               const json = JSON.parse(data);
-              console.log(json)
+              console.log(json);
               if (provider === "google") {
                 char = json.candidates[0].content.parts[0].text;
                 if (json.candidates[0].finishReason === "STOP") {
@@ -227,10 +193,9 @@ export default component$(() => {
         parser.feed(decoder.decode(value));
       }
     }),
-    stopStreamFetch: $(function (this) {
-      // if (window.abortController) {
-      //   window.abortController.abort();
-      // }
+    stopStreamFetch: $(function () {
+      if (this.controller) this.controller.abort();
+      this.loading = false;
       this.archiveCurrentMessage();
     }),
     sendMessage: $(async function (this, content, fakeRole) {
@@ -318,15 +283,27 @@ export default component$(() => {
             : this.messageList.filter(
                 (k) => k.role === "system" || k.type === "locked"
               );
-          await this.fetchGPT(
-            // @ts-ignore
+          const messages = (
             this.sessionSettings.continuousDialogue
               ? this.validContext
               : [...this.validContext, currentMessage]
-          );
+          ).map((v) => {
+            if (v.images) {
+              return {
+                role: v.role,
+                content: v.content,
+                images: v.images,
+              };
+            }
+            return {
+              role: v.role,
+              content: v.content,
+            };
+          });
+          await this.fetchGPT(messages);
         } catch (error: any) {
           this.loading = false;
-          // window.abortController = undefined;
+          this.controller = undefined;
           if (!error.message.includes("abort")) {
             this.messageList = [
               ...this.messageList,
@@ -426,20 +403,6 @@ export default component$(() => {
   //   };
   // });
 
-  const countContextToken = (contextToken: number, model: Model) => {
-    return countTokensDollar(contextToken, model, "input");
-  };
-
-  const countContextTokensDollar = (
-    contextToken: number,
-    inputContentToken: number,
-    model: Model
-  ) => {
-    const c1 = countTokensDollar(contextToken, model, "input");
-    const c2 = countTokensDollar(inputContentToken, model, "input");
-    return (c1 + c2).toFixed(4);
-  };
-
   useVisibleTask$(({ track }) => {
     track(() => store.messageList.length);
     scrollToBottom();
@@ -460,108 +423,7 @@ export default component$(() => {
     scrollToBottom();
   });
 
-  return (
-    <main class="mt-4">
-      <div class="flex items-center px-2em">
-        <div class="flex-1 flex items-center dark:prose-invert dark:text-slate">
-          {store.sessionSettings.title && (
-            <>
-              <a
-                href={ProviderMap[store.sessionSettings.provider].href}
-                target="_blank"
-                class={{
-                  "inline-block text-8 mr-4": true,
-                  [ProviderMap[store.sessionSettings.provider].icon]: true,
-                }}
-              ></a>
-              <span
-                class="font-extrabold text-slate-7 cursor-pointer dark:text-slate"
-                onClick$={() => store.loadSession("index")}
-              >
-                {store.sessionSettings.title}
-              </span>
-            </>
-          )}
-          {!store.sessionSettings.title && (
-            <>
-              <a
-                href={ProviderMap[store.sessionSettings.provider].href}
-                target="_blank"
-                class={{
-                  "inline-block text-8": true,
-                  [ProviderMap[store.sessionSettings.provider].icon]: true,
-                }}
-              ></a>
-              <a
-                href={ProviderMap[store.sessionSettings.provider].href}
-                target="_blank"
-                class="font-extrabold ml-4"
-              >
-                {ProviderMap[store.sessionSettings.provider].name} Chat
-              </a>
-            </>
-          )}
-        </div>
-        <ThemeToggle />
-      </div>
-      <div
-        id="message-container"
-        class="px-1em"
-        style={{ "margin-bottom": `calc(6em + ${defaultInputBoxHeight}px)` }}
-      >
-        <div id="message-container-img" class="px-1em">
-          {!store.messageList.length && (
-            <MessageItem hiddenAction={true} message={defaultMessage} />
-          )}
-          {store.messageList.map((message, index) => (
-            <MessageItem
-              message={message}
-              hiddenAction={store.loading || message.type === "temporary"}
-              key={index}
-              index={index}
-            />
-          ))}
-        </div>
-        {!store.loading &&
-          (store.contextToken || store.inputContentToken) > 0 && (
-            <div class="flex items-center px-1em text-0.8em">
-              <hr class="flex-1 border-slate/40" />
-              {store.inputContentToken > 0 && (
-                <span class="mx-1 text-slate/40">
-                  {`有效上下文 + 提问 Tokens : ${shownTokens(
-                    store.contextToken + store.inputContentToken
-                  )}(`}
-                  <span
-                    class={{
-                      "text-red-500": store.remainingToken < 0,
-                    }}
-                  >
-                    {shownTokens(store.remainingToken)}
-                  </span>
-                  {`)/$${countContextTokensDollar(
-                    store.contextToken,
-                    store.inputContentToken,
-                    store.sessionSettings.model
-                  )}`}
-                </span>
-              )}
-              {store.inputContentToken === 0 && (
-                <span class="mx-1 text-slate/40">
-                  {`有效上下文 Tokens : ${shownTokens(
-                    store.contextToken
-                  )}/$${countContextToken(
-                    store.contextToken,
-                    store.sessionSettings.model
-                  )}`}
-                </span>
-              )}
-              <hr class="flex-1  border-slate/30" />
-            </div>
-          )}
-      </div>
-      <InputBox width={containerWidth.value} />
-    </main>
-  );
+  return <Chat />;
 });
 
 export const head: DocumentHead = {

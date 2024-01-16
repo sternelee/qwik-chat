@@ -8,7 +8,7 @@ export const fetchChat = async (body: any) => {
     key = process.env.GOOGLE_KEY;
   }
   const contents = parseMessageList(messages);
-  console.log(contents)
+  console.log(contents);
   return await fetch(
     `${baseUrl}/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${key}`,
     {
@@ -61,7 +61,10 @@ export const parseMessageList = (rawList: ChatMessage[]) => {
         ? [
             { text: message.content },
             {
-              inline_data: { mime_type: "image/jpeg", data: btoa(message.images[0]) },
+              inline_data: {
+                mime_type: "image/jpeg",
+                data: btoa(message.images[0]),
+              },
             },
           ]
         : [{ text: message.content }],

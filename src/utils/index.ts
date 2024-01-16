@@ -83,18 +83,18 @@ export function randomKey(keys: string[]) {
   return keys.length ? keys[Math.floor(Math.random() * keys.length)] : "";
 }
 
-// export const scrollToBottom = () => {
-//   window.scrollTo({
-//     top: document.body.scrollHeight,
-//     behavior: "smooth"
-//   })
-// }
-export const scrollToBottom = throttle(() => {
+export const scrollToBottom = () => {
   window.scrollTo({
     top: document.body.scrollHeight,
-    behavior: "smooth",
-  });
-}, 250);
+    behavior: "smooth"
+  })
+}
+// export const scrollToBottom = throttle(() => {
+//   window.scrollTo({
+//     top: document.body.scrollHeight,
+//     behavior: "smooth",
+//   });
+// }, 250);
 
 export async function fetchWithTimeout(
   input: RequestInfo | URL,

@@ -60,6 +60,8 @@ export default component$<{
   useVisibleTask$(async ({ track }) => {
     const { countTokensInWorker } = await import("~/wokers");
     track(() => store.inputContent);
+    track(() => store.validContent);
+    track(() => store.currentAssistantMessage);
     countTokensInWorker(store.inputContent).then((res) => {
       store.inputContentToken = res;
     });
@@ -68,14 +70,6 @@ export default component$<{
     });
     countTokensInWorker(store.currentAssistantMessage).then((res) => {
       store.currentMessageToken = res;
-    });
-  });
-
-  useVisibleTask$(async ({ track }) => {
-    const { countTokensInWorker } = await import("~/wokers");
-    track(() => store.validContent);
-    countTokensInWorker(store.validContent).then((res) => {
-      store.contextToken = res;
     });
   });
 
@@ -185,7 +179,7 @@ export default component$<{
         {store.loading && (
           <div
             class="animate-gradient-border cursor-pointer dark:bg-#292B31/90 bg-#E7EBF0/80 h-3em flex items-center justify-center"
-            onClick$={store.stopStreamFetch}
+            onClick$={() => store.stopStreamFetch()}
           >
             <span class="dark:text-slate text-slate-7">
               AI 正在思考 / {shownTokens(store.currentMessageToken)} / $

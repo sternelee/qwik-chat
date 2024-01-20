@@ -1,8 +1,10 @@
-const baseUrl = "https://openrouter.ai/api";
+import type { ParsedEvent } from "eventsource-parser";
 import Models from "~/openrouter.json";
 import type { ChatMessage } from "~/types";
 
-export const fetchChat = async (body: any) => {
+const baseUrl = "https://openrouter.ai/api";
+
+const fetchChat = async (body: any) => {
   let { key, password, ...rest } = body;
   if (password && password === process.env.PASSWORD) {
     key = process.env.OPENROUTER_KEY;
@@ -36,6 +38,15 @@ export const fetchChat = async (body: any) => {
   });
 };
 
+const parseData = (event: ParsedEvent) => {
+  const data = event.data;
+  const json = JSON.parse(data);
+  if (data === "[DONE]") {
+    return [true, null];
+  }
+  return [false, json.choices[0].delta?.content];
+};
+
 export default {
   icon: "i-simple-icons-alwaysdata",
   name: "OpenRouter",
@@ -48,5 +59,6 @@ export default {
     input: Number(m.pricing.prompt),
     output: Number(m.pricing.completion),
   })),
+  parseData,
   fetchChat,
 };

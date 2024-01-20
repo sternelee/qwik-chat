@@ -1,5 +1,3 @@
-
-
 /**
  * WHAT IS THIS FILE?
  *
@@ -32,4 +30,26 @@ html {
 body {
   padding: 0;
   line-height: inherit;
+}
+
+::view-transition-new(root),
+::view-transition-old(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2147483646;
+}
+
+.dark::view-transition-old(root) {
+  z-index: 2147483646;
+}
+
+.dark::view-transition-new(root) {
+  z-index: 1;
 }

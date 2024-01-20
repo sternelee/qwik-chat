@@ -3,14 +3,14 @@ import {
   component$,
   useContext,
   useSignal,
-  useVisibleTask$,
+  useComputed$,
 } from "@builder.io/qwik";
-import { useCopyCode } from "~/hooks";
-import { StoreContext } from "~/store";
+import { useThrottle, useCopyCode } from "~/hooks";
+import { ChatContext } from "~/store";
 import type { ChatMessage } from "~/types";
 import { copyToClipboard } from "~/utils";
 import MessageAction from "./MessageAction";
-// import { throttle } from "~/hooks"
+import { md } from "~/markdown-it";
 
 interface Props {
   message: ChatMessage;
@@ -20,7 +20,7 @@ interface Props {
 
 export default component$<Props>((props) => {
   const renderedMarkdown = useSignal("");
-  const store = useContext(StoreContext);
+  const store = useContext(ChatContext);
   const roleClass = {
     error: "bg-gradient-to-r from-red-400 to-red-700",
     system: "bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300",
@@ -87,55 +87,61 @@ export default component$<Props>((props) => {
       });
     }
   });
-  useVisibleTask$(async ({ track }) => {
-    const { renderMarkdownInWorker } = await import("~/wokers");
-    // const renderedMarkdownThrottle = throttle(() => {
-    //   renderMarkdownInWorker(content).then((html) => {
-    //     renderedMarkdown.value = html;
-    //   });
-    // }, 250)
-    track(() => props.message.content);
-    const content = (props.message.images || []).map(v => `![](${v})`) + props.message.content
-    renderMarkdownInWorker(content).then((html) => {
-      renderedMarkdown.value = html;
-    });
+
+  const msgContent = useComputed$(() => {
+    return (
+      (props.message.images || []).map((v) => `![](${v})`) +
+      props.message.content
+    );
   });
 
+  useThrottle(
+    msgContent,
+    50,
+    $((content: string) => {
+      renderedMarkdown.value = md.render(content);
+    })
+  );
+
   return (
-    <div
-      style={{
-        transition: "all 0.3s",
-      }}
-      class={{
-        "group flex gap-3 px-4 mx--4 rounded-lg transition-colors sm:hover:bg-slate/6 dark:sm:hover:bg-slate/5 relative message-item":
-          true,
-        temporary: props.message.type === "temporary",
-      }}
-    >
-      <div
-        class={`shadow-slate-5 shadow-sm dark:shadow-none shrink-0 w-7 h-7 mt-4 rounded-full op-80 flex items-center justify-center cursor-pointer ${
-          roleClass[props.message.role]
-        } ${props.message.type === "temporary" ? "animate-spin" : ""}`}
-        onClick$={lockMessage}
-      >
-        {props.message.type === "locked" && (
-          <div class="i-carbon:locked text-white" />
-        )}
-      </div>
-      <div
-        class="message prose prose-slate break-all dark:prose-invert dark:text-slate break-words overflow-hidden"
-        style="max-width:100%"
-        dangerouslySetInnerHTML={renderedMarkdown.value}
-      />
-      {!props.hiddenAction && (
-        <MessageAction
-          del={del}
-          copy={copy}
-          edit={edit}
-          reAnswer={reAnswer}
-          role={props.message.role}
-        />
+    <slot>
+      {renderedMarkdown.value && (
+        <div
+          style={{
+            transition: "all 0.3s",
+          }}
+          class={{
+            "group flex gap-3 px-4 mx--4 rounded-lg transition-colors sm:hover:bg-slate/6 dark:sm:hover:bg-slate/5 relative message-item":
+              true,
+            temporary: props.message.type === "temporary",
+          }}
+        >
+          <div
+            class={`shadow-slate-5 shadow-sm dark:shadow-none shrink-0 w-7 h-7 mt-4 rounded-full op-80 flex items-center justify-center cursor-pointer ${
+              roleClass[props.message.role]
+            } ${props.message.type === "temporary" ? "animate-spin" : ""}`}
+            onClick$={lockMessage}
+          >
+            {props.message.type === "locked" && (
+              <div class="i-carbon:locked text-white" />
+            )}
+          </div>
+          <div
+            class="message prose prose-slate break-all dark:prose-invert dark:text-slate break-words overflow-hidden"
+            style="max-width:100%"
+            dangerouslySetInnerHTML={renderedMarkdown.value}
+          />
+          {!props.hiddenAction && (
+            <MessageAction
+              del={del}
+              copy={copy}
+              edit={edit}
+              reAnswer={reAnswer}
+              role={props.message.role}
+            />
+          )}
+        </div>
       )}
-    </div>
+    </slot>
   );
 });

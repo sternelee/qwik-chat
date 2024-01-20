@@ -76,6 +76,33 @@ export function useThrottle<T>(
   return throttleSig;
 }
 
+export function useValueThrottle<T>(
+  value: any,
+  milliSeconds: number,
+  fn?: PropFunction<(value: T) => void>,
+) {
+  const throttleSig = useSignal("");
+  const lastTime = useSignal(0);
+  useTask$(({ track, cleanup }) => {
+    track(() => value);
+    console.log(value)
+    const currentTime = Date.now();
+    const throttled = setTimeout(async () => {
+      await fn!(value);
+      throttleSig.value = value;
+    }, milliSeconds);
+    if (currentTime >= lastTime.value + milliSeconds) {
+      clearTimeout(throttled)
+      fn!(value);
+      lastTime.value = currentTime;
+      throttleSig.value = value;
+    }
+
+    cleanup(() => clearTimeout(throttled));
+  });
+  return throttleSig;
+}
+
 export function useCopyCode() {
   const timeoutIdMap: Map<HTMLElement, NodeJS.Timeout> = new Map();
   useOnWindow(

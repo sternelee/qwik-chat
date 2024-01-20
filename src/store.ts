@@ -1,6 +1,6 @@
 import { createContextId, type QRL, type NoSerialize } from "@builder.io/qwik";
 import type { Fzf } from "fzf";
-import { APIKeys } from "~/providers";
+import { APIKeys, type IProvider } from "~/providers";
 import type { ChatMessage, Model, Option, SimpleModel } from "~/types";
 import { defaultEnv } from "./env";
 import Models from "./openrouter.json";
@@ -52,7 +52,15 @@ const modelCostMap = {
     input: 0,
     output: 0,
   },
-  chatglm_turbo: {
+  'glm-3-turbo': {
+    input: 0,
+    output: 0,
+  },
+  'glm-4': {
+    input: 0,
+    output: 0,
+  },
+  'glm-4v': {
     input: 0,
     output: 0,
   },
@@ -84,6 +92,10 @@ const modelCostMap = {
     input: 0.008,
     output: 0.008,
   },
+  'qwen-turbo': {
+    input: 0.008,
+    output: 0.008,
+  }
 } satisfies {
   [key in Model]: {
     input: number;
@@ -149,8 +161,6 @@ if (_) {
   }
 }
 
-export type IProvider = keyof typeof APIKeys;
-
 export let sessionSettings = {
   ...defaultEnv.CLIENT_SESSION_SETTINGS,
   provider: "openai" as IProvider,
@@ -182,7 +192,7 @@ if (_) {
   }
 }
 
-export interface IStore {
+export interface IChatStore {
   sessionId: string;
   globalSettings: typeof globalSettings;
   sessionSettings: typeof sessionSettings;
@@ -203,19 +213,19 @@ export interface IStore {
   deleteSessionConfirm: boolean;
   inputBoxHeight: number;
   controller: NoSerialize<AbortController | undefined>;
-  remainingToken$: QRL<(this: IStore) => number>;
+  remainingToken$: QRL<(this: IChatStore) => number>;
   remainingToken: number;
   validContext: ChatMessage[];
-  fetchGPT: QRL<(this: IStore, messages: ChatMessage[]) => void>;
+  fetchGPT: QRL<(this: IChatStore, messages: ChatMessage[]) => void>;
   sendMessage: QRL<
-    (this: IStore, content?: string, fakeRole?: FakeRoleUnion) => void
+    (this: IChatStore, content?: string, fakeRole?: FakeRoleUnion) => void
   >;
-  stopStreamFetch: QRL<(this: IStore) => void>;
-  archiveCurrentMessage: QRL<(this: IStore) => void>;
-  loadSession: QRL<(this: IStore, sessionId: string) => void>;
+  stopStreamFetch: QRL<(this: IChatStore) => void>;
+  archiveCurrentMessage: QRL<(this: IChatStore) => void>;
+  loadSession: QRL<(this: IChatStore, sessionId: string) => void>;
 }
 
-export const StoreContext = createContextId<IStore>("globalStore");
+export const ChatContext = createContextId<IChatStore>("chatContext");
 // 3em
 export const defaultInputBoxHeight = 48;
 

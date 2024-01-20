@@ -1,15 +1,17 @@
 import { SignJWT } from "jose";
+import type { ParsedEvent } from "eventsource-parser";
 
-const baseUrl = "https://open.bigmodel.cn/api/paas";
+const baseUrl = "https://open.bigmodel.cn/api/paas/v4/images/generations";
 
 const cache = new Map();
 
-export const fetchChat = async (body: any) => {
-  let { key, password, model, messages, ...rest } = body;
-  if (password && password === process.env.PASSWORD) {
-    key = process.env.CHATGLM_KEY;
-  }
-  const [id, secret] = key.split(".");
+const fetchChat = async (body: any) => {
+  let { key, password, ...rest } = body;
+  const APIKey =
+    password && password === process.env.PASSWORD && process.env.CHATGLM_KEY
+      ? process.env.CHATGLM_KEY
+      : key;
+  const [id, secret] = APIKey.split(".");
   let token = "";
   const cacheToken = cache.get(id);
   if (cacheToken) {
@@ -34,17 +36,22 @@ export const fetchChat = async (body: any) => {
       exp,
     });
   }
-  return await fetch(`${baseUrl}/v3/model-api/${model}/sse-invoke`, {
+  return await fetch(baseUrl, {
     headers: {
       "Content-Type": "application/json",
       Authorization: token,
     },
     method: "POST",
-    body: JSON.stringify({
-      prompt: messages,
-      ...rest,
-    }),
+    body: JSON.stringify(rest),
   });
+};
+
+const parseData = (event: ParsedEvent) => {
+  const data = event.data;
+  if (event.event === "finish") {
+    return [true, null];
+  }
+  return [false, data];
 };
 
 export default {
@@ -52,12 +59,21 @@ export default {
   name: "智谱AI",
   href: "https://open.bigmodel.cn/usercenter/apikeys",
   baseUrl,
-  defaultModel: "chatglm_turbo",
+  defaultModel: "glm-3-turbo",
   models: [
     {
-      label: "ChatGLM-Turbo",
-      value: "chatglm_turbo",
+      label: "GLM-3-Turbo",
+      value: "glm-3-turbo",
+    },
+    {
+      label: "GLM-4",
+      value: "glm-4",
+    },
+    {
+      label: "GLM-4-V",
+      value: "glm-4v",
     },
   ],
+  parseData,
   fetchChat,
 };

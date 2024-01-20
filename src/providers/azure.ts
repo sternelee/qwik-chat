@@ -1,4 +1,4 @@
-export const fetchChat = async (body: any) => {
+const fetchChat = async (body: any) => {
   const { key, model, version = "2023-08-01-preview", ...rest } = body;
   return await fetch(
     `/openai/deployments/${model}/chat/completions?api-version=${version}`,
@@ -9,11 +9,11 @@ export const fetchChat = async (body: any) => {
       },
       method: "POST",
       body: JSON.stringify(rest),
-    },
+    }
   );
 };
 
-export const genImage = async (body: any) => {
+const genImage = async (body: any) => {
   const { key, version = "2023-08-01-preview", ...rest } = body;
   return await fetch(
     `.openai.azure.com/openai/images/generations:submit?api-version=${version}`,
@@ -24,6 +24,6 @@ export const genImage = async (body: any) => {
       },
       method: "POST",
       body: JSON.stringify(rest),
-    },
+    }
   );
 };

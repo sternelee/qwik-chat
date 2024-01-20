@@ -3,6 +3,7 @@ import chatglm from "./chatglm";
 import google from "./google";
 import openai from "./openai";
 import openrouter from "./openrouter";
+import qwen from "./qwen";
 
 export default {
   openai,
@@ -10,14 +11,16 @@ export default {
   google,
   baidu,
   chatglm,
+  qwen,
 };
 
 export const PROVIDER_LIST = [
-  { value: "openai", label: "OpenAI" },
-  { value: "openrouter", label: "OpenRouter" },
-  { value: "google", label: "Google" },
-  { value: "baidu", label: "文心一言" },
-  { value: "chatglm", label: "智谱AI" },
+  { value: "openai", label: openai.name },
+  { value: "openrouter", label: openrouter.name },
+  { value: "google", label: google.name },
+  { value: "baidu", label: baidu.name },
+  { value: "chatglm", label: chatglm.name },
+  { value: "qwen", label: qwen.name }
 ];
 
 export const APIKeys = {
@@ -26,7 +29,10 @@ export const APIKeys = {
   google: "",
   chatglm: "",
   baidu: "",
+  qwen: ""
   // replicate: {
   //   apikey: '',
   // },
 };
+
+export type IProvider = keyof typeof APIKeys;

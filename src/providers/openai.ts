@@ -1,12 +1,14 @@
+import type { ParsedEvent } from "eventsource-parser";
 import type { ChatMessage } from "~/types";
 
 const baseUrl = "https://api.openai.com";
 
-export const fetchChat = async (body: any) => {
-  let { key, password, ...rest } = body;
-  if (password && password === process.env.PASSWORD) {
-    key = process.env.OPENAI_KEY;
-  }
+const fetchChat = async (body: any) => {
+  const { key, password, ...rest } = body;
+  const APIKey =
+    password && password === process.env.PASSWORD && process.env.OPENAI_KEY
+      ? process.env.OPENAI_KEY
+      : key;
   rest.messages = rest.messages.map((m: ChatMessage) => {
     if (m.images) {
       return {
@@ -28,11 +30,20 @@ export const fetchChat = async (body: any) => {
   return await fetch(`${baseUrl}/v1/chat/completions`, {
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${key}`,
+      Authorization: `Bearer ${APIKey}`,
     },
     method: "POST",
     body: JSON.stringify(rest),
   });
+};
+
+const parseData = (event: ParsedEvent) => {
+  const data = event.data;
+  const json = JSON.parse(data);
+  if (data === "[DONE]") {
+    return [true, null];
+  }
+  return [false, json.choices[0].delta?.content];
 };
 
 export default {
@@ -57,5 +68,6 @@ export default {
     // { value: "gpt-4-32k-0314", label: "gpt-4-32k-0314" },
     { value: "gpt-4-32k-0613", label: "gpt-4-32k-0613" },
   ],
+  parseData,
   fetchChat,
 };

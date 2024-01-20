@@ -6,17 +6,14 @@ import {
   useSignal,
   useVisibleTask$,
 } from "@builder.io/qwik";
-import { useNavigate, type RouteNavigate } from "@builder.io/qwik-city";
+import { useNavigate } from "@builder.io/qwik-city";
 import { toBlob, toJpeg } from "html-to-image";
 import { defaultEnv } from "~/env";
-import ProviderMap, { PROVIDER_LIST } from "~/providers";
+import ProviderMap, { PROVIDER_LIST, type IProvider } from "~/providers";
 import {
   type FakeRoleUnion,
-  imgIcons,
-  type IProvider,
   roleIcons,
-  StoreContext,
-  type IStore,
+  ChatContext,
 } from "~/store";
 import type { ChatMessage, SimpleModel } from "~/types";
 import {
@@ -32,7 +29,7 @@ import {
 import { Selector, Switch as SwitchButton } from "./Common";
 
 export default component$(() => {
-  const store = useContext(StoreContext);
+  const store = useContext(ChatContext);
   const isFirst = useSignal(true);
   const inputImageRef = useSignal<HTMLImageElement>();
 
@@ -122,7 +119,7 @@ export default component$(() => {
                 />
               </SettingItem>
             )}
-            <SettingItem icon="i-carbon:flow-modeler" label="请求代理后端">
+            <SettingItem icon="i-carbon:flow-modeler" label="请求后端转发">
               <SwitchButton
                 checked={store.globalSettings.requestWithBackend}
                 onChange={$((e: any) => {
@@ -367,8 +364,7 @@ export default component$(() => {
                 }[store.fakeRole]
               }
             />
-            {
-              /**
+            {/**
             <ActionItem
               onClick={$(async () => {
                 store.genImg = "loading";
@@ -380,8 +376,7 @@ export default component$(() => {
               icon={imgIcons[store.genImg]}
               label="导出图片"
             />
-               */
-            }
+               */}
             <ActionItem
               label="导出MD"
               onClick={$(async () => {

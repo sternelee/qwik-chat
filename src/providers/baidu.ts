@@ -1,34 +1,50 @@
+import type { ParsedEvent } from "eventsource-parser";
+
 const baseUrl = "https://aip.baidubce.com/rpc/2.0/ai_custom";
 
-export const fetchChat = async (body: any) => {
-  let { key, password, model, ...rest } = body;
-  if (password && password === process.env.PASSWORD) {
-    key = process.env.BAIDU_KEY;
-  }
+const fetchChat = async (body: any) => {
+  const { key, password, model, ...rest } = body;
+  const APIKey =
+    password && password === process.env.PASSWORD && process.env.BAIDU_KEY
+      ? process.env.BAIDU_KEY
+      : key;
   return await fetch(
-    `${baseUrl}/v1/wenxinworkshop/chat/${model}?access_token=${key}`,
+    `${baseUrl}/v1/wenxinworkshop/chat/${model}?access_token=${APIKey}`,
     {
       headers: {
         "Content-Type": "application/json",
       },
       method: "POST",
       body: JSON.stringify(rest),
-    },
+    }
   );
 };
 
-export const fetchImage = async (body: any) => {
-  const { key, model, messages, ...rest } = body;
+const fetchImage = async (body: any) => {
+  const { key, password, model, ...rest } = body;
+  const APIKey =
+    password && password === process.env.PASSWORD && process.env.BAIDU_KEY
+      ? process.env.BAIDU_KEY
+      : key;
   return await fetch(
-    `${baseUrl}/v1/wenxinworkshop/text2image/${model}?access_token=${key}`,
+    `${baseUrl}/v1/wenxinworkshop/text2image/${model}?access_token=${APIKey}`,
     {
       headers: {
         "Content-Type": "application/json",
       },
       method: "POST",
       body: JSON.stringify(rest),
-    },
+    }
   );
+};
+
+const parseData = (event: ParsedEvent) => {
+  const data = event.data;
+  const json = JSON.parse(data);
+  if (json.is_end) {
+    return [true, null];
+  }
+  return [false, json.result];
 };
 
 export default {
@@ -60,6 +76,7 @@ export default {
     // { label: "Llama-2-13b-chat", value: "llama_2_13b" },
     // { label: "Llama-2-70b-chat", value: "llama_2_70b" },
   ],
+  parseData,
   fetchChat,
   fetchImage,
 };

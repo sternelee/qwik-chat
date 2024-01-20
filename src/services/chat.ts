@@ -1,8 +1,7 @@
 import { server$ } from "@builder.io/qwik-city";
 import type { ParsedEvent, ReconnectInterval } from "eventsource-parser";
 import { createParser } from "eventsource-parser";
-import ProviderMap from "~/providers";
-import type { IProvider } from "~/store";
+import ProviderMap, { type IProvider } from "~/providers";
 import type { ChatMessage } from "~/types";
 
 export const chat = server$(async function* ({

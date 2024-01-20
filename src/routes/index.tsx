@@ -12,14 +12,13 @@ import { createParser } from "eventsource-parser";
 import Chat from "~/components/chat";
 import ProviderMap from "~/providers";
 import {
-  countTokensDollar,
   defaultInputBoxHeight,
   FZFData,
   globalSettings,
-  type IStore,
+  type IChatStore,
   maxInputTokens,
   sessionSettings,
-  StoreContext,
+  ChatContext,
 } from "~/store";
 import { LocalStorageKey } from "~/types";
 import type { ChatMessage, Model } from "~/types";
@@ -27,7 +26,7 @@ import { scrollToBottom } from "~/utils";
 import { fetchAllSessions, getSession, setSession } from "~/utils/storage";
 
 export default component$(() => {
-  const store = useStore<IStore>({
+  const store = useStore<IChatStore>({
     sessionId: "index",
     globalSettings,
     sessionSettings,
@@ -108,6 +107,7 @@ export default component$(() => {
           stream: true,
         });
       }
+
       if (!response.ok) {
         this.loading = false;
         const json = await response.json();
@@ -120,37 +120,10 @@ export default component$(() => {
       const decoder = new TextDecoder();
       const streamParser = (event: ParsedEvent | ReconnectInterval) => {
         if (event.type === "event") {
-          const data = event.data;
-          if (data === "[DONE]") {
-            this.loading = false;
-            return;
-          }
-          if (provider === "chatglm" && event.event === "finish") {
-            this.loading = false;
-            return;
-          }
           try {
-            let char = "";
-            if (provider === "chatglm") {
-              char = data;
-            } else {
-              const json = JSON.parse(data);
-              console.log(json);
-              if (provider === "google") {
-                char = json.candidates[0].content.parts[0].text;
-                if (json.candidates[0].finishReason === "STOP") {
-                  this.loading = false;
-                }
-              } else {
-                if (provider === "baidu" && json.is_end) {
-                  this.loading = false;
-                  return;
-                }
-                char =
-                  provider === "baidu"
-                    ? json.result
-                    : json.choices[0].delta?.content;
-              }
+            const [done, char] = ProviderMap[provider].parseData(event);
+            if (done) {
+              this.loading = false
             }
             if (char) {
               if (this.currentAssistantMessage) {
@@ -379,7 +352,7 @@ export default component$(() => {
     }),
   });
 
-  useContextProvider(StoreContext, store);
+  useContextProvider(ChatContext, store);
 
   useVisibleTask$(() => {
     const json = localStorage.getItem("gpt-APIKeys");
@@ -394,14 +367,6 @@ export default component$(() => {
       new URLSearchParams(location.search).get("session") || "index";
     store.loadSession(sessionId);
   });
-
-  // const provider$ = useComputed$(() => ProviderMap[store.sessionSettings.provider])
-  // const defaultMessage$ = useComputed$(() => {
-  //   return {
-  //     ...defaultMessage,
-  //     content: `Powered by ${store.sessionSettings.provider}\n ${defaultMessage.content}`,
-  //   };
-  // });
 
   useVisibleTask$(({ track }) => {
     track(() => store.messageList.length);

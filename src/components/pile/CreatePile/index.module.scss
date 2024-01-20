@@ -1,0 +1,135 @@
+.frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  overflow-y: overlay;
+  -webkit-app-region: drag;
+}
+
+.card {
+  margin: 0 auto;
+  margin-top: -64px;
+  max-width: 400px;
+  background: var(--bg);
+  padding: 18px;
+  border-radius: 22px;
+}
+
+.header {
+  display: flex;
+  // align-items: center;
+  flex-direction: column;
+  margin-bottom: 12px;
+
+  .name {
+    font-family: "Porpora";
+    font-size: 1.4em;
+    color: var(--primary);
+  }
+}
+
+.form {
+  -webkit-app-region: none;
+
+  .input {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 20px 0;
+
+    .des {
+      font-size: 0.8em;
+      color: var(--secondary);
+      width: 240px;
+      margin-bottom: 12px;
+
+      label {
+        display: block;
+        font-weight: 500;
+        color: var(--primary);
+        margin-bottom: 2px;
+      }
+    }
+
+    input {
+      border: none;
+      border-radius: 8px;
+      padding: 9px 12px;
+      line-height: 0.9;
+      outline: none;
+      font-size: 0.8em;
+      background: var(--bg-secondary);
+      color: var(--primary);
+
+      &:focus {
+        background: var(--bg-tertiary);
+      }
+    }
+
+    button {
+      display: block;
+      text-align: center;
+      font-size: 0.8em;
+      padding: 9px 12px;
+      font-weight: 500;
+      color: var(--secondary);
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      border: none;
+      appearance: none;
+      outline: none;
+      transition: all ease-in-out 120ms;
+
+      &:hover {
+        cursor: pointer;
+        color: var(--primary);
+        background: var(--bg-tertiary);
+      }
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  -webkit-app-region: none;
+
+  .back {
+    text-align: center;
+    font-size: 0.8em;
+    padding: 9px 12px;
+    font-weight: 500;
+    color: var(--secondary);
+    background: Var(--bg-tertiary);
+    border-radius: 12px;
+    width: 100px;
+    transition: all ease-in-out 120ms;
+
+    margin-right: 12px;
+    &:hover {
+      cursor: pointer;
+      color: var(--primary);
+      background: var(--bg-secondary);
+    }
+  }
+
+  .button {
+    text-align: center;
+    font-size: 0.8em;
+    padding: 9px 12px;
+    font-weight: 500;
+    color: var(--base);
+    background: Var(--bg-secondary);
+    border-radius: 12px;
+    width: 200px;
+    transition: all ease-in-out 120ms;
+
+    &:hover {
+      cursor: pointer;
+      color: var(--base-hover);
+      background: var(--bg-tertiary);
+    }
+  }
+}

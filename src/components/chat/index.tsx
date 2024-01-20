@@ -1,4 +1,9 @@
-import { useSignal, component$, useContext } from "@builder.io/qwik";
+import {
+  useSignal,
+  component$,
+  useContext,
+  useComputed$,
+} from "@builder.io/qwik";
 import ThemeToggle from "~/components/chat/ThemeToggle";
 import MessageItem from "~/components/chat/MessageItem";
 import InputBox from "~/components/chat/InputBox";
@@ -8,12 +13,12 @@ import {
   countTokensDollar,
   defaultInputBoxHeight,
   shownTokens,
-  StoreContext,
+  ChatContext,
   defaultMessage,
 } from "~/store";
 
 export default component$(() => {
-  const store = useContext(StoreContext);
+  const store = useContext(ChatContext);
   const containerWidth = useSignal("init");
 
   const countContextTokensDollar = (
@@ -29,6 +34,15 @@ export default component$(() => {
   const countContextToken = (contextToken: number, model: Model) => {
     return countTokensDollar(contextToken, model, "input");
   };
+
+  const defaultMessage$ = useComputed$(() => {
+    return {
+      ...defaultMessage,
+      content: `💡请自行填写APIKey，点击这里👉 [去开通](${
+        ProviderMap[store.sessionSettings.provider].href
+      })\n ${defaultMessage.content}`,
+    };
+  });
 
   return (
     <main class="mt-4">
@@ -76,12 +90,12 @@ export default component$(() => {
       </div>
       <div
         id="message-container"
-        class="px-1em"
+        class="px-1em mt-4"
         style={{ "margin-bottom": `calc(6em + ${defaultInputBoxHeight}px)` }}
       >
         <div id="message-container-img" class="px-1em">
           {!store.messageList.length && (
-            <MessageItem hiddenAction={true} message={defaultMessage} />
+            <MessageItem hiddenAction={true} message={defaultMessage$.value} />
           )}
           {store.messageList.map((message, index) => (
             <MessageItem

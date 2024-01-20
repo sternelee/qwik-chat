@@ -1,6 +1,6 @@
 import type { defaultEnv } from "./env";
 import { type SessionSettings } from "./env";
-import { type IProvider } from "~/store"
+import { type IProvider } from "~/providers";
 
 export const enum LocalStorageKey {
   GLOBAL_SETTINGS = "gpt-global-APIKeys",

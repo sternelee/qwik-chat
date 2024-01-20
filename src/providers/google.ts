@@ -1,16 +1,18 @@
+import type { ParsedEvent } from "eventsource-parser";
 import type { ChatMessage } from "~/types";
 
 const baseUrl = "https://generativelanguage.googleapis.com";
 
-export const fetchChat = async (body: any) => {
-  let { key, password, model, messages } = body;
-  if (password && password === process.env.PASSWORD) {
-    key = process.env.GOOGLE_KEY;
-  }
+const fetchChat = async (body: any) => {
+  const { key, password, model, messages } = body;
+  const APIKey =
+    password && password === process.env.PASSWORD && process.env.GOOGLE_KEY
+      ? process.env.GOOGLE_KEY
+      : key;
   const contents = parseMessageList(messages);
   console.log(contents);
   return await fetch(
-    `${baseUrl}/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${key}`,
+    `${baseUrl}/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${APIKey}`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -21,7 +23,7 @@ export const fetchChat = async (body: any) => {
   );
 };
 
-export const parseMessageList = (rawList: ChatMessage[]) => {
+const parseMessageList = (rawList: ChatMessage[]) => {
   interface GoogleGeminiMessage {
     role: "user" | "model";
     parts:
@@ -73,8 +75,14 @@ export const parseMessageList = (rawList: ChatMessage[]) => {
   return parsedList;
 };
 
+const parseData = (event: ParsedEvent) => {
+  const data = event.data;
+  const json = JSON.parse(data);
+  return [json.candidates[0].finishReason === "STOP", json.candidates[0].content.parts[0].text];
+};
+
 export default {
-  icon: "i-simple-icons-google", // @unocss-include
+  icon: "i-carbon:logo-google", // @unocss-include
   name: "Google",
   href: "https://makersuite.google.com/app/apikey",
   baseUrl,
@@ -83,5 +91,6 @@ export default {
     { value: "gemini-pro", label: "Gemini-Pro" },
     { value: "gemini-pro-vision", label: "Gemini-Pro-Vision" },
   ],
+  parseData,
   fetchChat,
 };

@@ -1,6 +1,6 @@
 import { $, component$, useComputed$, useContext, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { useNavigate } from '@builder.io/qwik-city';
-import { countTokensDollar, defaultInputBoxHeight, FZFData, shownTokens, StoreContext } from "~/store";
+import { countTokensDollar, defaultInputBoxHeight, FZFData, shownTokens, ChatContext } from "~/store";
 import type { Option } from "~/types";
 import { blobToBase64, isMobile, scrollToBottom } from "~/utils";
 import SettingAction from "./SettingAction";
@@ -10,7 +10,7 @@ export default component$<{
   width: string;
 }>(({ width }) => {
   const navigator = useNavigate()
-  const store = useContext(StoreContext);
+  const store = useContext(ChatContext);
   const candidateOptions = useSignal<Option[]>([]);
   const compositionEnd = useSignal(true);
   const inputRef = useSignal<HTMLTextAreaElement | undefined>();

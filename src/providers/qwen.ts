@@ -27,11 +27,9 @@ const fetchChat = async (body: any) => {
 
 const parseData = (event: ParsedEvent) => {
   const data = event.data;
-  if (data === "[DONE]") {
-    return [true, null];
-  }
   const json = JSON.parse(data);
-  return [false, json.output[0].message?.content];
+  console.log(json)
+  return [json.output.choices[0].finish_reason === 'stop', json.output.choices[0].message.content];
 };
 
 export default {

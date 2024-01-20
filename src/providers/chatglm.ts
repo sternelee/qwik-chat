@@ -1,7 +1,8 @@
 import { SignJWT } from "jose";
 import type { ParsedEvent } from "eventsource-parser";
+import type { ChatMessage } from "~/types";
 
-const baseUrl = "https://open.bigmodel.cn/api/paas/v4/images/generations";
+const baseUrl = "https://open.bigmodel.cn/api/paas/v4/chat/completions";
 
 const cache = new Map();
 
@@ -36,6 +37,23 @@ const fetchChat = async (body: any) => {
       exp,
     });
   }
+  rest.messages = rest.messages.map((m: ChatMessage) => {
+    if (m.images) {
+      return {
+        role: m.role,
+        content: [
+          { type: "text", text: m.content },
+          {
+            type: "image_url",
+            image_url: {
+              url: m.images[0],
+            },
+          },
+        ],
+      };
+    }
+    return m;
+  });
   return await fetch(baseUrl, {
     headers: {
       "Content-Type": "application/json",
@@ -48,10 +66,11 @@ const fetchChat = async (body: any) => {
 
 const parseData = (event: ParsedEvent) => {
   const data = event.data;
-  if (event.event === "finish") {
+  if (data === "[DONE]") {
     return [true, null];
   }
-  return [false, data];
+  const json = JSON.parse(data);
+  return [false, json.choices[0].delta?.content];
 };
 
 export default {
@@ -73,12 +92,12 @@ export default {
       input: 0.1,
       output: 0.1,
     },
-    // {
-    //   label: "GLM-4-V",
-    //   value: "glm-4v",
-    //   input: 0.1,
-    //   output: 0.1,
-    // },
+    {
+      label: "GLM-4-V",
+      value: "glm-4v",
+      input: 0.1,
+      output: 0.1,
+    },
   ],
   parseData,
   fetchChat,

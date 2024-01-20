@@ -5,6 +5,7 @@ import {
   useContext,
   useSignal,
   useVisibleTask$,
+  useComputed$,
 } from "@builder.io/qwik";
 import { useNavigate } from "@builder.io/qwik-city";
 import { toBlob, toJpeg } from "html-to-image";
@@ -14,6 +15,7 @@ import {
   type FakeRoleUnion,
   roleIcons,
   ChatContext,
+  SUPPORT_VISION,
 } from "~/store";
 import type { ChatMessage, SimpleModel } from "~/types";
 import {
@@ -30,6 +32,7 @@ import { Selector, Switch as SwitchButton } from "./Common";
 
 export default component$(() => {
   const store = useContext(ChatContext);
+  const currentModel = useComputed$(() => store.sessionSettings.model);
   const isFirst = useSignal(true);
   const inputImageRef = useSignal<HTMLImageElement>();
 
@@ -336,13 +339,16 @@ export default component$(() => {
                 store.inputImage = url;
               })}
             />
-            <ActionItem
-              onClick={$(() => {
-                inputImageRef.value!.click();
-              })}
-              icon="i-carbon-image-search"
-              label="上传图片"
-            />
+            {
+              SUPPORT_VISION.includes(currentModel.value) &&
+              <ActionItem
+                onClick={$(() => {
+                  inputImageRef.value!.click();
+                })}
+                icon="i-carbon-image-search"
+                label="图片识别"
+              />
+            }
             <ActionItem
               onClick={$(() => {
                 // TODO

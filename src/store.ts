@@ -133,3 +133,5 @@ export const shownTokens = (token: number) => {
   if (token > 1000) return (token / 1000).toFixed(1) + "k";
   else return token;
 };
+
+export const SUPPORT_VISION = ['gpt-4-vision-preview', 'openai/gpt-4-vision-preview', 'google/gemini-pro-vision', 'gemini-pro-vision', 'glm-4v']

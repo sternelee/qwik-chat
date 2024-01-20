@@ -39,10 +39,10 @@ const fetchChat = async (body: any) => {
 
 const parseData = (event: ParsedEvent) => {
   const data = event.data;
-  const json = JSON.parse(data);
   if (data === "[DONE]") {
     return [true, null];
   }
+  const json = JSON.parse(data);
   return [false, json.choices[0].delta?.content];
 };
 
@@ -73,7 +73,7 @@ export default {
     // { value: "gpt-4-0314", label: "gpt-4-0314" },
     { value: "gpt-4-0613", label: "gpt-4-0613", input: 0.03, output: 0.06 },
     // { value: "gpt-4-1106-preview", label: "gpt-4-1106-preview" },
-    // { value: "gpt-4-vision-preview", label: "gpt-4-vision-preview" },
+    { value: "gpt-4-vision-preview", label: "gpt-4-vision-preview", input: 0.03, output: 0.06 },
     // { value: "gpt-4-32k", label: "gpt-4-32k" },
     // { value: "gpt-4-32k-0314", label: "gpt-4-32k-0314" },
     {

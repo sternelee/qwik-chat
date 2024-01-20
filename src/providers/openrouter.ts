@@ -40,10 +40,10 @@ const fetchChat = async (body: any) => {
 
 const parseData = (event: ParsedEvent) => {
   const data = event.data;
-  const json = JSON.parse(data);
   if (data === "[DONE]") {
     return [true, null];
   }
+  const json = JSON.parse(data);
   return [false, json.choices[0].delta?.content];
 };
 

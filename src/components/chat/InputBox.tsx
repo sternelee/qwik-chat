@@ -1,10 +1,11 @@
 import { $, component$, useComputed$, useContext, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { useNavigate } from '@builder.io/qwik-city';
-import { countTokensDollar, defaultInputBoxHeight, FZFData, shownTokens, ChatContext } from "~/store";
+import { SUPPORT_VISION, countTokensDollar, defaultInputBoxHeight, FZFData, shownTokens, ChatContext } from "~/store";
 import type { Option } from "~/types";
 import { blobToBase64, isMobile, scrollToBottom } from "~/utils";
 import SettingAction from "./SettingAction";
 import SlashSelector from "./SlashSelector";
+import { COST_MAP } from "~/providers"
 
 export default component$<{
   width: string;
@@ -34,7 +35,7 @@ export default component$<{
     document.addEventListener("paste", async (ev) => {
       // 支持图片的model
       if (
-        currentModel.value.indexOf("vision") === -1
+        SUPPORT_VISION.includes(currentModel.value)
         && !store.sessionSettings.continuousDialogue
       ) {
         return;
@@ -211,7 +212,7 @@ export default component$<{
               )}
               <textarea
                 ref={inputRef}
-                placeholder="与 ta 对话吧"
+                placeholder={`与 ta 对话吧 ${COST_MAP[currentModel.value].input}/${COST_MAP[currentModel.value].output}`}
                 autocomplete="off"
                 value={store.inputContent}
                 autoCapitalize="off"

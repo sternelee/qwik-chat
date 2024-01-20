@@ -85,7 +85,7 @@ export default component$(() => {
             provider,
             password: this.globalSettings.password,
             key:
-              this.globalSettings.APIKeys[this.sessionSettings.provider] ||
+              this.globalSettings.APIKeys[provider] ||
               undefined,
             messages,
             temperature: this.sessionSettings.APITemperature,
@@ -98,7 +98,7 @@ export default component$(() => {
         const fetchChat = ProviderMap[provider].fetchChat;
         response = await fetchChat({
           key:
-            this.globalSettings.APIKeys[this.sessionSettings.provider] ||
+            this.globalSettings.APIKeys[provider] ||
             undefined,
           messages,
           temperature: this.sessionSettings.APITemperature,
@@ -113,7 +113,10 @@ export default component$(() => {
         const json = await response.json();
         this.messageList = [
           ...this.messageList,
-          { role: "error", content: JSON.stringify(json) },
+          {
+            role: "error",
+            content: JSON.stringify(json),
+          },
         ];
         return;
       }
@@ -123,7 +126,7 @@ export default component$(() => {
           try {
             const [done, char] = ProviderMap[provider].parseData(event);
             if (done) {
-              this.loading = false
+              this.loading = false;
             }
             if (char) {
               if (this.currentAssistantMessage) {
@@ -226,10 +229,14 @@ export default component$(() => {
                 role: "user",
                 content: inputValue,
                 images: [this.inputImage],
+                provider: this.sessionSettings.provider,
+                model: this.sessionSettings.model,
               }
             : {
                 role: "user",
                 content: inputValue,
+                provider: this.sessionSettings.provider,
+                model: this.sessionSettings.model,
               };
           this.messageList = [...this.messageList, currentMessage];
           const remainingToken = await this.remainingToken$();

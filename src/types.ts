@@ -13,6 +13,8 @@ export interface ChatMessage {
   content: string;
   type?: "default" | "locked" | "temporary";
   images?: string[]
+  provider?: IProvider
+  model?: string
 }
 
 export type Role = "system" | "user" | "assistant" | "error";

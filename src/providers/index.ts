@@ -14,13 +14,25 @@ export default {
   qwen,
 };
 
+export const COST_MAP = [baidu, chatglm, google, openai, openrouter, qwen]
+  .map((p) => p.models)
+  .flat()
+  .reduce(
+    (c, m) => {
+      c[m.value] = { input: m.input, output: m.output };
+      return c
+    },
+    {} as Record<string, { input: number; output: number }>
+  );
+
+
 export const PROVIDER_LIST = [
   { value: "openai", label: openai.name },
   { value: "openrouter", label: openrouter.name },
   { value: "google", label: google.name },
   { value: "baidu", label: baidu.name },
   { value: "chatglm", label: chatglm.name },
-  { value: "qwen", label: qwen.name }
+  { value: "qwen", label: qwen.name },
 ];
 
 export const APIKeys = {
@@ -29,7 +41,7 @@ export const APIKeys = {
   google: "",
   chatglm: "",
   baidu: "",
-  qwen: ""
+  qwen: "",
   // replicate: {
   //   apikey: '',
   // },

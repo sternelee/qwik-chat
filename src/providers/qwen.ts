@@ -31,7 +31,7 @@ const parseData = (event: ParsedEvent) => {
   if (data === "[DONE]") {
     return [true, null];
   }
-  return [false, json.choices[0].delta?.content];
+  return [false, json.output[0].message?.content];
 };
 
 export default {
@@ -40,7 +40,10 @@ export default {
   href: "https://help.aliyun.com/zh/dashscope/developer-reference/activate-dashscope-and-create-an-api-key",
   baseUrl,
   defaultModel: "qwen-turbo",
-  models: [{ label: "qwen-turbo", value: "qwen-turbo" }],
+  models: [
+    { label: "qwen-turbo", value: "qwen-turbo", input: 0.008, output: 0.008 },
+    { label: "qwen-plus", value: "qwen-plus", input: 0.02, output: 0.02 },
+  ],
   parseData,
   fetchChat,
 };

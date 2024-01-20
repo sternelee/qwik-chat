@@ -78,7 +78,10 @@ const parseMessageList = (rawList: ChatMessage[]) => {
 const parseData = (event: ParsedEvent) => {
   const data = event.data;
   const json = JSON.parse(data);
-  return [json.candidates[0].finishReason === "STOP", json.candidates[0].content.parts[0].text];
+  return [
+    json.candidates[0].finishReason === "STOP",
+    json.candidates[0].content.parts[0].text,
+  ];
 };
 
 export default {
@@ -88,8 +91,13 @@ export default {
   baseUrl,
   defaultModel: "gemini-pro",
   models: [
-    { value: "gemini-pro", label: "Gemini-Pro" },
-    { value: "gemini-pro-vision", label: "Gemini-Pro-Vision" },
+    { value: "gemini-pro", label: "Gemini-Pro", input: 0, output: 0 },
+    {
+      value: "gemini-pro-vision",
+      label: "Gemini-Pro-Vision",
+      input: 0,
+      output: 0,
+    },
   ],
   parseData,
   fetchChat,

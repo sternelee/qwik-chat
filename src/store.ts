@@ -1,9 +1,8 @@
 import { createContextId, type QRL, type NoSerialize } from "@builder.io/qwik";
 import type { Fzf } from "fzf";
-import { APIKeys, type IProvider } from "~/providers";
-import type { ChatMessage, Model, Option, SimpleModel } from "~/types";
+import { COST_MAP, APIKeys, type IProvider } from "~/providers";
+import type { ChatMessage, Model, Option } from "~/types";
 import { defaultEnv } from "./env";
-import Models from "./openrouter.json";
 
 export const defaultMessage: ChatMessage = {
   role: "assistant",
@@ -11,105 +10,6 @@ export const defaultMessage: ChatMessage = {
     import.meta.env.CLIENT_DEFAULT_MESSAGE || defaultEnv.CLIENT_DEFAULT_MESSAGE,
   type: "default",
 };
-
-export const models = {
-  "gpt-3.5": {
-    "4k": "gpt-3.5-turbo-0613",
-    "16k": "gpt-3.5-turbo-16k-0613",
-  },
-  "gpt-4": {
-    "8k": "gpt-4-0613",
-    "32k": "gpt-4-32k-0613",
-  },
-} satisfies {
-  [k in SimpleModel]: {
-    [k: string]: Model;
-  };
-};
-
-const modelCostMap = {
-  "gpt-3.5-turbo-0613": {
-    input: 0.0015,
-    output: 0.002,
-  },
-  "gpt-3.5-turbo-16k-0613": {
-    input: 0.003,
-    output: 0.004,
-  },
-  "gpt-4-0613": {
-    input: 0.03,
-    output: 0.06,
-  },
-  "gpt-4-32k-0613": {
-    input: 0.06,
-    output: 0.12,
-  },
-  "gemini-pro": {
-    input: 0,
-    output: 0,
-  },
-  "gemini-pro-vision": {
-    input: 0,
-    output: 0,
-  },
-  'glm-3-turbo': {
-    input: 0,
-    output: 0,
-  },
-  'glm-4': {
-    input: 0,
-    output: 0,
-  },
-  'glm-4v': {
-    input: 0,
-    output: 0,
-  },
-  completions_pro: {
-    input: 0.008,
-    output: 0.008,
-  },
-  ernie_bot_8k: {
-    input: 0.008,
-    output: 0.008,
-  },
-  completions: {
-    input: 0.008,
-    output: 0.008,
-  },
-  "eb-instant": {
-    input: 0.008,
-    output: 0.008,
-  },
-  qianfan_bloomz_7b_compressed: {
-    input: 0.008,
-    output: 0.008,
-  },
-  qianfan_chinese_llama_2_7b: {
-    input: 0.008,
-    output: 0.008,
-  },
-  chatlaw: {
-    input: 0.008,
-    output: 0.008,
-  },
-  'qwen-turbo': {
-    input: 0.008,
-    output: 0.008,
-  }
-} satisfies {
-  [key in Model]: {
-    input: number;
-    output: number;
-  };
-};
-
-Models.data.forEach((v) => {
-  // @ts-ignore
-  modelCostMap[v.id] = {
-    input: v.pricing.prompt,
-    output: v.pricing.completion,
-  };
-});
 
 export type ImgStatusUnion = "normal" | "loading" | "success" | "error";
 export const imgIcons: Record<ImgStatusUnion, string> = {
@@ -140,7 +40,7 @@ export function countTokensDollar(
 ) {
   const tk = tokens / 1000;
   // @ts-ignore
-  return modelCostMap[model][io] * tk;
+  return COST_MAP[model][io] * tk;
 }
 
 export let globalSettings = {

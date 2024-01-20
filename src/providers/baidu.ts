@@ -54,23 +54,23 @@ export default {
   baseUrl,
   defaultModel: "completions_pro",
   models: [
-    { label: "ERNIE-Bot 4.0", value: "completions_pro" },
-    { label: "ERNIE-Bot-8K", value: "ernie_bot_8k" },
-    { label: "ERNIE-Bot", value: "completions" },
-    { label: "ERNIE-Bot-turbo", value: "eb-instant" },
-    {
-      label: "Qianfan-BLOOMZ-7B-compressed",
-      value: "qianfan_bloomz_7b_compressed",
-    },
-    {
-      label: "Qianfan-Chinese-Llama-2-7B",
-      value: "qianfan_chinese_llama_2_7b",
-    },
-    {
-      label: "Qianfan-Chinese-Llama-2-13B",
-      value: "qianfan_chinese_llama_2_13b",
-    },
-    { label: "ChatLaw", value: "chatlaw" },
+    { label: "ERNIE-Bot 4.0", value: "completions_pro", input: 0.12, output: 0.12 },
+    { label: "ERNIE-Bot-8K", value: "ernie_bot_8k", input: 0.24, output: 0.048 },
+    { label: "ERNIE-Bot", value: "completions", input: 0.012, output: 0.008 },
+    { label: "ERNIE-Bot-turbo", value: "eb-instant", input: 0.008, output: 0.008 },
+    // {
+    //   label: "Qianfan-BLOOMZ-7B-compressed",
+    //   value: "qianfan_bloomz_7b_compressed",
+    // },
+    // {
+    //   label: "Qianfan-Chinese-Llama-2-7B",
+    //   value: "qianfan_chinese_llama_2_7b",
+    // },
+    // {
+    //   label: "Qianfan-Chinese-Llama-2-13B",
+    //   value: "qianfan_chinese_llama_2_13b",
+    // },
+    // { label: "ChatLaw", value: "chatlaw" },
     // { label: "XuanYuan-70B-Chat-4bit", value: "xuanyuan_70b_chat" },
     // { label: "Llama-2-7b-chat", value: "llama_2_7b" },
     // { label: "Llama-2-13b-chat", value: "llama_2_13b" },

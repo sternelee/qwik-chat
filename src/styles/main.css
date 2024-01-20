@@ -21,12 +21,6 @@ body::-webkit-scrollbar {
   border-radius: 0.25em;
 }
 
-:root {
-  --c-bg: #f6f8fa;
-  --c-scroll-thumb: #b9b9b9;
-  --c-text-slate: rgb(148, 163, 184);
-}
-
 html {
   font-family: "lucida grande", "lucida sans unicode", lucida, helvetica,
     "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
@@ -52,21 +46,3 @@ body {
 * {
   -webkit-tap-highlight-color: transparent;
 }
-
-/* html {
-  overflow-y: scroll;
-}
-
-:root {
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-:root body {
-  position: absolute;
-}
-
-body {
-  width: 100vw;
-  overflow: hidden;
-} */

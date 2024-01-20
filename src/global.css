@@ -32,6 +32,14 @@ body {
   line-height: inherit;
 }
 
+:root {
+  --c-bg: #f6f8fa;
+  --c-scroll-thumb: #b9b9b9;
+  --c-text-slate: rgb(148, 163, 184);
+  view-transition-name: revert !important;
+}
+
+
 ::view-transition-new(root),
 ::view-transition-old(root) {
   animation: none;

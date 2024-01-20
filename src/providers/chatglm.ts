@@ -99,6 +99,7 @@ export default {
       output: 0.1,
     },
   ],
+  placeholder: "API Key",
   parseData,
   fetchChat,
 };

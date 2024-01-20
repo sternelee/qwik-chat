@@ -83,6 +83,7 @@ export default {
       output: 0.12,
     },
   ],
+  placeholder: "API Key",
   parseData,
   fetchChat,
 };

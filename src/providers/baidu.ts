@@ -76,6 +76,7 @@ export default {
     // { label: "Llama-2-13b-chat", value: "llama_2_13b" },
     // { label: "Llama-2-70b-chat", value: "llama_2_70b" },
   ],
+  placeholder: "access_token",
   parseData,
   fetchChat,
   fetchImage,

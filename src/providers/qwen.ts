@@ -44,6 +44,7 @@ export default {
     { label: "qwen-turbo", value: "qwen-turbo", input: 0.008, output: 0.008 },
     { label: "qwen-plus", value: "qwen-plus", input: 0.02, output: 0.02 },
   ],
+  placeholder: "API Key",
   parseData,
   fetchChat,
 };

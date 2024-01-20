@@ -114,6 +114,7 @@ export default component$(() => {
                     store.globalSettings.APIKeys[store.sessionSettings.provider]
                   }
                   class="input-box"
+                  placeholder={`请输入 ${ProviderMap[store.sessionSettings.provider].placeholder}`}
                   onInput$={(e) => {
                     store.globalSettings.APIKeys[
                       store.sessionSettings.provider

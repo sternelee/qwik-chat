@@ -52,13 +52,14 @@ export default {
   name: "OpenRouter",
   href: "https://openrouter.ai/keys",
   baseUrl,
-  defaultModel: "openrouter/auto",
+  defaultModel: "openai/gpt-3.5-turbo",
   models: Models.data.map((m) => ({
     value: m.id,
     label: `${m.name}${m.pricing.prompt === "0" ? "[free]" : ""}`,
     input: Number(m.pricing.prompt),
     output: Number(m.pricing.completion),
   })),
+  placeholder: "API Key",
   parseData,
   fetchChat,
 };

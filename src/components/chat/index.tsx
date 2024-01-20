@@ -46,7 +46,7 @@ export default component$(() => {
 
   return (
     <main class="mt-4">
-      <div class="flex items-center px-2em">
+      <div class="flex items-center px-2em sticky top-0 z-1" style="background-color: var(--c-bg);">
         <div class="flex-1 flex items-center dark:prose-invert dark:text-slate">
           {store.sessionSettings.title && (
             <>

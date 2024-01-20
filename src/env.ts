@@ -22,7 +22,7 @@ export const defaultEnv = {
     APITemperature: 0.6,
     APITopP: 1,
     continuousDialogue: false,
-    model: "gpt-3.5-turbo-0613",
+    model: "gpt-3.5-turbo-1106",
   },
   CLIENT_DEFAULT_MESSAGE: `
 - 点击每条消息前的头像，可以锁定对话，作为角色设定。[查看更多使用技巧](https://github.com/sternelee/qwik-chat#使用技巧)。

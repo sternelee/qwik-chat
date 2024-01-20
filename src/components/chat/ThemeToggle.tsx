@@ -1,5 +1,4 @@
 import { $, component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
-import google from "~/providers/google";
 import { LocalStorageKey } from "~/types";
 
 export default component$(() => {
@@ -42,30 +41,31 @@ export default component$(() => {
         Math.max(x, innerWidth - x),
         Math.max(y, innerHeight - y)
       );
-      document
+      const transition = document
         // @ts-expect-error: Transition API
         .startViewTransition(async () => {
           isDark.value = !isDark.value;
           toggle(isDark.value);
-        })
-        .ready.then(() => {
-          const clipPath = [
-            `circle(0px at ${x}px ${y}px)`,
-            `circle(${endRadius}px at ${x}px ${y}px)`,
-          ];
-          document.documentElement.animate(
-            {
-              clipPath: isDark.value ? [...clipPath].reverse() : clipPath,
-            },
-            {
-              duration: 400,
-              easing: "ease-in",
-              pseudoElement: isDark.value
-                ? "::view-transition-old(root)"
-                : "::view-transition-new(root)",
-            }
-          );
         });
+
+      transition.ready.then(() => {
+        const clipPath = [
+          `circle(0px at ${x}px ${y}px)`,
+          `circle(${endRadius}px at ${x}px ${y}px)`,
+        ];
+        document.documentElement.animate(
+          {
+            clipPath: isDark.value ? [...clipPath].reverse() : clipPath,
+          },
+          {
+            duration: 300,
+            easing: "ease-in",
+            pseudoElement: isDark.value
+              ? "::view-transition-old(root)"
+              : "::view-transition-new(root)",
+          }
+        );
+      });
     }
   });
 

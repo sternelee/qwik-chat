@@ -79,7 +79,7 @@ export default component$(() => {
               <a
                 href={ProviderMap[store.sessionSettings.provider].href}
                 target="_blank"
-                class="font-extrabold ml-4"
+                class="flash-logo text-6 font-bold ml-4"
               >
                 {ProviderMap[store.sessionSettings.provider].name} Chat
               </a>

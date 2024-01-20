@@ -46,3 +46,21 @@ body {
 * {
   -webkit-tap-highlight-color: transparent;
 }
+
+.flash-logo {
+  background: linear-gradient(90deg,
+      hsl(140deg 100% 75%),
+      hsl(320deg 100% 50%),
+      hsl(240deg 100% 75%),
+      hsl(320deg 100% 75%),
+      hsl(140deg 100% 75%),
+      hsl(10deg 100% 75%));
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 300% 200%;
+  -webkit-animation: bg-move both linear;
+  animation: bg-move both linear;
+  animation-timeline: --section;
+  animation-range: cover 0% exit 0%;
+  background-position: 0 0;
+}

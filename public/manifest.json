@@ -1,9 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "Qwik Chat FOR AI",
+  "name": "Qwik GPT Chat",
   "short_name": "Qwik Chat",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fff",
-  "description": "A Qwik Chat AI app."
+  "description": "A Qwik GPT Chat Site."
 }

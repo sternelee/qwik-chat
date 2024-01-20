@@ -105,7 +105,7 @@ export default component$(() => {
   );
 });
 
-const Logo = component$((props) => {
+const Logo = component$((props: any) => {
   return (
     <svg
       {...props}

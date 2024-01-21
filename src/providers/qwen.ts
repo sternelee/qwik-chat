@@ -1,13 +1,27 @@
 import type { ParsedEvent } from "eventsource-parser";
+import type { ChatMessage } from "~/types";
 
-const baseUrl =
-  "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation";
+const baseUrl = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation";
 
 const fetchChat = async (body: any) => {
   let { key, password, model, messages, ...parameters } = body;
   if (password && password === process.env.PASSWORD) {
     key = process.env.ALI_KEY;
   }
+  messages = messages.map((m: ChatMessage) => {
+    if (m.images) {
+      return {
+        role: m.role,
+        content: [
+          { text: m.content },
+          {
+            image: m.images[0],
+          },
+        ],
+      };
+    }
+    return m;
+  });
   return await fetch(baseUrl, {
     headers: {
       "Content-Type": "application/json",
@@ -28,7 +42,7 @@ const fetchChat = async (body: any) => {
 const parseData = (event: ParsedEvent) => {
   const data = event.data;
   const json = JSON.parse(data);
-  return [json.output.finish_reason === 'stop', json.output.text];
+  return [json.output.finish_reason === "stop", json.output.text];
 };
 
 export default {
@@ -38,8 +52,9 @@ export default {
   baseUrl,
   defaultModel: "qwen-turbo",
   models: [
-    { label: "qwen-turbo", value: "qwen-turbo", input: 0.008, output: 0.008 },
-    { label: "qwen-plus", value: "qwen-plus", input: 0.02, output: 0.02 },
+    { label: "Qwen-turbo", value: "qwen-turbo", input: 0.008, output: 0.008 },
+    { label: "Qwen-plus", value: "qwen-plus", input: 0.02, output: 0.02 },
+    { label: "Qwen-VL", value: "qwen-vl-plus", input: 0.02, output: 0.02 },
   ],
   placeholder: "API Key",
   parseData,

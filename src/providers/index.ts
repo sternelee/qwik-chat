@@ -25,6 +25,8 @@ export const COST_MAP = [baidu, chatglm, google, openai, openrouter, qwen]
     {} as Record<string, { input: number; output: number }>
   );
 
+export const COST_DOLLAR = ['openai', 'openrouter', 'google']
+
 
 export const PROVIDER_LIST = [
   { value: "openai", label: openai.name },

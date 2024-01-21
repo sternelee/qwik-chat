@@ -38,7 +38,7 @@ export default component$(() => {
   const defaultMessage$ = useComputed$(() => {
     return {
       ...defaultMessage,
-      content: `💡请自行填写APIKey，点击这里👉 [去开通](${
+      content: `💡请自行填写 APIKey，点击这里👉 [去开通](${
         ProviderMap[store.sessionSettings.provider].href
       })\n ${defaultMessage.content}`,
     };

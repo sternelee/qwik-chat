@@ -33,7 +33,7 @@ export default component$<{
     });
     inputRef.value?.focus();
     document.addEventListener("paste", async (ev) => {
-      // 支持图片的model
+      // 支持图片的 model
       if (
         SUPPORT_VISION.includes(currentModel.value)
         && !store.sessionSettings.continuousDialogue

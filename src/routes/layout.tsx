@@ -3,7 +3,7 @@ import type { RequestHandler } from "@builder.io/qwik-city";
 import "@unocss/reset/tailwind.css";
 import "uno.css";
 import "~/styles/main.css";
-import "katex/dist/katex.min.css";
+// import "katex/dist/katex.min.css";
 import "highlight.js/styles/atom-one-dark.css";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {

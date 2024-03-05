@@ -14,6 +14,7 @@ import ProviderMap, { PROVIDER_LIST, type IProvider } from "~/providers";
 import {
   type FakeRoleUnion,
   roleIcons,
+  imgIcons,
   ChatContext,
   SUPPORT_VISION,
 } from "~/store";
@@ -371,7 +372,6 @@ export default component$(() => {
                 }[store.fakeRole]
               }
             />
-            {/**
             <ActionItem
               onClick={$(async () => {
                 store.genImg = "loading";
@@ -383,7 +383,6 @@ export default component$(() => {
               icon={imgIcons[store.genImg]}
               label="导出图片"
             />
-               */}
             <ActionItem
               label="导出MD"
               onClick={$(async () => {
@@ -474,7 +473,7 @@ async function exportJpg() {
     if (!isMobile() && navigator.clipboard) {
       try {
         const blob = await toBlob(messageContainer);
-        console.log(blob);
+        console.log('1', blob);
         blob &&
           (await navigator.clipboard.write([
             new ClipboardItem({
@@ -482,7 +481,7 @@ async function exportJpg() {
             }),
           ]));
       } catch (err) {
-        console.log(err);
+        console.log('2', err);
         await downloadIMG();
       }
     } else {
@@ -492,7 +491,7 @@ async function exportJpg() {
   } catch (err) {
     // TODO: not work
     // store.genImg = "error"
-    console.log(err);
+    console.log('3',err);
   }
 }
 

@@ -79,7 +79,7 @@ export default component$<{
     if (!isMobile() && !store.loading) inputRef.value?.focus();
   });
 
-  const setSuitableheight = $(() => {
+  const setSuitableHeight = $(() => {
     const scrollHeight = inputRef.value?.scrollHeight;
     if (scrollHeight) {
       store.inputBoxHeight = scrollHeight > window.innerHeight / 2
@@ -94,7 +94,7 @@ export default component$<{
       if (store.inputContent === "") {
         candidateOptions.value = [];
       } else {
-        setSuitableheight();
+        setSuitableHeight();
       }
     } else {
       store.inputBoxHeight = defaultInputBoxHeight;
@@ -106,7 +106,6 @@ export default component$<{
       if (option.extra?.id) {
         if (option.extra?.id === "index") window.location.href = "/";
         else {
-          // navgiate(`/session/${option.extra.id}`)
           navigator('/?session=' + option.extra.id)
           store.loadSession(option.extra.id)
           store.inputContent = "";
@@ -116,7 +115,7 @@ export default component$<{
       }
     }
     candidateOptions.value = [];
-    setSuitableheight();
+    setSuitableHeight();
   });
 
   const searchOptions = $((value: string) => {
@@ -163,6 +162,8 @@ export default component$<{
     }
   });
 
+  const dollarLabel = COST_DOLLAR.includes(store.sessionSettings.provider) ? '$' : '¥'
+
   return (
     <div
       class="pb-2em px-2em fixed bottom-0 z-100"
@@ -183,8 +184,8 @@ export default component$<{
             onClick$={() => store.stopStreamFetch()}
           >
             <span class="dark:text-slate text-slate-7">
-              AI 正在思考 / {shownTokens(store.currentMessageToken)} / $
-              {currentMessageToken$.value.toFixed(4)}
+              AI 正在思考 / {shownTokens(store.currentMessageToken)} /
+              {dollarLabel}{currentMessageToken$.value.toFixed(4)}
             </span>
           </div>
         )}
@@ -212,7 +213,7 @@ export default component$<{
               )}
               <textarea
                 ref={inputRef}
-                placeholder={`与 ta 对话吧 ⎡${COST_DOLLAR.includes(store.sessionSettings.provider) ? '$' : '¥'}: ${COST_MAP[currentModel.value].input}/${COST_MAP[currentModel.value].output}⌋`}
+                placeholder={`与 ta 对话吧 ⎡${dollarLabel}: ${COST_MAP[currentModel.value].input}/${COST_MAP[currentModel.value].output}⌋`}
                 autocomplete="off"
                 value={store.inputContent}
                 autoCapitalize="off"
@@ -229,7 +230,7 @@ export default component$<{
                   height: store.inputBoxHeight + "px",
                 }}
                 onClick$={() => scrollToBottom()}
-                onInput$={[handleInput, setSuitableheight]}
+                onInput$={[handleInput, setSuitableHeight]}
                 onCompositionstart$={$(() => {
                   compositionEnd.value = false;
                 })}

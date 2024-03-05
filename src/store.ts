@@ -3,7 +3,6 @@ import type { Fzf } from "fzf";
 import { COST_MAP, APIKeys, type IProvider } from "~/providers";
 import type { ChatMessage, Model, Option } from "~/types";
 import { defaultEnv } from "./env";
-import {ModuleGraph} from "vite"
 
 export const defaultMessage: ChatMessage = {
   role: "assistant",

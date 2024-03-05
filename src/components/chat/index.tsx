@@ -122,7 +122,7 @@ export default component$(() => {
                   >
                     {shownTokens(store.remainingToken)}
                   </span>
-                  {`)/$${countContextTokensDollar(
+                  {`)/${countContextTokensDollar(
                     store.contextToken,
                     store.inputContentToken,
                     store.sessionSettings.model

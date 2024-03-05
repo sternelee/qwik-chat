@@ -27,7 +27,7 @@ const parseData = (event: ParsedEvent) => {
 };
 
 export default {
-  icon: "i-simple-icons-akaunting",
+  icon: "i-simple-icons-icomoon",
   name: "MoonShot",
   href: "https://platform.moonshot.cn/console/api-keys",
   baseUrl,

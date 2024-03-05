@@ -11,7 +11,7 @@ export const chat = server$(async function* ({
   temperature,
   model,
   password,
-  signal,
+  // signal,
 }: {
   provider: IProvider;
   key: string;
@@ -26,7 +26,7 @@ export const chat = server$(async function* ({
     key,
     messages,
     temperature,
-    signal,
+    // signal,
     model,
     password,
     stream: true,

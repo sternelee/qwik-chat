@@ -1,16 +1,30 @@
-import { $, component$, useComputed$, useContext, useSignal, useVisibleTask$ } from "@builder.io/qwik";
-import { useNavigate } from '@builder.io/qwik-city';
-import { SUPPORT_VISION, countTokensDollar, defaultInputBoxHeight, FZFData, shownTokens, ChatContext } from "~/store";
+import {
+  $,
+  component$,
+  useComputed$,
+  useContext,
+  useSignal,
+  useVisibleTask$,
+} from "@builder.io/qwik";
+import { useNavigate } from "@builder.io/qwik-city";
+import {
+  SUPPORT_VISION,
+  countTokensDollar,
+  defaultInputBoxHeight,
+  FZFData,
+  shownTokens,
+  ChatContext,
+} from "~/store";
 import type { Option } from "~/types";
 import { blobToBase64, isMobile, scrollToBottom } from "~/utils";
 import SettingAction from "./SettingAction";
 import SlashSelector from "./SlashSelector";
-import { COST_MAP, COST_DOLLAR } from "~/providers"
+import { COST_MAP, COST_DOLLAR } from "~/providers";
 
 export default component$<{
   width: string;
 }>(({ width }) => {
-  const navigator = useNavigate()
+  const navigator = useNavigate();
   const store = useContext(ChatContext);
   const candidateOptions = useSignal<Option[]>([]);
   const compositionEnd = useSignal(true);
@@ -25,7 +39,7 @@ export default component$<{
     const { Fzf } = await import("fzf");
     import("~/utils/parse").then(({ parsePrompts }) => {
       FZFData.promptOptions = parsePrompts().map(
-        (k) => ({ title: k.desc, desc: k.detail }) as Option,
+        (k) => ({ title: k.desc, desc: k.detail }) as Option
       );
       FZFData.fzfPrompts = new Fzf(FZFData.promptOptions, {
         selector: (k) => `${k.title}\n${k.desc}`,
@@ -35,8 +49,8 @@ export default component$<{
     document.addEventListener("paste", async (ev) => {
       // 支持图片的 model
       if (
-        SUPPORT_VISION.includes(currentModel.value)
-        && !store.sessionSettings.continuousDialogue
+        SUPPORT_VISION.includes(currentModel.value) &&
+        !store.sessionSettings.continuousDialogue
       ) {
         return;
       }
@@ -82,9 +96,10 @@ export default component$<{
   const setSuitableHeight = $(() => {
     const scrollHeight = inputRef.value?.scrollHeight;
     if (scrollHeight) {
-      store.inputBoxHeight = scrollHeight > window.innerHeight / 2
-        ? window.innerHeight / 2
-        : scrollHeight;
+      store.inputBoxHeight =
+        scrollHeight > window.innerHeight / 2
+          ? window.innerHeight / 2
+          : scrollHeight;
     }
   });
 
@@ -106,8 +121,8 @@ export default component$<{
       if (option.extra?.id) {
         if (option.extra?.id === "index") window.location.href = "/";
         else {
-          navigator('/?session=' + option.extra.id)
-          store.loadSession(option.extra.id)
+          navigator("/?session=" + option.extra.id);
+          store.loadSession(option.extra.id);
           store.inputContent = "";
         }
       } else {
@@ -128,7 +143,7 @@ export default component$<{
 
     const sessionQuery = value.replace(
       /^\s{2,}(.*)\s*$|^\/{2,}(.*)\s*$/,
-      "$1$2",
+      "$1$2"
     );
     const promptQuery = value.replace(/^\s(.*)\s*$|^\/(.*)\s*$/, "$1$2");
     if (sessionQuery !== value) {
@@ -136,14 +151,14 @@ export default component$<{
         (k) => ({
           ...k.item,
           positions: k.positions,
-        }),
+        })
       );
     } else if (promptQuery !== value) {
       candidateOptions.value = FZFData.fzfPrompts!.find(promptQuery).map(
         (k) => ({
           ...k.item,
           positions: k.positions,
-        }),
+        })
       );
     }
   });
@@ -162,7 +177,9 @@ export default component$<{
     }
   });
 
-  const dollarLabel = COST_DOLLAR.includes(store.sessionSettings.provider) ? '$' : '¥'
+  const dollarLabel = COST_DOLLAR.includes(store.sessionSettings.provider)
+    ? "$"
+    : "¥";
 
   return (
     <div
@@ -185,7 +202,8 @@ export default component$<{
           >
             <span class="dark:text-slate text-slate-7">
               AI 正在思考 / {shownTokens(store.currentMessageToken)} /
-              {dollarLabel}{currentMessageToken$.value.toFixed(4)}
+              {dollarLabel}
+              {currentMessageToken$.value.toFixed(4)}
             </span>
           </div>
         )}
@@ -195,8 +213,7 @@ export default component$<{
             <SlashSelector
               options={candidateOptions.value}
               select={selectOption}
-            >
-            </SlashSelector>
+            ></SlashSelector>
             <div class="flex items-end relative">
               {store.inputImage && (
                 <img
@@ -213,7 +230,7 @@ export default component$<{
               )}
               <textarea
                 ref={inputRef}
-                placeholder={`与 ta 对话吧 ⎡${dollarLabel}: ${COST_MAP[currentModel.value].input}/${COST_MAP[currentModel.value].output}⌋`}
+                placeholder={`与 ta 对话吧 ⎡${dollarLabel}:${COST_MAP[currentModel.value].input}/${COST_MAP[currentModel.value].output}⌋`}
                 autocomplete="off"
                 value={store.inputContent}
                 autoCapitalize="off"
@@ -244,9 +261,9 @@ export default component$<{
                   if (e.isComposing) return;
                   if (candidateOptions.value.length) {
                     if (
-                      e.key === "ArrowUp"
-                      || e.key === "ArrowDown"
-                      || e.keyCode === 13
+                      e.key === "ArrowUp" ||
+                      e.key === "ArrowDown" ||
+                      e.keyCode === 13
                     ) {
                       e.preventDefault();
                     }
@@ -271,8 +288,10 @@ export default component$<{
                 <div
                   class={{
                     "absolute flex text-1em items-center": true,
-                    "right-2.5em bottom-1em": store.inputBoxHeight === defaultInputBoxHeight,
-                    "right-0.8em top-0.8em": store.inputBoxHeight !== defaultInputBoxHeight,
+                    "right-2.5em bottom-1em":
+                      store.inputBoxHeight === defaultInputBoxHeight,
+                    "right-0.8em top-0.8em":
+                      store.inputBoxHeight !== defaultInputBoxHeight,
                   }}
                 >
                   <button

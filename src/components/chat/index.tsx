@@ -38,7 +38,7 @@ export default component$(() => {
   const defaultMessage$ = useComputed$(() => {
     return {
       ...defaultMessage,
-      content: `💡请自行填写 APIKey，点击这里👉 [去开通](${
+      content: `💡请自行填写 APIKey，点击👉 [去申请](${
         ProviderMap[store.sessionSettings.provider].href
       })\n ${defaultMessage.content}`,
     };
@@ -82,7 +82,7 @@ export default component$(() => {
               <a
                 href={ProviderMap[store.sessionSettings.provider].href}
                 target="_blank"
-                class="flash-logo text-6 font-bold ml-4"
+                class="flash-logo text-5 font-bold ml-4"
               >
                 {ProviderMap[store.sessionSettings.provider].name} Chat
               </a>

@@ -49,24 +49,24 @@ body {
 
 .flash-logo {
   background: linear-gradient(
-		90deg,
-		hsl(0 0% 100%),
-		hsl(0 0% 80%) 50%,
-		hsl(240deg 100% 75%),
-		hsl(320deg 100% 75%),
-		hsl(140deg 100% 75%),
-		hsl(10deg 100% 75%)
-	);
-	-webkit-background-clip: text;
-	color: transparent;
-	background-size: 300% 200%;
-	animation: bg-move 2s both linear infinite;
-	/* animation-timeline: --section; */
-	background-position: 0 0;
+    90deg,
+    hsl(10deg 100% 75%),
+    hsl(140deg 100% 75%) 50%,
+    hsl(240deg 100% 75%),
+    hsl(320deg 100% 75%),
+    hsl(140deg 100% 75%),
+    hsl(10deg 100% 75%)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 300% 200%;
+  animation: bg-move 2s both linear infinite;
+  /* animation-timeline: --section; */
+  background-position: 0 0;
 }
 
 @keyframes bg-move {
-	to {
-		background-position: 100% 200%;
-	}
+  to {
+    background-position: 100% 200%;
+  }
 }

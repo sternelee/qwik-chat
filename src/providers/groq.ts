@@ -33,7 +33,7 @@ const parseData = (event: ParsedEvent) => {
 
 export default {
   icon: "i-simple-icons-akaunting",
-  name: "Groq_Cloud",
+  name: "Groq",
   href: "https://console.groq.com/keys",
   baseUrl,
   defaultModel: "mixtral-8x7b-32768",

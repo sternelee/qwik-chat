@@ -46,7 +46,10 @@ export default component$(() => {
 
   return (
     <main class="mt-4">
-      <div class="flex items-center px-2em sticky top-0 z-1" style="background-color: var(--c-bg);">
+      <div
+        class="flex items-center px-2em sticky top-0 z-1"
+        style="background-color: var(--c-bg);"
+      >
         <div class="flex-1 flex items-center dark:prose-invert dark:text-slate">
           {store.sessionSettings.title && (
             <>
@@ -67,7 +70,7 @@ export default component$(() => {
             </>
           )}
           {!store.sessionSettings.title && (
-            <>
+            <span class="flash-logo">
               <a
                 href={ProviderMap[store.sessionSettings.provider].href}
                 target="_blank"
@@ -79,11 +82,11 @@ export default component$(() => {
               <a
                 href={ProviderMap[store.sessionSettings.provider].href}
                 target="_blank"
-                class="flash-logo text-6 font-bold ml-4"
+                class="text-6 font-bold ml-4"
               >
                 {ProviderMap[store.sessionSettings.provider].name} Chat
               </a>
-            </>
+            </span>
           )}
         </div>
         <ThemeToggle />

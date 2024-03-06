@@ -70,7 +70,7 @@ export default component$(() => {
             </>
           )}
           {!store.sessionSettings.title && (
-            <span class="flash-logo">
+            <>
               <a
                 href={ProviderMap[store.sessionSettings.provider].href}
                 target="_blank"
@@ -82,11 +82,11 @@ export default component$(() => {
               <a
                 href={ProviderMap[store.sessionSettings.provider].href}
                 target="_blank"
-                class="text-6 font-bold ml-4"
+                class="flash-logo text-6 font-bold ml-4"
               >
                 {ProviderMap[store.sessionSettings.provider].name} Chat
               </a>
-            </span>
+            </>
           )}
         </div>
         <ThemeToggle />

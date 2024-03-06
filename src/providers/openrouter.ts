@@ -4,7 +4,11 @@ import type { ChatMessage } from "~/types";
 
 const baseUrl = "https://openrouter.ai/api";
 
-const fetchChat = async (body: any, env: any = {}) => {
+const fetchChat = async (
+  body: any,
+  env: any = {},
+  signal: AbortSignal | undefined
+) => {
   let { key, password, ...rest } = body;
   if (password && password === env.PASSWORD) {
     key = env.OPENROUTER_KEY;
@@ -33,6 +37,7 @@ const fetchChat = async (body: any, env: any = {}) => {
       "HTTP-Referer": "https://qwik-chat.leeapp.cn/",
       Authorization: `Bearer ${key}`,
     },
+    signal,
     method: "POST",
     body: JSON.stringify(rest),
   });

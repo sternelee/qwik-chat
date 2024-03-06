@@ -2,7 +2,11 @@ import type { ParsedEvent } from "eventsource-parser";
 
 const baseUrl = "https://aip.baidubce.com/rpc/2.0/ai_custom";
 
-const fetchChat = async (body: any, env: any = {}) => {
+const fetchChat = async (
+  body: any,
+  env: any = {},
+  signal: AbortSignal | undefined
+) => {
   const { key, password, model, ...rest } = body;
   const APIKey =
     password && password === env.PASSWORD && env.BAIDU_KEY
@@ -14,6 +18,7 @@ const fetchChat = async (body: any, env: any = {}) => {
       headers: {
         "Content-Type": "application/json",
       },
+      signal,
       method: "POST",
       body: JSON.stringify(rest),
     }

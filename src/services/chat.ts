@@ -11,7 +11,6 @@ export const chat = server$(async function* ({
   temperature,
   model,
   password,
-  // signal,
 }: {
   provider: IProvider;
   key: string;
@@ -22,15 +21,19 @@ export const chat = server$(async function* ({
   signal: AbortSignal;
 }) {
   const fetchChat = ProviderMap[provider].fetchChat;
-  const response = await fetchChat({
-    key,
-    messages,
-    temperature,
-    // signal,
-    model,
-    password,
-    stream: true,
-  });
+  const response = await fetchChat(
+    {
+      key,
+      messages,
+      temperature,
+      // signal,
+      model,
+      password,
+      stream: true,
+    },
+    {},
+    undefined
+  );
   if (!response.ok) {
     const json = await response.json();
     yield JSON.stringify(json);

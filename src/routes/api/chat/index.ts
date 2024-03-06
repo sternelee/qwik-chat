@@ -1,7 +1,12 @@
 import type { RequestHandler } from "@builder.io/qwik-city";
 import ProviderMap, { type IProvider } from "~/providers";
 
-export const onPost: RequestHandler = async ({ parseBody, send, env }) => {
+export const onPost: RequestHandler = async ({
+  parseBody,
+  send,
+  env,
+  signal,
+}) => {
   const body = (await parseBody()) as any;
   const { provider, ...rest } = body as {
     provider: IProvider;
@@ -21,6 +26,10 @@ export const onPost: RequestHandler = async ({ parseBody, send, env }) => {
     GROQ_KEY: env.get("GROQ_KEY"),
     MISTRAL_KEY: env.get("MISTRAL_KEY"),
   };
-  const response = await fetchChat(rest, envMap);
+  const abortSignal = new AbortController();
+  const response = await fetchChat(rest, envMap, abortSignal.signal);
+  if (signal.aborted) {
+    abortSignal.abort();
+  }
   send(response);
 };

@@ -3,7 +3,11 @@ import type { ChatMessage } from "~/types";
 
 const baseUrl = "https://generativelanguage.googleapis.com";
 
-const fetchChat = async (body: any, env: any = {}) => {
+const fetchChat = async (
+  body: any,
+  env: any = {},
+  signal: AbortSignal | undefined
+) => {
   const { key, password, model, messages } = body;
   const APIKey =
     password && password === env.PASSWORD && env.GOOGLE_KEY
@@ -17,6 +21,7 @@ const fetchChat = async (body: any, env: any = {}) => {
       headers: {
         "Content-Type": "application/json",
       },
+      signal,
       method: "POST",
       body: JSON.stringify({ contents }),
     }

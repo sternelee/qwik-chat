@@ -59,7 +59,7 @@ export default component$(() => {
     archiveCurrentMessage: $(function () {
       if (this.currentAssistantMessage) {
         this.controller = undefined;
-        this.messageList = this.messageList.map((k) => ({
+        this.messageList = this.messageList.map((k: ChatMessage) => ({
           ...k,
           type: k.type === "temporary" ? "default" : k.type,
         }));
@@ -84,9 +84,7 @@ export default component$(() => {
           body: JSON.stringify({
             provider,
             password: this.globalSettings.password,
-            key:
-              this.globalSettings.APIKeys[provider] ||
-              undefined,
+            key: this.globalSettings.APIKeys[provider] || undefined,
             messages,
             temperature: this.sessionSettings.APITemperature,
             model: this.sessionSettings.model,
@@ -96,16 +94,17 @@ export default component$(() => {
       } else {
         // 前端请求
         const fetchChat = ProviderMap[provider].fetchChat;
-        response = await fetchChat({
-          key:
-            this.globalSettings.APIKeys[provider] ||
-            undefined,
-          messages,
-          temperature: this.sessionSettings.APITemperature,
-          signal: this.controller?.signal,
-          model: this.sessionSettings.model,
-          stream: true,
-        });
+        response = await fetchChat(
+          {
+            key: this.globalSettings.APIKeys[provider] || undefined,
+            messages,
+            temperature: this.sessionSettings.APITemperature,
+            model: this.sessionSettings.model,
+            stream: true,
+          },
+          {},
+          this.controller?.signal
+        );
       }
 
       if (!response.ok) {
@@ -319,10 +318,11 @@ export default component$(() => {
             } else {
               this.messageList = messages.filter((m) => m.type === "locked");
             }
+            setTimeout(() => scrollToBottom(), 1000);
           }
         }
       } catch {
-        console.log("Localstorage parse error");
+        console.log("localStorage parse error");
       }
 
       const { Fzf } = await import("fzf");

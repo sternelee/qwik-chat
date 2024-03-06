@@ -2,7 +2,11 @@ import type { ParsedEvent } from "eventsource-parser";
 
 const baseUrl = "https://api.mistral.ai";
 
-const fetchChat = async (body: any, env: any = {}) => {
+const fetchChat = async (
+  body: any,
+  env: any = {},
+  signal: AbortSignal | undefined
+) => {
   let { key, password, ...rest } = body;
   if (password && password === env.PASSWORD) {
     key = env.MISTRAL_KEY;
@@ -12,6 +16,7 @@ const fetchChat = async (body: any, env: any = {}) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${key}`,
     },
+    signal,
     method: "POST",
     body: JSON.stringify(rest),
   });

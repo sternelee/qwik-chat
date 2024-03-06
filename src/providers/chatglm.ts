@@ -6,7 +6,11 @@ const baseUrl = "https://open.bigmodel.cn/api/paas/v4/chat/completions";
 
 const cache = new Map();
 
-const fetchChat = async (body: any, env: any = {}) => {
+const fetchChat = async (
+  body: any,
+  env: any = {},
+  signal: AbortSignal | undefined
+) => {
   let { key, password, ...rest } = body;
   const APIKey =
     password && password === env.PASSWORD && env.CHATGLM_KEY
@@ -59,6 +63,7 @@ const fetchChat = async (body: any, env: any = {}) => {
       "Content-Type": "application/json",
       Authorization: token,
     },
+    signal,
     method: "POST",
     body: JSON.stringify(rest),
   });

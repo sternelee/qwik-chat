@@ -3,7 +3,11 @@ import type { ChatMessage } from "~/types";
 
 const baseUrl = "https://api.anthropic.com";
 
-const fetchChat = async (body: any, env: any = {}) => {
+const fetchChat = async (
+  body: any,
+  env: any = {},
+  signal: AbortSignal | undefined
+) => {
   let { key, password, messages, ...rest } = body;
   if (password && password === env.PASSWORD) {
     key = env.CLAUDE_KEY;
@@ -19,6 +23,7 @@ const fetchChat = async (body: any, env: any = {}) => {
       "anthropic-version": "2023-06-01",
       "x-api-key": `${key}`,
     },
+    signal,
     method: "POST",
     body: JSON.stringify(rest),
   });

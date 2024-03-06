@@ -4,7 +4,11 @@ import type { ChatMessage } from "~/types";
 const baseUrl =
   "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation";
 
-const fetchChat = async (body: any, env: any = {}) => {
+const fetchChat = async (
+  body: any,
+  env: any = {},
+  signal: AbortSignal | undefined
+) => {
   let { key, password, model, messages, ...parameters } = body;
   if (password && password === env.PASSWORD) {
     key = env.ALI_KEY;
@@ -29,6 +33,7 @@ const fetchChat = async (body: any, env: any = {}) => {
       Authorization: `Bearer ${key}`,
       "X-DashScope-SSE": "enable",
     },
+    signal,
     method: "POST",
     body: JSON.stringify({
       model,

@@ -3,7 +3,11 @@ import type { ChatMessage } from "~/types";
 
 const baseUrl = "https://api.openai.com";
 
-const fetchChat = async (body: any, env: any = {}) => {
+const fetchChat = async (
+  body: any,
+  env: any = {},
+  signal: AbortSignal | undefined
+) => {
   const { key, password, ...rest } = body;
   const APIKey =
     password && password === env.PASSWORD && env.OPENAI_KEY
@@ -32,6 +36,7 @@ const fetchChat = async (body: any, env: any = {}) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${APIKey}`,
     },
+    signal,
     method: "POST",
     body: JSON.stringify(rest),
   });

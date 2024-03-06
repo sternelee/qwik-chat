@@ -2,10 +2,10 @@ import type { ParsedEvent } from "eventsource-parser";
 
 const baseUrl = "https://api.groq.com/openai";
 
-const fetchChat = async (body: any) => {
+const fetchChat = async (body: any, env: any = {}) => {
   let { key, password, ...rest } = body;
-  if (password && password === process.env.PASSWORD) {
-    key = process.env.GROQ_KEY;
+  if (password && password === env.PASSWORD) {
+    key = env.GROQ_KEY;
   }
   return await fetch(`${baseUrl}/v1/chat/completions`, {
     headers: {

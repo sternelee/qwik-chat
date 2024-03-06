@@ -4,10 +4,10 @@ import type { ChatMessage } from "~/types";
 
 const baseUrl = "https://openrouter.ai/api";
 
-const fetchChat = async (body: any) => {
+const fetchChat = async (body: any, env: any = {}) => {
   let { key, password, ...rest } = body;
-  if (password && password === process.env.PASSWORD) {
-    key = process.env.OPENROUTER_KEY;
+  if (password && password === env.PASSWORD) {
+    key = env.OPENROUTER_KEY;
   }
   rest.messages = rest.messages.map((m: ChatMessage) => {
     if (m.images) {

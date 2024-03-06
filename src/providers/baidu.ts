@@ -2,10 +2,10 @@ import type { ParsedEvent } from "eventsource-parser";
 
 const baseUrl = "https://aip.baidubce.com/rpc/2.0/ai_custom";
 
-const fetchChat = async (body: any) => {
+const fetchChat = async (body: any, env: any = {}) => {
   const { key, password, model, ...rest } = body;
   const APIKey =
-    password && password === process.env.PASSWORD && process.env.BAIDU_KEY
+    password && password === env.PASSWORD && env.BAIDU_KEY
       ? process.env.BAIDU_KEY
       : key;
   return await fetch(
@@ -20,11 +20,11 @@ const fetchChat = async (body: any) => {
   );
 };
 
-const fetchImage = async (body: any) => {
+const fetchImage = async (body: any, env: any = {}) => {
   const { key, password, model, ...rest } = body;
   const APIKey =
-    password && password === process.env.PASSWORD && process.env.BAIDU_KEY
-      ? process.env.BAIDU_KEY
+    password && password === env.PASSWORD && env.BAIDU_KEY
+      ? env.BAIDU_KEY
       : key;
   return await fetch(
     `${baseUrl}/v1/wenxinworkshop/text2image/${model}?access_token=${APIKey}`,
@@ -54,10 +54,25 @@ export default {
   baseUrl,
   defaultModel: "completions_pro",
   models: [
-    { label: "ERNIE-Bot 4.0", value: "completions_pro", input: 0.12, output: 0.12 },
-    { label: "ERNIE-Bot-8K", value: "ernie_bot_8k", input: 0.24, output: 0.048 },
+    {
+      label: "ERNIE-Bot 4.0",
+      value: "completions_pro",
+      input: 0.12,
+      output: 0.12,
+    },
+    {
+      label: "ERNIE-Bot-8K",
+      value: "ernie_bot_8k",
+      input: 0.24,
+      output: 0.048,
+    },
     { label: "ERNIE-Bot", value: "completions", input: 0.012, output: 0.008 },
-    { label: "ERNIE-Bot-turbo", value: "eb-instant", input: 0.008, output: 0.008 },
+    {
+      label: "ERNIE-Bot-turbo",
+      value: "eb-instant",
+      input: 0.008,
+      output: 0.008,
+    },
     // {
     //   label: "Qianfan-BLOOMZ-7B-compressed",
     //   value: "qianfan_bloomz_7b_compressed",

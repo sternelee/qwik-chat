@@ -3,11 +3,11 @@ import type { ChatMessage } from "~/types";
 
 const baseUrl = "https://api.openai.com";
 
-const fetchChat = async (body: any) => {
+const fetchChat = async (body: any, env: any = {}) => {
   const { key, password, ...rest } = body;
   const APIKey =
-    password && password === process.env.PASSWORD && process.env.OPENAI_KEY
-      ? process.env.OPENAI_KEY
+    password && password === env.PASSWORD && env.OPENAI_KEY
+      ? env.OPENAI_KEY
       : key;
   rest.messages = rest.messages.map((m: ChatMessage) => {
     if (m.images) {

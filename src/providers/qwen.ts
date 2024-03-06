@@ -1,12 +1,13 @@
 import type { ParsedEvent } from "eventsource-parser";
 import type { ChatMessage } from "~/types";
 
-const baseUrl = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation";
+const baseUrl =
+  "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation";
 
-const fetchChat = async (body: any) => {
+const fetchChat = async (body: any, env: any = {}) => {
   let { key, password, model, messages, ...parameters } = body;
-  if (password && password === process.env.PASSWORD) {
-    key = process.env.ALI_KEY;
+  if (password && password === env.PASSWORD) {
+    key = env.ALI_KEY;
   }
   messages = messages.map((m: ChatMessage) => {
     if (m.images) {

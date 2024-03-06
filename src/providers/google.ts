@@ -3,11 +3,11 @@ import type { ChatMessage } from "~/types";
 
 const baseUrl = "https://generativelanguage.googleapis.com";
 
-const fetchChat = async (body: any) => {
+const fetchChat = async (body: any, env: any = {}) => {
   const { key, password, model, messages } = body;
   const APIKey =
-    password && password === process.env.PASSWORD && process.env.GOOGLE_KEY
-      ? process.env.GOOGLE_KEY
+    password && password === env.PASSWORD && env.GOOGLE_KEY
+      ? env.GOOGLE_KEY
       : key;
   const contents = parseMessageList(messages);
   console.log(contents);

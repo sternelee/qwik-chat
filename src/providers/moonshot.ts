@@ -2,10 +2,10 @@ import type { ParsedEvent } from "eventsource-parser";
 
 const baseUrl = "https://api.moonshot.cn";
 
-const fetchChat = async (body: any) => {
+const fetchChat = async (body: any, env: any = {}) => {
   let { key, password, ...rest } = body;
-  if (password && password === process.env.PASSWORD) {
-    key = process.env.MOONSHOT_KEY;
+  if (password && password === env.PASSWORD) {
+    key = env.MOONSHOT_KEY;
   }
   return await fetch(`${baseUrl}/v1/chat/completions`, {
     headers: {

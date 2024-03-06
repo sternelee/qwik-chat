@@ -31,16 +31,16 @@
     "@builder.io/qwik-city": "^1.5.0",
     "@types/eslint": "^8.56.5",
     "@types/node": "^20.11.24",
-    "@typescript-eslint/eslint-plugin": "^7.1.0",
-    "@typescript-eslint/parser": "^7.1.0",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
     "eslint": "^8.57.0",
     "eslint-plugin-qwik": "^1.5.0",
     "prettier": "^3.2.5",
     "typescript": "5.3.3",
-    "undici": "*",
-    "vercel": "^29.1.1",
-    "vite": "^5.1.4",
-    "vite-tsconfig-paths": "^4.2.1"
+    "undici": "^6.7.0",
+    "vercel": "^33.5.3",
+    "vite": "^5.1.5",
+    "vite-tsconfig-paths": "^4.3.1"
   },
   "dependencies": {
     "@iconify-json/carbon": "^1.1.31",

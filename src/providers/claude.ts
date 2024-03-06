@@ -12,6 +12,7 @@ const fetchChat = async (body: any, env: any = {}) => {
     m.role === "user" ? `Human: ${m.content}` : `Assistant: ${m.content}`
   );
   rest.prompt = `\n\n${prompt.join("\n\n")}\n\nAssistant:`;
+  rest.max_tokens_to_sample = 4096;
   return await fetch(`${baseUrl}/v1/complete`, {
     headers: {
       "Content-Type": "application/json",

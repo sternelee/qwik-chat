@@ -1,6 +1,7 @@
 import { qwikCity } from "@builder.io/qwik-city/vite";
 import { qwikVite } from "@builder.io/qwik/optimizer";
 import { presetIcons, presetTypography, presetUno, transformerDirectives, transformerVariantGroup } from "unocss";
+import { presetExtra } from 'unocss-preset-extra';
 import unocss from "unocss/vite";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
@@ -30,6 +31,7 @@ export default defineConfig(() => {
             },
           }),
           presetIcons(),
+          presetExtra()
         ],
         shortcuts: {
           "input-box":

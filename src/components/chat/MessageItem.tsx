@@ -111,7 +111,7 @@ export default component$<Props>((props) => {
             transition: "all 0.3s",
           }}
           class={{
-            "group flex gap-3 px-4 mx--4 rounded-lg transition-colors sm:hover:bg-slate/6 dark:sm:hover:bg-slate/5 relative message-item":
+            "group flex gap-3 px-4 mx--4 rounded-lg transition-colors animated animated-fade-in animated-faster sm:hover:bg-slate/6 dark:sm:hover:bg-slate/5 relative message-item":
               true,
             temporary: props.message.type === "temporary",
           }}

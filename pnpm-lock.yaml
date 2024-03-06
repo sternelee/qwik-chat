@@ -62,6 +62,9 @@ dependencies:
   unocss:
     specifier: ^0.58.5
     version: 0.58.5(postcss@8.4.35)(vite@5.1.5)
+  unocss-preset-extra:
+    specifier: ^0.5.3
+    version: 0.5.3(unocss@0.58.5)
 
 devDependencies:
   '@builder.io/qwik':
@@ -5644,6 +5647,14 @@ packages:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
     dev: true
+
+  /unocss-preset-extra@0.5.3(unocss@0.58.5):
+    resolution: {integrity: sha512-rRosBmJ3S8/97o/l4J1lc3AJnSGMSD1FgDs4bvUWmrz2OQvPheuZluL8xULEd5MGwHjw4vAwYkue114pnVelzA==}
+    peerDependencies:
+      unocss: '>= 0.31.0 < 1'
+    dependencies:
+      unocss: 0.58.5(postcss@8.4.35)(vite@5.1.5)
+    dev: false
 
   /unocss@0.58.5(postcss@8.4.35)(vite@5.1.5):
     resolution: {integrity: sha512-0g4P6jLgRRNnhscxw7nQ9RHGrKJ1UPPiHPet+YT3TXUcmy4mTiYgo9+kGQf5bjyrzsELJ10cT6Qz2y6g9Tls4g==}

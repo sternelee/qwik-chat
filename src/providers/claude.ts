@@ -1,12 +1,17 @@
 import type { ParsedEvent } from "eventsource-parser";
+import type { ChatMessage } from "~/types";
 
 const baseUrl = "https://api.anthropic.com";
 
 const fetchChat = async (body: any, env: any = {}) => {
-  let { key, password, ...rest } = body;
+  let { key, password, messages, ...rest } = body;
   if (password && password === env.PASSWORD) {
     key = env.CLAUDE_KEY;
   }
+  const prompt = messages.map((m: ChatMessage) =>
+    m.role === "user" ? `Human: ${m.content}` : `Assistant: ${m.content}`
+  );
+  rest.prompt = `\n\n${prompt.join("\n\n")}\n\nAssistant:`;
   return await fetch(`${baseUrl}/v1/complete`, {
     headers: {
       "Content-Type": "application/json",
@@ -28,7 +33,7 @@ const parseData = (event: ParsedEvent) => {
 };
 
 export default {
-  icon: "i-simple-icons-akaunting",
+  icon: "i-simple-icons-anilist",
   name: "Claude",
   href: "https://console.anthropic.com/settings/keys",
   baseUrl,
@@ -37,6 +42,24 @@ export default {
     {
       value: "claude-2.1",
       label: "claude-2.1",
+      input: 0,
+      output: 0,
+    },
+    {
+      value: "claude-2.0",
+      label: "claude-2.0",
+      input: 0,
+      output: 0,
+    },
+    {
+      value: "claude-3-opus-20240229",
+      label: "Claude 3 Opus",
+      input: 0,
+      output: 0,
+    },
+    {
+      value: "claude-3-sonnet-20240229",
+      label: "Claude 3 Sonnet",
       input: 0,
       output: 0,
     },

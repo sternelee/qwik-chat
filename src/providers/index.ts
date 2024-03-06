@@ -7,6 +7,7 @@ import qwen from "./qwen";
 import groq from "./groq";
 import moonshot from "./moonshot";
 import mistral from "./mistral";
+import claude from "./claude";
 
 export default {
   openai,
@@ -18,6 +19,7 @@ export default {
   moonshot,
   qwen,
   mistral,
+  claude,
 };
 
 export const COST_MAP = [
@@ -30,6 +32,7 @@ export const COST_MAP = [
   moonshot,
   qwen,
   mistral,
+  claude,
 ]
   .map((p) => p.models)
   .flat()
@@ -47,6 +50,7 @@ export const COST_DOLLAR = [
   "google",
   "groq",
   "mistral",
+  "claude",
 ];
 
 export const PROVIDER_LIST = [
@@ -59,6 +63,7 @@ export const PROVIDER_LIST = [
   { value: "moonshot", label: moonshot.name },
   { value: "qwen", label: qwen.name },
   { value: "mistral", label: mistral.name },
+  { value: "claude", label: claude.name },
 ];
 
 export const APIKeys = {
@@ -71,6 +76,7 @@ export const APIKeys = {
   groq: "",
   moonshot: "",
   mistral: "",
+  claude: "",
   // replicate: {
   //   apikey: '',
   // },

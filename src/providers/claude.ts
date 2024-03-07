@@ -13,9 +13,13 @@ const fetchChat = async (
     key = env.CLAUDE_KEY;
   }
   const prompt = messages.map((m: ChatMessage) =>
-    m.role === "user" ? `Human: ${m.content}` : `Assistant: ${m.content}`
+    m.role === "system"
+      ? m.content
+      : m.role === "user"
+        ? `\n\nHuman: ${m.content}`
+        : `\n\nAssistant: ${m.content}`
   );
-  rest.prompt = `\n\n${prompt.join("\n\n")}\n\nAssistant:`;
+  rest.prompt = `${prompt.join("")}\n\nAssistant:`;
   rest.max_tokens_to_sample = 4096;
   return await fetch(`${baseUrl}/v1/complete`, {
     headers: {
@@ -30,12 +34,14 @@ const fetchChat = async (
 };
 
 const parseData = (event: ParsedEvent) => {
-  const data = event.data;
-  if (data === "[DONE]") {
+  const json = JSON.parse(event.data);
+  if (json.stop_reason) {
     return [true, null];
   }
-  const json = JSON.parse(data);
-  return [false, json.choices[0].delta?.content];
+  if (json.error) {
+    return [false, json.error];
+  }
+  return [false, json.completion];
 };
 
 export default {

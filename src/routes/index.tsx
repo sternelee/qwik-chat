@@ -21,8 +21,9 @@ import {
   ChatContext,
 } from "~/store";
 import { LocalStorageKey } from "~/types";
-import type { ChatMessage, Model } from "~/types";
+import type { ChatMessage } from "~/types";
 import { scrollToBottom } from "~/utils";
+import { throttle } from "~/hooks";
 import { fetchAllSessions, getSession, setSession } from "~/utils/storage";
 
 export default component$(() => {
@@ -392,7 +393,7 @@ export default component$(() => {
 
   useVisibleTask$(({ track }) => {
     track(() => store.currentAssistantMessage);
-    scrollToBottom();
+    throttle(scrollToBottom, 250);
   });
 
   return <Chat />;

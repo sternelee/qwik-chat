@@ -16,6 +16,7 @@ import {
   ChatContext,
   defaultMessage,
 } from "~/store";
+import { scrollToBottom } from "~/utils";
 
 export default component$(() => {
   const store = useContext(ChatContext);
@@ -79,13 +80,12 @@ export default component$(() => {
                   [ProviderMap[store.sessionSettings.provider].icon]: true,
                 }}
               ></a>
-              <a
-                href={ProviderMap[store.sessionSettings.provider].href}
-                target="_blank"
-                class="flash-logo text-5 font-bold ml-4"
+              <span
+                onClick$={() => scrollToBottom(0)}
+                class="flash-logo cursor-pointer text-5 font-bold ml-4"
               >
                 {ProviderMap[store.sessionSettings.provider].name} Chat
-              </a>
+              </span>
             </>
           )}
         </div>

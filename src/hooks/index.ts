@@ -1,10 +1,17 @@
-import { $, type PropFunction, type Signal, useOnWindow, useSignal, useTask$ } from "@builder.io/qwik";
+import {
+  $,
+  type PropFunction,
+  type Signal,
+  useOnWindow,
+  useSignal,
+  useTask$,
+} from "@builder.io/qwik";
 import { copyToClipboard } from "~/utils";
 
 export function useDebounce<T>(
   signal: Signal,
   milliSeconds: number,
-  fn?: PropFunction<(value: T) => void>,
+  fn?: PropFunction<(value: T) => void>
 ) {
   // create the debounced Signal
   const debouncedSig = useSignal("");
@@ -29,31 +36,36 @@ export function useDebounce<T>(
   return debouncedSig;
 }
 
-export function throttle (callback: Function, wait: number) {
-  let isThrottled = false,
-    timeoutId: any,
-    lastArgs: any[];
-  const throttled = (...args: any[]) => {
-    lastArgs = args;
-    if (isThrottled) return;
-    isThrottled = true;
-    timeoutId = setTimeout(() => {
-      callback(...lastArgs);
-      isThrottled = false;
-    }, wait);
+export function throttle(fn: Function, wait: number = 300) {
+  let inThrottle: boolean,
+    lastFn: ReturnType<typeof setTimeout>,
+    lastTime: number;
+  return function (this: any) {
+    const context = this,
+      args = arguments;
+    if (!inThrottle) {
+      fn.apply(context, args);
+      lastTime = Date.now();
+      inThrottle = true;
+    } else {
+      clearTimeout(lastFn);
+      lastFn = setTimeout(
+        () => {
+          if (Date.now() - lastTime >= wait) {
+            fn.apply(context, args);
+            lastTime = Date.now();
+          }
+        },
+        Math.max(wait - (Date.now() - lastTime), 0)
+      );
+    }
   };
-  const clear = () => {
-    clearTimeout(timeoutId);
-    isThrottled = false;
-  };
-  return Object.assign(throttled, { clear });
-  // return throttled
 }
 
 export function useThrottle<T>(
   signal: Signal,
   milliSeconds: number,
-  fn?: PropFunction<(value: T) => void>,
+  fn?: PropFunction<(value: T) => void>
 ) {
   const throttleSig = useSignal("");
   const lastTime = useSignal(0);
@@ -65,7 +77,7 @@ export function useThrottle<T>(
       throttleSig.value = signal.value;
     }, milliSeconds);
     if (currentTime >= lastTime.value + milliSeconds) {
-      clearTimeout(throttled)
+      clearTimeout(throttled);
       fn!(signal.value);
       lastTime.value = currentTime;
       throttleSig.value = signal.value;
@@ -79,20 +91,20 @@ export function useThrottle<T>(
 export function useValueThrottle<T>(
   value: any,
   milliSeconds: number,
-  fn?: PropFunction<(value: T) => void>,
+  fn?: PropFunction<(value: T) => void>
 ) {
   const throttleSig = useSignal("");
   const lastTime = useSignal(0);
   useTask$(({ track, cleanup }) => {
     track(() => value);
-    console.log(value)
+    console.log(value);
     const currentTime = Date.now();
     const throttled = setTimeout(async () => {
       await fn!(value);
       throttleSig.value = value;
     }, milliSeconds);
     if (currentTime >= lastTime.value + milliSeconds) {
-      clearTimeout(throttled)
+      clearTimeout(throttled);
       fn!(value);
       lastTime.value = currentTime;
       throttleSig.value = value;
@@ -127,7 +139,7 @@ export function useCopyCode() {
           timeoutIdMap.set(el, timeoutId);
         });
       }
-    }),
+    })
   );
 }
 
@@ -155,7 +167,7 @@ export function observerEl(options: {
         show();
       }
     },
-    { threshold: [threshold], root },
+    { threshold: [threshold], root }
   );
   io.observe(target);
   // onCleanup(() => io.disconnect())

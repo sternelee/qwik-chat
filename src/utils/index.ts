@@ -1,5 +1,4 @@
 export * from "./storage";
-import {time} from "console"
 import { throttle } from "~/hooks";
 
 export async function copyToClipboard(text: string) {
@@ -84,18 +83,12 @@ export function randomKey(keys: string[]) {
   return keys.length ? keys[Math.floor(Math.random() * keys.length)] : "";
 }
 
-export const scrollToBottom = () => {
+export const scrollToBottom = (top = document.body.scrollHeight) => {
   window.scrollTo({
-    top: document.body.scrollHeight,
-    behavior: "smooth"
-  })
-}
-// export const scrollToBottom = throttle(() => {
-//   window.scrollTo({
-//     top: document.body.scrollHeight,
-//     behavior: "smooth",
-//   });
-// }, 250);
+    top,
+    behavior: "smooth",
+  });
+};
 
 export async function fetchWithTimeout(
   input: RequestInfo | URL,
@@ -171,29 +164,31 @@ export const getFormattedTimestamp = () => {
   const currentDate = new Date();
 
   const year = String(currentDate.getFullYear()).slice(-2);
-  const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-  const day = String(currentDate.getDate()).padStart(2, '0');
-  const hours = String(currentDate.getHours()).padStart(2, '0');
-  const minutes = String(currentDate.getMinutes()).padStart(2, '0');
-  const seconds = String(currentDate.getSeconds()).padStart(2, '0');
+  const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+  const day = String(currentDate.getDate()).padStart(2, "0");
+  const hours = String(currentDate.getHours()).padStart(2, "0");
+  const minutes = String(currentDate.getMinutes()).padStart(2, "0");
+  const seconds = String(currentDate.getSeconds()).padStart(2, "0");
 
   const fileName = `${year}${month}${day}-${hours}${minutes}${seconds}.md`;
 
   return fileName;
 };
 
-
 export const createPilePath = (basePath: string) => {
   const date = new Date();
-  const month = date.toLocaleString('default', { month: 'short' });
+  const month = date.toLocaleString("default", { month: "short" });
   const year = date.getFullYear().toString();
-  return [year, month, basePath].join('-')
+  return [year, month, basePath].join("-");
 };
 
-export const getFilePathForNewPost = (basePath: string, timestamp = new Date()) => {
+export const getFilePathForNewPost = (
+  basePath: string,
+  timestamp = new Date()
+) => {
   const date = new Date();
-  const month = date.toLocaleString('default', { month: 'short' });
+  const month = date.toLocaleString("default", { month: "short" });
   const year = date.getFullYear().toString();
   const fileName = getFormattedTimestamp();
-  return [basePath, year, month, fileName].join('-')
+  return [basePath, year, month, fileName].join("-");
 };

@@ -57,13 +57,13 @@ export const PROVIDER_LIST = [
   { value: "openai", label: openai.name },
   { value: "openrouter", label: openrouter.name },
   { value: "google", label: google.name },
-  { value: "baidu", label: baidu.name },
-  { value: "chatglm", label: chatglm.name },
   { value: "groq", label: groq.name },
   { value: "moonshot", label: moonshot.name },
-  { value: "qwen", label: qwen.name },
-  { value: "mistral", label: mistral.name },
   { value: "claude", label: claude.name },
+  { value: "mistral", label: mistral.name },
+  { value: "chatglm", label: chatglm.name },
+  { value: "qwen", label: qwen.name },
+  { value: "baidu", label: baidu.name },
 ];
 
 export const APIKeys = {

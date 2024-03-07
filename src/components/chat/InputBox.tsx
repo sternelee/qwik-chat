@@ -230,7 +230,7 @@ export default component$<{
               )}
               <textarea
                 ref={inputRef}
-                placeholder={`与 ta 对话吧 ⎡${dollarLabel}:${COST_MAP[currentModel.value].input}/${COST_MAP[currentModel.value].output}⌋`}
+                placeholder={`与 ta 对话吧 ${dollarLabel}[${COST_MAP[currentModel.value].input}/${COST_MAP[currentModel.value].output}]`}
                 autocomplete="off"
                 value={store.inputContent}
                 autoCapitalize="off"

@@ -32,14 +32,14 @@ export default component$<{
   const currentModel = useComputed$(() => store.sessionSettings.model);
 
   const currentMessageToken$ = useComputed$(() =>
-    countTokensDollar(store.currentMessageToken, currentModel.value, "output")
+    countTokensDollar(store.currentMessageToken, currentModel.value, "output"),
   );
 
   useVisibleTask$(async () => {
     const { Fzf } = await import("fzf");
     import("~/utils/parse").then(({ parsePrompts }) => {
       FZFData.promptOptions = parsePrompts().map(
-        (k) => ({ title: k.desc, desc: k.detail }) as Option
+        (k) => ({ title: k.desc, desc: k.detail }) as Option,
       );
       FZFData.fzfPrompts = new Fzf(FZFData.promptOptions, {
         selector: (k) => `${k.title}\n${k.desc}`,
@@ -143,7 +143,7 @@ export default component$<{
 
     const sessionQuery = value.replace(
       /^\s{2,}(.*)\s*$|^\/{2,}(.*)\s*$/,
-      "$1$2"
+      "$1$2",
     );
     const promptQuery = value.replace(/^\s(.*)\s*$|^\/(.*)\s*$/, "$1$2");
     if (sessionQuery !== value) {
@@ -151,14 +151,14 @@ export default component$<{
         (k) => ({
           ...k.item,
           positions: k.positions,
-        })
+        }),
       );
     } else if (promptQuery !== value) {
       candidateOptions.value = FZFData.fzfPrompts!.find(promptQuery).map(
         (k) => ({
           ...k.item,
           positions: k.positions,
-        })
+        }),
       );
     }
   });

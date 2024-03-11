@@ -5,5 +5,6 @@
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fff",
-  "description": "A Qwik GPT Chat Site."
+  "theme_color":"#0F0F0F",
+  "description": "A Qwik GPT Chat Site for OpenAi, OpenRouter, Google, Claude, Groq.inc, MoonShot, Mistral, ChatGLM, Qwen and Baidu."
 }

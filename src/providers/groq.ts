@@ -50,6 +50,12 @@ export default {
       input: 0,
       output: 0,
     },
+    {
+      value: "gemma-7b-it",
+      label: "Gemma-7b-it",
+      input: 0,
+      output: 0,
+    },
   ],
   placeholder: "API Key",
   parseData,

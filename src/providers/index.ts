@@ -8,6 +8,7 @@ import groq from "./groq";
 import moonshot from "./moonshot";
 import mistral from "./mistral";
 import claude from "./claude";
+import minimaxi from "./minimaxi";
 
 export default {
   openai,
@@ -20,6 +21,7 @@ export default {
   qwen,
   mistral,
   claude,
+  minimaxi,
 };
 
 export const COST_MAP = [
@@ -33,6 +35,7 @@ export const COST_MAP = [
   qwen,
   mistral,
   claude,
+  minimaxi,
 ]
   .map((p) => p.models)
   .flat()
@@ -63,6 +66,7 @@ export const PROVIDER_LIST = [
   { value: "mistral", label: mistral.name },
   { value: "chatglm", label: chatglm.name },
   { value: "qwen", label: qwen.name },
+  { value: "minimaxi", label: minimaxi.name },
   { value: "baidu", label: baidu.name },
 ];
 
@@ -77,6 +81,7 @@ export const APIKeys = {
   moonshot: "",
   mistral: "",
   claude: "",
+  minimaxi: "",
   // replicate: {
   //   apikey: '',
   // },

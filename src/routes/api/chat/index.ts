@@ -25,6 +25,7 @@ export const onPost: RequestHandler = async ({
     MOONSHOT_KEY: env.get("MOONSHOT_KEY"),
     GROQ_KEY: env.get("GROQ_KEY"),
     MISTRAL_KEY: env.get("MISTRAL_KEY"),
+    MINIMAXI_KEY: env.get("MINIMAXI_KEY"),
   };
   const abortSignal = new AbortController();
   const response = await fetchChat(rest, envMap, abortSignal.signal);

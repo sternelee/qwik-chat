@@ -29,7 +29,7 @@ import { useAuthSession } from "~/routes/plugin@auth";
 
 export default component$(() => {
   const session = useAuthSession();
-  console.log("user:", session.value?.user);
+  console.log("user:", JSON.stringify(session.value));
   const store = useStore<IChatStore>({
     sessionId: "index",
     globalSettings,
@@ -399,7 +399,7 @@ export default component$(() => {
     throttle(scrollToBottom, 250);
   });
 
-  return <Chat />;
+  return <Chat user={session.value?.user} />;
 });
 
 export const head: DocumentHead = {

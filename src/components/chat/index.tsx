@@ -104,7 +104,7 @@ export default component$<IChatProps>(({ user }) => {
         </div>
         <ThemeToggle />
         {avatar.value ? (
-          <img src={avatar.value} width={24} height={24} />
+          <img src={avatar.value} class="rounded-full" width={24} height={24} />
         ) : (
           <i
             class="cursor-pointer"

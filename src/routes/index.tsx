@@ -25,8 +25,11 @@ import type { ChatMessage } from "~/types";
 import { scrollToBottom } from "~/utils";
 import { throttle } from "~/hooks";
 import { fetchAllSessions, getSession, setSession } from "~/utils/storage";
+import { useAuthSession } from "~/routes/plugin@auth";
 
 export default component$(() => {
+  const session = useAuthSession();
+  console.log("session:", session);
   const store = useStore<IChatStore>({
     sessionId: "index",
     globalSettings,

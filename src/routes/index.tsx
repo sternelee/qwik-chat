@@ -29,7 +29,7 @@ import { useAuthSession } from "~/routes/plugin@auth";
 
 export default component$(() => {
   const session = useAuthSession();
-  console.log("session:", session);
+  console.log("user:", session.value?.user);
   const store = useStore<IChatStore>({
     sessionId: "index",
     globalSettings,

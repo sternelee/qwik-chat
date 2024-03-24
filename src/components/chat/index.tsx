@@ -112,7 +112,7 @@ export default component$<IChatProps>(({ user }) => {
               width={24}
               height={24}
             />
-            <ul class="absolute pt-2 bg-slate-100 hidden group-hover:block">
+            <ul class="absolute pt-2 hidden group-hover:block">
               <li
                 onClick$={() =>
                   signOut.submit({
@@ -120,14 +120,14 @@ export default component$<IChatProps>(({ user }) => {
                   })
                 }
               >
-                <i class="absolute block i-carbon:logout text-2xl" />
+                <i class="absolute block i-carbon:logout text-2xl dark:gray" />
               </li>
             </ul>
           </div>
         ) : (
           <div class="relative group cursor-pointer">
             <i class="block i-carbon:login text-2xl" />
-            <ul class="absolute pt-2 bg-slate-100 hidden group-hover:block">
+            <ul class="absolute pt-2 hidden group-hover:block">
               <li
                 onClick$={() =>
                   signIn.submit({
@@ -136,7 +136,7 @@ export default component$<IChatProps>(({ user }) => {
                   })
                 }
               >
-                <i class="block i-carbon:logo-github text-2xl" />
+                <i class="block i-carbon:logo-github text-2xl dark:gray" />
               </li>
               <li
                 class="mt-1"
@@ -147,7 +147,7 @@ export default component$<IChatProps>(({ user }) => {
                   })
                 }
               >
-                <i class="block i-carbon:logo-google text-2xl" />
+                <i class="block i-carbon:logo-google text-2xl dark:gray" />
               </li>
             </ul>
           </div>

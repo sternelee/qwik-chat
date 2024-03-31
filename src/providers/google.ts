@@ -97,6 +97,7 @@ export default {
   defaultModel: "gemini-pro",
   models: [
     { value: "gemini-pro", label: "Gemini-Pro", input: 0, output: 0 },
+    { value: "gemini-1.5-pro-latest", label: "Gemini-Pro-1.5", input: 0, output: 0 },
     {
       value: "gemini-pro-vision",
       label: "Gemini-Pro-Vision",

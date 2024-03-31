@@ -74,31 +74,31 @@ devDependencies:
     specifier: ^0.13.0
     version: 0.13.0
   '@builder.io/qwik':
-    specifier: ^1.5.1
+    specifier: ^1.5.0
     version: 1.5.1(@types/node@20.11.30)(sass@1.72.0)(undici@6.10.2)
   '@builder.io/qwik-auth':
     specifier: 0.1.1
     version: 0.1.1(@auth/core@0.13.0)
   '@builder.io/qwik-city':
-    specifier: ^1.5.1
+    specifier: ^1.5.0
     version: 1.5.1(@types/node@20.11.30)(sass@1.72.0)
   '@types/eslint':
-    specifier: ^8.56.6
+    specifier: ^8.56.5
     version: 8.56.6
   '@types/node':
-    specifier: ^20.11.30
+    specifier: ^20.11.24
     version: 20.11.30
   '@typescript-eslint/eslint-plugin':
-    specifier: ^7.4.0
+    specifier: ^7.1.1
     version: 7.4.0(@typescript-eslint/parser@7.4.0)(eslint@8.57.0)(typescript@5.3.3)
   '@typescript-eslint/parser':
-    specifier: ^7.4.0
+    specifier: ^7.1.1
     version: 7.4.0(eslint@8.57.0)(typescript@5.3.3)
   eslint:
     specifier: ^8.57.0
     version: 8.57.0
   eslint-plugin-qwik:
-    specifier: ^1.5.1
+    specifier: ^1.5.0
     version: 1.5.1(eslint@8.57.0)
   prettier:
     specifier: ^3.2.5
@@ -107,16 +107,16 @@ devDependencies:
     specifier: 5.3.3
     version: 5.3.3
   undici:
-    specifier: '*'
+    specifier: ^6.7.0
     version: 6.10.2
   vercel:
-    specifier: ^33.6.1
+    specifier: ^33.5.3
     version: 33.6.1
   vite:
-    specifier: ^5.1.4
+    specifier: ^5.1.5
     version: 5.2.6(@types/node@20.11.30)(sass@1.72.0)
   vite-tsconfig-paths:
-    specifier: ^4.2.1
+    specifier: ^4.3.1
     version: 4.3.2(typescript@5.3.3)(vite@5.2.6)
 
 packages:
@@ -2533,7 +2533,7 @@ packages:
       supports-color:
         optional: true
     dependencies:
-      ms: 2.1.1
+      ms: 2.1.2
     dev: true
 
   /debug@4.3.4:

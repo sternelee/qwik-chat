@@ -58,7 +58,6 @@ export default defineConfig(({ command, mode }): UserConfig => {
       // Put problematic deps that break bundling here, mostly those with binaries.
       // For example ['better-sqlite3'] if you use that in server functions.
       include: ["@auth/core"],
-      exclude: ["jose", "eventsource-parser", "markdown-it", "markdown-it-katex", "markdown-it-highlightjs", "markdown-it-kbd", "fzf"],
     },
     // This tells Vite how to bundle the server code.
     ssr:

@@ -120,7 +120,7 @@ export default component$<IChatProps>(({ user }) => {
                   })
                 }
               >
-                <i class="absolute block i-carbon:logout text-2xl dark:gray" />
+                <i class="block i-carbon:logout text-2xl dark:gray" />
               </li>
             </ul>
           </div>

@@ -1,3 +1,5 @@
+org: sternelee
+app: qwik-lambda-app
 service: qwik-lambda-app
 frameworkVersion: "3"
 

@@ -4,7 +4,9 @@ import {
   useContext,
   useSignal,
   useComputed$,
+  // useVisibleTask$,
 } from "@builder.io/qwik";
+// import { isServer } from "@builder.io/qwik/build";
 import { useThrottle, useCopyCode } from "~/hooks";
 import { ChatContext } from "~/store";
 import type { ChatMessage } from "~/types";
@@ -40,12 +42,12 @@ export default component$<Props>((props) => {
     store.messageList =
       store.messageList[props.index!].role === "user"
         ? store.messageList.filter(
-            (_, i) =>
-              !(
-                i === props.index ||
-                (i === props.index! + 1 && _.role !== "user")
-              )
-          )
+          (_, i) =>
+            !(
+              i === props.index ||
+              (i === props.index! + 1 && _.role !== "user")
+            ),
+        )
         : store.messageList.filter((_, i) => i !== props.index);
   });
 
@@ -55,12 +57,12 @@ export default component$<Props>((props) => {
       question = store.messageList[props.index!].content;
       store.messageList = store.messageList.filter(
         (_, i) =>
-          !(i === props.index || (i === props.index! + 1 && _.role !== "user"))
+          !(i === props.index || (i === props.index! + 1 && _.role !== "user")),
       );
     } else {
       question = store.messageList[props.index! - 1].content;
       store.messageList = store.messageList.filter(
-        (_, i) => !(i === props.index || i === props.index! - 1)
+        (_, i) => !(i === props.index || i === props.index! - 1),
       );
     }
     store.sendMessage(question);
@@ -95,12 +97,25 @@ export default component$<Props>((props) => {
     );
   });
 
+  // useVisibleTask$(
+  //   async () => {
+  //     const { renderMarkdownInWorker } = await import("~/wokers");
+  //     window.renderMarkdownInWorker = renderMarkdownInWorker;
+  //   },
+  //   { strategy: "document-ready" },
+  // );
+
   useThrottle(
     msgContent,
     50,
     $((content: string) => {
       renderedMarkdown.value = md.render(content);
-    })
+      // !isServer &&
+      //   window.renderMarkdownInWorker &&
+      //   window
+      //     .renderMarkdownInWorker(content)
+      //     .then((val) => (renderedMarkdown.value = val));
+    }),
   );
 
   return (
@@ -117,9 +132,8 @@ export default component$<Props>((props) => {
           }}
         >
           <div
-            class={`shadow-slate-5 shadow-sm dark:shadow-none shrink-0 w-7 h-7 mt-4 rounded-full op-80 flex items-center justify-center cursor-pointer ${
-              roleClass[props.message.role]
-            } ${props.message.type === "temporary" ? "animate-spin" : ""}`}
+            class={`shadow-slate-5 shadow-sm dark:shadow-none shrink-0 w-7 h-7 mt-4 rounded-full op-80 flex items-center justify-center cursor-pointer ${roleClass[props.message.role]
+              } ${props.message.type === "temporary" ? "animate-spin" : ""}`}
             onClick$={lockMessage}
           >
             {props.message.type === "locked" && (

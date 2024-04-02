@@ -17,6 +17,7 @@ import {
 } from "~/store";
 import type { Option } from "~/types";
 import { blobToBase64, isMobile, scrollToBottom } from "~/utils";
+import { countTokens } from "~/utils/tokens"
 import SettingAction from "./SettingAction";
 import SlashSelector from "./SlashSelector";
 import { COST_MAP, COST_DOLLAR } from "~/providers";
@@ -73,19 +74,24 @@ export default component$<{
   });
 
   useVisibleTask$(async ({ track }) => {
-    const { countTokensInWorker } = await import("~/wokers");
+    // const { countTokensInWorker } = await import("~/wokers");
+
     track(() => store.inputContent);
     track(() => store.validContent);
     track(() => store.currentAssistantMessage);
-    countTokensInWorker(store.inputContent).then((res) => {
-      store.inputContentToken = res;
-    });
-    countTokensInWorker(store.validContent).then((res) => {
-      store.contextToken = res;
-    });
-    countTokensInWorker(store.currentAssistantMessage).then((res) => {
-      store.currentMessageToken = res;
-    });
+
+    // countTokensInWorker(store.inputContent).then((res) => {
+    //   store.inputContentToken = res;
+    // });
+    // countTokensInWorker(store.validContent).then((res) => {
+    //   store.contextToken = res;
+    // });
+    // countTokensInWorker(store.currentAssistantMessage).then((res) => {
+    //   store.currentMessageToken = res;
+    // });
+    store.inputContentToken = countTokens(store.inputContent)
+    store.contextToken = countTokens(store.validContent)
+    store.currentMessageToken = countTokens(store.currentAssistantMessage)
   });
 
   useVisibleTask$(({ track }) => {

@@ -70,6 +70,7 @@ export default component$<IChatProps>(({ user }) => {
             <>
               <a
                 href={ProviderMap[store.sessionSettings.provider].href}
+                aria-label="API Key Link"
                 target="_blank"
                 class={{
                   "inline-block text-8 mr-4": true,

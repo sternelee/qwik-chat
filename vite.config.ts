@@ -61,7 +61,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
     },
     // This tells Vite how to bundle the server code.
     ssr:
-      command === "build" && mode === "production"
+      command === "build"
         ? {
           // All dev dependencies should be bundled in the server build
           noExternal: Object.keys(devDependencies),

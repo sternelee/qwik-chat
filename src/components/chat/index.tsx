@@ -8,7 +8,7 @@ import ThemeToggle from "~/components/chat/ThemeToggle";
 import MessageItem from "~/components/chat/MessageItem";
 import InputBox from "~/components/chat/InputBox";
 import ProviderMap from "~/providers";
-import type { Model } from "~/types";
+import type { Model, IChatSession } from "~/types";
 import {
   countTokensDollar,
   defaultInputBoxHeight,
@@ -19,17 +19,7 @@ import {
 import { scrollToBottom } from "~/utils";
 import { useAuthSignin, useAuthSignout } from "~/routes/plugin@auth";
 
-interface IChatProps {
-  user:
-    | {
-        name?: string | null | undefined;
-        email?: string | null | undefined;
-        image?: string | null | undefined;
-      }
-    | undefined;
-}
-
-export default component$<IChatProps>(({ user }) => {
+export default component$<IChatSession>(({ user }) => {
   const avatar = useComputed$(() => user?.image);
   const signIn = useAuthSignin();
   const signOut = useAuthSignout();
@@ -39,7 +29,7 @@ export default component$<IChatProps>(({ user }) => {
   const countContextTokensDollar = (
     contextToken: number,
     inputContentToken: number,
-    model: Model
+    model: Model,
   ) => {
     const c1 = countTokensDollar(contextToken, model, "input");
     const c2 = countTokensDollar(inputContentToken, model, "input");
@@ -179,7 +169,7 @@ export default component$<IChatProps>(({ user }) => {
               {store.inputContentToken > 0 && (
                 <span class="mx-1 text-slate/40">
                   {`有效上下文 + 提问 Tokens : ${shownTokens(
-                    store.contextToken + store.inputContentToken
+                    store.contextToken + store.inputContentToken,
                   )}(`}
                   <span
                     class={{
@@ -191,17 +181,17 @@ export default component$<IChatProps>(({ user }) => {
                   {`)/${countContextTokensDollar(
                     store.contextToken,
                     store.inputContentToken,
-                    store.sessionSettings.model
+                    store.sessionSettings.model,
                   )}`}
                 </span>
               )}
               {store.inputContentToken === 0 && (
                 <span class="mx-1 text-slate/40">
                   {`有效上下文 Tokens : ${shownTokens(
-                    store.contextToken
+                    store.contextToken,
                   )}/$${countContextToken(
                     store.contextToken,
-                    store.sessionSettings.model
+                    store.sessionSettings.model,
                   )}`}
                 </span>
               )}

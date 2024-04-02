@@ -6,7 +6,7 @@ import {
   useVisibleTask$,
   noSerialize,
 } from "@builder.io/qwik";
-import { type DocumentHead } from "@builder.io/qwik-city";
+import { type DocumentHead, routeLoader$ } from "@builder.io/qwik-city";
 import type { ParsedEvent, ReconnectInterval } from "eventsource-parser";
 import { createParser } from "eventsource-parser";
 import Chat from "~/components/chat";
@@ -26,6 +26,11 @@ import { scrollToBottom } from "~/utils";
 import { throttle } from "~/hooks";
 import { fetchAllSessions, getSession, setSession } from "~/utils/storage";
 import { useAuthSession } from "~/routes/plugin@auth";
+
+export const useChatStore = routeLoader$(async (requestEvent) => {
+  const res = await fetch(`/api/storage`);
+  return await res.json();
+});
 
 export default component$(() => {
   const session = useAuthSession();
@@ -107,7 +112,7 @@ export default component$(() => {
             stream: true,
           },
           {},
-          this.controller?.signal
+          this.controller?.signal,
         );
       }
 
@@ -247,7 +252,7 @@ export default component$(() => {
             throw new Error(
               this.sessionSettings.continuousDialogue
                 ? "本次对话过长，请清除之前部分对话或者缩短当前提问。"
-                : "当前提问太长了，请缩短。"
+                : "当前提问太长了，请缩短。",
             );
           }
           this.loading = true;
@@ -261,10 +266,10 @@ export default component$(() => {
                     _[i - 1]?.role === "user") ||
                   (k.role === "user" &&
                     _[i + 1]?.role !== "error" &&
-                    _[i + 1]?.type !== "temporary")
+                    _[i + 1]?.type !== "temporary"),
               )
             : this.messageList.filter(
-                (k) => k.role === "system" || k.type === "locked"
+                (k) => k.role === "system" || k.type === "locked",
               );
           const messages = (
             this.sessionSettings.continuousDialogue
@@ -304,7 +309,7 @@ export default component$(() => {
       this.sessionId = sessionId;
       try {
         const globalSettings = localStorage.getItem(
-          LocalStorageKey.GLOBAL_SETTINGS
+          LocalStorageKey.GLOBAL_SETTINGS,
         );
         const session = getSession(sessionId);
         if (globalSettings) {

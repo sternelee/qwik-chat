@@ -23,7 +23,6 @@ import {
 import { LocalStorageKey } from "~/types";
 import type { ChatMessage } from "~/types";
 import { scrollToBottom } from "~/utils";
-import { throttle } from "~/hooks";
 import { fetchAllSessions, getSession, setSession } from "~/utils/storage";
 import { useAuthSession } from "~/routes/plugin@auth";
 
@@ -401,7 +400,7 @@ export default component$(() => {
 
   useVisibleTask$(({ track }) => {
     track(() => store.currentAssistantMessage);
-    throttle(scrollToBottom, 250);
+    scrollToBottom()
   });
 
   return <Chat user={session.value?.user} />;

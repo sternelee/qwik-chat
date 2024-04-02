@@ -3,10 +3,10 @@
     {
       "id": "openrouter/auto",
       "name": "Auto (best for prompt)",
-      "description": "Depending on their size, subject, and complexity, your prompts will be sent to [Mistral Medium](/models/mistralai/mistral-medium) or [OpenAI: GPT-4 Turbo](/models/openai/gpt-4-turbo-preview).  To see which model was used, visit [Activity](/activity).",
+      "description": "Depending on their size, subject, and complexity, your prompts will be sent to [Mistral Medium](/models/mistralai/mistral-medium) or [GPT-4 Turbo](/models/openai/gpt-4-turbo-preview).  To see which model was used, visit [Activity](/activity).",
       "pricing": {
-        "prompt": "-1",
-        "completion": "-1",
+        "prompt": "0",
+        "completion": "0",
         "request": "-1",
         "image": "-1"
       },
@@ -16,7 +16,10 @@
         "tokenizer": "Router",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": null
     },
     {
@@ -35,7 +38,10 @@
         "tokenizer": "Mistral",
         "instruct_type": "vicuna"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
         "prompt_tokens": "Infinity",
         "completion_tokens": "Infinity"
@@ -57,7 +63,10 @@
         "tokenizer": "Mistral",
         "instruct_type": "llama2"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
         "prompt_tokens": "Infinity",
         "completion_tokens": "Infinity"
@@ -79,7 +88,10 @@
         "tokenizer": "Mistral",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": 2048, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 2048,
+        "is_moderated": false
+      },
       "per_request_limits": {
         "prompt_tokens": "Infinity",
         "completion_tokens": "Infinity"
@@ -101,7 +113,10 @@
         "tokenizer": "Mistral",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
         "prompt_tokens": "Infinity",
         "completion_tokens": "Infinity"
@@ -123,7 +138,10 @@
         "tokenizer": "Mistral",
         "instruct_type": "vicuna"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
         "prompt_tokens": "Infinity",
         "completion_tokens": "Infinity"
@@ -145,32 +163,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "gemma"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
         "prompt_tokens": "Infinity",
         "completion_tokens": "Infinity"
-      }
-    },
-    {
-      "id": "jondurbin/bagel-34b",
-      "name": "Bagel 34B v0.2",
-      "description": "An experimental fine-tune of [Yi 34b 200k](/models/01-ai/yi-34b-200k) using [bagel](https://github.com/jondurbin/bagel). This is the version of the fine-tune before direct preference optimization (DPO) has been applied. DPO performs better on benchmarks, but this version is likely better for creative writing, roleplay, etc.",
-      "pricing": {
-        "prompt": "0.000003",
-        "completion": "0.000003",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 8000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Llama2",
-        "instruct_type": "alpaca"
-      },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
-      "per_request_limits": {
-        "prompt_tokens": "13077674",
-        "completion_tokens": "13077674"
       }
     },
     {
@@ -189,10 +188,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "39233024",
-        "completion_tokens": "39233024"
+        "prompt_tokens": "39062193",
+        "completion_tokens": "39062193"
       }
     },
     {
@@ -211,32 +213,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
-      "per_request_limits": {
-        "prompt_tokens": "39233024",
-        "completion_tokens": "39233024"
-      }
-    },
-    {
-      "id": "neversleep/noromaid-mixtral-8x7b-instruct",
-      "name": "Noromaid Mixtral 8x7B Instruct",
-      "description": "This model was trained for 8h(v1) + 8h(v2) + 12h(v3) on customized modified datasets, focusing on RP, uncensoring, and a modified version of the Alpaca prompting (that was already used in LimaRP), which should be at the same conversational level as ChatLM or Llama2-Chat without adding any additional special tokens.",
-      "pricing": {
-        "prompt": "0.000003",
-        "completion": "0.000003",
-        "image": "0",
-        "request": "0"
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
       },
-      "context_length": 8000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Mistral",
-        "instruct_type": "alpaca-modif"
-      },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
       "per_request_limits": {
-        "prompt_tokens": "13077674",
-        "completion_tokens": "13077674"
+        "prompt_tokens": "39062193",
+        "completion_tokens": "39062193"
       }
     },
     {
@@ -255,10 +238,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "261553498",
-        "completion_tokens": "261553498"
+        "prompt_tokens": "260414620",
+        "completion_tokens": "260414620"
       }
     },
     {
@@ -277,10 +263,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "llama2"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "98082561",
-        "completion_tokens": "98082561"
+        "prompt_tokens": "97655482",
+        "completion_tokens": "97655482"
       }
     },
     {
@@ -299,10 +288,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "98082561",
-        "completion_tokens": "98082561"
+        "prompt_tokens": "97655482",
+        "completion_tokens": "97655482"
       }
     },
     {
@@ -321,10 +313,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "neural"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "7846604",
-        "completion_tokens": "7846604"
+        "prompt_tokens": "7812438",
+        "completion_tokens": "7812438"
       }
     },
     {
@@ -343,10 +338,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "gpt"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "130776749",
-        "completion_tokens": "130776749"
+        "prompt_tokens": "130207310",
+        "completion_tokens": "130207310"
       }
     },
     {
@@ -365,10 +363,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "gpt"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "130776749",
-        "completion_tokens": "130776749"
+        "prompt_tokens": "130207310",
+        "completion_tokens": "130207310"
       }
     },
     {
@@ -387,10 +388,13 @@
         "tokenizer": "Llama2",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "7846604",
-        "completion_tokens": "7846604"
+        "prompt_tokens": "7812438",
+        "completion_tokens": "7812438"
       }
     },
     {
@@ -409,10 +413,13 @@
         "tokenizer": "Mistral",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "7846604",
-        "completion_tokens": "7846604"
+        "prompt_tokens": "7812438",
+        "completion_tokens": "7812438"
       }
     },
     {
@@ -431,10 +438,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "llama2"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "266167060",
-        "completion_tokens": "266167060"
+        "prompt_tokens": "265008094",
+        "completion_tokens": "265008094"
       }
     },
     {
@@ -453,10 +463,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "vicuna"
       },
-      "top_provider": { "max_completion_tokens": 400, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 400,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "10462139",
-        "completion_tokens": "10462139"
+        "prompt_tokens": "10416584",
+        "completion_tokens": "10416584"
       }
     },
     {
@@ -475,10 +488,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": 400, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 400,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "34873799",
-        "completion_tokens": "34873799"
+        "prompt_tokens": "34721949",
+        "completion_tokens": "34721949"
       }
     },
     {
@@ -497,10 +513,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "174368998",
-        "completion_tokens": "174368998"
+        "prompt_tokens": "173609747",
+        "completion_tokens": "173609747"
       }
     },
     {
@@ -519,10 +538,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "vicuna"
       },
-      "top_provider": { "max_completion_tokens": 400, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 400,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "10462139",
-        "completion_tokens": "10462139"
+        "prompt_tokens": "10416584",
+        "completion_tokens": "10416584"
       }
     },
     {
@@ -541,10 +563,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "vicuna"
       },
-      "top_provider": { "max_completion_tokens": 400, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 400,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "4184855",
-        "completion_tokens": "4184855"
+        "prompt_tokens": "4166633",
+        "completion_tokens": "4166633"
       }
     },
     {
@@ -563,10 +588,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": 400, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 400,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "17436899",
-        "completion_tokens": "17436899"
+        "prompt_tokens": "17360974",
+        "completion_tokens": "17360974"
       }
     },
     {
@@ -585,10 +613,38 @@
         "tokenizer": "Mistral",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": 2048, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 2048,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "104621399",
-        "completion_tokens": "104621399"
+        "prompt_tokens": "104165848",
+        "completion_tokens": "104165848"
+      }
+    },
+    {
+      "id": "sophosympatheia/midnight-rose-70b",
+      "name": "Midnight Rose 70B",
+      "description": "A merge with a complex family tree, this model was crafted for roleplaying and storytelling. Midnight Rose is a successor to Rogue Rose and Aurora Nights and improves upon them both. It wants to produce lengthy output by default and is the best creative writing merge produced so far by sophosympatheia.\n\nDescending from earlier versions of Midnight Rose and [Wizard Tulu Dolphin 70B](https://huggingface.co/sophosympatheia/Wizard-Tulu-Dolphin-70B-v1.0), it inherits the best qualities of each.",
+      "pricing": {
+        "prompt": "0.000009",
+        "completion": "0.000009",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 4096,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama2",
+        "instruct_type": "vicuna"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "4340243",
+        "completion_tokens": "4340243"
       }
     },
     {
@@ -607,10 +663,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": 400, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 400,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "34873799",
-        "completion_tokens": "34873799"
+        "prompt_tokens": "34721949",
+        "completion_tokens": "34721949"
       }
     },
     {
@@ -629,10 +688,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": 400, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 400,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "34873799",
-        "completion_tokens": "34873799"
+        "prompt_tokens": "34721949",
+        "completion_tokens": "34721949"
       }
     },
     {
@@ -651,10 +713,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": 400, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 400,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "11624599",
-        "completion_tokens": "11624599"
+        "prompt_tokens": "11573983",
+        "completion_tokens": "11573983"
       }
     },
     {
@@ -673,10 +738,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "vicuna"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "217961248",
-        "completion_tokens": "217961248"
+        "prompt_tokens": "217012183",
+        "completion_tokens": "217012183"
       }
     },
     {
@@ -695,10 +763,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "code-llama"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "48435832",
-        "completion_tokens": "48435832"
+        "prompt_tokens": "48224929",
+        "completion_tokens": "48224929"
       }
     },
     {
@@ -717,10 +788,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "gpt"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "217961248",
-        "completion_tokens": "217961248"
+        "prompt_tokens": "217012183",
+        "completion_tokens": "217012183"
       }
     },
     {
@@ -739,10 +813,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "gpt"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "217961248",
-        "completion_tokens": "217961248"
+        "prompt_tokens": "217012183",
+        "completion_tokens": "217012183"
       }
     },
     {
@@ -761,10 +838,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "145307498",
-        "completion_tokens": "145307498"
+        "prompt_tokens": "144674789",
+        "completion_tokens": "144674789"
       }
     },
     {
@@ -783,10 +863,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "217961248",
-        "completion_tokens": "217961248"
+        "prompt_tokens": "217012183",
+        "completion_tokens": "217012183"
       }
     },
     {
@@ -805,10 +888,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "vicuna"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "217961248",
-        "completion_tokens": "217961248"
+        "prompt_tokens": "217012183",
+        "completion_tokens": "217012183"
       }
     },
     {
@@ -827,10 +913,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "gpt"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "54490312",
-        "completion_tokens": "54490312"
+        "prompt_tokens": "54253045",
+        "completion_tokens": "54253045"
       }
     },
     {
@@ -849,10 +938,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "none"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "54490312",
-        "completion_tokens": "54490312"
+        "prompt_tokens": "54253045",
+        "completion_tokens": "54253045"
       }
     },
     {
@@ -871,10 +963,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "none"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "311373211",
-        "completion_tokens": "311373211"
+        "prompt_tokens": "310017405",
+        "completion_tokens": "310017405"
       }
     },
     {
@@ -893,10 +988,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "217961248",
-        "completion_tokens": "217961248"
+        "prompt_tokens": "217012183",
+        "completion_tokens": "217012183"
       }
     },
     {
@@ -915,10 +1013,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "none"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "217961248",
-        "completion_tokens": "217961248"
+        "prompt_tokens": "217012183",
+        "completion_tokens": "217012183"
       }
     },
     {
@@ -937,10 +1038,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "none"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "72653749",
-        "completion_tokens": "72653749"
+        "prompt_tokens": "72337394",
+        "completion_tokens": "72337394"
       }
     },
     {
@@ -959,10 +1063,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "gpt"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "54490312",
-        "completion_tokens": "54490312"
+        "prompt_tokens": "54253045",
+        "completion_tokens": "54253045"
       }
     },
     {
@@ -981,10 +1088,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "gpt"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "217961248",
-        "completion_tokens": "217961248"
+        "prompt_tokens": "217012183",
+        "completion_tokens": "217012183"
       }
     },
     {
@@ -1003,10 +1113,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "gpt"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "275319471",
-        "completion_tokens": "275319471"
+        "prompt_tokens": "274120653",
+        "completion_tokens": "274120653"
       }
     },
     {
@@ -1025,10 +1138,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "zephyr"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "275319471",
-        "completion_tokens": "275319471"
+        "prompt_tokens": "274120653",
+        "completion_tokens": "274120653"
       }
     },
     {
@@ -1047,10 +1163,13 @@
         "tokenizer": "GPT",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "39233024",
-        "completion_tokens": "19616512"
+        "prompt_tokens": "39062193",
+        "completion_tokens": "19531096"
       }
     },
     {
@@ -1069,10 +1188,13 @@
         "tokenizer": "GPT",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "78466049",
-        "completion_tokens": "26155349"
+        "prompt_tokens": "78124386",
+        "completion_tokens": "26041462"
       }
     },
     {
@@ -1091,10 +1213,13 @@
         "tokenizer": "GPT",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "39233024",
-        "completion_tokens": "19616512"
+        "prompt_tokens": "39062193",
+        "completion_tokens": "19531096"
       }
     },
     {
@@ -1113,10 +1238,13 @@
         "tokenizer": "GPT",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "39233024",
-        "completion_tokens": "19616512"
+        "prompt_tokens": "39062193",
+        "completion_tokens": "19531096"
       }
     },
     {
@@ -1135,10 +1263,13 @@
         "tokenizer": "GPT",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "39233024",
-        "completion_tokens": "19616512"
+        "prompt_tokens": "39062193",
+        "completion_tokens": "19531096"
       }
     },
     {
@@ -1157,10 +1288,13 @@
         "tokenizer": "GPT",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "13077674",
-        "completion_tokens": "9808256"
+        "prompt_tokens": "13020731",
+        "completion_tokens": "9765548"
       }
     },
     {
@@ -1179,10 +1313,13 @@
         "tokenizer": "GPT",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "3923302",
-        "completion_tokens": "1307767"
+        "prompt_tokens": "3906219",
+        "completion_tokens": "1302073"
       }
     },
     {
@@ -1201,10 +1338,13 @@
         "tokenizer": "GPT",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "3923302",
-        "completion_tokens": "1307767"
+        "prompt_tokens": "3906219",
+        "completion_tokens": "1302073"
       }
     },
     {
@@ -1223,10 +1363,13 @@
         "tokenizer": "GPT",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "1307767",
-        "completion_tokens": "653883"
+        "prompt_tokens": "1302073",
+        "completion_tokens": "651036"
       }
     },
     {
@@ -1245,10 +1388,13 @@
         "tokenizer": "GPT",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "1307767",
-        "completion_tokens": "653883"
+        "prompt_tokens": "1302073",
+        "completion_tokens": "651036"
       }
     },
     {
@@ -1267,10 +1413,13 @@
         "tokenizer": "GPT",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "653883",
-        "completion_tokens": "326941"
+        "prompt_tokens": "651036",
+        "completion_tokens": "325518"
       }
     },
     {
@@ -1289,10 +1438,13 @@
         "tokenizer": "GPT",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "653883",
-        "completion_tokens": "326941"
+        "prompt_tokens": "651036",
+        "completion_tokens": "325518"
       }
     },
     {
@@ -1311,10 +1463,13 @@
         "tokenizer": "GPT",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "3923302",
-        "completion_tokens": "1307767"
+        "prompt_tokens": "3906219",
+        "completion_tokens": "1302073"
       }
     },
     {
@@ -1333,10 +1488,13 @@
         "tokenizer": "GPT",
         "instruct_type": "gpt"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "26155349",
-        "completion_tokens": "19616512"
+        "prompt_tokens": "26041462",
+        "completion_tokens": "19531096"
       }
     },
     {
@@ -1355,10 +1513,13 @@
         "tokenizer": "PaLM",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "156932098",
-        "completion_tokens": "78466049"
+        "prompt_tokens": "156248772",
+        "completion_tokens": "78124386"
       }
     },
     {
@@ -1377,10 +1538,13 @@
         "tokenizer": "PaLM",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "156932098",
-        "completion_tokens": "78466049"
+        "prompt_tokens": "156248772",
+        "completion_tokens": "78124386"
       }
     },
     {
@@ -1399,10 +1563,13 @@
         "tokenizer": "PaLM",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 32768, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 32768,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "156932098",
-        "completion_tokens": "78466049"
+        "prompt_tokens": "156248772",
+        "completion_tokens": "78124386"
       }
     },
     {
@@ -1421,38 +1588,44 @@
         "tokenizer": "PaLM",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 32768, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 32768,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "156932098",
-        "completion_tokens": "78466049"
+        "prompt_tokens": "156248772",
+        "completion_tokens": "78124386"
       }
     },
     {
       "id": "google/gemini-pro",
       "name": "Google: Gemini Pro 1.0",
-      "description": "Google's flagship text generation model. Designed to handle natural language tasks, multiturn text and code chat, and code generation.\n\nSee the benchmarks and prompting guidelines from [Deepmind](https://deepmind.google/technologies/gemini/).\n\n*Note: Preview models are offered for testing purposes and should not be used in production apps.*",
+      "description": "Google's flagship text generation model. Designed to handle natural language tasks, multiturn text and code chat, and code generation.\n\nSee the benchmarks and prompting guidelines from [Deepmind](https://deepmind.google/technologies/gemini/).\n\nUsage of Gemini is subject to Google's [Gemini Terms of Use](https://ai.google.dev/terms).",
       "pricing": {
         "prompt": "0.000000125",
         "completion": "0.000000375",
         "image": "0.0025",
         "request": "0"
       },
-      "context_length": 131040,
+      "context_length": 131072,
       "architecture": {
         "modality": "text",
         "tokenizer": "Gemini",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 32768, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 8192,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "313864197",
-        "completion_tokens": "104621399"
+        "prompt_tokens": "312497544",
+        "completion_tokens": "104165848"
       }
     },
     {
       "id": "google/gemini-pro-vision",
       "name": "Google: Gemini Pro Vision 1.0",
-      "description": "Google's flagship multimodal model, supporting image and video in text or chat prompts for a text or code response.\n\nSee the benchmarks and prompting guidelines from [Deepmind](https://deepmind.google/technologies/gemini/).\n\n*Note: Preview models are offered for testing purposes and should not be used in production apps.*\n\n#multimodal",
+      "description": "Google's flagship multimodal model, supporting image and video in text or chat prompts for a text or code response.\n\nSee the benchmarks and prompting guidelines from [Deepmind](https://deepmind.google/technologies/gemini/).\n\nUsage of Gemini is subject to Google's [Gemini Terms of Use](https://ai.google.dev/terms).\n\n#multimodal",
       "pricing": {
         "prompt": "0.000000125",
         "completion": "0.000000375",
@@ -1465,10 +1638,13 @@
         "tokenizer": "Gemini",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 8192, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 16384,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "313864197",
-        "completion_tokens": "104621399"
+        "prompt_tokens": "312497544",
+        "completion_tokens": "104165848"
       }
     },
     {
@@ -1487,10 +1663,13 @@
         "tokenizer": "Llama2",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "39233024",
-        "completion_tokens": "39233024"
+        "prompt_tokens": "39062193",
+        "completion_tokens": "39062193"
       }
     },
     {
@@ -1509,10 +1688,13 @@
         "tokenizer": "Llama2",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "196165123",
-        "completion_tokens": "196165123"
+        "prompt_tokens": "195310965",
+        "completion_tokens": "195310965"
       }
     },
     {
@@ -1531,10 +1713,13 @@
         "tokenizer": "Llama2",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "196165123",
-        "completion_tokens": "196165123"
+        "prompt_tokens": "195310965",
+        "completion_tokens": "195310965"
       }
     },
     {
@@ -1553,10 +1738,13 @@
         "tokenizer": "Llama2",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "39233024",
-        "completion_tokens": "39233024"
+        "prompt_tokens": "39062193",
+        "completion_tokens": "39062193"
       }
     },
     {
@@ -1575,10 +1763,13 @@
         "tokenizer": "Mistral",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "196165123",
-        "completion_tokens": "196165123"
+        "prompt_tokens": "195310965",
+        "completion_tokens": "195310965"
       }
     },
     {
@@ -1597,10 +1788,13 @@
         "tokenizer": "Mistral",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "65388374",
-        "completion_tokens": "65388374"
+        "prompt_tokens": "65103655",
+        "completion_tokens": "65103655"
       }
     },
     {
@@ -1619,10 +1813,13 @@
         "tokenizer": "Mistral",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "196165123",
-        "completion_tokens": "196165123"
+        "prompt_tokens": "195310965",
+        "completion_tokens": "195310965"
       }
     },
     {
@@ -1641,10 +1838,13 @@
         "tokenizer": "Mistral",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "65388374",
-        "completion_tokens": "65388374"
+        "prompt_tokens": "65103655",
+        "completion_tokens": "65103655"
       }
     },
     {
@@ -1663,10 +1863,13 @@
         "tokenizer": "Claude",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "2615534",
-        "completion_tokens": "523106"
+        "prompt_tokens": "2604146",
+        "completion_tokens": "520829"
       }
     },
     {
@@ -1685,10 +1888,13 @@
         "tokenizer": "Claude",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "13077674",
-        "completion_tokens": "2615534"
+        "prompt_tokens": "13020731",
+        "completion_tokens": "2604146"
       }
     },
     {
@@ -1707,10 +1913,13 @@
         "tokenizer": "Claude",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "156932098",
-        "completion_tokens": "31386419"
+        "prompt_tokens": "156248772",
+        "completion_tokens": "31249754"
       }
     },
     {
@@ -1729,10 +1938,13 @@
         "tokenizer": "Claude",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "2615534",
-        "completion_tokens": "523106"
+        "prompt_tokens": "2604146",
+        "completion_tokens": "520829"
       }
     },
     {
@@ -1751,10 +1963,13 @@
         "tokenizer": "Claude",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "13077674",
-        "completion_tokens": "2615534"
+        "prompt_tokens": "13020731",
+        "completion_tokens": "2604146"
       }
     },
     {
@@ -1773,10 +1988,13 @@
         "tokenizer": "Claude",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "156932098",
-        "completion_tokens": "31386419"
+        "prompt_tokens": "156248772",
+        "completion_tokens": "31249754"
       }
     },
     {
@@ -1795,10 +2013,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "llama2"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "56047178",
-        "completion_tokens": "43592249"
+        "prompt_tokens": "55803133",
+        "completion_tokens": "43402436"
       }
     },
     {
@@ -1817,10 +2038,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "vicuna"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "43592249",
-        "completion_tokens": "43592249"
+        "prompt_tokens": "43402436",
+        "completion_tokens": "43402436"
       }
     },
     {
@@ -1839,10 +2063,38 @@
         "tokenizer": "Llama2",
         "instruct_type": "airoboros"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "56047178",
-        "completion_tokens": "43592249"
+        "prompt_tokens": "55803133",
+        "completion_tokens": "43402436"
+      }
+    },
+    {
+      "id": "jondurbin/bagel-34b",
+      "name": "Bagel 34B v0.2",
+      "description": "An experimental fine-tune of [Yi 34b 200k](/models/01-ai/yi-34b-200k) using [bagel](https://github.com/jondurbin/bagel). This is the version of the fine-tune before direct preference optimization (DPO) has been applied. DPO performs better on benchmarks, but this version is likely better for creative writing, roleplay, etc.",
+      "pricing": {
+        "prompt": "0.00000575",
+        "completion": "0.00000575",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 8000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama2",
+        "instruct_type": "alpaca"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "6793424",
+        "completion_tokens": "6793424"
       }
     },
     {
@@ -1861,10 +2113,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "178331930",
-        "completion_tokens": "178331930"
+        "prompt_tokens": "177555423",
+        "completion_tokens": "177555423"
       }
     },
     {
@@ -1883,10 +2138,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "llama2"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "301792497",
-        "completion_tokens": "301792497"
+        "prompt_tokens": "300478408",
+        "completion_tokens": "300478408"
       }
     },
     {
@@ -1905,10 +2163,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "openchat"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "301792497",
-        "completion_tokens": "301792497"
+        "prompt_tokens": "300478408",
+        "completion_tokens": "300478408"
       }
     },
     {
@@ -1927,10 +2188,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "vicuna"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "56047178",
-        "completion_tokens": "43592249"
+        "prompt_tokens": "55803133",
+        "completion_tokens": "43402436"
       }
     },
     {
@@ -1949,10 +2213,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "145307498",
-        "completion_tokens": "145307498"
+        "prompt_tokens": "144674789",
+        "completion_tokens": "144674789"
       }
     },
     {
@@ -1971,10 +2238,38 @@
         "tokenizer": "Mistral",
         "instruct_type": "gpt"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "145307498",
-        "completion_tokens": "145307498"
+        "prompt_tokens": "144674789",
+        "completion_tokens": "144674789"
+      }
+    },
+    {
+      "id": "neversleep/noromaid-mixtral-8x7b-instruct",
+      "name": "Noromaid Mixtral 8x7B Instruct",
+      "description": "This model was trained for 8h(v1) + 8h(v2) + 12h(v3) on customized modified datasets, focusing on RP, uncensoring, and a modified version of the Alpaca prompting (that was already used in LimaRP), which should be at the same conversational level as ChatLM or Llama2-Chat without adding any additional special tokens.",
+      "pricing": {
+        "prompt": "0.000008",
+        "completion": "0.000008",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 8000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "alpaca-modif"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "4882774",
+        "completion_tokens": "4882774"
       }
     },
     {
@@ -1993,7 +2288,10 @@
         "tokenizer": "RWKV",
         "instruct_type": "rwkv"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
         "prompt_tokens": "Infinity",
         "completion_tokens": "Infinity"
@@ -2015,7 +2313,10 @@
         "tokenizer": "RWKV",
         "instruct_type": "rwkv"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
         "prompt_tokens": "Infinity",
         "completion_tokens": "Infinity"
@@ -2037,7 +2338,10 @@
         "tokenizer": "RWKV",
         "instruct_type": "rwkv"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
         "prompt_tokens": "Infinity",
         "completion_tokens": "Infinity"
@@ -2059,10 +2363,38 @@
         "tokenizer": "Llama2",
         "instruct_type": "gemma"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "301792497",
-        "completion_tokens": "301792497"
+        "prompt_tokens": "300478408",
+        "completion_tokens": "300478408"
+      }
+    },
+    {
+      "id": "databricks/dbrx-instruct",
+      "name": "Databricks: DBRX 132B Instruct",
+      "description": "DBRX is a new open source large language model developed by Databricks. At 132B, it outperforms existing open source LLMs like Llama 2 70B and Mixtral-8x7B on standard industry benchmarks for language understanding, programming, math, and logic.\n\nIt uses a fine-grained mixture-of-experts (MoE) architecture. 36B parameters are active on any input. It was pre-trained on 12T tokens of text and code data. Compared to other open MoE models like Mixtral-8x7B and Grok-1, DBRX is fine-grained, meaning it uses a larger number of smaller experts.\n\nSee the launch announcement and benchmark results [here](https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm).\n\n#moe",
+      "pricing": {
+        "prompt": "0.0000016",
+        "completion": "0.0000016",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 32768,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "GPT",
+        "instruct_type": "gpt-dbrx"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "24413870",
+        "completion_tokens": "24413870"
       }
     },
     {
@@ -2081,10 +2413,13 @@
         "tokenizer": "Claude",
         "instruct_type": "claude"
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "4904128",
-        "completion_tokens": "1634709"
+        "prompt_tokens": "4882774",
+        "completion_tokens": "1627591"
       }
     },
     {
@@ -2103,10 +2438,13 @@
         "tokenizer": "Claude",
         "instruct_type": "claude"
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "4904128",
-        "completion_tokens": "1634709"
+        "prompt_tokens": "4882774",
+        "completion_tokens": "1627591"
       }
     },
     {
@@ -2125,10 +2463,13 @@
         "tokenizer": "Claude",
         "instruct_type": "claude"
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "4904128",
-        "completion_tokens": "1634709"
+        "prompt_tokens": "4882774",
+        "completion_tokens": "1627591"
       }
     },
     {
@@ -2147,10 +2488,13 @@
         "tokenizer": "Claude",
         "instruct_type": "claude"
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "49041280",
-        "completion_tokens": "16347093"
+        "prompt_tokens": "48827741",
+        "completion_tokens": "16275913"
       }
     },
     {
@@ -2169,10 +2513,13 @@
         "tokenizer": "Claude",
         "instruct_type": "claude"
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "49041280",
-        "completion_tokens": "16347093"
+        "prompt_tokens": "48827741",
+        "completion_tokens": "16275913"
       }
     },
     {
@@ -2191,10 +2538,13 @@
         "tokenizer": "Claude",
         "instruct_type": "claude"
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "4904128",
-        "completion_tokens": "1634709"
+        "prompt_tokens": "4882774",
+        "completion_tokens": "1627591"
       }
     },
     {
@@ -2213,10 +2563,13 @@
         "tokenizer": "Claude",
         "instruct_type": "claude"
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "4904128",
-        "completion_tokens": "1634709"
+        "prompt_tokens": "4882774",
+        "completion_tokens": "1627591"
       }
     },
     {
@@ -2235,10 +2588,13 @@
         "tokenizer": "Claude",
         "instruct_type": "claude"
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "49041280",
-        "completion_tokens": "16347093"
+        "prompt_tokens": "48827741",
+        "completion_tokens": "16275913"
       }
     },
     {
@@ -2257,10 +2613,13 @@
         "tokenizer": "Claude",
         "instruct_type": "claude"
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "49041280",
-        "completion_tokens": "16347093"
+        "prompt_tokens": "48827741",
+        "completion_tokens": "16275913"
       }
     },
     {
@@ -2279,10 +2638,13 @@
         "tokenizer": "Claude",
         "instruct_type": "claude"
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "4904128",
-        "completion_tokens": "1634709"
+        "prompt_tokens": "4882774",
+        "completion_tokens": "1627591"
       }
     },
     {
@@ -2301,10 +2663,13 @@
         "tokenizer": "Claude",
         "instruct_type": "claude"
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "4904128",
-        "completion_tokens": "1634709"
+        "prompt_tokens": "4882774",
+        "completion_tokens": "1627591"
       }
     },
     {
@@ -2323,10 +2688,13 @@
         "tokenizer": "Claude",
         "instruct_type": "claude"
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "4904128",
-        "completion_tokens": "1634709"
+        "prompt_tokens": "4882774",
+        "completion_tokens": "1627591"
       }
     },
     {
@@ -2345,10 +2713,13 @@
         "tokenizer": "Claude",
         "instruct_type": "claude"
       },
-      "top_provider": { "max_completion_tokens": 4096, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "49041280",
-        "completion_tokens": "16347093"
+        "prompt_tokens": "48827741",
+        "completion_tokens": "16275913"
       }
     },
     {
@@ -2367,7 +2738,10 @@
         "tokenizer": "Mistral",
         "instruct_type": "zephyr"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
         "prompt_tokens": "Infinity",
         "completion_tokens": "Infinity"
@@ -2389,7 +2763,10 @@
         "tokenizer": "Mistral",
         "instruct_type": "openchat"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
         "prompt_tokens": "Infinity",
         "completion_tokens": "Infinity"
@@ -2411,10 +2788,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "78466049",
-        "completion_tokens": "78466049"
+        "prompt_tokens": "78124386",
+        "completion_tokens": "78124386"
       }
     },
     {
@@ -2422,8 +2802,8 @@
       "name": "Meta: Llama v2 70B Chat (nitro)",
       "description": "The flagship, 70 billion parameter language model from Meta, fine tuned for chat completions. Llama 2 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align to human preferences for helpfulness and safety.\n\nNote: this is a higher-throughput version of [this model](/models/meta-llama/llama-2-70b-chat), and may have higher prices and slightly different outputs.",
       "pricing": {
-        "prompt": "0.0000007",
-        "completion": "0.0000008",
+        "prompt": "0.0000009",
+        "completion": "0.0000009",
         "image": "0",
         "request": "0"
       },
@@ -2433,10 +2813,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "llama2"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "56047178",
-        "completion_tokens": "49041280"
+        "prompt_tokens": "43402436",
+        "completion_tokens": "43402436"
       }
     },
     {
@@ -2455,10 +2838,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "alpaca"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "196165123",
-        "completion_tokens": "196165123"
+        "prompt_tokens": "195310965",
+        "completion_tokens": "195310965"
       }
     },
     {
@@ -2477,10 +2863,13 @@
         "tokenizer": "Mistral",
         "instruct_type": "llama2"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "196165123",
-        "completion_tokens": "196165123"
+        "prompt_tokens": "195310965",
+        "completion_tokens": "195310965"
       }
     },
     {
@@ -2488,8 +2877,8 @@
       "name": "Google: Gemma 7B (nitro)",
       "description": "Gemma by Google is an advanced, open-source language model family, leveraging the latest in decoder-only, text-to-text technology. It offers English language capabilities across text generation tasks like question answering, summarization, and reasoning. The Gemma 7B variant is comparable in performance to leading open source models.\n\nUsage of Gemma is subject to Google's [Gemma Terms of Use](https://ai.google.dev/gemma/terms).\n\nNote: this is a higher-throughput version of [this model](/models/google/gemma-7b-it), and may have higher prices and slightly different outputs.",
       "pricing": {
-        "prompt": "0.0000001",
-        "completion": "0.0000001",
+        "prompt": "0.0000002",
+        "completion": "0.0000002",
         "image": "0",
         "request": "0"
       },
@@ -2499,10 +2888,13 @@
         "tokenizer": "Llama2",
         "instruct_type": "gemma"
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "392330247",
-        "completion_tokens": "392330247"
+        "prompt_tokens": "195310965",
+        "completion_tokens": "195310965"
       }
     },
     {
@@ -2521,10 +2913,13 @@
         "tokenizer": "Mistral",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "156932098",
-        "completion_tokens": "156932098"
+        "prompt_tokens": "156248772",
+        "completion_tokens": "156248772"
       }
     },
     {
@@ -2543,10 +2938,13 @@
         "tokenizer": "Mistral",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "19616512",
-        "completion_tokens": "6538837"
+        "prompt_tokens": "19531096",
+        "completion_tokens": "6510365"
       }
     },
     {
@@ -2565,10 +2963,13 @@
         "tokenizer": "Mistral",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "14530749",
-        "completion_tokens": "4843583"
+        "prompt_tokens": "14467478",
+        "completion_tokens": "4822492"
       }
     },
     {
@@ -2587,10 +2988,13 @@
         "tokenizer": "Mistral",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": null, "is_moderated": false },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
       "per_request_limits": {
-        "prompt_tokens": "4904128",
-        "completion_tokens": "1634709"
+        "prompt_tokens": "4882774",
+        "completion_tokens": "1627591"
       }
     },
     {
@@ -2609,10 +3013,13 @@
         "tokenizer": "Cohere",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 4000, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4000,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "39233024",
-        "completion_tokens": "19616512"
+        "prompt_tokens": "39062193",
+        "completion_tokens": "19531096"
       }
     },
     {
@@ -2631,10 +3038,13 @@
         "tokenizer": "Cohere",
         "instruct_type": null
       },
-      "top_provider": { "max_completion_tokens": 4000, "is_moderated": true },
+      "top_provider": {
+        "max_completion_tokens": 4000,
+        "is_moderated": true
+      },
       "per_request_limits": {
-        "prompt_tokens": "78466049",
-        "completion_tokens": "26155349"
+        "prompt_tokens": "78124386",
+        "completion_tokens": "26041462"
       }
     }
   ]

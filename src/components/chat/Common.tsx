@@ -35,7 +35,7 @@ export const Selector = component$<ISelector>((props) => {
       onChange$={props.onChange}
     >
       {props.options.map((option) => (
-        <option value={option.value} key={option.label}>
+        <option value={option.value} key={option.value}>
           {option.label}
         </option>
       ))}

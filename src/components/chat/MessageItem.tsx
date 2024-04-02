@@ -4,13 +4,11 @@ import {
   useContext,
   useSignal,
   useComputed$,
-  // useVisibleTask$,
 } from "@builder.io/qwik";
-// import { isServer } from "@builder.io/qwik/build";
 import { useThrottle, useCopyCode } from "~/hooks";
 import { ChatContext } from "~/store";
 import type { ChatMessage } from "~/types";
-import { copyToClipboard } from "~/utils";
+import { copyToClipboard, throttle } from "~/utils";
 import MessageAction from "./MessageAction";
 import { md } from "~/markdown-it";
 
@@ -97,24 +95,11 @@ export default component$<Props>((props) => {
     );
   });
 
-  // useVisibleTask$(
-  //   async () => {
-  //     const { renderMarkdownInWorker } = await import("~/wokers");
-  //     window.renderMarkdownInWorker = renderMarkdownInWorker;
-  //   },
-  //   { strategy: "document-ready" },
-  // );
-
   useThrottle(
     msgContent,
     50,
     $((content: string) => {
       renderedMarkdown.value = md.render(content);
-      // !isServer &&
-      //   window.renderMarkdownInWorker &&
-      //   window
-      //     .renderMarkdownInWorker(content)
-      //     .then((val) => (renderedMarkdown.value = val));
     }),
   );
 

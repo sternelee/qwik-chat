@@ -41,6 +41,24 @@ export default {
   defaultModel: "deepseek-ai/deepseek-coder-33b-instruct",
   models: [
     {
+      value: "togethercomputer/Llama-2-7B-32K-Instruct",
+      label: "LLaMA-2-7B-32K-Instruct (7B)",
+      input: 0,
+      output: 0,
+    },
+    {
+      value: "togethercomputer/StripedHyena-Nous-7B",
+      label: "StripedHyena Nous (7B)",
+      input: 0,
+      output: 0,
+    },
+    {
+      value: "togethercomputer/RedPajama-INCITE-7B-Chat",
+      label: "RedPajama-INCITE Chat (7B)",
+      input: 0,
+      output: 0,
+    },
+    {
       value: "deepseek-ai/deepseek-coder-33b-instruct",
       label: "Deepseek Coder Instruct (33B)",
       input: 0,

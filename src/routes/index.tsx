@@ -27,10 +27,10 @@ import { throttle } from "~/hooks";
 import { fetchAllSessions, getSession, setSession } from "~/utils/storage";
 import { useAuthSession } from "~/routes/plugin@auth";
 
-export const useChatStore = routeLoader$(async (requestEvent) => {
-  const res = await fetch(`/api/storage`);
-  return await res.json();
-});
+// export const useChatStore = routeLoader$(async (requestEvent) => {
+//   const res = await fetch(`/api/storage`);
+//   return await res.json();
+// });
 
 export default component$(() => {
   const session = useAuthSession();

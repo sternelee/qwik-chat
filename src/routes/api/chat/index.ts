@@ -26,6 +26,8 @@ export const onPost: RequestHandler = async ({
     GROQ_KEY: env.get("GROQ_KEY"),
     MISTRAL_KEY: env.get("MISTRAL_KEY"),
     MINIMAXI_KEY: env.get("MINIMAXI_KEY"),
+    ZEROONE_KEY: env.get("ZEROONE_KEY"),
+    TOGETHER_KEY: env.get("TOGETHER_KEY"),
   };
   const abortSignal = new AbortController();
   const response = await fetchChat(rest, envMap, abortSignal.signal);

@@ -9,6 +9,8 @@ import moonshot from "./moonshot";
 import mistral from "./mistral";
 import claude from "./claude";
 import minimaxi from "./minimaxi";
+import togetherai from "./togetherai";
+import zeroone from "./zeroone";
 
 export default {
   openai,
@@ -21,6 +23,8 @@ export default {
   qwen,
   mistral,
   claude,
+  togetherai,
+  zeroone,
   minimaxi,
 };
 
@@ -35,6 +39,8 @@ export const COST_MAP = [
   qwen,
   mistral,
   claude,
+  togetherai,
+  zeroone,
   minimaxi,
 ]
   .map((p) => p.models)
@@ -44,7 +50,7 @@ export const COST_MAP = [
       c[m.value] = { input: m.input, output: m.output };
       return c;
     },
-    {} as Record<string, { input: number; output: number }>
+    {} as Record<string, { input: number; output: number }>,
   );
 
 export const COST_DOLLAR = [
@@ -67,6 +73,8 @@ export const PROVIDER_LIST = [
   { value: "chatglm", label: chatglm.name },
   { value: "qwen", label: qwen.name },
   { value: "minimaxi", label: minimaxi.name },
+  { value: "togetherai", label: togetherai.name },
+  { value: "zeroone", label: zeroone.name },
   { value: "baidu", label: baidu.name },
 ];
 
@@ -82,6 +90,8 @@ export const APIKeys = {
   mistral: "",
   claude: "",
   minimaxi: "",
+  togetherai: "",
+  zeroone: "",
   // replicate: {
   //   apikey: '',
   // },

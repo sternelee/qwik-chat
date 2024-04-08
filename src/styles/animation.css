@@ -55,7 +55,6 @@
 .animate-gradient-border {
   --border-width: 3px;
   position: relative;
-  background-color: var(--c-bg);
   border-radius: calc(2 * var(--border-width));
 }
 

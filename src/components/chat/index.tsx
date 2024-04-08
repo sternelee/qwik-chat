@@ -43,18 +43,14 @@ export default component$<IChatSession>(({ user }) => {
   const defaultMessage$ = useComputed$(() => {
     return {
       ...defaultMessage,
-      content: `💡请自行填写 APIKey，点击👉 [去申请](${
-        ProviderMap[store.sessionSettings.provider].href
-      })\n ${defaultMessage.content}`,
+      content: `💡请自行填写 APIKey，点击👉 [去申请](${ProviderMap[store.sessionSettings.provider].href
+        })\n ${defaultMessage.content}`,
     };
   });
 
   return (
     <main class="mt-4">
-      <div
-        class="flex items-center px-2em sticky top-0 z-1"
-        style="background-color: var(--c-bg);"
-      >
+      <div class="flex items-center px-2em sticky top-0 z-1">
         <div class="flex-1 flex items-center dark:prose-invert dark:text-slate">
           {store.sessionSettings.title && (
             <>
@@ -95,54 +91,78 @@ export default component$<IChatSession>(({ user }) => {
           )}
         </div>
         <ThemeToggle />
-        {avatar.value ? (
-          <div class="relative group cursor-pointer">
-            <img
-              src={avatar.value}
-              class="rounded-full"
-              width={24}
-              height={24}
-            />
-            <ul class="absolute pt-2 hidden group-hover:block">
-              <li
-                onClick$={() =>
-                  signOut.submit({
-                    callbackUrl: "https://qwik-chat.leeapp.cn",
-                  })
-                }
-              >
-                <i class="block i-carbon:logout text-2xl dark:gray" />
-              </li>
-            </ul>
+        <div class="dropdown dropdown-end">
+          <div role="button" tabIndex={0} class="btn btn-ghost">
+            {avatar.value ? (
+              <img
+                src={avatar.value}
+                class="rounded-full"
+                width={24}
+                height={24}
+              />
+            ) : (
+              <>
+                <span class="font-normal inline">Login</span>
+                <svg
+                  width="12px"
+                  height="12px"
+                  class="h-2 w-2 fill-current opacity-60 sm:inline-block"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 2048 2048"
+                >
+                  <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
+                </svg>
+              </>
+            )}
           </div>
-        ) : (
-          <div class="relative group cursor-pointer">
-            <i class="block i-carbon:login text-2xl" />
-            <ul class="absolute pt-2 hidden group-hover:block">
-              <li
-                onClick$={() =>
-                  signIn.submit({
-                    providerId: "github",
-                    options: { callbackUrl: "https://qwik-chat.leeapp.cn" },
-                  })
-                }
-              >
-                <i class="block i-carbon:logo-github text-2xl dark:gray" />
-              </li>
-              <li
-                class="mt-1"
-                onClick$={() =>
-                  signIn.submit({
-                    providerId: "google",
-                    options: { callbackUrl: "https://qwik-chat.leeapp.cn" },
-                  })
-                }
-              >
-                <i class="block i-carbon:logo-google text-2xl dark:gray" />
-              </li>
-            </ul>
+          <div
+            tabIndex={0}
+            class="dropdown-content bg-base-200 text-base-content rounded-box top-px w-30 overflow-y-auto border border-white/5 shadow-2xl outline outline-1 outline-black/5 mt-14"
+          >
+            <div class="grid grid-cols-1 gap-3 p-3">
+              {avatar.value ? (
+                <button
+                  class="flex items-center"
+                  onClick$={() => {
+                    signOut.submit({
+                      callbackUrl: "https://qwik-chat.leeapp.cn",
+                    });
+                  }}
+                >
+                  <i class="inline-block i-carbon:logout text-2xl dark:gray" />
+                  <span class="ml-2">Logout</span>
+                </button>
+              ) : (
+                <>
+                  <button
+                    class="flex items-center"
+                    onClick$={() => {
+                      signIn.submit({
+                        providerId: "github",
+                        options: { callbackUrl: "https://qwik-chat.leeapp.cn" },
+                      });
+                    }}
+                  >
+                    <i class="inline-block i-carbon:logo-github text-2xl dark:gray" />
+                    <span class="ml-2">Github</span>
+                  </button>
+                  <button
+                    class="flex items-center"
+                    onClick$={() => {
+                      signIn.submit({
+                        providerId: "google",
+                        options: { callbackUrl: "https://qwik-chat.leeapp.cn" },
+                      });
+                    }}
+                  >
+                    <i class="inline-block i-carbon:logo-google text-2xl dark:gray" />
+                    <span class="ml-2">Google</span>
+                  </button>
+                </>
+              )}
+            </div>
           </div>
-        )}
+        </div>
       </div>
       <div
         id="message-container"

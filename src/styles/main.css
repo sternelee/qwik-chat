@@ -25,16 +25,9 @@ html {
   font-family: "lucida grande", "lucida sans unicode", lucida, helvetica,
     "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 16px;
-  background-color: var(--c-bg);
-  color: var(--c-fg);
-}
-
-#message-container-img {
-  background-color: var(--c-bg);
 }
 
 html.dark {
-  --c-bg: #16161a;
   --c-scroll-thumb: #4c4c4c;
 }
 

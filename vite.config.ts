@@ -5,6 +5,7 @@ import { presetExtra } from 'unocss-preset-extra';
 import unocss from "unocss/vite";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import { presetDaisy } from "@unscatty/unocss-preset-daisy";
 
 export default defineConfig(() => {
   return {
@@ -23,6 +24,42 @@ export default defineConfig(() => {
         transformers: [transformerDirectives(), transformerVariantGroup()],
         presets: [
           presetUno(),
+          presetDaisy({
+            themes: [
+              "light",
+              "dark",
+              "cupcake",
+              "bumblebee",
+              "emerald",
+              "corporate",
+              "synthwave",
+              "retro",
+              "cyberpunk",
+              "valentine",
+              "halloween",
+              "garden",
+              "forest",
+              "aqua",
+              "lofi",
+              "pastel",
+              "fantasy",
+              "wireframe",
+              "black",
+              "luxury",
+              "dracula",
+              "cmyk",
+              "autumn",
+              "business",
+              "acid",
+              "lemonade",
+              "night",
+              "coffee",
+              "winter",
+              "dim",
+              "nord",
+              "sunset",
+            ]
+          }),
           presetTypography({
             cssExtend: {
               ":not(pre) > code::before,:not(pre) > code::after": {
@@ -48,7 +85,7 @@ export default defineConfig(() => {
       },
     },
     optimizeDeps: {
-      include: [ "@auth/core" ]
+      include: ["@auth/core"]
     }
   };
 });

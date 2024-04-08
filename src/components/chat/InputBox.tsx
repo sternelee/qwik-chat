@@ -191,7 +191,6 @@ export default component$<{
     <div
       class="pb-2em px-2em fixed bottom-0 z-100"
       style={{
-        "background-color": "var(--c-bg)",
         width: width === "init" ? "100%" : width,
       }}
     >
@@ -244,7 +243,7 @@ export default component$<{
                 wrap="hard"
                 spellcheck={false}
                 class={{
-                  "self-end p-3 pr-2.2em resize-none w-full text-slate-7 dark:text-slate bg-slate bg-op-15 focus:(bg-op-20 ring-0 outline-none) placeholder:(text-slate-800 dark:text-slate-400 op-40)":
+                  "textarea textarea-bordered self-end pr-2.2em resize-none w-full":
                     true,
                   "rounded-t": candidateOptions.value.length === 0,
                   "rounded-b": true,

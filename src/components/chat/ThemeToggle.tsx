@@ -75,7 +75,7 @@ const ThemeButton = component$<{ name: string; theme: string; onClick: any }>(
         </span>
       </button>
     );
-  },
+  }
 );
 
 export default component$(() => {
@@ -112,7 +112,7 @@ export default component$(() => {
       const y = event.clientY;
       const endRadius = Math.hypot(
         Math.max(x, innerWidth - x),
-        Math.max(y, innerHeight - y),
+        Math.max(y, innerHeight - y)
       );
       const transition = document
         // @ts-expect-error: Transition API
@@ -133,7 +133,7 @@ export default component$(() => {
             duration: 300,
             easing: "ease-in",
             pseudoElement: "::view-transition-new(root)",
-          },
+          }
         );
       });
     }

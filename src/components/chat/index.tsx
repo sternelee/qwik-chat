@@ -29,7 +29,7 @@ export default component$<IChatSession>(({ user }) => {
   const countContextTokensDollar = (
     contextToken: number,
     inputContentToken: number,
-    model: Model,
+    model: Model
   ) => {
     const c1 = countTokensDollar(contextToken, model, "input");
     const c2 = countTokensDollar(inputContentToken, model, "input");
@@ -43,8 +43,9 @@ export default component$<IChatSession>(({ user }) => {
   const defaultMessage$ = useComputed$(() => {
     return {
       ...defaultMessage,
-      content: `💡请自行填写 APIKey，点击👉 [去申请](${ProviderMap[store.sessionSettings.provider].href
-        })\n ${defaultMessage.content}`,
+      content: `💡请自行填写 APIKey，点击👉 [去申请](${
+        ProviderMap[store.sessionSettings.provider].href
+      })\n ${defaultMessage.content}`,
     };
   });
 
@@ -102,7 +103,8 @@ export default component$<IChatSession>(({ user }) => {
               />
             ) : (
               <>
-                <span class="font-normal inline">Login</span>
+                <i class="inline-block i-carbon:login text-2xl md:hidden" />
+                <span class="hidden font-normal md:inline">Login</span>
                 <svg
                   width="12px"
                   height="12px"
@@ -189,7 +191,7 @@ export default component$<IChatSession>(({ user }) => {
               {store.inputContentToken > 0 && (
                 <span class="mx-1 text-slate/40">
                   {`有效上下文 + 提问 Tokens : ${shownTokens(
-                    store.contextToken + store.inputContentToken,
+                    store.contextToken + store.inputContentToken
                   )}(`}
                   <span
                     class={{
@@ -201,17 +203,17 @@ export default component$<IChatSession>(({ user }) => {
                   {`)/${countContextTokensDollar(
                     store.contextToken,
                     store.inputContentToken,
-                    store.sessionSettings.model,
+                    store.sessionSettings.model
                   )}`}
                 </span>
               )}
               {store.inputContentToken === 0 && (
                 <span class="mx-1 text-slate/40">
                   {`有效上下文 Tokens : ${shownTokens(
-                    store.contextToken,
+                    store.contextToken
                   )}/$${countContextToken(
                     store.contextToken,
-                    store.sessionSettings.model,
+                    store.sessionSettings.model
                   )}`}
                 </span>
               )}

@@ -84,7 +84,7 @@ export default component$(() => {
   });
 
   return (
-    <div class="text-sm text-slate-7 dark:text-slate my-2" id="setting-action">
+    <div class="text-sm my-2" id="setting-action">
       {store.showSetting === "global" && (
         <>
           <div class="<sm:max-h-10em max-h-14em overflow-y-auto">
@@ -286,7 +286,7 @@ export default component$(() => {
                 <ActionItem
                   onClick={$(async () => {
                     await copyToClipboard(
-                      window.location.origin + window.location.pathname,
+                      window.location.origin + window.location.pathname
                     );
                     store.success = "link";
                     setTimeout(() => {
@@ -440,20 +440,25 @@ const SettingItem = component$<{
   );
 });
 
-const ActionItem = component$<{
+export const ActionItem = component$<{
   onClick: any;
   icon: string;
   label?: string;
 }>((props) => {
   return (
     <div
-      class="flex items-center cursor-pointer mx-1 p-2 hover:(dark:bg-#23252A bg-#ECF0F4) rounded text-1.2em"
+      class="tooltip mx-1"
       onClick$={props.onClick}
       // @ts-ignore
-      tooltip={props.label}
-      position="top"
+      data-tooltip={props.label}
     >
-      <button class={props.icon} title={props.label} />
+      <button
+        class={`btn btn-outline btn-xs ${props.icon}`}
+        style={{
+          background: "hsl(var(--bc) / var(--un-text-opacity, 1))",
+        }}
+        title={props.label}
+      />
     </div>
   );
 });
@@ -461,7 +466,7 @@ const ActionItem = component$<{
 async function exportJpg() {
   try {
     const messageContainer = document.querySelector(
-      "#message-container-img",
+      "#message-container-img"
     ) as HTMLElement;
     // eslint-disable-next-line no-inner-declarations
     async function downloadIMG() {
@@ -512,14 +517,14 @@ async function exportMD(messages: ChatMessage[]) {
       .map((k) => {
         return `> ${k[0].content}\n\n${k[1].content}`;
       })
-      .join("\n\n---\n\n"),
+      .join("\n\n---\n\n")
   );
 }
 
 const exportData = $(() => {
   const a = document.createElement("a");
   a.href = URL.createObjectURL(
-    new Blob([JSON.stringify(localStorage)], { type: "application/json" }),
+    new Blob([JSON.stringify(localStorage)], { type: "application/json" })
   );
   a.download = `ChatGPT-${dateFormat(new Date(), "HH-MM-SS")}.json`;
   a.click();

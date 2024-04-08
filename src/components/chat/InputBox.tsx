@@ -17,7 +17,7 @@ import {
 } from "~/store";
 import type { Option } from "~/types";
 import { blobToBase64, isMobile, scrollToBottom } from "~/utils";
-import { countTokens } from "~/utils/tokens"
+import { countTokens } from "~/utils/tokens";
 import SettingAction from "./SettingAction";
 import SlashSelector from "./SlashSelector";
 import { COST_MAP, COST_DOLLAR } from "~/providers";
@@ -33,14 +33,14 @@ export default component$<{
   const currentModel = useComputed$(() => store.sessionSettings.model);
 
   const currentMessageToken$ = useComputed$(() =>
-    countTokensDollar(store.currentMessageToken, currentModel.value, "output"),
+    countTokensDollar(store.currentMessageToken, currentModel.value, "output")
   );
 
   useVisibleTask$(async () => {
     const { Fzf } = await import("fzf");
     import("~/utils/parse").then(({ parsePrompts }) => {
       FZFData.promptOptions = parsePrompts().map(
-        (k) => ({ title: k.desc, desc: k.detail }) as Option,
+        (k) => ({ title: k.desc, desc: k.detail }) as Option
       );
       FZFData.fzfPrompts = new Fzf(FZFData.promptOptions, {
         selector: (k) => `${k.title}\n${k.desc}`,
@@ -89,9 +89,9 @@ export default component$<{
     // countTokensInWorker(store.currentAssistantMessage).then((res) => {
     //   store.currentMessageToken = res;
     // });
-    store.inputContentToken = countTokens(store.inputContent)
-    store.contextToken = countTokens(store.validContent)
-    store.currentMessageToken = countTokens(store.currentAssistantMessage)
+    store.inputContentToken = countTokens(store.inputContent);
+    store.contextToken = countTokens(store.validContent);
+    store.currentMessageToken = countTokens(store.currentAssistantMessage);
   });
 
   useVisibleTask$(({ track }) => {
@@ -149,7 +149,7 @@ export default component$<{
 
     const sessionQuery = value.replace(
       /^\s{2,}(.*)\s*$|^\/{2,}(.*)\s*$/,
-      "$1$2",
+      "$1$2"
     );
     const promptQuery = value.replace(/^\s(.*)\s*$|^\/(.*)\s*$/, "$1$2");
     if (sessionQuery !== value) {
@@ -157,14 +157,14 @@ export default component$<{
         (k) => ({
           ...k.item,
           positions: k.positions,
-        }),
+        })
       );
     } else if (promptQuery !== value) {
       candidateOptions.value = FZFData.fzfPrompts!.find(promptQuery).map(
         (k) => ({
           ...k.item,
           positions: k.positions,
-        }),
+        })
       );
     }
   });
@@ -192,6 +192,8 @@ export default component$<{
       class="pb-2em px-2em fixed bottom-0 z-100"
       style={{
         width: width === "init" ? "100%" : width,
+        background: "hsl(var(--b1) / var(--un-bg-opacity, 1))",
+        color: "currentColor",
       }}
     >
       <div

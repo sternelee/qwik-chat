@@ -1,4 +1,11 @@
-import { $, component$, type QRL, useOnWindow, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import {
+  $,
+  component$,
+  type QRL,
+  useOnWindow,
+  useSignal,
+  useVisibleTask$,
+} from "@builder.io/qwik";
 import type { Option } from "~/types";
 
 const DefaultHeight = 350;
@@ -24,7 +31,7 @@ export default component$<{
       } else if (e.key === "Escape") {
         props.select();
       }
-    }),
+    })
   );
 
   useVisibleTask$(({ track }) => {
@@ -39,9 +46,10 @@ export default component$<{
   useVisibleTask$(({ track }) => {
     track(() => props.options);
     if (containerRef.value && props.options.length) {
-      maxHeight.value = containerRef.value.clientHeight > window.innerHeight - 130
-        ? window.innerHeight - 130
-        : DefaultHeight;
+      maxHeight.value =
+        containerRef.value.clientHeight > window.innerHeight - 130
+          ? window.innerHeight - 130
+          : DefaultHeight;
     }
   });
 
@@ -50,7 +58,7 @@ export default component$<{
       {props.options.length > 0 && (
         <ul
           ref={containerRef!}
-          class="bg-slate bg-op-20 dark:text-slate text-slate-7 overflow-y-auto rounded-t"
+          class="overflow-y-auto rounded-t"
           style={{
             "max-height": maxHeight.value + "px",
           }}
@@ -104,7 +112,7 @@ const Item = component$<{
         {
           titleIndexs: [] as number[],
           descIndexs: [] as number[],
-        },
+        }
       );
     if (titleIndexs.length) {
       TitleComponent = props.option.title.split("").map((c, i) => {
@@ -127,8 +135,8 @@ const Item = component$<{
             </b>
           );
         } else if (
-          descIndexs[0] - 5 < i
-          && descIndexs[descIndexs.length - 1] + 100 > i
+          descIndexs[0] - 5 < i &&
+          descIndexs[descIndexs.length - 1] + 100 > i
         ) {
           return c;
         }

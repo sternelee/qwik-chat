@@ -4,6 +4,7 @@ import {
   useContext,
   useComputed$,
 } from "@builder.io/qwik";
+import { useNavigate } from "@builder.io/qwik-city";
 import ThemeToggle from "~/components/chat/ThemeToggle";
 import MessageItem from "~/components/chat/MessageItem";
 import InputBox from "~/components/chat/InputBox";
@@ -23,6 +24,7 @@ export default component$<IChatSession>(({ user }) => {
   const avatar = useComputed$(() => user?.image);
   const signIn = useAuthSignin();
   const signOut = useAuthSignout();
+  const navigator = useNavigate();
   const store = useContext(ChatContext);
   const containerWidth = useSignal("init");
 
@@ -71,7 +73,10 @@ export default component$<IChatSession>(({ user }) => {
               ></a>
               <span
                 class="font-extrabold text-slate-7 cursor-pointer dark:text-slate"
-                onClick$={() => store.loadSession("index")}
+                onClick$={() => {
+                  navigator("/");
+                  store.loadSession("index");
+                }}
               >
                 {store.sessionSettings.title}
               </span>

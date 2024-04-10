@@ -111,7 +111,7 @@ export default component$(() => {
             stream: true,
           },
           {},
-          this.controller?.signal,
+          this.controller?.signal
         );
       }
 
@@ -251,7 +251,7 @@ export default component$(() => {
             throw new Error(
               this.sessionSettings.continuousDialogue
                 ? "本次对话过长，请清除之前部分对话或者缩短当前提问。"
-                : "当前提问太长了，请缩短。",
+                : "当前提问太长了，请缩短。"
             );
           }
           this.loading = true;
@@ -265,10 +265,10 @@ export default component$(() => {
                     _[i - 1]?.role === "user") ||
                   (k.role === "user" &&
                     _[i + 1]?.role !== "error" &&
-                    _[i + 1]?.type !== "temporary"),
+                    _[i + 1]?.type !== "temporary")
               )
             : this.messageList.filter(
-                (k) => k.role === "system" || k.type === "locked",
+                (k) => k.role === "system" || k.type === "locked"
               );
           const messages = (
             this.sessionSettings.continuousDialogue
@@ -308,7 +308,7 @@ export default component$(() => {
       this.sessionId = sessionId;
       try {
         const globalSettings = localStorage.getItem(
-          LocalStorageKey.GLOBAL_SETTINGS,
+          LocalStorageKey.GLOBAL_SETTINGS
         );
         const session = getSession(sessionId);
         if (globalSettings) {
@@ -385,7 +385,6 @@ export default component$(() => {
 
   useVisibleTask$(({ track }) => {
     track(() => store.messageList.length);
-    scrollToBottom();
     if (store.messageList.length === 0) return;
     setSession(store.sessionId, {
       id: store.sessionId,
@@ -400,7 +399,7 @@ export default component$(() => {
 
   useVisibleTask$(({ track }) => {
     track(() => store.currentAssistantMessage);
-    scrollToBottom()
+    scrollToBottom();
   });
 
   return <Chat user={session.value?.user} />;

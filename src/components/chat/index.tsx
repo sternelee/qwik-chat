@@ -51,7 +51,12 @@ export default component$<IChatSession>(({ user }) => {
 
   return (
     <main class="mt-4">
-      <div class="flex items-center px-2em sticky top-0 z-1">
+      <header
+        class="flex items-center px-2em sticky top-0 z-1"
+        style={{
+          background: "hsl(var(--b1) / var(--un-bg-opacity, 1))",
+        }}
+      >
         <div class="flex-1 flex items-center dark:prose-invert dark:text-slate">
           {store.sessionSettings.title && (
             <>
@@ -165,7 +170,7 @@ export default component$<IChatSession>(({ user }) => {
             </div>
           </div>
         </div>
-      </div>
+      </header>
       <div
         id="message-container"
         class="px-1em mt-4"

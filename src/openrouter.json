@@ -1,28 +1,6 @@
 {
   "data": [
     {
-      "id": "openrouter/auto",
-      "name": "Auto (best for prompt)",
-      "description": "Depending on their size, subject, and complexity, your prompts will be sent to [Mistral Medium](/models/mistralai/mistral-medium) or [GPT-4 Turbo](/models/openai/gpt-4-turbo-preview).  To see which model was used, visit [Activity](/activity).",
-      "pricing": {
-        "prompt": "0",
-        "completion": "0",
-        "request": "-1",
-        "image": "-1"
-      },
-      "context_length": 128000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Router",
-        "instruct_type": null
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": null
-    },
-    {
       "id": "nousresearch/nous-capybara-7b:free",
       "name": "Nous: Capybara 7B (free)",
       "description": "The Capybara series is a collection of datasets and models made by fine-tuning on data created by Nous, mostly in-house.\n\nV1.9 uses unalignment techniques for more consistent and dynamic control. It also leverages a significantly better foundation model, [Mistral 7B](/models/mistralai/mistral-7b-instruct).\n\nNote: this is a free, rate-limited version of [this model](/models/nousresearch/nous-capybara-7b). Outputs may be cached. Read about rate limits [here](/docs#limits).",
@@ -193,8 +171,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "39062193",
-        "completion_tokens": "39062193"
+        "prompt_tokens": "39043522",
+        "completion_tokens": "39043522"
       }
     },
     {
@@ -218,8 +196,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "39062193",
-        "completion_tokens": "39062193"
+        "prompt_tokens": "39043522",
+        "completion_tokens": "39043522"
       }
     },
     {
@@ -243,8 +221,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "260414620",
-        "completion_tokens": "260414620"
+        "prompt_tokens": "260290146",
+        "completion_tokens": "260290146"
       }
     },
     {
@@ -268,8 +246,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "97655482",
-        "completion_tokens": "97655482"
+        "prompt_tokens": "97608805",
+        "completion_tokens": "97608805"
       }
     },
     {
@@ -293,8 +271,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "97655482",
-        "completion_tokens": "97655482"
+        "prompt_tokens": "97608805",
+        "completion_tokens": "97608805"
       }
     },
     {
@@ -318,8 +296,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "7812438",
-        "completion_tokens": "7812438"
+        "prompt_tokens": "7808704",
+        "completion_tokens": "7808704"
       }
     },
     {
@@ -343,8 +321,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "130207310",
-        "completion_tokens": "130207310"
+        "prompt_tokens": "130145073",
+        "completion_tokens": "130145073"
       }
     },
     {
@@ -368,8 +346,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "130207310",
-        "completion_tokens": "130207310"
+        "prompt_tokens": "130145073",
+        "completion_tokens": "130145073"
       }
     },
     {
@@ -393,8 +371,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "7812438",
-        "completion_tokens": "7812438"
+        "prompt_tokens": "7808704",
+        "completion_tokens": "7808704"
       }
     },
     {
@@ -418,8 +396,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "7812438",
-        "completion_tokens": "7812438"
+        "prompt_tokens": "7808704",
+        "completion_tokens": "7808704"
       }
     },
     {
@@ -443,8 +421,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "265008094",
-        "completion_tokens": "265008094"
+        "prompt_tokens": "264881424",
+        "completion_tokens": "264881424"
       }
     },
     {
@@ -468,8 +446,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "10416584",
-        "completion_tokens": "10416584"
+        "prompt_tokens": "10411605",
+        "completion_tokens": "10411605"
       }
     },
     {
@@ -493,8 +471,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "34721949",
-        "completion_tokens": "34721949"
+        "prompt_tokens": "34705352",
+        "completion_tokens": "34705352"
       }
     },
     {
@@ -518,8 +496,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "173609747",
-        "completion_tokens": "173609747"
+        "prompt_tokens": "173526764",
+        "completion_tokens": "173526764"
       }
     },
     {
@@ -543,8 +521,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "10416584",
-        "completion_tokens": "10416584"
+        "prompt_tokens": "10411605",
+        "completion_tokens": "10411605"
       }
     },
     {
@@ -568,8 +546,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4166633",
-        "completion_tokens": "4166633"
+        "prompt_tokens": "4164642",
+        "completion_tokens": "4164642"
       }
     },
     {
@@ -593,8 +571,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "17360974",
-        "completion_tokens": "17360974"
+        "prompt_tokens": "17352676",
+        "completion_tokens": "17352676"
       }
     },
     {
@@ -618,8 +596,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "104165848",
-        "completion_tokens": "104165848"
+        "prompt_tokens": "104116058",
+        "completion_tokens": "104116058"
       }
     },
     {
@@ -643,8 +621,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4340243",
-        "completion_tokens": "4340243"
+        "prompt_tokens": "4338169",
+        "completion_tokens": "4338169"
       }
     },
     {
@@ -668,8 +646,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "34721949",
-        "completion_tokens": "34721949"
+        "prompt_tokens": "34705352",
+        "completion_tokens": "34705352"
       }
     },
     {
@@ -693,8 +671,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "34721949",
-        "completion_tokens": "34721949"
+        "prompt_tokens": "34705352",
+        "completion_tokens": "34705352"
       }
     },
     {
@@ -718,8 +696,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "11573983",
-        "completion_tokens": "11573983"
+        "prompt_tokens": "11568450",
+        "completion_tokens": "11568450"
       }
     },
     {
@@ -743,8 +721,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "217012183",
-        "completion_tokens": "217012183"
+        "prompt_tokens": "216908455",
+        "completion_tokens": "216908455"
       }
     },
     {
@@ -768,8 +746,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "48224929",
-        "completion_tokens": "48224929"
+        "prompt_tokens": "48201879",
+        "completion_tokens": "48201879"
       }
     },
     {
@@ -793,8 +771,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "217012183",
-        "completion_tokens": "217012183"
+        "prompt_tokens": "216908455",
+        "completion_tokens": "216908455"
       }
     },
     {
@@ -818,8 +796,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "217012183",
-        "completion_tokens": "217012183"
+        "prompt_tokens": "216908455",
+        "completion_tokens": "216908455"
       }
     },
     {
@@ -843,8 +821,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "144674789",
-        "completion_tokens": "144674789"
+        "prompt_tokens": "144605637",
+        "completion_tokens": "144605637"
       }
     },
     {
@@ -868,8 +846,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "217012183",
-        "completion_tokens": "217012183"
+        "prompt_tokens": "216908455",
+        "completion_tokens": "216908455"
       }
     },
     {
@@ -893,8 +871,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "217012183",
-        "completion_tokens": "217012183"
+        "prompt_tokens": "216908455",
+        "completion_tokens": "216908455"
       }
     },
     {
@@ -918,8 +896,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54253045",
-        "completion_tokens": "54253045"
+        "prompt_tokens": "54227113",
+        "completion_tokens": "54227113"
       }
     },
     {
@@ -943,8 +921,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54253045",
-        "completion_tokens": "54253045"
+        "prompt_tokens": "54227113",
+        "completion_tokens": "54227113"
       }
     },
     {
@@ -968,8 +946,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "310017405",
-        "completion_tokens": "310017405"
+        "prompt_tokens": "309869222",
+        "completion_tokens": "309869222"
       }
     },
     {
@@ -993,8 +971,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "217012183",
-        "completion_tokens": "217012183"
+        "prompt_tokens": "216908455",
+        "completion_tokens": "216908455"
       }
     },
     {
@@ -1018,8 +996,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "217012183",
-        "completion_tokens": "217012183"
+        "prompt_tokens": "216908455",
+        "completion_tokens": "216908455"
       }
     },
     {
@@ -1043,8 +1021,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "72337394",
-        "completion_tokens": "72337394"
+        "prompt_tokens": "72302818",
+        "completion_tokens": "72302818"
       }
     },
     {
@@ -1068,8 +1046,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54253045",
-        "completion_tokens": "54253045"
+        "prompt_tokens": "54227113",
+        "completion_tokens": "54227113"
       }
     },
     {
@@ -1093,8 +1071,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "217012183",
-        "completion_tokens": "217012183"
+        "prompt_tokens": "216908455",
+        "completion_tokens": "216908455"
       }
     },
     {
@@ -1118,8 +1096,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "274120653",
-        "completion_tokens": "274120653"
+        "prompt_tokens": "273989628",
+        "completion_tokens": "273989628"
       }
     },
     {
@@ -1143,33 +1121,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "274120653",
-        "completion_tokens": "274120653"
+        "prompt_tokens": "273989628",
+        "completion_tokens": "273989628"
       }
     },
     {
       "id": "openai/gpt-3.5-turbo",
       "name": "OpenAI: GPT-3.5 Turbo",
-      "description": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand and generate natural language or code, and is optimized for chat and traditional completion tasks. Training data: up to Sep 2021.",
+      "description": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand and generate natural language or code, and is optimized for chat and traditional completion tasks.\n\nUpdated by OpenAI to point to the [latest version of GPT-3.5](/models?q=openai/gpt-3.5). Training data up to Sep 2021.",
       "pricing": {
-        "prompt": "0.000001",
-        "completion": "0.000002",
+        "prompt": "0.0000005",
+        "completion": "0.0000015",
         "image": "0",
         "request": "0"
       },
-      "context_length": 4095,
+      "context_length": 16385,
       "architecture": {
         "modality": "text",
         "tokenizer": "GPT",
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": null,
+        "max_completion_tokens": 4096,
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "39062193",
-        "completion_tokens": "19531096"
+        "prompt_tokens": "78087044",
+        "completion_tokens": "26029014"
       }
     },
     {
@@ -1193,8 +1171,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "78124386",
-        "completion_tokens": "26041462"
+        "prompt_tokens": "78087044",
+        "completion_tokens": "26029014"
       }
     },
     {
@@ -1218,14 +1196,14 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "39062193",
-        "completion_tokens": "19531096"
+        "prompt_tokens": "39043522",
+        "completion_tokens": "19521761"
       }
     },
     {
       "id": "openai/gpt-3.5-turbo-0613",
       "name": "OpenAI: GPT-3.5 Turbo (older v0613)",
-      "description": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand and generate natural language or code, and is optimized for chat and traditional completion tasks. Training data: up to Sep 2021.",
+      "description": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand and generate natural language or code, and is optimized for chat and traditional completion tasks.\n\nUpdated by OpenAI to point to the [latest version of GPT-3.5](/models?q=openai/gpt-3.5). Training data up to Sep 2021.",
       "pricing": {
         "prompt": "0.000001",
         "completion": "0.000002",
@@ -1239,18 +1217,18 @@
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": null,
+        "max_completion_tokens": 4096,
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "39062193",
-        "completion_tokens": "19531096"
+        "prompt_tokens": "39043522",
+        "completion_tokens": "19521761"
       }
     },
     {
       "id": "openai/gpt-3.5-turbo-0301",
       "name": "OpenAI: GPT-3.5 Turbo (older v0301)",
-      "description": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand and generate natural language or code, and is optimized for chat and traditional completion tasks. Training data: up to Sep 2021.",
+      "description": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand and generate natural language or code, and is optimized for chat and traditional completion tasks.\n\nUpdated by OpenAI to point to the [latest version of GPT-3.5](/models?q=openai/gpt-3.5). Training data up to Sep 2021.",
       "pricing": {
         "prompt": "0.000001",
         "completion": "0.000002",
@@ -1264,12 +1242,12 @@
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": null,
+        "max_completion_tokens": 4096,
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "39062193",
-        "completion_tokens": "19531096"
+        "prompt_tokens": "39043522",
+        "completion_tokens": "19521761"
       }
     },
     {
@@ -1289,18 +1267,43 @@
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": null,
+        "max_completion_tokens": 4096,
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "13020731",
-        "completion_tokens": "9765548"
+        "prompt_tokens": "13014507",
+        "completion_tokens": "9760880"
+      }
+    },
+    {
+      "id": "openai/gpt-4-turbo",
+      "name": "OpenAI: GPT-4 Turbo",
+      "description": "The latest GPT-4 Turbo model with vision capabilities. Vision requests can now use JSON mode and function calling. Training data: up to Dec 2023.\n\nThis model is updated by OpenAI to point to the latest version of [GPT-4 Turbo](/models?q=openai/gpt-4-turbo), currently gpt-4-turbo-2024-04-09 (as of April 2024).",
+      "pricing": {
+        "prompt": "0.00001",
+        "completion": "0.00003",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 128000,
+      "architecture": {
+        "modality": "multimodal",
+        "tokenizer": "GPT",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
+      "per_request_limits": {
+        "prompt_tokens": "3904352",
+        "completion_tokens": "1301450"
       }
     },
     {
       "id": "openai/gpt-4-turbo-preview",
-      "name": "OpenAI: GPT-4 Turbo",
-      "description": "The latest GPT-4 model with improved instruction following, JSON mode, reproducible outputs, parallel function calling, and more. Training data: up to Apr 2023.\n\n**Note:** heavily rate limited by OpenAI while in preview.",
+      "name": "OpenAI: GPT-4 Turbo Preview",
+      "description": "The latest GPT-4 model with improved instruction following, JSON mode, reproducible outputs, parallel function calling, and more. Training data: up to Dec 2023.\n\n**Note:** heavily rate limited by OpenAI while in preview.",
       "pricing": {
         "prompt": "0.00001",
         "completion": "0.00003",
@@ -1318,8 +1321,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3906219",
-        "completion_tokens": "1302073"
+        "prompt_tokens": "3904352",
+        "completion_tokens": "1301450"
       }
     },
     {
@@ -1343,8 +1346,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3906219",
-        "completion_tokens": "1302073"
+        "prompt_tokens": "3904352",
+        "completion_tokens": "1301450"
       }
     },
     {
@@ -1364,12 +1367,12 @@
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": null,
+        "max_completion_tokens": 4096,
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "1302073",
-        "completion_tokens": "651036"
+        "prompt_tokens": "1301450",
+        "completion_tokens": "650725"
       }
     },
     {
@@ -1389,12 +1392,12 @@
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": null,
+        "max_completion_tokens": 4096,
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "1302073",
-        "completion_tokens": "651036"
+        "prompt_tokens": "1301450",
+        "completion_tokens": "650725"
       }
     },
     {
@@ -1414,12 +1417,12 @@
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": null,
+        "max_completion_tokens": 4096,
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "651036",
-        "completion_tokens": "325518"
+        "prompt_tokens": "650725",
+        "completion_tokens": "325362"
       }
     },
     {
@@ -1439,18 +1442,18 @@
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": null,
+        "max_completion_tokens": 4096,
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "651036",
-        "completion_tokens": "325518"
+        "prompt_tokens": "650725",
+        "completion_tokens": "325362"
       }
     },
     {
       "id": "openai/gpt-4-vision-preview",
       "name": "OpenAI: GPT-4 Vision",
-      "description": "Ability to understand images, in addition to all other [GPT-4 Turbo capabilties](/models/openai/gpt-4-turbo-preview). Training data: up to Apr 2023.\n\n**Note:** heavily rate limited by OpenAI while in preview.\n\n#multimodal",
+      "description": "Ability to understand images, in addition to all other [GPT-4 Turbo capabilties](/models/openai/gpt-4-turbo). Training data: up to Apr 2023.\n\n**Note:** heavily rate limited by OpenAI while in preview.\n\n#multimodal",
       "pricing": {
         "prompt": "0.00001",
         "completion": "0.00003",
@@ -1468,8 +1471,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3906219",
-        "completion_tokens": "1302073"
+        "prompt_tokens": "3904352",
+        "completion_tokens": "1301450"
       }
     },
     {
@@ -1489,12 +1492,12 @@
         "instruct_type": "gpt"
       },
       "top_provider": {
-        "max_completion_tokens": null,
+        "max_completion_tokens": 4096,
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "26041462",
-        "completion_tokens": "19531096"
+        "prompt_tokens": "26029014",
+        "completion_tokens": "19521761"
       }
     },
     {
@@ -1507,19 +1510,19 @@
         "image": "0",
         "request": "0"
       },
-      "context_length": 36864,
+      "context_length": 25804.8,
       "architecture": {
         "modality": "text",
         "tokenizer": "PaLM",
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": 4096,
+        "max_completion_tokens": 2867.2,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156248772",
-        "completion_tokens": "78124386"
+        "prompt_tokens": "156174088",
+        "completion_tokens": "78087044"
       }
     },
     {
@@ -1532,19 +1535,19 @@
         "image": "0",
         "request": "0"
       },
-      "context_length": 28672,
+      "context_length": 20070.399999999998,
       "architecture": {
         "modality": "text",
         "tokenizer": "PaLM",
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": 4096,
+        "max_completion_tokens": 2867.2,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156248772",
-        "completion_tokens": "78124386"
+        "prompt_tokens": "156174088",
+        "completion_tokens": "78087044"
       }
     },
     {
@@ -1557,19 +1560,19 @@
         "image": "0",
         "request": "0"
       },
-      "context_length": 131072,
+      "context_length": 91750.4,
       "architecture": {
         "modality": "text",
         "tokenizer": "PaLM",
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": 32768,
+        "max_completion_tokens": 22937.6,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156248772",
-        "completion_tokens": "78124386"
+        "prompt_tokens": "156174088",
+        "completion_tokens": "78087044"
       }
     },
     {
@@ -1582,19 +1585,19 @@
         "image": "0",
         "request": "0"
       },
-      "context_length": 131072,
+      "context_length": 91750.4,
       "architecture": {
         "modality": "text",
         "tokenizer": "PaLM",
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": 32768,
+        "max_completion_tokens": 22937.6,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156248772",
-        "completion_tokens": "78124386"
+        "prompt_tokens": "156174088",
+        "completion_tokens": "78087044"
       }
     },
     {
@@ -1607,19 +1610,19 @@
         "image": "0.0025",
         "request": "0"
       },
-      "context_length": 131072,
+      "context_length": 91728,
       "architecture": {
         "modality": "text",
         "tokenizer": "Gemini",
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": 8192,
+        "max_completion_tokens": 22937.6,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "312497544",
-        "completion_tokens": "104165848"
+        "prompt_tokens": "312348176",
+        "completion_tokens": "104116058"
       }
     },
     {
@@ -1632,19 +1635,44 @@
         "image": "0.0025",
         "request": "0"
       },
-      "context_length": 65536,
+      "context_length": 45875.2,
       "architecture": {
         "modality": "multimodal",
         "tokenizer": "Gemini",
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": 16384,
+        "max_completion_tokens": 5734.4,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "312497544",
-        "completion_tokens": "104165848"
+        "prompt_tokens": "312348176",
+        "completion_tokens": "104116058"
+      }
+    },
+    {
+      "id": "google/gemini-pro-1.5",
+      "name": "Google: Gemini Pro 1.5 (preview)",
+      "description": "Google's latest multimodal model, supporting image and video in text or chat prompts.\n\nOptimized for language tasks including:\n\n- Code generation\n- Text generation\n- Text editing\n- Problem solving\n- Recommendations\n- Information extraction\n- Data extraction or generation\n- AI agents\n\nUsage of Gemini is subject to Google's [Gemini Terms of Use](https://ai.google.dev/terms).\n\n*Note: Preview models are offered for testing purposes and should not be used in production apps. This model is **heavily rate limited**.*\n\n#multimodal",
+      "pricing": {
+        "prompt": "0.0000025",
+        "completion": "0.0000075",
+        "image": "0.00265",
+        "request": "0"
+      },
+      "context_length": 2800000,
+      "architecture": {
+        "modality": "multimodal",
+        "tokenizer": "Gemini",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "max_completion_tokens": 22937.6,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "15617408",
+        "completion_tokens": "5205802"
       }
     },
     {
@@ -1668,8 +1696,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "39062193",
-        "completion_tokens": "39062193"
+        "prompt_tokens": "39043522",
+        "completion_tokens": "39043522"
       }
     },
     {
@@ -1693,8 +1721,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195310965",
-        "completion_tokens": "195310965"
+        "prompt_tokens": "195217610",
+        "completion_tokens": "195217610"
       }
     },
     {
@@ -1718,8 +1746,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195310965",
-        "completion_tokens": "195310965"
+        "prompt_tokens": "195217610",
+        "completion_tokens": "195217610"
       }
     },
     {
@@ -1743,8 +1771,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "39062193",
-        "completion_tokens": "39062193"
+        "prompt_tokens": "39043522",
+        "completion_tokens": "39043522"
       }
     },
     {
@@ -1768,8 +1796,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195310965",
-        "completion_tokens": "195310965"
+        "prompt_tokens": "195217610",
+        "completion_tokens": "195217610"
       }
     },
     {
@@ -1793,8 +1821,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "65103655",
-        "completion_tokens": "65103655"
+        "prompt_tokens": "65072536",
+        "completion_tokens": "65072536"
       }
     },
     {
@@ -1818,8 +1846,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195310965",
-        "completion_tokens": "195310965"
+        "prompt_tokens": "195217610",
+        "completion_tokens": "195217610"
       }
     },
     {
@@ -1843,8 +1871,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "65103655",
-        "completion_tokens": "65103655"
+        "prompt_tokens": "65072536",
+        "completion_tokens": "65072536"
       }
     },
     {
@@ -1859,7 +1887,7 @@
       },
       "context_length": 200000,
       "architecture": {
-        "modality": "text",
+        "modality": "multimodal",
         "tokenizer": "Claude",
         "instruct_type": null
       },
@@ -1868,8 +1896,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "2604146",
-        "completion_tokens": "520829"
+        "prompt_tokens": "2602901",
+        "completion_tokens": "520580"
       }
     },
     {
@@ -1884,7 +1912,7 @@
       },
       "context_length": 200000,
       "architecture": {
-        "modality": "text",
+        "modality": "multimodal",
         "tokenizer": "Claude",
         "instruct_type": null
       },
@@ -1893,8 +1921,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "13020731",
-        "completion_tokens": "2604146"
+        "prompt_tokens": "13014507",
+        "completion_tokens": "2602901"
       }
     },
     {
@@ -1909,7 +1937,7 @@
       },
       "context_length": 200000,
       "architecture": {
-        "modality": "text",
+        "modality": "multimodal",
         "tokenizer": "Claude",
         "instruct_type": null
       },
@@ -1918,8 +1946,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "156248772",
-        "completion_tokens": "31249754"
+        "prompt_tokens": "156174088",
+        "completion_tokens": "31234817"
       }
     },
     {
@@ -1934,7 +1962,7 @@
       },
       "context_length": 200000,
       "architecture": {
-        "modality": "text",
+        "modality": "multimodal",
         "tokenizer": "Claude",
         "instruct_type": null
       },
@@ -1943,8 +1971,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "2604146",
-        "completion_tokens": "520829"
+        "prompt_tokens": "2602901",
+        "completion_tokens": "520580"
       }
     },
     {
@@ -1959,7 +1987,7 @@
       },
       "context_length": 200000,
       "architecture": {
-        "modality": "text",
+        "modality": "multimodal",
         "tokenizer": "Claude",
         "instruct_type": null
       },
@@ -1968,8 +1996,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "13020731",
-        "completion_tokens": "2604146"
+        "prompt_tokens": "13014507",
+        "completion_tokens": "2602901"
       }
     },
     {
@@ -1984,7 +2012,7 @@
       },
       "context_length": 200000,
       "architecture": {
-        "modality": "text",
+        "modality": "multimodal",
         "tokenizer": "Claude",
         "instruct_type": null
       },
@@ -1993,8 +2021,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156248772",
-        "completion_tokens": "31249754"
+        "prompt_tokens": "156174088",
+        "completion_tokens": "31234817"
       }
     },
     {
@@ -2018,8 +2046,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "55803133",
-        "completion_tokens": "43402436"
+        "prompt_tokens": "55776460",
+        "completion_tokens": "43381691"
       }
     },
     {
@@ -2043,8 +2071,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43402436",
-        "completion_tokens": "43402436"
+        "prompt_tokens": "43381691",
+        "completion_tokens": "43381691"
       }
     },
     {
@@ -2068,8 +2096,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "55803133",
-        "completion_tokens": "43402436"
+        "prompt_tokens": "55776460",
+        "completion_tokens": "43381691"
       }
     },
     {
@@ -2093,8 +2121,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "6793424",
-        "completion_tokens": "6793424"
+        "prompt_tokens": "6790177",
+        "completion_tokens": "6790177"
       }
     },
     {
@@ -2118,8 +2146,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "177555423",
-        "completion_tokens": "177555423"
+        "prompt_tokens": "177470554",
+        "completion_tokens": "177470554"
       }
     },
     {
@@ -2143,8 +2171,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "300478408",
-        "completion_tokens": "300478408"
+        "prompt_tokens": "300334784",
+        "completion_tokens": "300334784"
       }
     },
     {
@@ -2168,8 +2196,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "300478408",
-        "completion_tokens": "300478408"
+        "prompt_tokens": "300334784",
+        "completion_tokens": "300334784"
       }
     },
     {
@@ -2193,8 +2221,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "55803133",
-        "completion_tokens": "43402436"
+        "prompt_tokens": "55776460",
+        "completion_tokens": "43381691"
       }
     },
     {
@@ -2218,8 +2246,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "144674789",
-        "completion_tokens": "144674789"
+        "prompt_tokens": "144605637",
+        "completion_tokens": "144605637"
       }
     },
     {
@@ -2227,8 +2255,8 @@
       "name": "Dolphin 2.6 Mixtral 8x7B 🐬",
       "description": "This is a 16k context fine-tune of [Mixtral-8x7b](/models/mistralai/mixtral-8x7b). It excels in coding tasks due to extensive training with coding data and is known for its obedience, although it lacks DPO tuning.\n\nThe model is uncensored and is stripped of alignment and bias. It requires an external alignment layer for ethical use. Users are cautioned to use this highly compliant model responsibly, as detailed in a blog post about uncensored models at [erichartford.com/uncensored-models](https://erichartford.com/uncensored-models).\n\n#moe #uncensored",
       "pricing": {
-        "prompt": "0.00000027",
-        "completion": "0.00000027",
+        "prompt": "0.0000005",
+        "completion": "0.0000005",
         "image": "0",
         "request": "0"
       },
@@ -2243,8 +2271,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "144674789",
-        "completion_tokens": "144674789"
+        "prompt_tokens": "78087044",
+        "completion_tokens": "78087044"
       }
     },
     {
@@ -2268,8 +2296,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4882774",
-        "completion_tokens": "4882774"
+        "prompt_tokens": "4880440",
+        "completion_tokens": "4880440"
       }
     },
     {
@@ -2368,8 +2396,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "300478408",
-        "completion_tokens": "300478408"
+        "prompt_tokens": "300334784",
+        "completion_tokens": "300334784"
       }
     },
     {
@@ -2377,8 +2405,8 @@
       "name": "Databricks: DBRX 132B Instruct",
       "description": "DBRX is a new open source large language model developed by Databricks. At 132B, it outperforms existing open source LLMs like Llama 2 70B and Mixtral-8x7B on standard industry benchmarks for language understanding, programming, math, and logic.\n\nIt uses a fine-grained mixture-of-experts (MoE) architecture. 36B parameters are active on any input. It was pre-trained on 12T tokens of text and code data. Compared to other open MoE models like Mixtral-8x7B and Grok-1, DBRX is fine-grained, meaning it uses a larger number of smaller experts.\n\nSee the launch announcement and benchmark results [here](https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm).\n\n#moe",
       "pricing": {
-        "prompt": "0.0000016",
-        "completion": "0.0000016",
+        "prompt": "0.0000009",
+        "completion": "0.0000009",
         "image": "0",
         "request": "0"
       },
@@ -2393,8 +2421,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "24413870",
-        "completion_tokens": "24413870"
+        "prompt_tokens": "43381691",
+        "completion_tokens": "43381691"
       }
     },
     {
@@ -2418,8 +2446,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4882774",
-        "completion_tokens": "1627591"
+        "prompt_tokens": "4880440",
+        "completion_tokens": "1626813"
       }
     },
     {
@@ -2443,8 +2471,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4882774",
-        "completion_tokens": "1627591"
+        "prompt_tokens": "4880440",
+        "completion_tokens": "1626813"
       }
     },
     {
@@ -2468,8 +2496,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4882774",
-        "completion_tokens": "1627591"
+        "prompt_tokens": "4880440",
+        "completion_tokens": "1626813"
       }
     },
     {
@@ -2493,8 +2521,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48827741",
-        "completion_tokens": "16275913"
+        "prompt_tokens": "48804402",
+        "completion_tokens": "16268134"
       }
     },
     {
@@ -2518,8 +2546,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48827741",
-        "completion_tokens": "16275913"
+        "prompt_tokens": "48804402",
+        "completion_tokens": "16268134"
       }
     },
     {
@@ -2543,8 +2571,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4882774",
-        "completion_tokens": "1627591"
+        "prompt_tokens": "4880440",
+        "completion_tokens": "1626813"
       }
     },
     {
@@ -2568,8 +2596,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4882774",
-        "completion_tokens": "1627591"
+        "prompt_tokens": "4880440",
+        "completion_tokens": "1626813"
       }
     },
     {
@@ -2593,8 +2621,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48827741",
-        "completion_tokens": "16275913"
+        "prompt_tokens": "48804402",
+        "completion_tokens": "16268134"
       }
     },
     {
@@ -2618,8 +2646,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48827741",
-        "completion_tokens": "16275913"
+        "prompt_tokens": "48804402",
+        "completion_tokens": "16268134"
       }
     },
     {
@@ -2643,8 +2671,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4882774",
-        "completion_tokens": "1627591"
+        "prompt_tokens": "4880440",
+        "completion_tokens": "1626813"
       }
     },
     {
@@ -2668,8 +2696,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4882774",
-        "completion_tokens": "1627591"
+        "prompt_tokens": "4880440",
+        "completion_tokens": "1626813"
       }
     },
     {
@@ -2693,8 +2721,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4882774",
-        "completion_tokens": "1627591"
+        "prompt_tokens": "4880440",
+        "completion_tokens": "1626813"
       }
     },
     {
@@ -2718,8 +2746,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "48827741",
-        "completion_tokens": "16275913"
+        "prompt_tokens": "48804402",
+        "completion_tokens": "16268134"
       }
     },
     {
@@ -2793,8 +2821,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "78124386",
-        "completion_tokens": "78124386"
+        "prompt_tokens": "78087044",
+        "completion_tokens": "78087044"
       }
     },
     {
@@ -2818,8 +2846,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43402436",
-        "completion_tokens": "43402436"
+        "prompt_tokens": "43381691",
+        "completion_tokens": "43381691"
       }
     },
     {
@@ -2843,8 +2871,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195310965",
-        "completion_tokens": "195310965"
+        "prompt_tokens": "195217610",
+        "completion_tokens": "195217610"
       }
     },
     {
@@ -2868,8 +2896,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195310965",
-        "completion_tokens": "195310965"
+        "prompt_tokens": "195217610",
+        "completion_tokens": "195217610"
       }
     },
     {
@@ -2893,8 +2921,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195310965",
-        "completion_tokens": "195310965"
+        "prompt_tokens": "195217610",
+        "completion_tokens": "195217610"
+      }
+    },
+    {
+      "id": "databricks/dbrx-instruct:nitro",
+      "name": "Databricks: DBRX 132B Instruct (nitro)",
+      "description": "DBRX is a new open source large language model developed by Databricks. At 132B, it outperforms existing open source LLMs like Llama 2 70B and Mixtral-8x7B on standard industry benchmarks for language understanding, programming, math, and logic.\n\nIt uses a fine-grained mixture-of-experts (MoE) architecture. 36B parameters are active on any input. It was pre-trained on 12T tokens of text and code data. Compared to other open MoE models like Mixtral-8x7B and Grok-1, DBRX is fine-grained, meaning it uses a larger number of smaller experts.\n\nSee the launch announcement and benchmark results [here](https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm).\n\n#moe\n\nNote: this is a higher-throughput version of [this model](/models/databricks/dbrx-instruct), and may have higher prices and slightly different outputs.",
+      "pricing": {
+        "prompt": "0.0000009",
+        "completion": "0.0000009",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 32768,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "GPT",
+        "instruct_type": "gpt-dbrx"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "43381691",
+        "completion_tokens": "43381691"
       }
     },
     {
@@ -2918,8 +2971,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156248772",
-        "completion_tokens": "156248772"
+        "prompt_tokens": "156174088",
+        "completion_tokens": "156174088"
       }
     },
     {
@@ -2943,8 +2996,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "19531096",
-        "completion_tokens": "6510365"
+        "prompt_tokens": "19521761",
+        "completion_tokens": "6507253"
       }
     },
     {
@@ -2968,8 +3021,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "14467478",
-        "completion_tokens": "4822492"
+        "prompt_tokens": "14460563",
+        "completion_tokens": "4820187"
       }
     },
     {
@@ -2993,14 +3046,14 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4882774",
-        "completion_tokens": "1627591"
+        "prompt_tokens": "4880440",
+        "completion_tokens": "1626813"
       }
     },
     {
       "id": "cohere/command",
       "name": "Cohere: Command",
-      "description": "Command is an instruction-following conversational model that performs language tasks with high quality, more reliably and with a longer context than our base generative models.",
+      "description": "Command is an instruction-following conversational model that performs language tasks with high quality, more reliably and with a longer context than our base generative models.\n\nUse of this model is subject to Cohere's [Acceptable Use Policy](https://docs.cohere.com/docs/c4ai-acceptable-use-policy).",
       "pricing": {
         "prompt": "0.000001",
         "completion": "0.000002",
@@ -3015,17 +3068,17 @@
       },
       "top_provider": {
         "max_completion_tokens": 4000,
-        "is_moderated": true
+        "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "39062193",
-        "completion_tokens": "19531096"
+        "prompt_tokens": "39043522",
+        "completion_tokens": "19521761"
       }
     },
     {
       "id": "cohere/command-r",
-      "name": "Cohere: Command-R",
-      "description": "Command-R is an instruction-following conversational model that performs language tasks at a higher quality, more reliably, and with a longer context than previous models. It can be used for complex workflows like code generation, retrieval augmented generation (RAG), tool use, and agents.\n\nRead the launch post [here](https://txt.cohere.com/command-r/).",
+      "name": "Cohere: Command R",
+      "description": "Command-R is a 35B parameter model that performs conversational language tasks at a higher quality, more reliably, and with a longer context than previous models. It can be used for complex workflows like code generation, retrieval augmented generation (RAG), tool use, and agents.\n\nRead the launch post [here](https://txt.cohere.com/command-r/).\n\nUse of this model is subject to Cohere's [Acceptable Use Policy](https://docs.cohere.com/docs/c4ai-acceptable-use-policy).",
       "pricing": {
         "prompt": "0.0000005",
         "completion": "0.0000015",
@@ -3040,11 +3093,36 @@
       },
       "top_provider": {
         "max_completion_tokens": 4000,
-        "is_moderated": true
+        "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "78124386",
-        "completion_tokens": "26041462"
+        "prompt_tokens": "78087044",
+        "completion_tokens": "26029014"
+      }
+    },
+    {
+      "id": "cohere/command-r-plus",
+      "name": "Cohere: Command R+",
+      "description": "Command R+ is a new, 104B-parameter LLM from Cohere. It's useful for roleplay, general consumer usecases, and Retrieval Augmented Generation (RAG).\n\nIt offers multilingual support for ten key languages to facilitate global business operations. See benchmarks and the launch post [here](https://txt.cohere.com/command-r-plus-microsoft-azure/).\n\nUse of this model is subject to Cohere's [Acceptable Use Policy](https://docs.cohere.com/docs/c4ai-acceptable-use-policy).",
+      "pricing": {
+        "prompt": "0.000003",
+        "completion": "0.000015",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 128000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Cohere",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "max_completion_tokens": 4000,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "13014507",
+        "completion_tokens": "2602901"
       }
     }
   ]

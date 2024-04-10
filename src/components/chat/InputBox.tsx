@@ -193,7 +193,6 @@ export default component$<{
       style={{
         width: width === "init" ? "100%" : width,
         background: "hsl(var(--b1) / var(--un-bg-opacity, 1))",
-        color: "currentColor",
       }}
     >
       <div

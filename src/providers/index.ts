@@ -10,7 +10,7 @@ import mistral from "./mistral";
 import claude from "./claude";
 import minimaxi from "./minimaxi";
 import togetherai from "./togetherai";
-import zeroone from "./zeroone";
+import lingyi from "./lingyi";
 
 export default {
   openai,
@@ -24,7 +24,7 @@ export default {
   mistral,
   claude,
   togetherai,
-  zeroone,
+  lingyi,
   minimaxi,
 };
 
@@ -40,7 +40,7 @@ export const COST_MAP = [
   mistral,
   claude,
   togetherai,
-  zeroone,
+  lingyi,
   minimaxi,
 ]
   .map((p) => p.models)
@@ -50,7 +50,7 @@ export const COST_MAP = [
       c[m.value] = { input: m.input, output: m.output };
       return c;
     },
-    {} as Record<string, { input: number; output: number }>,
+    {} as Record<string, { input: number; output: number }>
   );
 
 export const COST_DOLLAR = [
@@ -74,7 +74,7 @@ export const PROVIDER_LIST = [
   { value: "qwen", label: qwen.name },
   { value: "minimaxi", label: minimaxi.name },
   { value: "togetherai", label: togetherai.name },
-  { value: "zeroone", label: zeroone.name },
+  { value: "lingyi", label: lingyi.name },
   { value: "baidu", label: baidu.name },
 ];
 
@@ -91,7 +91,7 @@ export const APIKeys = {
   claude: "",
   minimaxi: "",
   togetherai: "",
-  zeroone: "",
+  lingyi: "",
   // replicate: {
   //   apikey: '',
   // },

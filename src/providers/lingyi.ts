@@ -6,7 +6,7 @@ const baseUrl = "https://api.lingyiwanwu.com";
 const fetchChat = async (
   body: any,
   env: any = {},
-  signal: AbortSignal | undefined,
+  signal: AbortSignal | undefined
 ) => {
   let { key, password, ...rest } = body;
   if (password && password === env.PASSWORD) {
@@ -52,7 +52,7 @@ const parseData = (event: ParsedEvent) => {
 
 export default {
   icon: "i-simple-icons-goldenline",
-  name: "ZeroOne",
+  name: " 零一AI",
   href: "https://platform.lingyiwanwu.com/apikeys",
   baseUrl,
   defaultModel: "yi-34b-chat-0205",

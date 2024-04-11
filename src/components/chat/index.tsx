@@ -105,25 +105,15 @@ export default component$<IChatSession>(({ user }) => {
         <div class="dropdown dropdown-end">
           <div role="button" tabIndex={0} class="btn btn-ghost">
             {avatar.value ? (
-              <img
-                src={avatar.value}
-                class="rounded-full"
-                width={24}
-                height={24}
-              />
+              <div class="avatar">
+                <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img src={avatar.value} width={24} height={24} />
+                </div>
+              </div>
             ) : (
               <>
                 <i class="inline-block i-carbon:login text-2xl md:hidden" />
                 <span class="hidden font-normal md:inline">Login</span>
-                <svg
-                  width="12px"
-                  height="12px"
-                  class="h-2 w-2 fill-current opacity-60 sm:inline-block"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 2048 2048"
-                >
-                  <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
-                </svg>
               </>
             )}
           </div>

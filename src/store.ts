@@ -134,4 +134,11 @@ export const shownTokens = (token: number) => {
   else return token;
 };
 
-export const SUPPORT_VISION = ['gpt-4-vision-preview', 'openai/gpt-4-vision-preview', 'google/gemini-pro-vision', 'gemini-pro-vision', 'glm-4v', 'yi-vl-plus']
+export const SUPPORT_VISION = [
+  "gpt-4-vision-preview",
+  "openai/gpt-4-vision-preview",
+  "google/gemini-pro-vision",
+  "gemini-pro-vision",
+  "glm-4v",
+  "yi-vl-plus",
+];

@@ -6,7 +6,7 @@ const baseUrl = "https://api.minimax.chat/v1/text/chatcompletion_pro";
 const fetchChat = async (
   body: any,
   env: any = {},
-  signal: AbortSignal | undefined,
+  signal: AbortSignal | undefined
 ) => {
   let { key, password, messages, ...rest } = body;
   const APIKey =
@@ -52,7 +52,7 @@ const parseData = (event: ParsedEvent) => {
 
 export default {
   icon: "i-carbon-navaid-ndb",
-  name: "MiniMax",
+  name: " 海螺问问",
   href: "https://www.minimaxi.com/user-center/basic-information/interface-key",
   baseUrl,
   defaultModel: "abab5.5-chat",

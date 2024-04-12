@@ -1,7 +1,7 @@
 import { createContextId, type QRL, type NoSerialize } from "@builder.io/qwik";
 import type { Fzf } from "fzf";
 import { COST_MAP, APIKeys, type IProvider } from "~/providers";
-import type { ChatMessage, Model, Option, Role } from "~/types";
+import type { ChatMessage, Model, Option } from "~/types";
 import { defaultEnv } from "./env";
 
 export const defaultMessage: ChatMessage = {
@@ -19,11 +19,11 @@ export const imgIcons: Record<ImgStatusUnion, string> = {
   error: "i-carbon:warning-alt text-red-6 dark:text-red",
 };
 
-export const roleIcons: Record<Role, string> = {
+export type FakeRoleUnion = "system" | "assistant" | "user" | "normal";
+export const roleIcons: Record<FakeRoleUnion, string> = {
   system: "i-ri:robot-2-fill bg-gradient-to-r from-yellow-300 to-red-700 ",
   assistant: "i-ri:android-fill bg-gradient-to-r from-yellow-300 to-red-700 ",
   normal: "i-ri:user-3-line",
-  error: "i-ri:user-3-line",
   user: "i-ri:user-3-fill bg-gradient-to-r from-red-300 to-blue-700 ",
 };
 export const FZFData = {
@@ -108,7 +108,7 @@ export interface IChatStore {
   showSetting: "none" | "global" | "session";
   success: false | "markdown" | "link";
   genImg: ImgStatusUnion;
-  fakeRole: Role;
+  fakeRole: FakeRoleUnion;
   clearSessionConfirm: boolean;
   deleteSessionConfirm: boolean;
   inputBoxHeight: number;
@@ -118,7 +118,7 @@ export interface IChatStore {
   validContext: ChatMessage[];
   fetchGPT: QRL<(this: IChatStore, messages: ChatMessage[]) => void>;
   sendMessage: QRL<
-    (this: IChatStore, content?: string, fakeRole?: Role) => void
+    (this: IChatStore, content?: string, fakeRole?: FakeRoleUnion) => void
   >;
   stopStreamFetch: QRL<(this: IChatStore) => void>;
   archiveCurrentMessage: QRL<(this: IChatStore) => void>;

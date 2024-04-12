@@ -6,7 +6,7 @@ import {
   useComputed$,
 } from "@builder.io/qwik";
 import { useThrottle, useCopyCode } from "~/hooks";
-import { ChatContext, roleIcons } from "~/store";
+import { ChatContext } from "~/store";
 import type { ChatMessage } from "~/types";
 import { copyToClipboard } from "~/utils";
 import MessageAction from "./MessageAction";
@@ -133,10 +133,8 @@ export default component$<Props>((props) => {
               } ${props.message.type === "temporary" ? "animate-spin" : ""}`}
               onClick$={lockMessage}
             >
-              {props.message.type === "locked" ? (
+              {props.message.type === "locked" && (
                 <div class="i-carbon:locked text-white" />
-              ) : (
-                <div class={`${roleIcons[props.message.role]}`} />
               )}
             </div>
           )}

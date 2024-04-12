@@ -21,7 +21,7 @@ import { scrollToBottom } from "~/utils";
 import { useAuthSignin, useAuthSignout } from "~/routes/plugin@auth";
 
 export default component$<IChatSession>(({ user }) => {
-  const avatar = useComputed$(() => user?.image);
+  const avatar = useComputed$(() => user?.image || "");
   const signIn = useAuthSignin();
   const signOut = useAuthSignout();
   const navigator = useNavigate();

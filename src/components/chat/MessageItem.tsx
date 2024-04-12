@@ -15,7 +15,7 @@ import { md } from "~/markdown-it";
 interface Props {
   message: ChatMessage;
   hiddenAction: boolean;
-  avatar?: string | undefined;
+  avatar?: string;
   index?: number;
 }
 

@@ -17,7 +17,7 @@ export interface ChatMessage {
   model?: string;
 }
 
-export type Role = "system" | "user" | "assistant" | "error";
+export type Role = "system" | "user" | "assistant" | "normal" | "error";
 export type SimpleModel = "gpt-3.5" | "gpt-4";
 export type Model = string;
 

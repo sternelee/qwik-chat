@@ -6,7 +6,7 @@ import {
   useComputed$,
 } from "@builder.io/qwik";
 import { useThrottle, useCopyCode } from "~/hooks";
-import { ChatContext } from "~/store";
+import { ChatContext, roleIcons } from "~/store";
 import type { ChatMessage } from "~/types";
 import { copyToClipboard } from "~/utils";
 import MessageAction from "./MessageAction";
@@ -26,6 +26,7 @@ export default component$<Props>((props) => {
     error: "bg-gradient-to-r from-red-400 to-red-700",
     system: "bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300",
     user: "bg-gradient-to-r from-red-300 to-blue-700 ",
+    normal: "bg-gradient-to-r from-red-300 to-blue-700 ",
     assistant: "bg-gradient-to-r from-yellow-300 to-red-700 ",
   };
   useCopyCode();
@@ -135,7 +136,7 @@ export default component$<Props>((props) => {
               {props.message.type === "locked" ? (
                 <div class="i-carbon:locked text-white" />
               ) : (
-                <div class={`i-carbon:locked text-white`} />
+                <div class={`${roleIcons[props.message.role]}`} />
               )}
             </div>
           )}

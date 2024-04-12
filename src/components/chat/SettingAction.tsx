@@ -286,7 +286,7 @@ export default component$(() => {
                 <ActionItem
                   onClick={$(async () => {
                     await copyToClipboard(
-                      window.location.origin + window.location.pathname
+                      window.location.origin + window.location.pathname,
                     );
                     store.success = "link";
                     setTimeout(() => {
@@ -464,7 +464,7 @@ export const ActionItem = component$<{
 async function exportJpg() {
   try {
     const messageContainer = document.querySelector(
-      "#message-container-img"
+      "#message-container-img",
     ) as HTMLElement;
     // eslint-disable-next-line no-inner-declarations
     async function downloadIMG() {
@@ -515,14 +515,14 @@ async function exportMD(messages: ChatMessage[]) {
       .map((k) => {
         return `> ${k[0].content}\n\n${k[1].content}`;
       })
-      .join("\n\n---\n\n")
+      .join("\n\n---\n\n"),
   );
 }
 
 const exportData = $(() => {
   const a = document.createElement("a");
   a.href = URL.createObjectURL(
-    new Blob([JSON.stringify(localStorage)], { type: "application/json" })
+    new Blob([JSON.stringify(localStorage)], { type: "application/json" }),
   );
   a.download = `ChatGPT-${dateFormat(new Date(), "HH-MM-SS")}.json`;
   a.click();

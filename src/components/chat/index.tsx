@@ -31,7 +31,7 @@ export default component$<IChatSession>(({ user }) => {
   const countContextTokensDollar = (
     contextToken: number,
     inputContentToken: number,
-    model: Model
+    model: Model,
   ) => {
     const c1 = countTokensDollar(contextToken, model, "input");
     const c2 = countTokensDollar(inputContentToken, model, "input");
@@ -106,7 +106,7 @@ export default component$<IChatSession>(({ user }) => {
           <div role="button" tabIndex={0} class="btn btn-ghost">
             {avatar.value ? (
               <div class="avatar">
-                <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <div class="w-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                   <img src={avatar.value} width={24} height={24} />
                 </div>
               </div>
@@ -180,6 +180,7 @@ export default component$<IChatSession>(({ user }) => {
               message={message}
               hiddenAction={store.loading || message.type === "temporary"}
               key={index}
+              avatar={avatar.value}
               index={index}
             />
           ))}
@@ -191,7 +192,7 @@ export default component$<IChatSession>(({ user }) => {
               {store.inputContentToken > 0 && (
                 <span class="mx-1 text-slate/40">
                   {`有效上下文 + 提问 Tokens : ${shownTokens(
-                    store.contextToken + store.inputContentToken
+                    store.contextToken + store.inputContentToken,
                   )}(`}
                   <span
                     class={{
@@ -203,17 +204,17 @@ export default component$<IChatSession>(({ user }) => {
                   {`)/${countContextTokensDollar(
                     store.contextToken,
                     store.inputContentToken,
-                    store.sessionSettings.model
+                    store.sessionSettings.model,
                   )}`}
                 </span>
               )}
               {store.inputContentToken === 0 && (
                 <span class="mx-1 text-slate/40">
                   {`有效上下文 Tokens : ${shownTokens(
-                    store.contextToken
+                    store.contextToken,
                   )}/$${countContextToken(
                     store.contextToken,
-                    store.sessionSettings.model
+                    store.sessionSettings.model,
                   )}`}
                 </span>
               )}

@@ -15,6 +15,7 @@ import { md } from "~/markdown-it";
 interface Props {
   message: ChatMessage;
   hiddenAction: boolean;
+  avatar?: string | undefined;
   index?: number;
 }
 
@@ -44,7 +45,7 @@ export default component$<Props>((props) => {
               !(
                 i === props.index ||
                 (i === props.index! + 1 && _.role !== "user")
-              )
+              ),
           )
         : store.messageList.filter((_, i) => i !== props.index);
   });
@@ -55,12 +56,12 @@ export default component$<Props>((props) => {
       question = store.messageList[props.index!].content;
       store.messageList = store.messageList.filter(
         (_, i) =>
-          !(i === props.index || (i === props.index! + 1 && _.role !== "user"))
+          !(i === props.index || (i === props.index! + 1 && _.role !== "user")),
       );
     } else {
       question = store.messageList[props.index! - 1].content;
       store.messageList = store.messageList.filter(
-        (_, i) => !(i === props.index || i === props.index! - 1)
+        (_, i) => !(i === props.index || i === props.index! - 1),
       );
     }
     store.sendMessage(question);
@@ -102,7 +103,7 @@ export default component$<Props>((props) => {
       renderedMarkdown.value = md
         .render(content)
         .replaceAll("<kbd>", '<kbd class="kbd">');
-    })
+    }),
   );
 
   return (
@@ -118,16 +119,26 @@ export default component$<Props>((props) => {
             temporary: props.message.type === "temporary",
           }}
         >
-          <div
-            class={`shadow-slate-5 shadow-sm dark:shadow-none shrink-0 w-7 h-7 rounded-full op-80 flex items-center justify-center cursor-pointer ${
-              roleClass[props.message.role]
-            } ${props.message.type === "temporary" ? "animate-spin" : ""}`}
-            onClick$={lockMessage}
-          >
-            {props.message.type === "locked" && (
-              <div class="i-carbon:locked text-white" />
-            )}
-          </div>
+          {props.avatar && props.message.role === "user" ? (
+            <div class="avatar">
+              <div class="w-6 h-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <img src={props.avatar} width={24} height={24} />
+              </div>
+            </div>
+          ) : (
+            <div
+              class={`shadow-slate-5 shadow-sm dark:shadow-none shrink-0 w-7 h-7 rounded-full op-80 flex items-center justify-center cursor-pointer ${
+                roleClass[props.message.role]
+              } ${props.message.type === "temporary" ? "animate-spin" : ""}`}
+              onClick$={lockMessage}
+            >
+              {props.message.type === "locked" ? (
+                <div class="i-carbon:locked text-white" />
+              ) : (
+                <div class={`i-carbon:locked text-white`} />
+              )}
+            </div>
+          )}
           <div
             class="message prose prose-slate break-all dark:prose-invert dark:text-slate break-words overflow-hidden"
             style="max-width:100%"

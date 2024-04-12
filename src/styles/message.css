@@ -58,3 +58,6 @@ pre code.hljs {
 .message ul {
   list-style: inside;
 }
+#message-container-img .avatar img {
+  transform: scale(1.6);
+}

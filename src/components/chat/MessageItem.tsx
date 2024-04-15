@@ -121,7 +121,7 @@ export default component$<Props>((props) => {
           }}
         >
           {props.avatar && props.message.role === "user" ? (
-            <div class="avatar">
+            <div class="avatar cursor-pointer" onClick$={lockMessage}>
               <div class="w-6 h-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                 <img src={props.avatar} width={24} height={24} />
               </div>

@@ -1,4 +1,4 @@
-import { parseData } from "./util"
+import { parseData } from "./util";
 import Models from "~/openrouter.json";
 import type { ChatMessage } from "~/types";
 
@@ -7,7 +7,7 @@ const baseUrl = "https://openrouter.ai/api";
 const fetchChat = async (
   body: any,
   env: any = {},
-  signal: AbortSignal | undefined
+  signal: AbortSignal | undefined,
 ) => {
   let { key, password, ...rest } = body;
   if (password && password === env.PASSWORD) {

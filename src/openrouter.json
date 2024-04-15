@@ -1,6 +1,28 @@
 {
   "data": [
     {
+      "id": "openrouter/auto",
+      "name": "Auto (best for prompt)",
+      "description": "Depending on their size, subject, and complexity, your prompts will be sent to [Mistral Medium](/models/mistralai/mistral-medium) or [GPT-4 Turbo](/models/openai/gpt-4-turbo).  To see which model was used, visit [Activity](/activity).",
+      "pricing": {
+        "prompt": "-1",
+        "completion": "-1",
+        "request": "-1",
+        "image": "-1"
+      },
+      "context_length": 128000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Router",
+        "instruct_type": null
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": null
+    },
+    {
       "id": "nousresearch/nous-capybara-7b:free",
       "name": "Nous: Capybara 7B (free)",
       "description": "The Capybara series is a collection of datasets and models made by fine-tuning on data created by Nous, mostly in-house.\n\nV1.9 uses unalignment techniques for more consistent and dynamic control. It also leverages a significantly better foundation model, [Mistral 7B](/models/mistralai/mistral-7b-instruct).\n\nNote: this is a free, rate-limited version of [this model](/models/nousresearch/nous-capybara-7b). Outputs may be cached. Read about rate limits [here](/docs#limits).",
@@ -40,6 +62,31 @@
         "modality": "text",
         "tokenizer": "Mistral",
         "instruct_type": "llama2"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
+    },
+    {
+      "id": "openchat/openchat-7b:free",
+      "name": "OpenChat 3.5 (free)",
+      "description": "OpenChat is a library of open-source language models, fine-tuned with \"C-RLFT (Conditioned Reinforcement Learning Fine-Tuning)\" - a strategy inspired by offline reinforcement learning. It has been trained on mixed-quality data without preference labels.\n\nNote: this is a free, rate-limited version of [this model](/models/openchat/openchat-7b). Outputs may be cached. Read about rate limits [here](/docs#limits).",
+      "pricing": {
+        "prompt": "0",
+        "completion": "0",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 8192,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "openchat"
       },
       "top_provider": {
         "max_completion_tokens": null,
@@ -171,8 +218,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "39043522",
-        "completion_tokens": "39043522"
+        "prompt_tokens": "39033647",
+        "completion_tokens": "39033647"
       }
     },
     {
@@ -196,83 +243,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "39043522",
-        "completion_tokens": "39043522"
-      }
-    },
-    {
-      "id": "nousresearch/nous-hermes-llama2-13b",
-      "name": "Nous: Hermes 13B",
-      "description": "A state-of-the-art language model fine-tuned on over 300k instructions by Nous Research, with Teknium and Emozilla leading the fine tuning process.",
-      "pricing": {
-        "prompt": "0.00000015",
-        "completion": "0.00000015",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 4096,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Llama2",
-        "instruct_type": "alpaca"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "260290146",
-        "completion_tokens": "260290146"
-      }
-    },
-    {
-      "id": "meta-llama/codellama-34b-instruct",
-      "name": "Meta: CodeLlama 34B Instruct",
-      "description": "Code Llama is built upon Llama 2 and excels at filling in code, handling extensive input contexts, and folling programming instructions without prior training for various programming tasks.",
-      "pricing": {
-        "prompt": "0.0000004",
-        "completion": "0.0000004",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 8192,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Llama2",
-        "instruct_type": "llama2"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "97608805",
-        "completion_tokens": "97608805"
-      }
-    },
-    {
-      "id": "phind/phind-codellama-34b",
-      "name": "Phind: CodeLlama 34B v2",
-      "description": "A fine-tune of CodeLlama-34B on an internal dataset that helps it exceed GPT-4 on some benchmarks, including HumanEval.",
-      "pricing": {
-        "prompt": "0.0000004",
-        "completion": "0.0000004",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 4096,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Llama2",
-        "instruct_type": "alpaca"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "97608805",
-        "completion_tokens": "97608805"
+        "prompt_tokens": "39033647",
+        "completion_tokens": "39033647"
       }
     },
     {
@@ -296,58 +268,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "7808704",
-        "completion_tokens": "7808704"
-      }
-    },
-    {
-      "id": "nousresearch/nous-hermes-2-mixtral-8x7b-dpo",
-      "name": "Nous: Hermes 2 Mixtral 8x7B DPO",
-      "description": "Nous Hermes 2 Mixtral 8x7B DPO is the new flagship Nous Research model trained over the [Mixtral 8x7B MoE LLM](/models/mistralai/mixtral-8x7b).\n\nThe model was trained on over 1,000,000 entries of primarily [GPT-4](/models/openai/gpt-4) generated data, as well as other high quality data from open datasets across the AI landscape, achieving state of the art performance on a variety of tasks.\n\n#moe",
-      "pricing": {
-        "prompt": "0.0000003",
-        "completion": "0.0000003",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 32000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Mistral",
-        "instruct_type": "gpt"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "130145073",
-        "completion_tokens": "130145073"
-      }
-    },
-    {
-      "id": "nousresearch/nous-hermes-2-mixtral-8x7b-sft",
-      "name": "Nous: Hermes 2 Mixtral 8x7B SFT",
-      "description": "Nous Hermes 2 Mixtral 8x7B SFT is the supervised finetune only version of [the Nous Research model](/models/nousresearch/nous-hermes-2-mixtral-8x7b-dpo) trained over the [Mixtral 8x7B MoE LLM](/models/mistralai/mixtral-8x7b).\n\nThe model was trained on over 1,000,000 entries of primarily GPT-4 generated data, as well as other high quality data from open datasets across the AI landscape, achieving state of the art performance on a variety of tasks.\n\n#moe",
-      "pricing": {
-        "prompt": "0.0000003",
-        "completion": "0.0000003",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 32000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Mistral",
-        "instruct_type": "gpt"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "130145073",
-        "completion_tokens": "130145073"
+        "prompt_tokens": "7806729",
+        "completion_tokens": "7806729"
       }
     },
     {
@@ -371,8 +293,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "7808704",
-        "completion_tokens": "7808704"
+        "prompt_tokens": "7806729",
+        "completion_tokens": "7806729"
       }
     },
     {
@@ -396,8 +318,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "7808704",
-        "completion_tokens": "7808704"
+        "prompt_tokens": "7806729",
+        "completion_tokens": "7806729"
       }
     },
     {
@@ -421,8 +343,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "264881424",
-        "completion_tokens": "264881424"
+        "prompt_tokens": "264814430",
+        "completion_tokens": "264814430"
       }
     },
     {
@@ -446,8 +368,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "10411605",
-        "completion_tokens": "10411605"
+        "prompt_tokens": "10408972",
+        "completion_tokens": "10408972"
       }
     },
     {
@@ -471,33 +393,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "34705352",
-        "completion_tokens": "34705352"
-      }
-    },
-    {
-      "id": "gryphe/mythomax-l2-13b",
-      "name": "MythoMax 13B",
-      "description": "One of the highest performing and most popular fine-tunes of Llama 2 13B, with rich descriptions and roleplay. #merge",
-      "pricing": {
-        "prompt": "0.000000225",
-        "completion": "0.000000225",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 4096,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Llama2",
-        "instruct_type": "alpaca"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "173526764",
-        "completion_tokens": "173526764"
+        "prompt_tokens": "34696575",
+        "completion_tokens": "34696575"
       }
     },
     {
@@ -521,8 +418,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "10411605",
-        "completion_tokens": "10411605"
+        "prompt_tokens": "10408972",
+        "completion_tokens": "10408972"
       }
     },
     {
@@ -546,8 +443,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4164642",
-        "completion_tokens": "4164642"
+        "prompt_tokens": "4163589",
+        "completion_tokens": "4163589"
       }
     },
     {
@@ -571,8 +468,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "17352676",
-        "completion_tokens": "17352676"
+        "prompt_tokens": "17348287",
+        "completion_tokens": "17348287"
       }
     },
     {
@@ -596,8 +493,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "104116058",
-        "completion_tokens": "104116058"
+        "prompt_tokens": "104089725",
+        "completion_tokens": "104089725"
       }
     },
     {
@@ -621,8 +518,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4338169",
-        "completion_tokens": "4338169"
+        "prompt_tokens": "4337071",
+        "completion_tokens": "4337071"
       }
     },
     {
@@ -646,33 +543,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "34705352",
-        "completion_tokens": "34705352"
-      }
-    },
-    {
-      "id": "gryphe/mythomax-l2-13b:extended",
-      "name": "MythoMax 13B (extended)",
-      "description": "One of the highest performing and most popular fine-tunes of Llama 2 13B, with rich descriptions and roleplay. #merge\n\nNote: this is an extended-context version of [this model](/models/gryphe/mythomax-l2-13b). It may have higher prices and different outputs.",
-      "pricing": {
-        "prompt": "0.000001125",
-        "completion": "0.000001125",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 8192,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Llama2",
-        "instruct_type": "alpaca"
-      },
-      "top_provider": {
-        "max_completion_tokens": 400,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "34705352",
-        "completion_tokens": "34705352"
+        "prompt_tokens": "34696575",
+        "completion_tokens": "34696575"
       }
     },
     {
@@ -696,8 +568,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "11568450",
-        "completion_tokens": "11568450"
+        "prompt_tokens": "11565525",
+        "completion_tokens": "11565525"
+      }
+    },
+    {
+      "id": "nousresearch/nous-hermes-llama2-13b",
+      "name": "Nous: Hermes 13B",
+      "description": "A state-of-the-art language model fine-tuned on over 300k instructions by Nous Research, with Teknium and Emozilla leading the fine tuning process.",
+      "pricing": {
+        "prompt": "0.00000027",
+        "completion": "0.00000027",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 4096,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama2",
+        "instruct_type": "alpaca"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "144569062",
+        "completion_tokens": "144569062"
       }
     },
     {
@@ -721,8 +618,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216908455",
-        "completion_tokens": "216908455"
+        "prompt_tokens": "216853594",
+        "completion_tokens": "216853594"
+      }
+    },
+    {
+      "id": "meta-llama/codellama-34b-instruct",
+      "name": "Meta: CodeLlama 34B Instruct",
+      "description": "Code Llama is built upon Llama 2 and excels at filling in code, handling extensive input contexts, and folling programming instructions without prior training for various programming tasks.",
+      "pricing": {
+        "prompt": "0.00000072",
+        "completion": "0.00000072",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 8192,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama2",
+        "instruct_type": "llama2"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "54213398",
+        "completion_tokens": "54213398"
       }
     },
     {
@@ -746,8 +668,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "48201879",
-        "completion_tokens": "48201879"
+        "prompt_tokens": "48189687",
+        "completion_tokens": "48189687"
+      }
+    },
+    {
+      "id": "phind/phind-codellama-34b",
+      "name": "Phind: CodeLlama 34B v2",
+      "description": "A fine-tune of CodeLlama-34B on an internal dataset that helps it exceed GPT-4 on some benchmarks, including HumanEval.",
+      "pricing": {
+        "prompt": "0.00000072",
+        "completion": "0.00000072",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 4096,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama2",
+        "instruct_type": "alpaca"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "54213398",
+        "completion_tokens": "54213398"
       }
     },
     {
@@ -771,8 +718,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216908455",
-        "completion_tokens": "216908455"
+        "prompt_tokens": "216853594",
+        "completion_tokens": "216853594"
       }
     },
     {
@@ -796,8 +743,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216908455",
-        "completion_tokens": "216908455"
+        "prompt_tokens": "216853594",
+        "completion_tokens": "216853594"
       }
     },
     {
@@ -821,33 +768,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "144605637",
-        "completion_tokens": "144605637"
-      }
-    },
-    {
-      "id": "undi95/toppy-m-7b",
-      "name": "Toppy M 7B",
-      "description": "A wild 7B parameter model that merges several models using the new task_arithmetic merge method from mergekit.\nList of merged models:\n- NousResearch/Nous-Capybara-7B-V1.9\n- [HuggingFaceH4/zephyr-7b-beta](/models/huggingfaceh4/zephyr-7b-beta)\n- lemonilia/AshhLimaRP-Mistral-7B\n- Vulkane/120-Days-of-Sodom-LoRA-Mistral-7b\n- Undi95/Mistral-pippa-sharegpt-7b-qlora\n\n#merge #uncensored",
-      "pricing": {
-        "prompt": "0.00000018",
-        "completion": "0.00000018",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 4096,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Mistral",
-        "instruct_type": "alpaca"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "216908455",
-        "completion_tokens": "216908455"
+        "prompt_tokens": "144569062",
+        "completion_tokens": "144569062"
       }
     },
     {
@@ -871,8 +793,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216908455",
-        "completion_tokens": "216908455"
+        "prompt_tokens": "216853594",
+        "completion_tokens": "216853594"
       }
     },
     {
@@ -896,8 +818,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54227113",
-        "completion_tokens": "54227113"
+        "prompt_tokens": "54213398",
+        "completion_tokens": "54213398"
       }
     },
     {
@@ -921,8 +843,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54227113",
-        "completion_tokens": "54227113"
+        "prompt_tokens": "54213398",
+        "completion_tokens": "54213398"
       }
     },
     {
@@ -946,8 +868,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "309869222",
-        "completion_tokens": "309869222"
+        "prompt_tokens": "309790849",
+        "completion_tokens": "309790849"
       }
     },
     {
@@ -971,8 +893,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216908455",
-        "completion_tokens": "216908455"
+        "prompt_tokens": "216853594",
+        "completion_tokens": "216853594"
       }
     },
     {
@@ -996,8 +918,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216908455",
-        "completion_tokens": "216908455"
+        "prompt_tokens": "216853594",
+        "completion_tokens": "216853594"
       }
     },
     {
@@ -1021,8 +943,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "72302818",
-        "completion_tokens": "72302818"
+        "prompt_tokens": "72284531",
+        "completion_tokens": "72284531"
       }
     },
     {
@@ -1046,8 +968,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54227113",
-        "completion_tokens": "54227113"
+        "prompt_tokens": "54213398",
+        "completion_tokens": "54213398"
+      }
+    },
+    {
+      "id": "nousresearch/nous-hermes-2-mixtral-8x7b-sft",
+      "name": "Nous: Hermes 2 Mixtral 8x7B SFT",
+      "description": "Nous Hermes 2 Mixtral 8x7B SFT is the supervised finetune only version of [the Nous Research model](/models/nousresearch/nous-hermes-2-mixtral-8x7b-dpo) trained over the [Mixtral 8x7B MoE LLM](/models/mistralai/mixtral-8x7b).\n\nThe model was trained on over 1,000,000 entries of primarily GPT-4 generated data, as well as other high quality data from open datasets across the AI landscape, achieving state of the art performance on a variety of tasks.\n\n#moe",
+      "pricing": {
+        "prompt": "0.00000054",
+        "completion": "0.00000054",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 32000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "gpt"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "72284531",
+        "completion_tokens": "72284531"
       }
     },
     {
@@ -1071,8 +1018,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216908455",
-        "completion_tokens": "216908455"
+        "prompt_tokens": "216853594",
+        "completion_tokens": "216853594"
       }
     },
     {
@@ -1096,8 +1043,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "273989628",
-        "completion_tokens": "273989628"
+        "prompt_tokens": "273920329",
+        "completion_tokens": "273920329"
       }
     },
     {
@@ -1121,8 +1068,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "273989628",
-        "completion_tokens": "273989628"
+        "prompt_tokens": "273920329",
+        "completion_tokens": "273920329"
       }
     },
     {
@@ -1146,8 +1093,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "78087044",
-        "completion_tokens": "26029014"
+        "prompt_tokens": "78067294",
+        "completion_tokens": "26022431"
       }
     },
     {
@@ -1171,8 +1118,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "78087044",
-        "completion_tokens": "26029014"
+        "prompt_tokens": "78067294",
+        "completion_tokens": "26022431"
       }
     },
     {
@@ -1196,8 +1143,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "39043522",
-        "completion_tokens": "19521761"
+        "prompt_tokens": "39033647",
+        "completion_tokens": "19516823"
       }
     },
     {
@@ -1221,8 +1168,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "39043522",
-        "completion_tokens": "19521761"
+        "prompt_tokens": "39033647",
+        "completion_tokens": "19516823"
       }
     },
     {
@@ -1246,8 +1193,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "39043522",
-        "completion_tokens": "19521761"
+        "prompt_tokens": "39033647",
+        "completion_tokens": "19516823"
       }
     },
     {
@@ -1271,8 +1218,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "13014507",
-        "completion_tokens": "9760880"
+        "prompt_tokens": "13011215",
+        "completion_tokens": "9758411"
       }
     },
     {
@@ -1296,8 +1243,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3904352",
-        "completion_tokens": "1301450"
+        "prompt_tokens": "3903364",
+        "completion_tokens": "1301121"
       }
     },
     {
@@ -1321,8 +1268,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3904352",
-        "completion_tokens": "1301450"
+        "prompt_tokens": "3903364",
+        "completion_tokens": "1301121"
       }
     },
     {
@@ -1346,8 +1293,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3904352",
-        "completion_tokens": "1301450"
+        "prompt_tokens": "3903364",
+        "completion_tokens": "1301121"
       }
     },
     {
@@ -1371,8 +1318,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "1301450",
-        "completion_tokens": "650725"
+        "prompt_tokens": "1301121",
+        "completion_tokens": "650560"
       }
     },
     {
@@ -1396,8 +1343,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "1301450",
-        "completion_tokens": "650725"
+        "prompt_tokens": "1301121",
+        "completion_tokens": "650560"
       }
     },
     {
@@ -1421,8 +1368,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "650725",
-        "completion_tokens": "325362"
+        "prompt_tokens": "650560",
+        "completion_tokens": "325280"
       }
     },
     {
@@ -1446,8 +1393,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "650725",
-        "completion_tokens": "325362"
+        "prompt_tokens": "650560",
+        "completion_tokens": "325280"
       }
     },
     {
@@ -1471,8 +1418,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3904352",
-        "completion_tokens": "1301450"
+        "prompt_tokens": "3903364",
+        "completion_tokens": "1301121"
       }
     },
     {
@@ -1496,8 +1443,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "26029014",
-        "completion_tokens": "19521761"
+        "prompt_tokens": "26022431",
+        "completion_tokens": "19516823"
       }
     },
     {
@@ -1510,19 +1457,19 @@
         "image": "0",
         "request": "0"
       },
-      "context_length": 25804.8,
+      "context_length": 25804,
       "architecture": {
         "modality": "text",
         "tokenizer": "PaLM",
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": 2867.2,
+        "max_completion_tokens": 2867,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156174088",
-        "completion_tokens": "78087044"
+        "prompt_tokens": "156134588",
+        "completion_tokens": "78067294"
       }
     },
     {
@@ -1535,19 +1482,19 @@
         "image": "0",
         "request": "0"
       },
-      "context_length": 20070.399999999998,
+      "context_length": 20070,
       "architecture": {
         "modality": "text",
         "tokenizer": "PaLM",
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": 2867.2,
+        "max_completion_tokens": 2867,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156174088",
-        "completion_tokens": "78087044"
+        "prompt_tokens": "156134588",
+        "completion_tokens": "78067294"
       }
     },
     {
@@ -1560,19 +1507,19 @@
         "image": "0",
         "request": "0"
       },
-      "context_length": 91750.4,
+      "context_length": 91750,
       "architecture": {
         "modality": "text",
         "tokenizer": "PaLM",
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": 22937.6,
+        "max_completion_tokens": 22937,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156174088",
-        "completion_tokens": "78087044"
+        "prompt_tokens": "156134588",
+        "completion_tokens": "78067294"
       }
     },
     {
@@ -1585,19 +1532,19 @@
         "image": "0",
         "request": "0"
       },
-      "context_length": 91750.4,
+      "context_length": 91750,
       "architecture": {
         "modality": "text",
         "tokenizer": "PaLM",
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": 22937.6,
+        "max_completion_tokens": 22937,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156174088",
-        "completion_tokens": "78087044"
+        "prompt_tokens": "156134588",
+        "completion_tokens": "78067294"
       }
     },
     {
@@ -1617,12 +1564,12 @@
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": 22937.6,
+        "max_completion_tokens": 22937,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "312348176",
-        "completion_tokens": "104116058"
+        "prompt_tokens": "312269176",
+        "completion_tokens": "104089725"
       }
     },
     {
@@ -1635,19 +1582,19 @@
         "image": "0.0025",
         "request": "0"
       },
-      "context_length": 45875.2,
+      "context_length": 45875,
       "architecture": {
         "modality": "multimodal",
         "tokenizer": "Gemini",
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": 5734.4,
+        "max_completion_tokens": 5734,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "312348176",
-        "completion_tokens": "104116058"
+        "prompt_tokens": "312269176",
+        "completion_tokens": "104089725"
       }
     },
     {
@@ -1667,12 +1614,12 @@
         "instruct_type": null
       },
       "top_provider": {
-        "max_completion_tokens": 22937.6,
+        "max_completion_tokens": 22937,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "15617408",
-        "completion_tokens": "5205802"
+        "prompt_tokens": "15613458",
+        "completion_tokens": "5204486"
       }
     },
     {
@@ -1696,8 +1643,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "39043522",
-        "completion_tokens": "39043522"
+        "prompt_tokens": "39033647",
+        "completion_tokens": "39033647"
       }
     },
     {
@@ -1721,8 +1668,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195217610",
-        "completion_tokens": "195217610"
+        "prompt_tokens": "195168235",
+        "completion_tokens": "195168235"
       }
     },
     {
@@ -1746,8 +1693,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195217610",
-        "completion_tokens": "195217610"
+        "prompt_tokens": "195168235",
+        "completion_tokens": "195168235"
       }
     },
     {
@@ -1771,8 +1718,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "39043522",
-        "completion_tokens": "39043522"
+        "prompt_tokens": "39033647",
+        "completion_tokens": "39033647"
       }
     },
     {
@@ -1796,8 +1743,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195217610",
-        "completion_tokens": "195217610"
+        "prompt_tokens": "195168235",
+        "completion_tokens": "195168235"
       }
     },
     {
@@ -1821,8 +1768,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "65072536",
-        "completion_tokens": "65072536"
+        "prompt_tokens": "65056078",
+        "completion_tokens": "65056078"
       }
     },
     {
@@ -1846,8 +1793,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195217610",
-        "completion_tokens": "195217610"
+        "prompt_tokens": "195168235",
+        "completion_tokens": "195168235"
       }
     },
     {
@@ -1871,8 +1818,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "65072536",
-        "completion_tokens": "65072536"
+        "prompt_tokens": "65056078",
+        "completion_tokens": "65056078"
+      }
+    },
+    {
+      "id": "fireworks/mixtral-8x22b-instruct-preview",
+      "name": "Fireworks Mixtral 8x22B Instruct OH (preview)",
+      "description": "The first instruct-tuned version of the latest mixture of experts from Mistral: [Mixtral 8x22B](/models/mistralai/mixtral-8x22b).\n\nThis model was finetuned on ~10K entries from [OpenHermes](https://huggingface.co/datasets/teknium/OpenHermes-2.5) dataset.\n\n#moe",
+      "pricing": {
+        "prompt": "0.0000009",
+        "completion": "0.0000009",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 8192,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "vicuna"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "43370718",
+        "completion_tokens": "43370718"
       }
     },
     {
@@ -1896,8 +1868,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "2602901",
-        "completion_tokens": "520580"
+        "prompt_tokens": "2602243",
+        "completion_tokens": "520448"
       }
     },
     {
@@ -1921,8 +1893,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "13014507",
-        "completion_tokens": "2602901"
+        "prompt_tokens": "13011215",
+        "completion_tokens": "2602243"
       }
     },
     {
@@ -1946,8 +1918,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "156174088",
-        "completion_tokens": "31234817"
+        "prompt_tokens": "156134588",
+        "completion_tokens": "31226917"
       }
     },
     {
@@ -1971,8 +1943,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "2602901",
-        "completion_tokens": "520580"
+        "prompt_tokens": "2602243",
+        "completion_tokens": "520448"
       }
     },
     {
@@ -1996,8 +1968,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "13014507",
-        "completion_tokens": "2602901"
+        "prompt_tokens": "13011215",
+        "completion_tokens": "2602243"
       }
     },
     {
@@ -2021,8 +1993,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156174088",
-        "completion_tokens": "31234817"
+        "prompt_tokens": "156134588",
+        "completion_tokens": "31226917"
       }
     },
     {
@@ -2030,8 +2002,8 @@
       "name": "Meta: Llama v2 70B Chat",
       "description": "The flagship, 70 billion parameter language model from Meta, fine tuned for chat completions. Llama 2 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align to human preferences for helpfulness and safety.",
       "pricing": {
-        "prompt": "0.0000007",
-        "completion": "0.0000009",
+        "prompt": "0.0000006",
+        "completion": "0.0000019",
         "image": "0",
         "request": "0"
       },
@@ -2046,8 +2018,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "55776460",
-        "completion_tokens": "43381691"
+        "prompt_tokens": "65056078",
+        "completion_tokens": "20544024"
       }
     },
     {
@@ -2071,8 +2043,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43381691",
-        "completion_tokens": "43381691"
+        "prompt_tokens": "43370718",
+        "completion_tokens": "43370718"
       }
     },
     {
@@ -2096,8 +2068,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "55776460",
-        "completion_tokens": "43381691"
+        "prompt_tokens": "55762352",
+        "completion_tokens": "43370718"
       }
     },
     {
@@ -2121,8 +2093,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "6790177",
-        "completion_tokens": "6790177"
+        "prompt_tokens": "6788460",
+        "completion_tokens": "6788460"
       }
     },
     {
@@ -2146,8 +2118,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "177470554",
-        "completion_tokens": "177470554"
+        "prompt_tokens": "177425668",
+        "completion_tokens": "177425668"
       }
     },
     {
@@ -2155,8 +2127,8 @@
       "name": "Mistral 7B Instruct",
       "description": "A 7.3B parameter model that outperforms Llama 2 13B on all benchmarks, with optimizations for speed and context length.\n\nThis is v0.1 of Mistral 7B Instruct. For v0.2, use [this model](/models/mistralai/mistral-7b-instruct:nitro).",
       "pricing": {
-        "prompt": "0.00000013",
-        "completion": "0.00000013",
+        "prompt": "0.0000001",
+        "completion": "0.00000025",
         "image": "0",
         "request": "0"
       },
@@ -2171,8 +2143,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "300334784",
-        "completion_tokens": "300334784"
+        "prompt_tokens": "390336470",
+        "completion_tokens": "156134588"
+      }
+    },
+    {
+      "id": "gryphe/mythomax-l2-13b",
+      "name": "MythoMax 13B",
+      "description": "One of the highest performing and most popular fine-tunes of Llama 2 13B, with rich descriptions and roleplay. #merge",
+      "pricing": {
+        "prompt": "0.0000002",
+        "completion": "0.0000002",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 4096,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama2",
+        "instruct_type": "alpaca"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "195168235",
+        "completion_tokens": "195168235"
       }
     },
     {
@@ -2196,8 +2193,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "300334784",
-        "completion_tokens": "300334784"
+        "prompt_tokens": "300258823",
+        "completion_tokens": "300258823"
+      }
+    },
+    {
+      "id": "undi95/toppy-m-7b",
+      "name": "Toppy M 7B",
+      "description": "A wild 7B parameter model that merges several models using the new task_arithmetic merge method from mergekit.\nList of merged models:\n- NousResearch/Nous-Capybara-7B-V1.9\n- [HuggingFaceH4/zephyr-7b-beta](/models/huggingfaceh4/zephyr-7b-beta)\n- lemonilia/AshhLimaRP-Mistral-7B\n- Vulkane/120-Days-of-Sodom-LoRA-Mistral-7b\n- Undi95/Mistral-pippa-sharegpt-7b-qlora\n\n#merge #uncensored",
+      "pricing": {
+        "prompt": "0.00000015",
+        "completion": "0.00000015",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 4096,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "alpaca"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "260224313",
+        "completion_tokens": "260224313"
       }
     },
     {
@@ -2221,8 +2243,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "55776460",
-        "completion_tokens": "43381691"
+        "prompt_tokens": "55762352",
+        "completion_tokens": "43370718"
       }
     },
     {
@@ -2246,8 +2268,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "144605637",
-        "completion_tokens": "144605637"
+        "prompt_tokens": "144569062",
+        "completion_tokens": "144569062"
       }
     },
     {
@@ -2271,8 +2293,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "78087044",
-        "completion_tokens": "78087044"
+        "prompt_tokens": "78067294",
+        "completion_tokens": "78067294"
       }
     },
     {
@@ -2296,8 +2318,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4880440",
-        "completion_tokens": "4880440"
+        "prompt_tokens": "4879205",
+        "completion_tokens": "4879205"
+      }
+    },
+    {
+      "id": "nousresearch/nous-hermes-2-mixtral-8x7b-dpo",
+      "name": "Nous: Hermes 2 Mixtral 8x7B DPO",
+      "description": "Nous Hermes 2 Mixtral 8x7B DPO is the new flagship Nous Research model trained over the [Mixtral 8x7B MoE LLM](/models/mistralai/mixtral-8x7b).\n\nThe model was trained on over 1,000,000 entries of primarily [GPT-4](/models/openai/gpt-4) generated data, as well as other high quality data from open datasets across the AI landscape, achieving state of the art performance on a variety of tasks.\n\n#moe",
+      "pricing": {
+        "prompt": "0.0000003",
+        "completion": "0.0000005",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 32000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "gpt"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "130112156",
+        "completion_tokens": "78067294"
       }
     },
     {
@@ -2380,8 +2427,8 @@
       "name": "Google: Gemma 7B",
       "description": "Gemma by Google is an advanced, open-source language model family, leveraging the latest in decoder-only, text-to-text technology. It offers English language capabilities across text generation tasks like question answering, summarization, and reasoning. The Gemma 7B variant is comparable in performance to leading open source models.\n\nUsage of Gemma is subject to Google's [Gemma Terms of Use](https://ai.google.dev/gemma/terms).",
       "pricing": {
-        "prompt": "0.00000013",
-        "completion": "0.00000013",
+        "prompt": "0.0000001",
+        "completion": "0.0000001",
         "image": "0",
         "request": "0"
       },
@@ -2396,8 +2443,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "300334784",
-        "completion_tokens": "300334784"
+        "prompt_tokens": "390336470",
+        "completion_tokens": "390336470"
       }
     },
     {
@@ -2405,8 +2452,8 @@
       "name": "Databricks: DBRX 132B Instruct",
       "description": "DBRX is a new open source large language model developed by Databricks. At 132B, it outperforms existing open source LLMs like Llama 2 70B and Mixtral-8x7B on standard industry benchmarks for language understanding, programming, math, and logic.\n\nIt uses a fine-grained mixture-of-experts (MoE) architecture. 36B parameters are active on any input. It was pre-trained on 12T tokens of text and code data. Compared to other open MoE models like Mixtral-8x7B and Grok-1, DBRX is fine-grained, meaning it uses a larger number of smaller experts.\n\nSee the launch announcement and benchmark results [here](https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm).\n\n#moe",
       "pricing": {
-        "prompt": "0.0000009",
-        "completion": "0.0000009",
+        "prompt": "0.0000006",
+        "completion": "0.0000006",
         "image": "0",
         "request": "0"
       },
@@ -2421,8 +2468,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43381691",
-        "completion_tokens": "43381691"
+        "prompt_tokens": "65056078",
+        "completion_tokens": "65056078"
+      }
+    },
+    {
+      "id": "huggingfaceh4/zephyr-orpo-141b-a35b",
+      "name": "Zephyr 141B-A35B",
+      "description": "Zephyr 141B-A35B is A Mixture of Experts (MoE) model with 141B total parameters and 35B active parameters. Fine-tuned on a mix of publicly available, synthetic datasets.\n\nIt is an instruct finetune of [Mixtral 8x22B](/models/mistralai/mixtral-8x22b).\n\n#moe",
+      "pricing": {
+        "prompt": "0.00000065",
+        "completion": "0.00000065",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 65536,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "zephyr"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "60051764",
+        "completion_tokens": "60051764"
       }
     },
     {
@@ -2446,8 +2518,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4880440",
-        "completion_tokens": "1626813"
+        "prompt_tokens": "4879205",
+        "completion_tokens": "1626401"
       }
     },
     {
@@ -2471,8 +2543,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4880440",
-        "completion_tokens": "1626813"
+        "prompt_tokens": "4879205",
+        "completion_tokens": "1626401"
       }
     },
     {
@@ -2496,8 +2568,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4880440",
-        "completion_tokens": "1626813"
+        "prompt_tokens": "4879205",
+        "completion_tokens": "1626401"
       }
     },
     {
@@ -2521,8 +2593,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48804402",
-        "completion_tokens": "16268134"
+        "prompt_tokens": "48792058",
+        "completion_tokens": "16264019"
       }
     },
     {
@@ -2546,8 +2618,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48804402",
-        "completion_tokens": "16268134"
+        "prompt_tokens": "48792058",
+        "completion_tokens": "16264019"
       }
     },
     {
@@ -2571,8 +2643,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4880440",
-        "completion_tokens": "1626813"
+        "prompt_tokens": "4879205",
+        "completion_tokens": "1626401"
       }
     },
     {
@@ -2596,8 +2668,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4880440",
-        "completion_tokens": "1626813"
+        "prompt_tokens": "4879205",
+        "completion_tokens": "1626401"
       }
     },
     {
@@ -2621,8 +2693,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48804402",
-        "completion_tokens": "16268134"
+        "prompt_tokens": "48792058",
+        "completion_tokens": "16264019"
       }
     },
     {
@@ -2646,8 +2718,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48804402",
-        "completion_tokens": "16268134"
+        "prompt_tokens": "48792058",
+        "completion_tokens": "16264019"
       }
     },
     {
@@ -2671,8 +2743,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4880440",
-        "completion_tokens": "1626813"
+        "prompt_tokens": "4879205",
+        "completion_tokens": "1626401"
       }
     },
     {
@@ -2696,8 +2768,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4880440",
-        "completion_tokens": "1626813"
+        "prompt_tokens": "4879205",
+        "completion_tokens": "1626401"
       }
     },
     {
@@ -2721,8 +2793,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4880440",
-        "completion_tokens": "1626813"
+        "prompt_tokens": "4879205",
+        "completion_tokens": "1626401"
       }
     },
     {
@@ -2746,8 +2818,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "48804402",
-        "completion_tokens": "16268134"
+        "prompt_tokens": "48792058",
+        "completion_tokens": "16264019"
+      }
+    },
+    {
+      "id": "mistralai/mixtral-8x22b",
+      "name": "Mistral: Mixtral 8x22B (base)",
+      "description": "Mixtral 8x22B is a large-scale language model from Mistral AI. It consists of 8 experts, each 22 billion parameters, with each token using 2 experts at a time.\n\nIt was released via [X](https://twitter.com/MistralAI/status/1777869263778291896).\n\n#moe",
+      "pricing": {
+        "prompt": "0.0000009",
+        "completion": "0.0000009",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 65536,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "gpt"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "43370718",
+        "completion_tokens": "43370718"
       }
     },
     {
@@ -2765,31 +2862,6 @@
         "modality": "text",
         "tokenizer": "Mistral",
         "instruct_type": "zephyr"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "Infinity",
-        "completion_tokens": "Infinity"
-      }
-    },
-    {
-      "id": "openchat/openchat-7b:free",
-      "name": "OpenChat 3.5 (free)",
-      "description": "OpenChat is a library of open-source language models, fine-tuned with \"C-RLFT (Conditioned Reinforcement Learning Fine-Tuning)\" - a strategy inspired by offline reinforcement learning. It has been trained on mixed-quality data without preference labels.\n\nNote: this is a free, rate-limited version of [this model](/models/openchat/openchat-7b). Outputs may be cached. Read about rate limits [here](/docs#limits).",
-      "pricing": {
-        "prompt": "0",
-        "completion": "0",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 8192,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Mistral",
-        "instruct_type": "openchat"
       },
       "top_provider": {
         "max_completion_tokens": null,
@@ -2821,8 +2893,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "78087044",
-        "completion_tokens": "78087044"
+        "prompt_tokens": "78067294",
+        "completion_tokens": "78067294"
       }
     },
     {
@@ -2846,8 +2918,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43381691",
-        "completion_tokens": "43381691"
+        "prompt_tokens": "43370718",
+        "completion_tokens": "43370718"
       }
     },
     {
@@ -2871,8 +2943,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195217610",
-        "completion_tokens": "195217610"
+        "prompt_tokens": "195168235",
+        "completion_tokens": "195168235"
       }
     },
     {
@@ -2896,8 +2968,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195217610",
-        "completion_tokens": "195217610"
+        "prompt_tokens": "195168235",
+        "completion_tokens": "195168235"
       }
     },
     {
@@ -2921,8 +2993,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195217610",
-        "completion_tokens": "195217610"
+        "prompt_tokens": "195168235",
+        "completion_tokens": "195168235"
       }
     },
     {
@@ -2946,8 +3018,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43381691",
-        "completion_tokens": "43381691"
+        "prompt_tokens": "43370718",
+        "completion_tokens": "43370718"
+      }
+    },
+    {
+      "id": "gryphe/mythomax-l2-13b:extended",
+      "name": "MythoMax 13B (extended)",
+      "description": "One of the highest performing and most popular fine-tunes of Llama 2 13B, with rich descriptions and roleplay. #merge\n\nNote: this is an extended-context version of [this model](/models/gryphe/mythomax-l2-13b). It may have higher prices and different outputs.",
+      "pricing": {
+        "prompt": "0.0000003",
+        "completion": "0.0000003",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 8192,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama2",
+        "instruct_type": "alpaca"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "130112156",
+        "completion_tokens": "130112156"
       }
     },
     {
@@ -2971,8 +3068,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156174088",
-        "completion_tokens": "156174088"
+        "prompt_tokens": "156134588",
+        "completion_tokens": "156134588"
       }
     },
     {
@@ -2996,8 +3093,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "19521761",
-        "completion_tokens": "6507253"
+        "prompt_tokens": "19516823",
+        "completion_tokens": "6505607"
       }
     },
     {
@@ -3021,8 +3118,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "14460563",
-        "completion_tokens": "4820187"
+        "prompt_tokens": "14456906",
+        "completion_tokens": "4818968"
       }
     },
     {
@@ -3046,8 +3143,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4880440",
-        "completion_tokens": "1626813"
+        "prompt_tokens": "4879205",
+        "completion_tokens": "1626401"
       }
     },
     {
@@ -3071,8 +3168,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "39043522",
-        "completion_tokens": "19521761"
+        "prompt_tokens": "39033647",
+        "completion_tokens": "19516823"
       }
     },
     {
@@ -3096,8 +3193,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "78087044",
-        "completion_tokens": "26029014"
+        "prompt_tokens": "78067294",
+        "completion_tokens": "26022431"
       }
     },
     {
@@ -3121,8 +3218,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "13014507",
-        "completion_tokens": "2602901"
+        "prompt_tokens": "13011215",
+        "completion_tokens": "2602243"
       }
     }
   ]

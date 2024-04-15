@@ -3,8 +3,8 @@ import type { RequestHandler } from "@builder.io/qwik-city";
 import "@unocss/reset/tailwind.css";
 import "uno.css";
 import "~/styles/main.css";
-// import "katex/dist/katex.min.css";
-import "highlight.js/styles/atom-one-dark.css";
+// import "katex/dist/katex.min.css"; // 这个包会加载很多字体
+import "highlight.js/styles/github.min.css";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:

@@ -3,7 +3,7 @@
     {
       "id": "openrouter/auto",
       "name": "Auto (best for prompt)",
-      "description": "Depending on their size, subject, and complexity, your prompts will be sent to [Mistral Medium](/models/mistralai/mistral-medium) or [GPT-4 Turbo](/models/openai/gpt-4-turbo).  To see which model was used, visit [Activity](/activity).",
+      "description": "Depending on their size, subject, and complexity, your prompts will be sent to [Mistral Large](/models/mistralai/mistral-large) or [GPT-4 Turbo](/models/openai/gpt-4-turbo).  To see which model was used, visit [Activity](/activity).",
       "pricing": {
         "prompt": "-1",
         "completion": "-1",
@@ -36,7 +36,7 @@
       "architecture": {
         "modality": "text",
         "tokenizer": "Mistral",
-        "instruct_type": "vicuna"
+        "instruct_type": "airoboros"
       },
       "top_provider": {
         "max_completion_tokens": null,
@@ -61,7 +61,7 @@
       "architecture": {
         "modality": "text",
         "tokenizer": "Mistral",
-        "instruct_type": "llama2"
+        "instruct_type": "mistral"
       },
       "top_provider": {
         "max_completion_tokens": null,
@@ -161,7 +161,7 @@
       "architecture": {
         "modality": "text",
         "tokenizer": "Mistral",
-        "instruct_type": "vicuna"
+        "instruct_type": "airoboros"
       },
       "top_provider": {
         "max_completion_tokens": null,
@@ -218,8 +218,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "39033647",
-        "completion_tokens": "39033647"
+        "prompt_tokens": "38985283",
+        "completion_tokens": "38985283"
       }
     },
     {
@@ -243,8 +243,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "39033647",
-        "completion_tokens": "39033647"
+        "prompt_tokens": "38985283",
+        "completion_tokens": "38985283"
       }
     },
     {
@@ -268,8 +268,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "7806729",
-        "completion_tokens": "7806729"
+        "prompt_tokens": "7797056",
+        "completion_tokens": "7797056"
       }
     },
     {
@@ -293,8 +293,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "7806729",
-        "completion_tokens": "7806729"
+        "prompt_tokens": "7797056",
+        "completion_tokens": "7797056"
       }
     },
     {
@@ -318,8 +318,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "7806729",
-        "completion_tokens": "7806729"
+        "prompt_tokens": "7797056",
+        "completion_tokens": "7797056"
       }
     },
     {
@@ -327,8 +327,8 @@
       "name": "Meta: Llama v2 13B Chat",
       "description": "A 13 billion parameter language model from Meta, fine tuned for chat completions",
       "pricing": {
-        "prompt": "0.0000001474",
-        "completion": "0.0000001474",
+        "prompt": "0.0000001206",
+        "completion": "0.0000001206",
         "image": "0",
         "request": "0"
       },
@@ -343,33 +343,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "264814430",
-        "completion_tokens": "264814430"
-      }
-    },
-    {
-      "id": "migtissera/synthia-70b",
-      "name": "Synthia 70B",
-      "description": "SynthIA (Synthetic Intelligent Agent) is a LLama-2 70B model trained on Orca style datasets. It has been fine-tuned for instruction following as well as having long-form conversations.",
-      "pricing": {
-        "prompt": "0.00000375",
-        "completion": "0.00000375",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 8192,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Llama2",
-        "instruct_type": "vicuna"
-      },
-      "top_provider": {
-        "max_completion_tokens": 400,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "10408972",
-        "completion_tokens": "10408972"
+        "prompt_tokens": "323261053",
+        "completion_tokens": "323261053"
       }
     },
     {
@@ -393,8 +368,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "34696575",
-        "completion_tokens": "34696575"
+        "prompt_tokens": "34653584",
+        "completion_tokens": "34653584"
       }
     },
     {
@@ -411,15 +386,15 @@
       "architecture": {
         "modality": "text",
         "tokenizer": "Llama2",
-        "instruct_type": "vicuna"
+        "instruct_type": "airoboros"
       },
       "top_provider": {
         "max_completion_tokens": 400,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "10408972",
-        "completion_tokens": "10408972"
+        "prompt_tokens": "10396075",
+        "completion_tokens": "10396075"
       }
     },
     {
@@ -436,15 +411,15 @@
       "architecture": {
         "modality": "text",
         "tokenizer": "Llama2",
-        "instruct_type": "vicuna"
+        "instruct_type": "airoboros"
       },
       "top_provider": {
         "max_completion_tokens": 400,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4163589",
-        "completion_tokens": "4163589"
+        "prompt_tokens": "4158430",
+        "completion_tokens": "4158430"
       }
     },
     {
@@ -468,8 +443,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "17348287",
-        "completion_tokens": "17348287"
+        "prompt_tokens": "17326792",
+        "completion_tokens": "17326792"
       }
     },
     {
@@ -493,8 +468,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "104089725",
-        "completion_tokens": "104089725"
+        "prompt_tokens": "103960754",
+        "completion_tokens": "103960754"
       }
     },
     {
@@ -511,15 +486,15 @@
       "architecture": {
         "modality": "text",
         "tokenizer": "Llama2",
-        "instruct_type": "vicuna"
+        "instruct_type": "airoboros"
       },
       "top_provider": {
         "max_completion_tokens": null,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4337071",
-        "completion_tokens": "4337071"
+        "prompt_tokens": "4331698",
+        "completion_tokens": "4331698"
       }
     },
     {
@@ -543,8 +518,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "34696575",
-        "completion_tokens": "34696575"
+        "prompt_tokens": "34653584",
+        "completion_tokens": "34653584"
       }
     },
     {
@@ -568,8 +543,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "11565525",
-        "completion_tokens": "11565525"
+        "prompt_tokens": "11551194",
+        "completion_tokens": "11551194"
+      }
+    },
+    {
+      "id": "mistralai/mixtral-8x7b-instruct",
+      "name": "Mixtral 8x7B Instruct",
+      "description": "A pretrained generative Sparse Mixture of Experts, by Mistral AI, for chat and instruction use. Incorporates 8 experts (feed-forward networks) for a total of 47 billion parameters.\n\nInstruct model fine-tuned by Mistral. #moe",
+      "pricing": {
+        "prompt": "0.00000024999",
+        "completion": "0.00000041665",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 32768,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "mistral"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "155947369",
+        "completion_tokens": "93568421"
       }
     },
     {
@@ -593,8 +593,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "144569062",
-        "completion_tokens": "144569062"
+        "prompt_tokens": "144389937",
+        "completion_tokens": "144389937"
       }
     },
     {
@@ -611,15 +611,15 @@
       "architecture": {
         "modality": "text",
         "tokenizer": "Mistral",
-        "instruct_type": "vicuna"
+        "instruct_type": "airoboros"
       },
       "top_provider": {
         "max_completion_tokens": null,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216853594",
-        "completion_tokens": "216853594"
+        "prompt_tokens": "216584905",
+        "completion_tokens": "216584905"
       }
     },
     {
@@ -643,8 +643,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54213398",
-        "completion_tokens": "54213398"
+        "prompt_tokens": "54146226",
+        "completion_tokens": "54146226"
       }
     },
     {
@@ -668,8 +668,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "48189687",
-        "completion_tokens": "48189687"
+        "prompt_tokens": "48129979",
+        "completion_tokens": "48129979"
       }
     },
     {
@@ -693,8 +693,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54213398",
-        "completion_tokens": "54213398"
+        "prompt_tokens": "54146226",
+        "completion_tokens": "54146226"
       }
     },
     {
@@ -718,8 +718,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216853594",
-        "completion_tokens": "216853594"
+        "prompt_tokens": "216584905",
+        "completion_tokens": "216584905"
       }
     },
     {
@@ -743,8 +743,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216853594",
-        "completion_tokens": "216853594"
+        "prompt_tokens": "216584905",
+        "completion_tokens": "216584905"
       }
     },
     {
@@ -768,8 +768,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "144569062",
-        "completion_tokens": "144569062"
+        "prompt_tokens": "144389937",
+        "completion_tokens": "144389937"
       }
     },
     {
@@ -786,15 +786,15 @@
       "architecture": {
         "modality": "text",
         "tokenizer": "Mistral",
-        "instruct_type": "vicuna"
+        "instruct_type": "airoboros"
       },
       "top_provider": {
         "max_completion_tokens": null,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216853594",
-        "completion_tokens": "216853594"
+        "prompt_tokens": "216584905",
+        "completion_tokens": "216584905"
       }
     },
     {
@@ -818,8 +818,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54213398",
-        "completion_tokens": "54213398"
+        "prompt_tokens": "54146226",
+        "completion_tokens": "54146226"
       }
     },
     {
@@ -843,8 +843,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54213398",
-        "completion_tokens": "54213398"
+        "prompt_tokens": "54146226",
+        "completion_tokens": "54146226"
       }
     },
     {
@@ -868,8 +868,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "309790849",
-        "completion_tokens": "309790849"
+        "prompt_tokens": "309407007",
+        "completion_tokens": "309407007"
       }
     },
     {
@@ -893,8 +893,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216853594",
-        "completion_tokens": "216853594"
+        "prompt_tokens": "216584905",
+        "completion_tokens": "216584905"
       }
     },
     {
@@ -918,8 +918,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216853594",
-        "completion_tokens": "216853594"
+        "prompt_tokens": "216584905",
+        "completion_tokens": "216584905"
       }
     },
     {
@@ -943,8 +943,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "72284531",
-        "completion_tokens": "72284531"
+        "prompt_tokens": "72194968",
+        "completion_tokens": "72194968"
       }
     },
     {
@@ -968,8 +968,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "54213398",
-        "completion_tokens": "54213398"
+        "prompt_tokens": "54146226",
+        "completion_tokens": "54146226"
       }
     },
     {
@@ -993,8 +993,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "72284531",
-        "completion_tokens": "72284531"
+        "prompt_tokens": "72194968",
+        "completion_tokens": "72194968"
       }
     },
     {
@@ -1018,8 +1018,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "216853594",
-        "completion_tokens": "216853594"
+        "prompt_tokens": "216584905",
+        "completion_tokens": "216584905"
       }
     },
     {
@@ -1043,8 +1043,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "273920329",
-        "completion_tokens": "273920329"
+        "prompt_tokens": "273580933",
+        "completion_tokens": "273580933"
       }
     },
     {
@@ -1068,8 +1068,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "273920329",
-        "completion_tokens": "273920329"
+        "prompt_tokens": "273580933",
+        "completion_tokens": "273580933"
       }
     },
     {
@@ -1093,8 +1093,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "78067294",
-        "completion_tokens": "26022431"
+        "prompt_tokens": "77970566",
+        "completion_tokens": "25990188"
       }
     },
     {
@@ -1118,8 +1118,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "78067294",
-        "completion_tokens": "26022431"
+        "prompt_tokens": "77970566",
+        "completion_tokens": "25990188"
       }
     },
     {
@@ -1143,8 +1143,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "39033647",
-        "completion_tokens": "19516823"
+        "prompt_tokens": "38985283",
+        "completion_tokens": "19492641"
       }
     },
     {
@@ -1168,8 +1168,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "39033647",
-        "completion_tokens": "19516823"
+        "prompt_tokens": "38985283",
+        "completion_tokens": "19492641"
       }
     },
     {
@@ -1193,8 +1193,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "39033647",
-        "completion_tokens": "19516823"
+        "prompt_tokens": "38985283",
+        "completion_tokens": "19492641"
       }
     },
     {
@@ -1218,8 +1218,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "13011215",
-        "completion_tokens": "9758411"
+        "prompt_tokens": "12995094",
+        "completion_tokens": "9746320"
       }
     },
     {
@@ -1243,8 +1243,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3903364",
-        "completion_tokens": "1301121"
+        "prompt_tokens": "3898528",
+        "completion_tokens": "1299509"
       }
     },
     {
@@ -1268,8 +1268,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3903364",
-        "completion_tokens": "1301121"
+        "prompt_tokens": "3898528",
+        "completion_tokens": "1299509"
       }
     },
     {
@@ -1293,8 +1293,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3903364",
-        "completion_tokens": "1301121"
+        "prompt_tokens": "3898528",
+        "completion_tokens": "1299509"
       }
     },
     {
@@ -1318,8 +1318,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "1301121",
-        "completion_tokens": "650560"
+        "prompt_tokens": "1299509",
+        "completion_tokens": "649754"
       }
     },
     {
@@ -1343,8 +1343,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "1301121",
-        "completion_tokens": "650560"
+        "prompt_tokens": "1299509",
+        "completion_tokens": "649754"
       }
     },
     {
@@ -1368,8 +1368,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "650560",
-        "completion_tokens": "325280"
+        "prompt_tokens": "649754",
+        "completion_tokens": "324877"
       }
     },
     {
@@ -1393,8 +1393,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "650560",
-        "completion_tokens": "325280"
+        "prompt_tokens": "649754",
+        "completion_tokens": "324877"
       }
     },
     {
@@ -1418,8 +1418,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3903364",
-        "completion_tokens": "1301121"
+        "prompt_tokens": "3898528",
+        "completion_tokens": "1299509"
       }
     },
     {
@@ -1443,8 +1443,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "26022431",
-        "completion_tokens": "19516823"
+        "prompt_tokens": "25990188",
+        "completion_tokens": "19492641"
       }
     },
     {
@@ -1468,8 +1468,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156134588",
-        "completion_tokens": "78067294"
+        "prompt_tokens": "155941132",
+        "completion_tokens": "77970566"
       }
     },
     {
@@ -1493,8 +1493,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156134588",
-        "completion_tokens": "78067294"
+        "prompt_tokens": "155941132",
+        "completion_tokens": "77970566"
       }
     },
     {
@@ -1518,8 +1518,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156134588",
-        "completion_tokens": "78067294"
+        "prompt_tokens": "155941132",
+        "completion_tokens": "77970566"
       }
     },
     {
@@ -1543,8 +1543,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156134588",
-        "completion_tokens": "78067294"
+        "prompt_tokens": "155941132",
+        "completion_tokens": "77970566"
       }
     },
     {
@@ -1568,8 +1568,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "312269176",
-        "completion_tokens": "104089725"
+        "prompt_tokens": "311882264",
+        "completion_tokens": "103960754"
       }
     },
     {
@@ -1593,8 +1593,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "312269176",
-        "completion_tokens": "104089725"
+        "prompt_tokens": "311882264",
+        "completion_tokens": "103960754"
       }
     },
     {
@@ -1618,8 +1618,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "15613458",
-        "completion_tokens": "5204486"
+        "prompt_tokens": "15594113",
+        "completion_tokens": "5198037"
       }
     },
     {
@@ -1643,8 +1643,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "39033647",
-        "completion_tokens": "39033647"
+        "prompt_tokens": "38985283",
+        "completion_tokens": "38985283"
       }
     },
     {
@@ -1668,8 +1668,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195168235",
-        "completion_tokens": "195168235"
+        "prompt_tokens": "194926415",
+        "completion_tokens": "194926415"
       }
     },
     {
@@ -1693,8 +1693,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195168235",
-        "completion_tokens": "195168235"
+        "prompt_tokens": "194926415",
+        "completion_tokens": "194926415"
       }
     },
     {
@@ -1718,8 +1718,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "39033647",
-        "completion_tokens": "39033647"
+        "prompt_tokens": "38985283",
+        "completion_tokens": "38985283"
       }
     },
     {
@@ -1743,8 +1743,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195168235",
-        "completion_tokens": "195168235"
+        "prompt_tokens": "194926415",
+        "completion_tokens": "194926415"
       }
     },
     {
@@ -1768,8 +1768,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "65056078",
-        "completion_tokens": "65056078"
+        "prompt_tokens": "64975471",
+        "completion_tokens": "64975471"
       }
     },
     {
@@ -1793,8 +1793,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195168235",
-        "completion_tokens": "195168235"
+        "prompt_tokens": "194926415",
+        "completion_tokens": "194926415"
       }
     },
     {
@@ -1818,33 +1818,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "65056078",
-        "completion_tokens": "65056078"
-      }
-    },
-    {
-      "id": "fireworks/mixtral-8x22b-instruct-preview",
-      "name": "Fireworks Mixtral 8x22B Instruct OH (preview)",
-      "description": "The first instruct-tuned version of the latest mixture of experts from Mistral: [Mixtral 8x22B](/models/mistralai/mixtral-8x22b).\n\nThis model was finetuned on ~10K entries from [OpenHermes](https://huggingface.co/datasets/teknium/OpenHermes-2.5) dataset.\n\n#moe",
-      "pricing": {
-        "prompt": "0.0000009",
-        "completion": "0.0000009",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 8192,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Mistral",
-        "instruct_type": "vicuna"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "43370718",
-        "completion_tokens": "43370718"
+        "prompt_tokens": "64975471",
+        "completion_tokens": "64975471"
       }
     },
     {
@@ -1868,8 +1843,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "2602243",
-        "completion_tokens": "520448"
+        "prompt_tokens": "2599018",
+        "completion_tokens": "519803"
       }
     },
     {
@@ -1893,8 +1868,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "13011215",
-        "completion_tokens": "2602243"
+        "prompt_tokens": "12995094",
+        "completion_tokens": "2599018"
       }
     },
     {
@@ -1918,8 +1893,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "156134588",
-        "completion_tokens": "31226917"
+        "prompt_tokens": "155941132",
+        "completion_tokens": "31188226"
       }
     },
     {
@@ -1943,8 +1918,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "2602243",
-        "completion_tokens": "520448"
+        "prompt_tokens": "2599018",
+        "completion_tokens": "519803"
       }
     },
     {
@@ -1968,8 +1943,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "13011215",
-        "completion_tokens": "2602243"
+        "prompt_tokens": "12995094",
+        "completion_tokens": "2599018"
       }
     },
     {
@@ -1993,8 +1968,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156134588",
-        "completion_tokens": "31226917"
+        "prompt_tokens": "155941132",
+        "completion_tokens": "31188226"
       }
     },
     {
@@ -2018,8 +1993,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "65056078",
-        "completion_tokens": "20544024"
+        "prompt_tokens": "64975471",
+        "completion_tokens": "20518570"
       }
     },
     {
@@ -2036,15 +2011,15 @@
       "architecture": {
         "modality": "text",
         "tokenizer": "Llama2",
-        "instruct_type": "vicuna"
+        "instruct_type": "airoboros"
       },
       "top_provider": {
         "max_completion_tokens": null,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43370718",
-        "completion_tokens": "43370718"
+        "prompt_tokens": "43316981",
+        "completion_tokens": "43316981"
       }
     },
     {
@@ -2068,8 +2043,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "55762352",
-        "completion_tokens": "43370718"
+        "prompt_tokens": "55693261",
+        "completion_tokens": "43316981"
       }
     },
     {
@@ -2093,8 +2068,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "6788460",
-        "completion_tokens": "6788460"
+        "prompt_tokens": "6780049",
+        "completion_tokens": "6780049"
       }
     },
     {
@@ -2102,8 +2077,8 @@
       "name": "Chronos Hermes 13B v2",
       "description": "A 75/25 merge of [Chronos 13b v2](https://huggingface.co/elinas/chronos-13b-v2) and [Nous Hermes Llama2 13b](/models/nousresearch/nous-hermes-llama2-13b). This offers the imaginative writing style of Chronos while retaining coherency. Outputs are long and use exceptional prose. #merge",
       "pricing": {
-        "prompt": "0.00000022",
-        "completion": "0.00000022",
+        "prompt": "0.00000018",
+        "completion": "0.00000018",
         "image": "0",
         "request": "0"
       },
@@ -2118,8 +2093,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "177425668",
-        "completion_tokens": "177425668"
+        "prompt_tokens": "216584905",
+        "completion_tokens": "216584905"
       }
     },
     {
@@ -2136,15 +2111,15 @@
       "architecture": {
         "modality": "text",
         "tokenizer": "Mistral",
-        "instruct_type": "llama2"
+        "instruct_type": "mistral"
       },
       "top_provider": {
         "max_completion_tokens": null,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "390336470",
-        "completion_tokens": "156134588"
+        "prompt_tokens": "389852830",
+        "completion_tokens": "155941132"
       }
     },
     {
@@ -2152,8 +2127,8 @@
       "name": "MythoMax 13B",
       "description": "One of the highest performing and most popular fine-tunes of Llama 2 13B, with rich descriptions and roleplay. #merge",
       "pricing": {
-        "prompt": "0.0000002",
-        "completion": "0.0000002",
+        "prompt": "0.00000018",
+        "completion": "0.00000018",
         "image": "0",
         "request": "0"
       },
@@ -2168,8 +2143,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195168235",
-        "completion_tokens": "195168235"
+        "prompt_tokens": "216584905",
+        "completion_tokens": "216584905"
       }
     },
     {
@@ -2193,8 +2168,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "300258823",
-        "completion_tokens": "300258823"
+        "prompt_tokens": "299886792",
+        "completion_tokens": "299886792"
       }
     },
     {
@@ -2218,8 +2193,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "260224313",
-        "completion_tokens": "260224313"
+        "prompt_tokens": "259901886",
+        "completion_tokens": "259901886"
       }
     },
     {
@@ -2236,40 +2211,15 @@
       "architecture": {
         "modality": "text",
         "tokenizer": "Llama2",
-        "instruct_type": "vicuna"
+        "instruct_type": "airoboros"
       },
       "top_provider": {
         "max_completion_tokens": null,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "55762352",
-        "completion_tokens": "43370718"
-      }
-    },
-    {
-      "id": "mistralai/mixtral-8x7b-instruct",
-      "name": "Mixtral 8x7B Instruct",
-      "description": "A pretrained generative Sparse Mixture of Experts, by Mistral AI, for chat and instruction use. Incorporates 8 experts (feed-forward networks) for a total of 47 billion parameters.\n\nInstruct model fine-tuned by Mistral. #moe",
-      "pricing": {
-        "prompt": "0.00000027",
-        "completion": "0.00000027",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 32768,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Mistral",
-        "instruct_type": "alpaca"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "144569062",
-        "completion_tokens": "144569062"
+        "prompt_tokens": "55693261",
+        "completion_tokens": "43316981"
       }
     },
     {
@@ -2293,8 +2243,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "78067294",
-        "completion_tokens": "78067294"
+        "prompt_tokens": "77970566",
+        "completion_tokens": "77970566"
       }
     },
     {
@@ -2318,8 +2268,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4879205",
-        "completion_tokens": "4879205"
+        "prompt_tokens": "4873160",
+        "completion_tokens": "4873160"
       }
     },
     {
@@ -2343,8 +2293,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "130112156",
-        "completion_tokens": "78067294"
+        "prompt_tokens": "129950943",
+        "completion_tokens": "77970566"
       }
     },
     {
@@ -2443,8 +2393,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "390336470",
-        "completion_tokens": "390336470"
+        "prompt_tokens": "389852830",
+        "completion_tokens": "389852830"
       }
     },
     {
@@ -2468,8 +2418,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "65056078",
-        "completion_tokens": "65056078"
+        "prompt_tokens": "64975471",
+        "completion_tokens": "64975471"
       }
     },
     {
@@ -2493,333 +2443,108 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "60051764",
-        "completion_tokens": "60051764"
+        "prompt_tokens": "59977358",
+        "completion_tokens": "59977358"
       }
     },
     {
-      "id": "anthropic/claude-2",
-      "name": "Anthropic: Claude v2",
-      "description": "Claude 2.1 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and a new beta feature: tool use.",
+      "id": "meta-llama/llama-3-8b-instruct",
+      "name": "Meta: LLaMA v3 8B Instruct",
+      "description": "Meta's latest class of model (Llama 3) launched with a variety of sizes & flavors. This 8B instruct-tuned version was optimized for high quality dialogue usecases.\n\nIt has demonstrated strong performance compared to leading closed-source models in human evaluations.\n\nTo read more about the model release, [click here](https://ai.meta.com/blog/meta-llama-3/). Usage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
       "pricing": {
-        "prompt": "0.000008",
-        "completion": "0.000024",
+        "prompt": "0.0000001",
+        "completion": "0.0000001",
         "image": "0",
         "request": "0"
       },
-      "context_length": 200000,
+      "context_length": 8192,
       "architecture": {
         "modality": "text",
-        "tokenizer": "Claude",
-        "instruct_type": "claude"
+        "tokenizer": "Llama3",
+        "instruct_type": "llama3"
       },
       "top_provider": {
-        "max_completion_tokens": 4096,
-        "is_moderated": true
-      },
-      "per_request_limits": {
-        "prompt_tokens": "4879205",
-        "completion_tokens": "1626401"
-      }
-    },
-    {
-      "id": "anthropic/claude-2.1",
-      "name": "Anthropic: Claude v2.1",
-      "description": "Claude 2.1 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and a new beta feature: tool use.",
-      "pricing": {
-        "prompt": "0.000008",
-        "completion": "0.000024",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 200000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Claude",
-        "instruct_type": "claude"
-      },
-      "top_provider": {
-        "max_completion_tokens": 4096,
-        "is_moderated": true
-      },
-      "per_request_limits": {
-        "prompt_tokens": "4879205",
-        "completion_tokens": "1626401"
-      }
-    },
-    {
-      "id": "anthropic/claude-2.0",
-      "name": "Anthropic: Claude v2.0",
-      "description": "Anthropic's flagship model. Superior performance on tasks that require complex reasoning. Supports hundreds of pages of text.",
-      "pricing": {
-        "prompt": "0.000008",
-        "completion": "0.000024",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 100000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Claude",
-        "instruct_type": "claude"
-      },
-      "top_provider": {
-        "max_completion_tokens": 4096,
-        "is_moderated": true
-      },
-      "per_request_limits": {
-        "prompt_tokens": "4879205",
-        "completion_tokens": "1626401"
-      }
-    },
-    {
-      "id": "anthropic/claude-instant-1",
-      "name": "Anthropic: Claude Instant v1",
-      "description": "Anthropic's model for low-latency, high throughput text generation. Supports hundreds of pages of text.",
-      "pricing": {
-        "prompt": "0.0000008",
-        "completion": "0.0000024",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 100000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Claude",
-        "instruct_type": "claude"
-      },
-      "top_provider": {
-        "max_completion_tokens": 4096,
-        "is_moderated": true
-      },
-      "per_request_limits": {
-        "prompt_tokens": "48792058",
-        "completion_tokens": "16264019"
-      }
-    },
-    {
-      "id": "anthropic/claude-instant-1.2",
-      "name": "Anthropic: Claude Instant v1.2",
-      "description": "Anthropic's model for low-latency, high throughput text generation. Supports hundreds of pages of text.",
-      "pricing": {
-        "prompt": "0.0000008",
-        "completion": "0.0000024",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 100000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Claude",
-        "instruct_type": "claude"
-      },
-      "top_provider": {
-        "max_completion_tokens": 4096,
-        "is_moderated": true
-      },
-      "per_request_limits": {
-        "prompt_tokens": "48792058",
-        "completion_tokens": "16264019"
-      }
-    },
-    {
-      "id": "anthropic/claude-1",
-      "name": "Anthropic: Claude v1",
-      "description": "Anthropic's model for low-latency, high throughput text generation. Supports hundreds of pages of text.",
-      "pricing": {
-        "prompt": "0.000008",
-        "completion": "0.000024",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 100000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Claude",
-        "instruct_type": "claude"
-      },
-      "top_provider": {
-        "max_completion_tokens": 4096,
-        "is_moderated": true
-      },
-      "per_request_limits": {
-        "prompt_tokens": "4879205",
-        "completion_tokens": "1626401"
-      }
-    },
-    {
-      "id": "anthropic/claude-1.2",
-      "name": "Anthropic: Claude (older v1)",
-      "description": "Anthropic's model for low-latency, high throughput text generation. Supports hundreds of pages of text.",
-      "pricing": {
-        "prompt": "0.000008",
-        "completion": "0.000024",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 100000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Claude",
-        "instruct_type": "claude"
-      },
-      "top_provider": {
-        "max_completion_tokens": 4096,
-        "is_moderated": true
-      },
-      "per_request_limits": {
-        "prompt_tokens": "4879205",
-        "completion_tokens": "1626401"
-      }
-    },
-    {
-      "id": "anthropic/claude-instant-1.0",
-      "name": "Anthropic: Claude Instant (older v1)",
-      "description": "Anthropic's model for low-latency, high throughput text generation. Supports hundreds of pages of text.",
-      "pricing": {
-        "prompt": "0.0000008",
-        "completion": "0.0000024",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 100000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Claude",
-        "instruct_type": "claude"
-      },
-      "top_provider": {
-        "max_completion_tokens": 4096,
-        "is_moderated": true
-      },
-      "per_request_limits": {
-        "prompt_tokens": "48792058",
-        "completion_tokens": "16264019"
-      }
-    },
-    {
-      "id": "anthropic/claude-instant-1.1",
-      "name": "Anthropic: Claude Instant (older v1.1)",
-      "description": "Anthropic's model for low-latency, high throughput text generation. Supports hundreds of pages of text.",
-      "pricing": {
-        "prompt": "0.0000008",
-        "completion": "0.0000024",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 100000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Claude",
-        "instruct_type": "claude"
-      },
-      "top_provider": {
-        "max_completion_tokens": 4096,
-        "is_moderated": true
-      },
-      "per_request_limits": {
-        "prompt_tokens": "48792058",
-        "completion_tokens": "16264019"
-      }
-    },
-    {
-      "id": "anthropic/claude-2:beta",
-      "name": "Anthropic: Claude v2 (self-moderated)",
-      "description": "This is a lower-latency version of [Claude v2](/models/anthropic/claude-2), made available in collaboration with Anthropic, that is self-moderated: response moderation happens on the model's side instead of OpenRouter's. It's in beta, and may change in the future.\n\nClaude 2.1 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and a new beta feature: tool use.",
-      "pricing": {
-        "prompt": "0.000008",
-        "completion": "0.000024",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 200000,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Claude",
-        "instruct_type": "claude"
-      },
-      "top_provider": {
-        "max_completion_tokens": 4096,
+        "max_completion_tokens": null,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4879205",
-        "completion_tokens": "1626401"
+        "prompt_tokens": "389852830",
+        "completion_tokens": "389852830"
       }
     },
     {
-      "id": "anthropic/claude-2.1:beta",
-      "name": "Anthropic: Claude v2.1 (self-moderated)",
-      "description": "This is a lower-latency version of [Claude v2.1](/models/anthropic/claude-2.1), made available in collaboration with Anthropic, that is self-moderated: response moderation happens on the model's side instead of OpenRouter's. It's in beta, and may change in the future.\n\nClaude 2.1 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and a new beta feature: tool use.",
+      "id": "meta-llama/llama-3-70b-instruct",
+      "name": "Meta: LLaMA v3 70B Instruct",
+      "description": "Meta's latest class of model (Llama 3) launched with a variety of sizes & flavors. This 70B instruct-tuned version was optimized for high quality dialogue usecases.\n\nIt has demonstrated strong performance compared to leading closed-source models in human evaluations.\n\nTo read more about the model release, [click here](https://ai.meta.com/blog/meta-llama-3/). Usage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
       "pricing": {
-        "prompt": "0.000008",
-        "completion": "0.000024",
+        "prompt": "0.0000009",
+        "completion": "0.0000009",
         "image": "0",
         "request": "0"
       },
-      "context_length": 200000,
+      "context_length": 8192,
       "architecture": {
         "modality": "text",
-        "tokenizer": "Claude",
-        "instruct_type": "claude"
+        "tokenizer": "Llama3",
+        "instruct_type": "llama3"
       },
       "top_provider": {
-        "max_completion_tokens": 4096,
+        "max_completion_tokens": null,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4879205",
-        "completion_tokens": "1626401"
+        "prompt_tokens": "43316981",
+        "completion_tokens": "43316981"
       }
     },
     {
-      "id": "anthropic/claude-2.0:beta",
-      "name": "Anthropic: Claude v2.0 (self-moderated)",
-      "description": "This is a lower-latency version of [Claude v2.0](/models/anthropic/claude-2.0), made available in collaboration with Anthropic, that is self-moderated: response moderation happens on the model's side instead of OpenRouter's. It's in beta, and may change in the future.\n\nAnthropic's flagship model. Superior performance on tasks that require complex reasoning. Supports hundreds of pages of text.",
+      "id": "microsoft/wizardlm-2-8x22b",
+      "name": "WizardLM-2 8x22B",
+      "description": "WizardLM-2 8x22B is Microsoft AI's most advanced Wizard model. It demonstrates highly competitive performance compared to leading proprietary models, and it consistently outperforms all existing state-of-the-art opensource models.\n\nIt is an instruct finetune of [Mixtral 8x22B](/models/mistralai/mixtral-8x22b).\n\nTo read more about the model release, [click here](https://wizardlm.github.io/WizardLM2/).\n\n#moe",
       "pricing": {
-        "prompt": "0.000008",
-        "completion": "0.000024",
+        "prompt": "0.00000065",
+        "completion": "0.00000065",
         "image": "0",
         "request": "0"
       },
-      "context_length": 100000,
+      "context_length": 65536,
       "architecture": {
         "modality": "text",
-        "tokenizer": "Claude",
-        "instruct_type": "claude"
+        "tokenizer": "Mistral",
+        "instruct_type": "vicuna"
       },
       "top_provider": {
-        "max_completion_tokens": 4096,
+        "max_completion_tokens": null,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4879205",
-        "completion_tokens": "1626401"
+        "prompt_tokens": "59977358",
+        "completion_tokens": "59977358"
       }
     },
     {
-      "id": "anthropic/claude-instant-1:beta",
-      "name": "Anthropic: Claude Instant v1 (self-moderated)",
-      "description": "This is a lower-latency version of [Claude Instant v1](/models/anthropic/claude-instant-1), made available in collaboration with Anthropic, that is self-moderated: response moderation happens on the model's side instead of OpenRouter's. It's in beta, and may change in the future.\n\nAnthropic's model for low-latency, high throughput text generation. Supports hundreds of pages of text.",
+      "id": "microsoft/wizardlm-2-7b",
+      "name": "WizardLM-2 7B",
+      "description": "WizardLM-2 7B is the smaller variant of Microsoft AI's latest Wizard model. It is the fastest and achieves comparable performance with existing 10x larger opensource leading models\n\nIt is a finetune of [Mistral 7B Instruct](/models/mistralai/mistral-7b-instruct), using the same technique as [WizardLM-2 8x22B](/models/microsoft/wizardlm-2-8x22b).\n\nTo read more about the model release, [click here](https://wizardlm.github.io/WizardLM2/).\n\n#moe",
       "pricing": {
-        "prompt": "0.0000008",
-        "completion": "0.0000024",
+        "prompt": "0.0000001",
+        "completion": "0.0000001",
         "image": "0",
         "request": "0"
       },
-      "context_length": 100000,
+      "context_length": 32000,
       "architecture": {
         "modality": "text",
-        "tokenizer": "Claude",
-        "instruct_type": "claude"
+        "tokenizer": "Mistral",
+        "instruct_type": "vicuna"
       },
       "top_provider": {
-        "max_completion_tokens": 4096,
+        "max_completion_tokens": null,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "48792058",
-        "completion_tokens": "16264019"
+        "prompt_tokens": "389852830",
+        "completion_tokens": "389852830"
       }
     },
     {
@@ -2843,8 +2568,358 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43370718",
-        "completion_tokens": "43370718"
+        "prompt_tokens": "43316981",
+        "completion_tokens": "43316981"
+      }
+    },
+    {
+      "id": "mistralai/mixtral-8x22b-instruct",
+      "name": "Mistral: Mixtral 8x22B Instruct",
+      "description": "Mistral's official instruct fine-tuned version of [Mixtral 8x22B](/models/mistralai/mixtral-8x22b). It uses 39B active parameters out of 141B, offering unparalleled cost efficiency for its size. Its strengths include:\n- strong math, coding, and reasoning\n- large context length (64k)\n- fluency in English, French, Italian, German, and Spanish\n\nSee benchmarks on the launch announcement [here](https://mistral.ai/news/mixtral-8x22b/).\n#moe",
+      "pricing": {
+        "prompt": "0.00000065",
+        "completion": "0.00000065",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 65536,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "mistral"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "59977358",
+        "completion_tokens": "59977358"
+      }
+    },
+    {
+      "id": "anthropic/claude-2",
+      "name": "Anthropic: Claude v2",
+      "description": "Claude 2.1 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and a new beta feature: tool use.",
+      "pricing": {
+        "prompt": "0.000008",
+        "completion": "0.000024",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 200000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Claude",
+        "instruct_type": "claude"
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
+      "per_request_limits": {
+        "prompt_tokens": "4873160",
+        "completion_tokens": "1624386"
+      }
+    },
+    {
+      "id": "anthropic/claude-2.1",
+      "name": "Anthropic: Claude v2.1",
+      "description": "Claude 2.1 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and a new beta feature: tool use.",
+      "pricing": {
+        "prompt": "0.000008",
+        "completion": "0.000024",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 200000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Claude",
+        "instruct_type": "claude"
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
+      "per_request_limits": {
+        "prompt_tokens": "4873160",
+        "completion_tokens": "1624386"
+      }
+    },
+    {
+      "id": "anthropic/claude-2.0",
+      "name": "Anthropic: Claude v2.0",
+      "description": "Anthropic's flagship model. Superior performance on tasks that require complex reasoning. Supports hundreds of pages of text.",
+      "pricing": {
+        "prompt": "0.000008",
+        "completion": "0.000024",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 100000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Claude",
+        "instruct_type": "claude"
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
+      "per_request_limits": {
+        "prompt_tokens": "4873160",
+        "completion_tokens": "1624386"
+      }
+    },
+    {
+      "id": "anthropic/claude-instant-1",
+      "name": "Anthropic: Claude Instant v1",
+      "description": "Anthropic's model for low-latency, high throughput text generation. Supports hundreds of pages of text.",
+      "pricing": {
+        "prompt": "0.0000008",
+        "completion": "0.0000024",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 100000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Claude",
+        "instruct_type": "claude"
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
+      "per_request_limits": {
+        "prompt_tokens": "48731603",
+        "completion_tokens": "16243867"
+      }
+    },
+    {
+      "id": "anthropic/claude-instant-1.2",
+      "name": "Anthropic: Claude Instant v1.2",
+      "description": "Anthropic's model for low-latency, high throughput text generation. Supports hundreds of pages of text.",
+      "pricing": {
+        "prompt": "0.0000008",
+        "completion": "0.0000024",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 100000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Claude",
+        "instruct_type": "claude"
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
+      "per_request_limits": {
+        "prompt_tokens": "48731603",
+        "completion_tokens": "16243867"
+      }
+    },
+    {
+      "id": "anthropic/claude-1",
+      "name": "Anthropic: Claude v1",
+      "description": "Anthropic's model for low-latency, high throughput text generation. Supports hundreds of pages of text.",
+      "pricing": {
+        "prompt": "0.000008",
+        "completion": "0.000024",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 100000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Claude",
+        "instruct_type": "claude"
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
+      "per_request_limits": {
+        "prompt_tokens": "4873160",
+        "completion_tokens": "1624386"
+      }
+    },
+    {
+      "id": "anthropic/claude-1.2",
+      "name": "Anthropic: Claude (older v1)",
+      "description": "Anthropic's model for low-latency, high throughput text generation. Supports hundreds of pages of text.",
+      "pricing": {
+        "prompt": "0.000008",
+        "completion": "0.000024",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 100000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Claude",
+        "instruct_type": "claude"
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
+      "per_request_limits": {
+        "prompt_tokens": "4873160",
+        "completion_tokens": "1624386"
+      }
+    },
+    {
+      "id": "anthropic/claude-instant-1.0",
+      "name": "Anthropic: Claude Instant (older v1)",
+      "description": "Anthropic's model for low-latency, high throughput text generation. Supports hundreds of pages of text.",
+      "pricing": {
+        "prompt": "0.0000008",
+        "completion": "0.0000024",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 100000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Claude",
+        "instruct_type": "claude"
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
+      "per_request_limits": {
+        "prompt_tokens": "48731603",
+        "completion_tokens": "16243867"
+      }
+    },
+    {
+      "id": "anthropic/claude-instant-1.1",
+      "name": "Anthropic: Claude Instant (older v1.1)",
+      "description": "Anthropic's model for low-latency, high throughput text generation. Supports hundreds of pages of text.",
+      "pricing": {
+        "prompt": "0.0000008",
+        "completion": "0.0000024",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 100000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Claude",
+        "instruct_type": "claude"
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": true
+      },
+      "per_request_limits": {
+        "prompt_tokens": "48731603",
+        "completion_tokens": "16243867"
+      }
+    },
+    {
+      "id": "anthropic/claude-2:beta",
+      "name": "Anthropic: Claude v2 (self-moderated)",
+      "description": "This is a lower-latency version of [Claude v2](/models/anthropic/claude-2), made available in collaboration with Anthropic, that is self-moderated: response moderation happens on the model's side instead of OpenRouter's. It's in beta, and may change in the future.\n\nClaude 2.1 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and a new beta feature: tool use.",
+      "pricing": {
+        "prompt": "0.000008",
+        "completion": "0.000024",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 200000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Claude",
+        "instruct_type": "claude"
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "4873160",
+        "completion_tokens": "1624386"
+      }
+    },
+    {
+      "id": "anthropic/claude-2.1:beta",
+      "name": "Anthropic: Claude v2.1 (self-moderated)",
+      "description": "This is a lower-latency version of [Claude v2.1](/models/anthropic/claude-2.1), made available in collaboration with Anthropic, that is self-moderated: response moderation happens on the model's side instead of OpenRouter's. It's in beta, and may change in the future.\n\nClaude 2.1 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and a new beta feature: tool use.",
+      "pricing": {
+        "prompt": "0.000008",
+        "completion": "0.000024",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 200000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Claude",
+        "instruct_type": "claude"
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "4873160",
+        "completion_tokens": "1624386"
+      }
+    },
+    {
+      "id": "anthropic/claude-2.0:beta",
+      "name": "Anthropic: Claude v2.0 (self-moderated)",
+      "description": "This is a lower-latency version of [Claude v2.0](/models/anthropic/claude-2.0), made available in collaboration with Anthropic, that is self-moderated: response moderation happens on the model's side instead of OpenRouter's. It's in beta, and may change in the future.\n\nAnthropic's flagship model. Superior performance on tasks that require complex reasoning. Supports hundreds of pages of text.",
+      "pricing": {
+        "prompt": "0.000008",
+        "completion": "0.000024",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 100000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Claude",
+        "instruct_type": "claude"
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "4873160",
+        "completion_tokens": "1624386"
+      }
+    },
+    {
+      "id": "anthropic/claude-instant-1:beta",
+      "name": "Anthropic: Claude Instant v1 (self-moderated)",
+      "description": "This is a lower-latency version of [Claude Instant v1](/models/anthropic/claude-instant-1), made available in collaboration with Anthropic, that is self-moderated: response moderation happens on the model's side instead of OpenRouter's. It's in beta, and may change in the future.\n\nAnthropic's model for low-latency, high throughput text generation. Supports hundreds of pages of text.",
+      "pricing": {
+        "prompt": "0.0000008",
+        "completion": "0.0000024",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 100000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Claude",
+        "instruct_type": "claude"
+      },
+      "top_provider": {
+        "max_completion_tokens": 4096,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "48731603",
+        "completion_tokens": "16243867"
       }
     },
     {
@@ -2886,15 +2961,15 @@
       "architecture": {
         "modality": "text",
         "tokenizer": "Mistral",
-        "instruct_type": "alpaca"
+        "instruct_type": "mistral"
       },
       "top_provider": {
         "max_completion_tokens": null,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "78067294",
-        "completion_tokens": "78067294"
+        "prompt_tokens": "77970566",
+        "completion_tokens": "77970566"
       }
     },
     {
@@ -2918,8 +2993,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43370718",
-        "completion_tokens": "43370718"
+        "prompt_tokens": "43316981",
+        "completion_tokens": "43316981"
       }
     },
     {
@@ -2943,8 +3018,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195168235",
-        "completion_tokens": "195168235"
+        "prompt_tokens": "194926415",
+        "completion_tokens": "194926415"
       }
     },
     {
@@ -2961,15 +3036,15 @@
       "architecture": {
         "modality": "text",
         "tokenizer": "Mistral",
-        "instruct_type": "llama2"
+        "instruct_type": "mistral"
       },
       "top_provider": {
         "max_completion_tokens": null,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195168235",
-        "completion_tokens": "195168235"
+        "prompt_tokens": "194926415",
+        "completion_tokens": "194926415"
       }
     },
     {
@@ -2993,8 +3068,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "195168235",
-        "completion_tokens": "195168235"
+        "prompt_tokens": "194926415",
+        "completion_tokens": "194926415"
       }
     },
     {
@@ -3018,8 +3093,58 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43370718",
-        "completion_tokens": "43370718"
+        "prompt_tokens": "43316981",
+        "completion_tokens": "43316981"
+      }
+    },
+    {
+      "id": "undi95/toppy-m-7b:nitro",
+      "name": "Toppy M 7B (nitro)",
+      "description": "A wild 7B parameter model that merges several models using the new task_arithmetic merge method from mergekit.\nList of merged models:\n- NousResearch/Nous-Capybara-7B-V1.9\n- [HuggingFaceH4/zephyr-7b-beta](/models/huggingfaceh4/zephyr-7b-beta)\n- lemonilia/AshhLimaRP-Mistral-7B\n- Vulkane/120-Days-of-Sodom-LoRA-Mistral-7b\n- Undi95/Mistral-pippa-sharegpt-7b-qlora\n\n#merge #uncensored\n\nNote: this is a higher-throughput version of [this model](/models/undi95/toppy-m-7b), and may have higher prices and slightly different outputs.",
+      "pricing": {
+        "prompt": "0.00000015",
+        "completion": "0.00000015",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 4096,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "alpaca"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "259901886",
+        "completion_tokens": "259901886"
+      }
+    },
+    {
+      "id": "microsoft/wizardlm-2-8x22b:nitro",
+      "name": "WizardLM-2 8x22B (nitro)",
+      "description": "WizardLM-2 8x22B is Microsoft AI's most advanced Wizard model. It demonstrates highly competitive performance compared to leading proprietary models, and it consistently outperforms all existing state-of-the-art opensource models.\n\nIt is an instruct finetune of [Mixtral 8x22B](/models/mistralai/mixtral-8x22b).\n\nTo read more about the model release, [click here](https://wizardlm.github.io/WizardLM2/).\n\n#moe\n\nNote: this is a higher-throughput version of [this model](/models/microsoft/wizardlm-2-8x22b), and may have higher prices and slightly different outputs.",
+      "pricing": {
+        "prompt": "0.000001",
+        "completion": "0.000001",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 65536,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "vicuna"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "38985283",
+        "completion_tokens": "38985283"
       }
     },
     {
@@ -3043,8 +3168,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "130112156",
-        "completion_tokens": "130112156"
+        "prompt_tokens": "129950943",
+        "completion_tokens": "129950943"
       }
     },
     {
@@ -3068,8 +3193,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "156134588",
-        "completion_tokens": "156134588"
+        "prompt_tokens": "155941132",
+        "completion_tokens": "155941132"
       }
     },
     {
@@ -3093,8 +3218,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "19516823",
-        "completion_tokens": "6505607"
+        "prompt_tokens": "19492641",
+        "completion_tokens": "6497547"
       }
     },
     {
@@ -3118,8 +3243,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "14456906",
-        "completion_tokens": "4818968"
+        "prompt_tokens": "14438993",
+        "completion_tokens": "4812997"
       }
     },
     {
@@ -3143,8 +3268,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4879205",
-        "completion_tokens": "1626401"
+        "prompt_tokens": "4873160",
+        "completion_tokens": "1624386"
       }
     },
     {
@@ -3168,8 +3293,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "39033647",
-        "completion_tokens": "19516823"
+        "prompt_tokens": "38985283",
+        "completion_tokens": "19492641"
       }
     },
     {
@@ -3193,8 +3318,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "78067294",
-        "completion_tokens": "26022431"
+        "prompt_tokens": "77970566",
+        "completion_tokens": "25990188"
       }
     },
     {
@@ -3218,8 +3343,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "13011215",
-        "completion_tokens": "2602243"
+        "prompt_tokens": "12995094",
+        "completion_tokens": "2599018"
       }
     }
   ]

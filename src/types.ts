@@ -12,12 +12,12 @@ export interface ChatMessage {
   role: Role;
   content: string;
   type?: "default" | "locked" | "temporary";
-  images?: string[]
-  provider?: IProvider
-  model?: string
+  images?: string[];
+  provider?: IProvider;
+  model?: string;
 }
 
-export type Role = "system" | "user" | "assistant" | "error";
+export type Role = "system" | "user" | "assistant" | "normal" | "error";
 export type SimpleModel = "gpt-3.5" | "gpt-4";
 export type Model = string;
 
@@ -32,7 +32,7 @@ export type Session = typeof defaultEnv.CLIENT_SESSION_SETTINGS & {
   messages: ChatMessage[];
   settings: SessionSettings;
   provider: IProvider;
-}
+};
 
 export interface Option {
   desc: string;
@@ -75,4 +75,14 @@ export interface OpenAIChatMessage {
    * @description 消息发送者的角色
    */
   role: LLMRoleType;
+}
+
+export interface IChatSession {
+  user:
+    | {
+        name?: string | null | undefined;
+        email?: string | null | undefined;
+        image?: string | null | undefined;
+      }
+    | undefined;
 }

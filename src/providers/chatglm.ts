@@ -1,6 +1,6 @@
 import { SignJWT } from "jose";
-import type { ParsedEvent } from "eventsource-parser";
 import type { ChatMessage } from "~/types";
+import { parseData } from "./util"
 
 const baseUrl = "https://open.bigmodel.cn/api/paas/v4/chat/completions";
 
@@ -67,15 +67,6 @@ const fetchChat = async (
     method: "POST",
     body: JSON.stringify(rest),
   });
-};
-
-const parseData = (event: ParsedEvent) => {
-  const data = event.data;
-  if (data === "[DONE]") {
-    return [true, null];
-  }
-  const json = JSON.parse(data);
-  return [false, json.choices[0].delta?.content];
 };
 
 export default {

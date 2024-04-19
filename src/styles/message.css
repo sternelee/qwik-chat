@@ -1,15 +1,6 @@
 .message pre {
-  background-color: #1c1e29;
   font-size: 0.8rem;
   padding: 0.4rem 1rem;
-}
-
-.dark .message pre {
-  background-color: #64748b10;
-}
-
-.message pre .lang {
-  color: #939090;
 }
 
 pre code.hljs {
@@ -31,7 +22,6 @@ pre code.hljs {
 }
 
 .message table thead tr {
-  background-color: #64748b40;
   text-align: left;
 }
 
@@ -64,4 +54,10 @@ pre code.hljs {
 
 .dark .message a:hover {
   color: rgba(255, 255, 255, 0.8);
+}
+.message ul {
+  list-style: inside;
+}
+#message-container-img .avatar img {
+  transform: scale(1.6);
 }

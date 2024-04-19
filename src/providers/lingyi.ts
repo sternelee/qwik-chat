@@ -1,8 +1,7 @@
-import { parseData } from "./util";
-import Models from "~/openrouter.json";
+import { parseData } from "./util"
 import type { ChatMessage } from "~/types";
 
-const baseUrl = "https://openrouter.ai/api";
+const baseUrl = "https://api.lingyiwanwu.com";
 
 const fetchChat = async (
   body: any,
@@ -11,7 +10,7 @@ const fetchChat = async (
 ) => {
   let { key, password, ...rest } = body;
   if (password && password === env.PASSWORD) {
-    key = env.OPENROUTER_KEY;
+    key = env.ZEROONE_KEY;
   }
   rest.messages = rest.messages.map((m: ChatMessage) => {
     if (m.images) {
@@ -34,7 +33,6 @@ const fetchChat = async (
   return await fetch(`${baseUrl}/v1/chat/completions`, {
     headers: {
       "Content-Type": "application/json",
-      "HTTP-Referer": "https://qwik-chat.leeapp.cn/",
       Authorization: `Bearer ${key}`,
     },
     signal,
@@ -44,17 +42,31 @@ const fetchChat = async (
 };
 
 export default {
-  icon: "i-simple-icons-alwaysdata",
-  name: "OpenRouter",
-  href: "https://openrouter.ai/keys",
+  icon: "i-simple-icons-goldenline",
+  name: " 零一AI",
+  href: "https://platform.lingyiwanwu.com/apikeys",
   baseUrl,
-  defaultModel: "openai/gpt-3.5-turbo",
-  models: Models.data.map((m) => ({
-    value: m.id,
-    label: `${m.name}${m.pricing.prompt === "0" ? "[free]" : ""}`,
-    input: Number(m.pricing.prompt),
-    output: Number(m.pricing.completion),
-  })),
+  defaultModel: "yi-34b-chat-0205",
+  models: [
+    {
+      value: "yi-34b-chat-0205",
+      label: "YI 34B Chat",
+      input: 0,
+      output: 0,
+    },
+    {
+      value: "YI 34B Chat 200k",
+      label: "yi-34b-chat-200k",
+      input: 0,
+      output: 0,
+    },
+    {
+      value: "yi-vl-plus",
+      label: "YI Vision Plus",
+      input: 0,
+      output: 0,
+    },
+  ],
   placeholder: "API Key",
   parseData,
   fetchChat,

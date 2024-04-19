@@ -6,7 +6,7 @@ import {
   useVisibleTask$,
   noSerialize,
 } from "@builder.io/qwik";
-import { type DocumentHead } from "@builder.io/qwik-city";
+import { type DocumentHead, routeLoader$ } from "@builder.io/qwik-city";
 import type { ParsedEvent, ReconnectInterval } from "eventsource-parser";
 import { createParser } from "eventsource-parser";
 import Chat from "~/components/chat";
@@ -23,9 +23,13 @@ import {
 import { LocalStorageKey } from "~/types";
 import type { ChatMessage } from "~/types";
 import { scrollToBottom } from "~/utils";
-import { throttle } from "~/hooks";
 import { fetchAllSessions, getSession, setSession } from "~/utils/storage";
 import { useAuthSession } from "~/routes/plugin@auth";
+
+// export const useChatStore = routeLoader$(async (requestEvent) => {
+//   const res = await fetch(`/api/storage`);
+//   return await res.json();
+// });
 
 export default component$(() => {
   const session = useAuthSession();
@@ -146,6 +150,8 @@ export default component$(() => {
                     role: "assistant",
                     content: char,
                     type: "temporary",
+                    provider: this.sessionSettings.provider,
+                    model: this.sessionSettings.model,
                   },
                 ];
               }
@@ -322,7 +328,6 @@ export default component$(() => {
             } else {
               this.messageList = messages.filter((m) => m.type === "locked");
             }
-            setTimeout(() => scrollToBottom(), 1000);
           }
         }
       } catch {
@@ -381,7 +386,6 @@ export default component$(() => {
 
   useVisibleTask$(({ track }) => {
     track(() => store.messageList.length);
-    scrollToBottom();
     if (store.messageList.length === 0) return;
     setSession(store.sessionId, {
       id: store.sessionId,
@@ -396,7 +400,12 @@ export default component$(() => {
 
   useVisibleTask$(({ track }) => {
     track(() => store.currentAssistantMessage);
-    throttle(scrollToBottom, 250);
+    scrollToBottom();
+  });
+
+  useVisibleTask$(({ track }) => {
+    track(() => store.messageList.length);
+    scrollToBottom();
   });
 
   return <Chat user={session.value?.user} />;

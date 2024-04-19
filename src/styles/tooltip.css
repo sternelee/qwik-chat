@@ -12,13 +12,13 @@
   border-radius: 0.25rem;
   padding: 2px;
   font-size: 10px;
-  width: 100%;
+  width: 130%;
   pointer-events: none;
   z-index: 99;
   opacity: 0;
 
   left: 50%;
-  top: -5px;
+  top: 0;
   transform: translateX(-50%) translateY(-100%);
 }
 

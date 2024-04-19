@@ -11,7 +11,7 @@ import { copyToClipboard } from "~/utils";
 export function useDebounce<T>(
   signal: Signal,
   milliSeconds: number,
-  fn?: PropFunction<(value: T) => void>
+  fn?: PropFunction<(value: T) => void>,
 ) {
   // create the debounced Signal
   const debouncedSig = useSignal("");
@@ -36,36 +36,10 @@ export function useDebounce<T>(
   return debouncedSig;
 }
 
-export function throttle(fn: Function, wait: number = 300) {
-  let inThrottle: boolean,
-    lastFn: ReturnType<typeof setTimeout>,
-    lastTime: number;
-  return function (this: any) {
-    const context = this,
-      args = arguments;
-    if (!inThrottle) {
-      fn.apply(context, args);
-      lastTime = Date.now();
-      inThrottle = true;
-    } else {
-      clearTimeout(lastFn);
-      lastFn = setTimeout(
-        () => {
-          if (Date.now() - lastTime >= wait) {
-            fn.apply(context, args);
-            lastTime = Date.now();
-          }
-        },
-        Math.max(wait - (Date.now() - lastTime), 0)
-      );
-    }
-  };
-}
-
 export function useThrottle<T>(
   signal: Signal,
   milliSeconds: number,
-  fn?: PropFunction<(value: T) => void>
+  fn?: PropFunction<(value: T) => void>,
 ) {
   const throttleSig = useSignal("");
   const lastTime = useSignal(0);
@@ -91,7 +65,7 @@ export function useThrottle<T>(
 export function useValueThrottle<T>(
   value: any,
   milliSeconds: number,
-  fn?: PropFunction<(value: T) => void>
+  fn?: PropFunction<(value: T) => void>,
 ) {
   const throttleSig = useSignal("");
   const lastTime = useSignal(0);
@@ -139,7 +113,7 @@ export function useCopyCode() {
           timeoutIdMap.set(el, timeoutId);
         });
       }
-    })
+    }),
   );
 }
 
@@ -167,7 +141,7 @@ export function observerEl(options: {
         show();
       }
     },
-    { threshold: [threshold], root }
+    { threshold: [threshold], root },
   );
   io.observe(target);
   // onCleanup(() => io.disconnect())

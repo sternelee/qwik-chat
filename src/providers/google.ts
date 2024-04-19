@@ -16,7 +16,7 @@ const fetchChat = async (
   const contents = parseMessageList(messages);
   console.log(contents);
   return await fetch(
-    `${baseUrl}/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${APIKey}`,
+    `${baseUrl}/v1beta/models/${model}:streamGenerateContent?key=${APIKey}`,
     {
       headers: {
         "Content-Type": "application/json",

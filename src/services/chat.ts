@@ -78,7 +78,6 @@ export const chat = server$(async function* ({
           }
         }
         if (char) {
-          console.log(11, char);
           transformReader.write(char);
         }
       } catch (e) {
@@ -106,7 +105,6 @@ export const chat = server$(async function* ({
   try {
     while (!this.signal.aborted) {
       const { done, value } = await reader.read();
-      console.log(22, value);
       if (done) return;
       yield value;
     }

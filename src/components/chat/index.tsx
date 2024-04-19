@@ -4,11 +4,12 @@ import {
   useContext,
   useComputed$,
 } from "@builder.io/qwik";
+import { useNavigate } from "@builder.io/qwik-city";
 import ThemeToggle from "~/components/chat/ThemeToggle";
 import MessageItem from "~/components/chat/MessageItem";
 import InputBox from "~/components/chat/InputBox";
 import ProviderMap from "~/providers";
-import type { Model } from "~/types";
+import type { Model, IChatSession } from "~/types";
 import {
   countTokensDollar,
   defaultInputBoxHeight,
@@ -19,27 +20,18 @@ import {
 import { scrollToBottom } from "~/utils";
 import { useAuthSignin, useAuthSignout } from "~/routes/plugin@auth";
 
-interface IChatProps {
-  user:
-    | {
-        name?: string | null | undefined;
-        email?: string | null | undefined;
-        image?: string | null | undefined;
-      }
-    | undefined;
-}
-
-export default component$<IChatProps>(({ user }) => {
-  const avatar = useComputed$(() => user?.image);
+export default component$<IChatSession>(({ user }) => {
+  const avatar = useComputed$(() => user?.image || "");
   const signIn = useAuthSignin();
   const signOut = useAuthSignout();
+  const navigator = useNavigate();
   const store = useContext(ChatContext);
   const containerWidth = useSignal("init");
 
   const countContextTokensDollar = (
     contextToken: number,
     inputContentToken: number,
-    model: Model
+    model: Model,
   ) => {
     const c1 = countTokensDollar(contextToken, model, "input");
     const c2 = countTokensDollar(inputContentToken, model, "input");
@@ -61,15 +53,18 @@ export default component$<IChatProps>(({ user }) => {
 
   return (
     <main class="mt-4">
-      <div
+      <header
         class="flex items-center px-2em sticky top-0 z-1"
-        style="background-color: var(--c-bg);"
+        style={{
+          background: "hsl(var(--b1) / var(--un-bg-opacity, 1))",
+        }}
       >
         <div class="flex-1 flex items-center dark:prose-invert dark:text-slate">
           {store.sessionSettings.title && (
             <>
               <a
                 href={ProviderMap[store.sessionSettings.provider].href}
+                aria-label="API Key Link"
                 target="_blank"
                 class={{
                   "inline-block text-8 mr-4": true,
@@ -78,7 +73,10 @@ export default component$<IChatProps>(({ user }) => {
               ></a>
               <span
                 class="font-extrabold text-slate-7 cursor-pointer dark:text-slate"
-                onClick$={() => store.loadSession("index")}
+                onClick$={() => {
+                  navigator("/");
+                  store.loadSession("index");
+                }}
               >
                 {store.sessionSettings.title}
               </span>
@@ -104,55 +102,70 @@ export default component$<IChatProps>(({ user }) => {
           )}
         </div>
         <ThemeToggle />
-        {avatar.value ? (
-          <div class="relative group cursor-pointer">
-            <img
-              src={avatar.value}
-              class="rounded-full"
-              width={24}
-              height={24}
-            />
-            <ul class="absolute pt-2 hidden group-hover:block">
-              <li
-                onClick$={() =>
-                  signOut.submit({
-                    callbackUrl: "https://qwik-chat.leeapp.cn",
-                  })
-                }
-              >
-                <i class="block i-carbon:logout text-2xl dark:gray" />
-              </li>
-            </ul>
+        <div class="dropdown dropdown-end">
+          <div role="button" tabIndex={0} class="btn btn-ghost">
+            {avatar.value ? (
+              <div class="avatar">
+                <div class="w-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img src={avatar.value} width={24} height={24} />
+                </div>
+              </div>
+            ) : (
+              <>
+                <i class="inline-block i-carbon:login text-2xl md:hidden" />
+                <span class="hidden font-normal md:inline">Login</span>
+              </>
+            )}
           </div>
-        ) : (
-          <div class="relative group cursor-pointer">
-            <i class="block i-carbon:login text-2xl" />
-            <ul class="absolute pt-2 hidden group-hover:block">
-              <li
-                onClick$={() =>
-                  signIn.submit({
-                    providerId: "github",
-                    options: { callbackUrl: "https://qwik-chat.leeapp.cn" },
-                  })
-                }
-              >
-                <i class="block i-carbon:logo-github text-2xl dark:gray" />
-              </li>
-              <li
-                class="mt-1"
-                onClick$={() =>
-                  signIn.submit({
-                    providerId: "google",
-                    options: { callbackUrl: "https://qwik-chat.leeapp.cn" },
-                  })
-                }
-              >
-                <i class="block i-carbon:logo-google text-2xl dark:gray" />
-              </li>
-            </ul>
+          <div
+            tabIndex={0}
+            class="dropdown-content bg-base-200 text-base-content rounded-box top-px w-30 overflow-y-auto border border-white/5 shadow-2xl outline outline-1 outline-black/5 mt-14"
+          >
+            <div class="grid grid-cols-1 gap-3 p-3">
+              {avatar.value ? (
+                <button
+                  class="flex items-center"
+                  onClick$={() => {
+                    signOut.submit({
+                      callbackUrl: "https://qwik-chat.leeapp.cn",
+                    });
+                  }}
+                >
+                  <i class="inline-block i-carbon:logout text-2xl dark:gray" />
+                  <span class="ml-2">Logout</span>
+                </button>
+              ) : (
+                <>
+                  <button
+                    class="flex items-center"
+                    onClick$={() => {
+                      signIn.submit({
+                        providerId: "github",
+                        options: { callbackUrl: "https://qwik-chat.leeapp.cn" },
+                      });
+                    }}
+                  >
+                    <i class="inline-block i-carbon:logo-github text-2xl dark:gray" />
+                    <span class="ml-2">Github</span>
+                  </button>
+                  <button
+                    class="flex items-center"
+                    onClick$={() => {
+                      signIn.submit({
+                        providerId: "google",
+                        options: { callbackUrl: "https://qwik-chat.leeapp.cn" },
+                      });
+                    }}
+                  >
+                    <i class="inline-block i-carbon:logo-google text-2xl dark:gray" />
+                    <span class="ml-2">Google</span>
+                  </button>
+                </>
+              )}
+            </div>
           </div>
-        )}
-      </div>
+        </div>
+      </header>
       <div
         id="message-container"
         class="px-1em mt-4"
@@ -167,6 +180,7 @@ export default component$<IChatProps>(({ user }) => {
               message={message}
               hiddenAction={store.loading || message.type === "temporary"}
               key={index}
+              avatar={avatar.value}
               index={index}
             />
           ))}
@@ -178,7 +192,7 @@ export default component$<IChatProps>(({ user }) => {
               {store.inputContentToken > 0 && (
                 <span class="mx-1 text-slate/40">
                   {`有效上下文 + 提问 Tokens : ${shownTokens(
-                    store.contextToken + store.inputContentToken
+                    store.contextToken + store.inputContentToken,
                   )}(`}
                   <span
                     class={{
@@ -190,17 +204,17 @@ export default component$<IChatProps>(({ user }) => {
                   {`)/${countContextTokensDollar(
                     store.contextToken,
                     store.inputContentToken,
-                    store.sessionSettings.model
+                    store.sessionSettings.model,
                   )}`}
                 </span>
               )}
               {store.inputContentToken === 0 && (
                 <span class="mx-1 text-slate/40">
                   {`有效上下文 Tokens : ${shownTokens(
-                    store.contextToken
+                    store.contextToken,
                   )}/$${countContextToken(
                     store.contextToken,
-                    store.sessionSettings.model
+                    store.sessionSettings.model,
                   )}`}
                 </span>
               )}

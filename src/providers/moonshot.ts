@@ -1,4 +1,4 @@
-import type { ParsedEvent } from "eventsource-parser";
+import { parseData } from "./util"
 
 const baseUrl = "https://api.moonshot.cn";
 
@@ -22,37 +22,34 @@ const fetchChat = async (
   });
 };
 
-const parseData = (event: ParsedEvent) => {
-  const data = event.data;
-  if (data === "[DONE]") {
-    return [true, null];
-  }
-  const json = JSON.parse(data);
-  return [false, json.choices[0].delta?.content];
-};
-
 export default {
   icon: "i-simple-icons-icomoon",
   name: "MoonShot",
   href: "https://platform.moonshot.cn/console/api-keys",
   baseUrl,
-  defaultModel: "moonshot-v1-8k",
+  defaultModel: "moonshot-v1",
   models: [
     {
+      value: "moonshot-v1",
+      label: "Moonshot-Kimi",
+      input: 0.012,
+      output: 0.012,
+    },
+    {
       value: "moonshot-v1-8k",
-      label: "moonshot-v1-8k",
+      label: "Moonshot-v1-8k",
       input: 0.012,
       output: 0.012,
     },
     {
       value: "moonshot-v1-32k",
-      label: "moonshot-v1-32k",
+      label: "Moonshot-v1-32k",
       input: 0.024,
       output: 0.024,
     },
     {
       value: "moonshot-v1-128k",
-      label: "moonshot-v1-128k",
+      label: "Moonshot-v1-128k",
       input: 0.06,
       output: 0.06,
     },

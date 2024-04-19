@@ -1,15 +1,78 @@
 import { $, component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { LocalStorageKey } from "~/types";
 
+const themes = [
+  "light",
+  "dark",
+  "cupcake",
+  "synthwave",
+  "retro",
+  "cyberpunk",
+  "valentine",
+  "halloween",
+  "garden",
+  "forest",
+  "aqua",
+  "black",
+  "luxury",
+  "dracula",
+  "cmyk",
+  "autumn",
+  "business",
+  "acid",
+  "night",
+  "coffee",
+  "winter",
+];
+
+const ThemeButton = component$<{ name: string; theme: string; onClick: any }>(
+  ({ name, theme, onClick }) => {
+    return (
+      <button
+        class="outline-base-content text-start outline-offset-4"
+        data-set-theme={name}
+        onClick$={onClick}
+      >
+        <span
+          data-theme={name}
+          class="bg-base-100 rounded-btn text-base-content block w-full cursor-pointer font-sans"
+        >
+          <span class="grid grid-cols-5 grid-rows-3">
+            <span class="col-span-5 row-span-3 row-start-1 flex items-center gap-2 px-4 py-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class={{
+                  "h-3 w-3 shrink-0": true,
+                  invisible: theme !== name,
+                }}
+              >
+                <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"></path>
+              </svg>
+              <span class="flex-grow text-sm">{name}</span>
+              <span class="flex h-full shrink-0 flex-wrap gap-1">
+                <span class="bg-primary rounded-badge w-2"></span>
+                <span class="bg-secondary rounded-badge w-2"></span>
+                <span class="bg-accent rounded-badge w-2"></span>
+                <span class="bg-neutral rounded-badge w-2"></span>
+              </span>
+            </span>
+          </span>
+        </span>
+      </button>
+    );
+  }
+);
+
 export default component$(() => {
-  const isDark = useSignal(false);
+  const theme = useSignal("light");
   const isAppearanceTransition = useSignal(false);
 
-  const toggle = $((flag: boolean) => {
-    document.documentElement.classList.toggle("dark", flag);
-    document
-      ?.querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", flag ? "#16161a" : "#f6f8fa");
+  const toggle = $((t: string) => {
+    document.documentElement.setAttribute("data-theme", t);
   });
 
   useVisibleTask$(() => {
@@ -22,18 +85,17 @@ export default component$(() => {
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    const theme = localStorage.getItem(LocalStorageKey.THEME);
-    isDark.value = theme ? theme === "dark" : prefersDark;
-    toggle(isDark.value);
+    const t =
+      localStorage.getItem(LocalStorageKey.THEME) ||
+      (prefersDark ? "dark" : "light");
+    toggle(t);
   });
-  const handleToggleTheme = $((event: MouseEvent) => {
-    localStorage.setItem(
-      LocalStorageKey.THEME,
-      !isDark.value ? "dark" : "light"
-    );
+  const handleToggleTheme = $((t: string, event: MouseEvent) => {
+    theme.value = t;
+
+    localStorage.setItem(LocalStorageKey.THEME, t);
     if (!isAppearanceTransition.value || !event) {
-      isDark.value = !isDark.value;
-      toggle(isDark.value);
+      toggle(t);
     } else {
       const x = event.clientX;
       const y = event.clientY;
@@ -44,8 +106,7 @@ export default component$(() => {
       const transition = document
         // @ts-expect-error: Transition API
         .startViewTransition(async () => {
-          isDark.value = !isDark.value;
-          toggle(isDark.value);
+          toggle(t);
         });
 
       transition.ready.then(() => {
@@ -55,14 +116,12 @@ export default component$(() => {
         ];
         document.documentElement.animate(
           {
-            clipPath: isDark.value ? [...clipPath].reverse() : clipPath,
+            clipPath: clipPath,
           },
           {
             duration: 300,
             easing: "ease-in",
-            pseudoElement: isDark.value
-              ? "::view-transition-old(root)"
-              : "::view-transition-new(root)",
+            pseudoElement: "::view-transition-new(root)",
           }
         );
       });
@@ -70,23 +129,42 @@ export default component$(() => {
   });
 
   return (
-    <button
-      id="theme-toggle"
-      class="flex items-center justify-center w-10 h-10 rounded-md border transition-colors border-0 hover:animate-rubber-band ml-auto mr-2"
-      onClick$={handleToggleTheme}
-    >
-      <svg width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path
-          class="dark:fill-transparent fill-black"
-          fill-rule="evenodd"
-          d="M12 17.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zm0 1.5a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm12-7a.8.8 0 0 1-.8.8h-2.4a.8.8 0 0 1 0-1.6h2.4a.8.8 0 0 1 .8.8zM4 12a.8.8 0 0 1-.8.8H.8a.8.8 0 0 1 0-1.6h2.5a.8.8 0 0 1 .8.8zm16.5-8.5a.8.8 0 0 1 0 1l-1.8 1.8a.8.8 0 0 1-1-1l1.7-1.8a.8.8 0 0 1 1 0zM6.3 17.7a.8.8 0 0 1 0 1l-1.7 1.8a.8.8 0 1 1-1-1l1.7-1.8a.8.8 0 0 1 1 0zM12 0a.8.8 0 0 1 .8.8v2.5a.8.8 0 0 1-1.6 0V.8A.8.8 0 0 1 12 0zm0 20a.8.8 0 0 1 .8.8v2.4a.8.8 0 0 1-1.6 0v-2.4a.8.8 0 0 1 .8-.8zM3.5 3.5a.8.8 0 0 1 1 0l1.8 1.8a.8.8 0 1 1-1 1L3.5 4.6a.8.8 0 0 1 0-1zm14.2 14.2a.8.8 0 0 1 1 0l1.8 1.7a.8.8 0 0 1-1 1l-1.8-1.7a.8.8 0 0 1 0-1z"
-        ></path>
-        <path
-          class="fill-transparent dark:fill-gray"
-          fill-rule="evenodd"
-          d="M16.5 6A10.5 10.5 0 0 1 4.7 16.4 8.5 8.5 0 1 0 16.4 4.7l.1 1.3zm-1.7-2a9 9 0 0 1 .2 2 9 9 0 0 1-11 8.8 9.4 9.4 0 0 1-.8-.3c-.4 0-.8.3-.7.7a10 10 0 0 0 .3.8 10 10 0 0 0 9.2 6 10 10 0 0 0 4-19.2 9.7 9.7 0 0 0-.9-.3c-.3-.1-.7.3-.6.7a9 9 0 0 1 .3.8z"
-        ></path>
-      </svg>
-    </button>
+    <div title="Change Theme" class="dropdown dropdown-end">
+      <div role="button" tabIndex={0} class="btn btn-ghost">
+        <svg
+          width="20"
+          height="20"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          class="h-5 w-5 stroke-current md:hidden"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+          ></path>
+        </svg>
+        <span class="hidden font-normal md:inline">Theme</span>
+      </div>
+      <div
+        tabIndex={0}
+        class="dropdown-content bg-base-200 text-base-content rounded-box top-px h-[28.6rem] max-h-[calc(100vh-10rem)] w-56 overflow-y-auto border border-white/5 shadow-2xl outline outline-1 outline-black/5 mt-14"
+      >
+        <div class="grid grid-cols-1 gap-3 p-3">
+          {themes.map((t) => (
+            <ThemeButton
+              key={t}
+              name={t}
+              theme={theme.value}
+              onClick={$((event: MouseEvent) => {
+                handleToggleTheme(t, event);
+              })}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 });

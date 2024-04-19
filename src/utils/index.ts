@@ -1,5 +1,4 @@
 export * from "./storage";
-import { throttle } from "~/hooks";
 
 export async function copyToClipboard(text: string) {
   if (!text) return;
@@ -65,7 +64,7 @@ export function dateFormat(date: Date, fmt = "YYYY-mm-dd HH:MM") {
     if (ret) {
       fmt = fmt.replace(
         ret[1],
-        ret[1].length == 1 ? v : v.padStart(ret[1].length, "0")
+        ret[1].length == 1 ? v : v.padStart(ret[1].length, "0"),
       );
     }
   });
@@ -83,16 +82,42 @@ export function randomKey(keys: string[]) {
   return keys.length ? keys[Math.floor(Math.random() * keys.length)] : "";
 }
 
-export const scrollToBottom = (top = document.body.scrollHeight) => {
+export const throttle = <R, A extends any[]>(
+  fn: (...args: A) => R,
+  delay: number,
+): [(...args: A) => R | undefined, () => void] => {
+  let wait = false;
+  let timeout: any;
+  let cancelled = false;
+  return [
+    (...args: A) => {
+      if (cancelled) return undefined;
+      if (wait) return undefined;
+      const val = fn(...args);
+      wait = true;
+      timeout = setTimeout(() => {
+        wait = false;
+      }, delay);
+      return val;
+    },
+    () => {
+      cancelled = true;
+      clearTimeout(timeout);
+    },
+  ];
+};
+
+
+export const [scrollToBottom] = throttle((top = document.body.scrollHeight) => {
   window.scrollTo({
     top,
     behavior: "smooth",
   });
-};
+}, 250);
 
 export async function fetchWithTimeout(
   input: RequestInfo | URL,
-  init?: (RequestInit & { timeout?: number }) | undefined
+  init?: (RequestInit & { timeout?: number }) | undefined,
 ) {
   const { timeout = 500 } = init ?? {};
 
@@ -119,7 +144,7 @@ export function generateId() {
 export function isEmoji(character: string) {
   const regex = new RegExp(
     "[\u{1F300}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F900}-\u{1F9FF}\u{1F1E0}-\u{1F1FF}]",
-    "u"
+    "u",
   );
   return regex.test(character);
 }
@@ -135,7 +160,7 @@ export function blobToBase64(blob: File): Promise<string> {
 export function splitEmoji(text: string) {
   const [icon, title] = text
     .split(
-      /^([\u{1F300}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F900}-\u{1F9FF}\u{1F1E0}-\u{1F1FF}])\s*(.+)$/u
+      /^([\u{1F300}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F900}-\u{1F9FF}\u{1F1E0}-\u{1F1FF}])\s*(.+)$/u,
     )
     .filter(Boolean);
   if (title)
@@ -184,7 +209,7 @@ export const createPilePath = (basePath: string) => {
 
 export const getFilePathForNewPost = (
   basePath: string,
-  timestamp = new Date()
+  timestamp = new Date(),
 ) => {
   const date = new Date();
   const month = date.toLocaleString("default", { month: "short" });

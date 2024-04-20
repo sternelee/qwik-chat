@@ -1,10 +1,10 @@
-import Models from "./openrouter.json"
+import Models from "./openrouter.json";
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-const MAX_INPUTS: any = {}
-Models.data.forEach(v => {
-  MAX_INPUTS[v.id] = v.context_length
-})
+const MAX_INPUTS: any = {};
+Models.data.forEach((v) => {
+  MAX_INPUTS[v.id] = v.context_length;
+});
 
 /**
  * 用于创建 .env.example 文件，不要直接填写敏感信息。
@@ -13,7 +13,7 @@ Models.data.forEach(v => {
 export const defaultEnv = {
   CLIENT_GLOBAL_SETTINGS: {
     password: "",
-    requestWithBackend: false,
+    requestWithBackend: true,
     enterToSend: true,
   },
   CLIENT_SESSION_SETTINGS: {
@@ -31,6 +31,6 @@ export const defaultEnv = {
 `,
   CLIENT_MAX_INPUT_TOKENS: MAX_INPUTS as Record<string, number>,
   TIMEOUT: 30000,
-}
+};
 
-export type SessionSettings = typeof defaultEnv.CLIENT_SESSION_SETTINGS
+export type SessionSettings = typeof defaultEnv.CLIENT_SESSION_SETTINGS;

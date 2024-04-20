@@ -1,18 +1,28 @@
 import type { ParsedEvent, ReconnectInterval } from "eventsource-parser";
 import { createParser } from "eventsource-parser";
 
-export const parseData = (event: ParsedEvent) => {
-  const data = event.data;
+const encoder = new TextEncoder();
+const decoder = new TextDecoder();
+
+export const parseStream = (data: string) => {
   if (data === "[DONE]") {
-    return [true, null];
+    return [true, null, null];
   }
-  const json = JSON.parse(data);
-  return [false, json.choices[0].delta?.content];
+  try {
+    const json = JSON.parse(data);
+    const text = json.choices[0].delta?.content;
+    return [false, text, null];
+  } catch (e) {
+    return [false, null, e];
+  }
 };
 
-export const fetchStream = async (body: any) => {
-  const { url, ...rest } = body;
-  const rawRes = await fetch(url, rest).catch((err: { message: any }) => {
+export const fetchStream = async (
+  input: RequestInfo | URL,
+  init: RequestInit | undefined = undefined,
+  parseData: typeof parseStream
+) => {
+  const rawRes = await fetch(input, init).catch((err: { message: any }) => {
     return new Response(
       JSON.stringify({
         error: {
@@ -29,25 +39,21 @@ export const fetchStream = async (body: any) => {
     });
   }
 
-  const encoder = new TextEncoder();
-  const decoder = new TextDecoder();
   const stream = new ReadableStream({
     async start(controller) {
       const streamParser = (event: ParsedEvent | ReconnectInterval) => {
         if (event.type === "event") {
           const data = event.data;
-          if (data === "[DONE]") {
+          const [done, text, err] = parseData(data);
+          if (done) {
             controller.close();
             return;
           }
-          try {
-            const json = JSON.parse(data);
-            const text = json.choices[0].delta?.content;
-            const queue = encoder.encode(text);
-            controller.enqueue(queue);
-          } catch (e) {
-            controller.error(e);
+          if (err) {
+            controller.error(err);
           }
+          const queue = encoder.encode(text);
+          controller.enqueue(queue);
         }
       };
       const parser = createParser(streamParser);

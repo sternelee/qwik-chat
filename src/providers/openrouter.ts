@@ -1,6 +1,6 @@
-import { parseData } from "./util";
 import Models from "~/openrouter.json";
 import type { ChatMessage } from "~/types";
+import { parseStream, fetchStream } from "./util";
 
 const baseUrl = "https://openrouter.ai/api";
 
@@ -31,16 +31,20 @@ const fetchChat = async (
     }
     return m;
   });
-  return await fetch(`${baseUrl}/v1/chat/completions`, {
-    headers: {
-      "Content-Type": "application/json",
-      "HTTP-Referer": "https://qwik-chat.leeapp.cn/",
-      Authorization: `Bearer ${key}`,
+  return fetchStream(
+    `${baseUrl}/v1/chat/completions`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://qwik-chat.leeapp.cn/",
+        Authorization: `Bearer ${key}`,
+      },
+      signal,
+      method: "POST",
+      body: JSON.stringify(rest),
     },
-    signal,
-    method: "POST",
-    body: JSON.stringify(rest),
-  });
+    parseStream
+  );
 };
 
 export default {
@@ -56,6 +60,5 @@ export default {
     output: Number(m.pricing.completion),
   })),
   placeholder: "API Key",
-  parseData,
   fetchChat,
 };

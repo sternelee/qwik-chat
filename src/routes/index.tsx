@@ -128,44 +128,6 @@ export default component$(() => {
         return;
       }
       const decoder = new TextDecoder();
-      const streamParser = (event: ParsedEvent | ReconnectInterval) => {
-        if (event.type === "event") {
-          try {
-            const [done, char] = ProviderMap[provider].parseData(event);
-            if (done) {
-              this.loading = false;
-            }
-            if (char) {
-              if (this.currentAssistantMessage) {
-                this.messageList = this.messageList.map((k) => {
-                  if (k.type === "temporary") {
-                    return { ...k, content: k.content + char };
-                  }
-                  return k;
-                });
-              } else {
-                this.messageList = [
-                  ...this.messageList,
-                  {
-                    role: "assistant",
-                    content: char,
-                    type: "temporary",
-                    provider: this.sessionSettings.provider,
-                    model: this.sessionSettings.model,
-                  },
-                ];
-              }
-              this.currentAssistantMessage += char;
-              // batch(() => {
-              // });
-            }
-          } catch (e) {
-            console.log(e);
-            this.loading = false;
-          }
-        }
-      };
-      const parser = createParser(streamParser);
       const rb = response.body as ReadableStream;
       const reader = rb.getReader();
       let done = false;
@@ -173,9 +135,30 @@ export default component$(() => {
         const { done: isDone, value } = await reader.read();
         if (isDone) {
           done = true;
+          this.loading = false;
           return;
         }
-        parser.feed(decoder.decode(value));
+        const char = decoder.decode(value);
+        if (this.currentAssistantMessage) {
+          this.messageList = this.messageList.map((k) => {
+            if (k.type === "temporary") {
+              return { ...k, content: k.content + char };
+            }
+            return k;
+          });
+        } else {
+          this.messageList = [
+            ...this.messageList,
+            {
+              role: "assistant",
+              content: char,
+              type: "temporary",
+              provider: this.sessionSettings.provider,
+              model: this.sessionSettings.model,
+            },
+          ];
+        }
+        this.currentAssistantMessage += char;
       }
     }),
     stopStreamFetch: $(function () {

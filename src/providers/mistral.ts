@@ -1,4 +1,4 @@
-import { parseData } from "./util"
+import { parseStream, fetchStream } from "./util";
 
 const baseUrl = "https://api.mistral.ai";
 
@@ -11,15 +11,19 @@ const fetchChat = async (
   if (password && password === env.PASSWORD) {
     key = env.MISTRAL_KEY;
   }
-  return await fetch(`${baseUrl}/v1/chat/completions`, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${key}`,
+  return await fetchStream(
+    `${baseUrl}/v1/chat/completions`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${key}`,
+      },
+      signal,
+      method: "POST",
+      body: JSON.stringify(rest),
     },
-    signal,
-    method: "POST",
-    body: JSON.stringify(rest),
-  });
+    parseStream
+  );
 };
 
 export default {
@@ -49,6 +53,5 @@ export default {
     },
   ],
   placeholder: "API Key",
-  parseData,
   fetchChat,
 };

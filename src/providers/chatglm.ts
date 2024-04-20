@@ -1,6 +1,6 @@
 import { SignJWT } from "jose";
+import { parseStream, fetchStream } from "./util";
 import type { ChatMessage } from "~/types";
-import { parseData } from "./util"
 
 const baseUrl = "https://open.bigmodel.cn/api/paas/v4/chat/completions";
 
@@ -58,15 +58,19 @@ const fetchChat = async (
     }
     return m;
   });
-  return await fetch(baseUrl, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: token,
+  return await fetchStream(
+    baseUrl,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      signal,
+      method: "POST",
+      body: JSON.stringify(rest),
     },
-    signal,
-    method: "POST",
-    body: JSON.stringify(rest),
-  });
+    parseStream
+  );
 };
 
 export default {
@@ -96,6 +100,5 @@ export default {
     },
   ],
   placeholder: "API Key",
-  parseData,
   fetchChat,
 };

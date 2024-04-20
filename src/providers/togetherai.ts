@@ -1,33 +1,36 @@
-import { parseData } from "./util"
-
+import { parseStream, fetchStream } from "./util";
 const baseUrl = "https://api.together.xyz";
 
 const fetchChat = async (
   body: any,
   env: any = {},
-  signal: AbortSignal | undefined,
+  signal: AbortSignal | undefined
 ) => {
   let { key, password, ...rest } = body;
   if (password && password === env.PASSWORD) {
     key = env.TOGETHER_KEY;
   }
-  return await fetch(`${baseUrl}/v1/chat/completions`, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${key}`,
-      "HTTP-Referer": "https://qwik-chat.leeapp.cn",
-      "X-Title": "Qwik Chat",
+  return fetchStream(
+    `${baseUrl}/v1/chat/completions`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${key}`,
+        "HTTP-Referer": "https://qwik-chat.leeapp.cn",
+        "X-Title": "Qwik Chat",
+      },
+      signal,
+      method: "POST",
+      body: JSON.stringify(rest),
     },
-    signal,
-    method: "POST",
-    body: JSON.stringify(rest),
-  });
+    parseStream
+  );
 };
 
 export default {
   icon: "i-simple-icons-gotomeeting",
   name: "TogetherAI",
-  href: "https://api.together.xyz/settings/api-keys",
+  href: `${baseUrl}/settings/api-keys`,
   baseUrl,
   defaultModel: "deepseek-ai/deepseek-coder-33b-instruct",
   models: [
@@ -117,6 +120,5 @@ export default {
     },
   ],
   placeholder: "API Key",
-  parseData,
   fetchChat,
 };

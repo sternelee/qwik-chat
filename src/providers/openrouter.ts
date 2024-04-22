@@ -47,6 +47,20 @@ const fetchChat = async (
   );
 };
 
+const fetchModels = async (body: any = {}, env: any = {}) => {
+  const { key, password } = body;
+  const APIKey =
+    password && password === env.PASSWORD && env.OPENAI_KEY
+      ? env.OPENAI_KEY
+      : key;
+  return fetch(`${baseUrl}/v1/models`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${APIKey}`,
+    },
+  });
+};
+
 export default {
   icon: "i-simple-icons-alwaysdata",
   name: "OpenRouter",
@@ -61,4 +75,5 @@ export default {
   })),
   placeholder: "API Key",
   fetchChat,
+  fetchModels,
 };

@@ -1,4 +1,5 @@
 import type { ChatMessage } from "~/types";
+import { fetchStream } from "./util";
 
 const baseUrl = "https://generativelanguage.googleapis.com";
 
@@ -13,8 +14,7 @@ const fetchChat = async (
       ? env.GOOGLE_KEY
       : key;
   const contents = parseMessageList(messages);
-  console.log(contents);
-  return await fetch(
+  return await fetchStream(
     `${baseUrl}/v1beta/models/${model}:streamGenerateContent?key=${APIKey}`,
     {
       headers: {
@@ -23,7 +23,8 @@ const fetchChat = async (
       signal,
       method: "POST",
       body: JSON.stringify({ contents }),
-    }
+    },
+    parseStream
   );
 };
 
@@ -114,6 +115,5 @@ export default {
     },
   ],
   placeholder: "API Key",
-  parseStream,
   fetchChat,
 };

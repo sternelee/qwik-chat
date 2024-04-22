@@ -72,6 +72,7 @@ export default component$(() => {
   const isAppearanceTransition = useSignal(false);
 
   const toggle = $((t: string) => {
+    theme.value = t;
     document.documentElement.setAttribute("data-theme", t);
   });
 
@@ -91,8 +92,6 @@ export default component$(() => {
     toggle(t);
   });
   const handleToggleTheme = $((t: string, event: MouseEvent) => {
-    theme.value = t;
-
     localStorage.setItem(LocalStorageKey.THEME, t);
     if (!isAppearanceTransition.value || !event) {
       toggle(t);

@@ -1,5 +1,5 @@
-import { parseData } from "./util"
 import type { ChatMessage } from "~/types";
+import { parseStream, fetchStream } from "./util";
 
 const baseUrl = "https://api.openai.com";
 
@@ -31,14 +31,32 @@ const fetchChat = async (
     }
     return m;
   });
-  return await fetch(`${baseUrl}/v1/chat/completions`, {
+  return fetchStream(
+    `${baseUrl}/v1/chat/completions`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${APIKey}`,
+      },
+      signal,
+      method: "POST",
+      body: JSON.stringify(rest),
+    },
+    parseStream
+  );
+};
+
+const fetchModels = async (body: any = {}, env: any = {}) => {
+  const { key, password } = body;
+  const APIKey =
+    password && password === env.PASSWORD && env.OPENAI_KEY
+      ? env.OPENAI_KEY
+      : key;
+  return fetch(`${baseUrl}/v1/models`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${APIKey}`,
     },
-    signal,
-    method: "POST",
-    body: JSON.stringify(rest),
   });
 };
 
@@ -87,6 +105,6 @@ export default {
     },
   ],
   placeholder: "API Key",
-  parseData,
   fetchChat,
+  fetchModels,
 };

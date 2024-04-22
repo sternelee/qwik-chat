@@ -1,4 +1,4 @@
-import type { ParsedEvent } from "eventsource-parser";
+import { fetchStream } from "./util";
 import type { ChatMessage } from "~/types";
 
 const baseUrl = "https://api.minimax.chat/v1/text/chatcompletion_pro";
@@ -30,24 +30,32 @@ const fetchChat = async (
     sender_name: "小李",
     text: m.content,
   }));
-  return await fetch(`${baseUrl}?GroupId=${groupId}`, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+  return await fetchStream(
+    `${baseUrl}?GroupId=${groupId}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      signal,
+      method: "POST",
+      body: JSON.stringify(rest),
     },
-    signal,
-    method: "POST",
-    body: JSON.stringify(rest),
-  });
+    parseStream
+  );
 };
 
-const parseData = (event: ParsedEvent) => {
-  const data = event.data;
-  const json = JSON.parse(data);
-  if (json.usage) {
-    return [true, null];
+const parseStream = (data: string) => {
+  try {
+    const json = JSON.parse(data);
+    if (json.usage) {
+      return [true, null, null];
+    }
+    const text = json.choices[0].messages[0].text;
+    return [false, text, null];
+  } catch (e) {
+    return [false, null, e];
   }
-  return [false, json.choices[0].messages[0].text];
 };
 
 export default {
@@ -77,6 +85,6 @@ export default {
     },
   ],
   placeholder: "GroupId:api_key",
-  parseData,
+  parseStream,
   fetchChat,
 };

@@ -1,5 +1,5 @@
-import type { ParsedEvent } from "eventsource-parser";
 import type { ChatMessage } from "~/types";
+import { fetchStream } from "./util";
 
 const baseUrl =
   "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation";
@@ -27,28 +27,38 @@ const fetchChat = async (
     }
     return m;
   });
-  return await fetch(baseUrl, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${key}`,
-      "X-DashScope-SSE": "enable",
-    },
-    signal,
-    method: "POST",
-    body: JSON.stringify({
-      model,
-      input: {
-        messages,
+  return fetchStream(
+    baseUrl,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${key}`,
+        "X-DashScope-SSE": "enable",
       },
-      parameters,
-    }),
-  });
+      signal,
+      method: "POST",
+      body: JSON.stringify({
+        model,
+        input: {
+          messages,
+        },
+        parameters,
+      }),
+    },
+    parseStream
+  );
 };
 
-const parseData = (event: ParsedEvent) => {
-  const data = event.data;
-  const json = JSON.parse(data);
-  return [json.output.finish_reason === "stop", json.output.text];
+const parseStream = (data: string) => {
+  try {
+    const json = JSON.parse(data);
+    if (json.output.finish_reason === "stop") {
+      return [true, null, null];
+    }
+    return [false, json.output.text, null];
+  } catch (e) {
+    return [false, null, e];
+  }
 };
 
 export default {
@@ -63,6 +73,5 @@ export default {
     { label: "Qwen-VL", value: "qwen-vl-plus", input: 0.02, output: 0.02 },
   ],
   placeholder: "API Key",
-  parseData,
   fetchChat,
 };

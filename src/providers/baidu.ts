@@ -43,15 +43,6 @@ const fetchImage = async (body: any, env: any = {}) => {
   );
 };
 
-const parseData = (event: ParsedEvent) => {
-  const data = event.data;
-  const json = JSON.parse(data);
-  if (json.is_end) {
-    return [true, null];
-  }
-  return [false, json.result];
-};
-
 export default {
   icon: "i-simple-icons-baidu",
   name: "文心一言",
@@ -97,7 +88,6 @@ export default {
     // { label: "Llama-2-70b-chat", value: "llama_2_70b" },
   ],
   placeholder: "access_token",
-  parseData,
   fetchChat,
   fetchImage,
 };

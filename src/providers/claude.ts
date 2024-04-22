@@ -1,5 +1,5 @@
-import type { ParsedEvent } from "eventsource-parser";
 import type { ChatMessage } from "~/types";
+import { fetchStream } from "./util";
 
 const baseUrl = "https://api.anthropic.com";
 
@@ -21,27 +21,35 @@ const fetchChat = async (
   );
   rest.prompt = `${prompt.join("")}\n\nAssistant:`;
   rest.max_tokens_to_sample = 4096;
-  return await fetch(`${baseUrl}/v1/complete`, {
-    headers: {
-      "Content-Type": "application/json",
-      "anthropic-version": "2023-06-01",
-      "x-api-key": `${key}`,
+  return await fetchStream(
+    `${baseUrl}/v1/complete`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        "anthropic-version": "2023-06-01",
+        "x-api-key": `${key}`,
+      },
+      signal,
+      method: "POST",
+      body: JSON.stringify(rest),
     },
-    signal,
-    method: "POST",
-    body: JSON.stringify(rest),
-  });
+    parseStream
+  );
 };
 
-const parseData = (event: ParsedEvent) => {
-  const json = JSON.parse(event.data);
-  if (json.stop_reason) {
-    return [true, null];
+const parseStream = (data: string) => {
+  try {
+    const json = JSON.parse(data);
+    if (json.stop_reason) {
+      return [true, null, null];
+    }
+    if (json.error) {
+      return [false, null, json.error];
+    }
+    return [false, json.completion, null];
+  } catch (e) {
+    return [false, null, e];
   }
-  if (json.error) {
-    return [false, json.error];
-  }
-  return [false, json.completion];
 };
 
 export default {
@@ -77,6 +85,6 @@ export default {
     },
   ],
   placeholder: "API Key",
-  parseData,
+  parseStream,
   fetchChat,
 };

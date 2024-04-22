@@ -1,5 +1,5 @@
-import type { ParsedEvent } from "eventsource-parser";
 import type { ChatMessage } from "~/types";
+import { fetchStream } from "./util";
 
 const baseUrl = "https://generativelanguage.googleapis.com";
 
@@ -14,8 +14,7 @@ const fetchChat = async (
       ? env.GOOGLE_KEY
       : key;
   const contents = parseMessageList(messages);
-  console.log(contents);
-  return await fetch(
+  return await fetchStream(
     `${baseUrl}/v1beta/models/${model}:streamGenerateContent?key=${APIKey}`,
     {
       headers: {
@@ -24,7 +23,8 @@ const fetchChat = async (
       signal,
       method: "POST",
       body: JSON.stringify({ contents }),
-    }
+    },
+    parseStream
   );
 };
 
@@ -80,13 +80,17 @@ const parseMessageList = (rawList: ChatMessage[]) => {
   return parsedList;
 };
 
-const parseData = (event: ParsedEvent) => {
-  const data = event.data;
-  const json = JSON.parse(data);
-  return [
-    json.candidates[0].finishReason === "STOP",
-    json.candidates[0].content.parts[0].text,
-  ];
+const parseStream = (data: string) => {
+  try {
+    const json = JSON.parse(data);
+    return [
+      json.candidates[0].finishReason === "STOP",
+      json.candidates[0].content.parts[0].text,
+      false,
+    ];
+  } catch (e) {
+    return [false, null, e];
+  }
 };
 
 export default {
@@ -97,7 +101,12 @@ export default {
   defaultModel: "gemini-pro",
   models: [
     { value: "gemini-pro", label: "Gemini-Pro", input: 0, output: 0 },
-    { value: "gemini-1.5-pro-latest", label: "Gemini-Pro-1.5", input: 0, output: 0 },
+    {
+      value: "gemini-1.5-pro-latest",
+      label: "Gemini-Pro-1.5",
+      input: 0,
+      output: 0,
+    },
     {
       value: "gemini-pro-vision",
       label: "Gemini-Pro-Vision",
@@ -106,6 +115,5 @@ export default {
     },
   ],
   placeholder: "API Key",
-  parseData,
   fetchChat,
 };

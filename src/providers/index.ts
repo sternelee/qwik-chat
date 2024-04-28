@@ -11,6 +11,7 @@ import claude from "./claude";
 import minimaxi from "./minimaxi";
 import togetherai from "./togetherai";
 import lingyi from "./lingyi";
+import atomLlama from "./atom-llama";
 
 export default {
   openai,
@@ -26,6 +27,7 @@ export default {
   togetherai,
   lingyi,
   minimaxi,
+  atomLlama,
 };
 
 export const COST_MAP = [
@@ -42,6 +44,7 @@ export const COST_MAP = [
   togetherai,
   lingyi,
   minimaxi,
+  atomLlama,
 ]
   .map((p) => p.models)
   .flat()
@@ -76,6 +79,7 @@ export const PROVIDER_LIST = [
   { value: "togetherai", label: togetherai.name },
   { value: "lingyi", label: lingyi.name },
   { value: "baidu", label: baidu.name },
+  { value: "atomLlama", label: atomLlama.name },
 ];
 
 export const APIKeys = {
@@ -92,6 +96,7 @@ export const APIKeys = {
   minimaxi: "",
   togetherai: "",
   lingyi: "",
+  atomLlama: "",
   // replicate: {
   //   apikey: '',
   // },

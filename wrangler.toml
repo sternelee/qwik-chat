@@ -1,8 +1,9 @@
 name = "qwik-chat"
 workers_dev = true
-compatibility_flags = [ "nodejs_compat" ]
+compatibility_flags = ["nodejs_compat"]
+
 [[d1_databases]]
-binding = "DB" # i.e. available in your Worker on env.DB
+binding = "DB"                                       # i.e. available in your Worker on env.DB
 database_name = "qwik-chat"
 database_id = "e8329247-7a09-4ec3-bc20-5020c6c35a41"
 
@@ -26,7 +27,7 @@ CUSTOM_HEADERS_TO_IGNORE = []
 #
 [env.production]
 name = "qwik-chat"
-logpush=true
+logpush = true
 
 [env.production.vars]
 ENVIRONMENT = 'production'

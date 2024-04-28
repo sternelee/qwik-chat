@@ -46,7 +46,7 @@ export default component$<Props>((props) => {
               !(
                 i === props.index ||
                 (i === props.index! + 1 && _.role !== "user")
-              ),
+              )
           )
         : store.messageList.filter((_, i) => i !== props.index);
   });
@@ -57,12 +57,12 @@ export default component$<Props>((props) => {
       question = store.messageList[props.index!].content;
       store.messageList = store.messageList.filter(
         (_, i) =>
-          !(i === props.index || (i === props.index! + 1 && _.role !== "user")),
+          !(i === props.index || (i === props.index! + 1 && _.role !== "user"))
       );
     } else {
       question = store.messageList[props.index! - 1].content;
       store.messageList = store.messageList.filter(
-        (_, i) => !(i === props.index || i === props.index! - 1),
+        (_, i) => !(i === props.index || i === props.index! - 1)
       );
     }
     store.sendMessage(question);
@@ -99,12 +99,12 @@ export default component$<Props>((props) => {
 
   useThrottle(
     msgContent,
-    50,
+    100,
     $((content: string) => {
       renderedMarkdown.value = md
         .render(content)
         .replaceAll("<kbd>", '<kbd class="kbd">');
-    }),
+    })
   );
 
   return (

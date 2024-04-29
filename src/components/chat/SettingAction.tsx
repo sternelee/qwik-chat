@@ -99,7 +99,21 @@ export default component$(() => {
                   store.sessionSettings.model =
                     ProviderMap[store.sessionSettings.provider].defaultModel;
                 })}
-                options={PROVIDER_LIST}
+                options={PROVIDER_LIST.map((v) => ({ label: v, value: v }))}
+              />
+            </SettingItem>
+            <SettingItem
+              icon={ProviderMap[store.sessionSettings.provider].icon}
+              label={ProviderMap[store.sessionSettings.provider].name}
+            >
+              <Selector
+                class="max-w-150px"
+                value={store.sessionSettings.model}
+                onChange={$((e: any) => {
+                  store.sessionSettings.model = (e.target as HTMLSelectElement)
+                    .value as SimpleModel;
+                })}
+                options={ProviderMap[store.sessionSettings.provider].models}
               />
             </SettingItem>
             {!store.globalSettings.password && (
@@ -184,20 +198,6 @@ export default component$(() => {
                 />
               </SettingItem>
             )}
-            <SettingItem
-              icon={ProviderMap[store.sessionSettings.provider].icon}
-              label={ProviderMap[store.sessionSettings.provider].name}
-            >
-              <Selector
-                class="max-w-150px"
-                value={store.sessionSettings.model}
-                onChange={$((e: any) => {
-                  store.sessionSettings.model = (e.target as HTMLSelectElement)
-                    .value as SimpleModel;
-                })}
-                options={ProviderMap[store.sessionSettings.provider].models}
-              />
-            </SettingItem>
             <SettingItem icon="i-carbon:data-enrichment" label="思维发散程度">
               <div class="flex items-center justify-between w-150px">
                 <input

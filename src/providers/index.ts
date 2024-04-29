@@ -1,5 +1,5 @@
 import baidu from "./baidu";
-import chatglm from "./chatglm";
+import zhipu from "./chatglm";
 import google from "./google";
 import openai from "./openai";
 import openrouter from "./openrouter";
@@ -13,26 +13,61 @@ import togetherai from "./togetherai";
 import lingyi from "./lingyi";
 import atomLlama from "./atom-llama";
 
+const workersAI = {
+  icon: "i-simple-icons:cloudflare",
+  name: "cloudflare AI",
+  href: "https://dash.cloudflare.com/profile/api-tokens",
+  defaultModel: "llama-2-7b-chat-int8",
+  placeholder: "API Key",
+  models: [
+    {
+      label: "llama-2-7b-chat-int8",
+      value: "llama-2-7b-chat-int8",
+      input: 0,
+      output: 0,
+    },
+    {
+      label: "llama-2-7b-chat-fp16",
+      value: "llama-2-7b-chat-fp16",
+      input: 0,
+      output: 0,
+    },
+    {
+      label: "falcon-7b-instruct",
+      value: "falcon-7b-instruct",
+      input: 0,
+      output: 0,
+    },
+    {
+      label: "neural-chat-7b-v3-1-awq",
+      value: "neural-chat-7b-v3-1-awq",
+      input: 0,
+      output: 0,
+    },
+  ],
+};
+
 export default {
   openai,
   openrouter,
   google,
   baidu,
-  chatglm,
+  zhipu,
   groq,
   moonshot,
   qwen,
-  mistral,
+  "mistral-ai": mistral,
   claude,
-  togetherai,
+  "together-ai": togetherai,
   lingyi,
   minimaxi,
-  atomLlama,
+  "workers-ai": workersAI,
+  "atom-llama": atomLlama,
 };
 
 export const COST_MAP = [
   baidu,
-  chatglm,
+  zhipu,
   google,
   openai,
   openrouter,
@@ -45,6 +80,7 @@ export const COST_MAP = [
   lingyi,
   minimaxi,
   atomLlama,
+  workersAI,
 ]
   .map((p) => p.models)
   .flat()
@@ -65,41 +101,23 @@ export const COST_DOLLAR = [
   "claude",
 ];
 
-export const PROVIDER_LIST = [
-  { value: "openai", label: openai.name },
-  { value: "openrouter", label: openrouter.name },
-  { value: "google", label: google.name },
-  { value: "groq", label: groq.name },
-  { value: "moonshot", label: moonshot.name },
-  { value: "claude", label: claude.name },
-  { value: "mistral", label: mistral.name },
-  { value: "chatglm", label: chatglm.name },
-  { value: "qwen", label: qwen.name },
-  { value: "minimaxi", label: minimaxi.name },
-  { value: "togetherai", label: togetherai.name },
-  { value: "lingyi", label: lingyi.name },
-  { value: "baidu", label: baidu.name },
-  { value: "atomLlama", label: atomLlama.name },
-];
-
 export const APIKeys = {
   openai: "",
   openrouter: "",
   google: "",
-  chatglm: "",
-  baidu: "",
-  qwen: "",
+  // baidu: "",
+  // qwen: "",
   groq: "",
   moonshot: "",
-  mistral: "",
+  "mistral-ai": "",
   claude: "",
-  minimaxi: "",
-  togetherai: "",
+  zhipu: "",
+  "together-ai": "",
   lingyi: "",
-  atomLlama: "",
-  // replicate: {
-  //   apikey: '',
-  // },
+  "workers-ai": "",
+  "atom-llama": "",
 };
+
+export const PROVIDER_LIST = Object.keys(APIKeys);
 
 export type IProvider = keyof typeof APIKeys;

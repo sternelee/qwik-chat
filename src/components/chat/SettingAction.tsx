@@ -36,6 +36,7 @@ export default component$(() => {
   const currentModel = useComputed$(() => store.sessionSettings.model);
   const isFirst = useSignal(true);
   const inputImageRef = useSignal<HTMLImageElement>();
+  const models = useComputed$(() => ProviderMap[store.sessionSettings.provider].models)
 
   const navigator = useNavigate();
 
@@ -103,6 +104,20 @@ export default component$(() => {
                   value: v,
                   label: v,
                 }))}
+              />
+            </SettingItem>
+            <SettingItem
+              icon="i-carbon:machine-learning-model"
+              label="模型"
+            >
+              <Selector
+                class="max-w-150px"
+                value={store.sessionSettings.model || ProviderMap[store.sessionSettings.provider].defaultModel}
+                onChange={$((e: any) => {
+                  store.sessionSettings.model = (e.target as HTMLSelectElement)
+                    .value as SimpleModel;
+                })}
+                options={models.value}
               />
             </SettingItem>
             {!store.globalSettings.password && (
@@ -185,20 +200,6 @@ export default component$(() => {
                 />
               </SettingItem>
             )}
-            <SettingItem
-              icon={ProviderMap[store.sessionSettings.provider].icon}
-              label={ProviderMap[store.sessionSettings.provider].name}
-            >
-              <Selector
-                class="max-w-150px"
-                value={store.sessionSettings.model}
-                onChange={$((e: any) => {
-                  store.sessionSettings.model = (e.target as HTMLSelectElement)
-                    .value as SimpleModel;
-                })}
-                options={ProviderMap[store.sessionSettings.provider].models}
-              />
-            </SettingItem>
             <SettingItem icon="i-carbon:data-enrichment" label="思维发散程度">
               <div class="flex items-center justify-between w-150px">
                 <input
@@ -331,7 +332,7 @@ export default component$(() => {
           </div>
         )}
         {store.showSetting === "none" && (
-          <div class="flex" style={{ width: 150 }}>
+          <div class="flex w-110px">
             <input
               type="file"
               accept="image/*"

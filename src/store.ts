@@ -1,6 +1,6 @@
 import { createContextId, type QRL, type NoSerialize } from "@builder.io/qwik";
 import type { Fzf } from "fzf";
-import { COST_MAP, APIKeys, type IProvider } from "~/providers";
+import ProviderMap, { APIKeys, type IProvider } from "~/providers";
 import type { ChatMessage, Model, Option } from "~/types";
 import { defaultEnv } from "./env";
 
@@ -32,6 +32,24 @@ export const FZFData = {
   sessionOptions: [] as Option[],
   fzfSessions: undefined as Fzf<Option[]> | undefined,
 };
+
+const COST_MAP: {
+  [key: string]: {
+    input: number;
+    output: number;
+  };
+} = {};
+
+Object.values(ProviderMap)
+  .map((v) => v.models)
+  .forEach((v) => {
+    v.forEach((m) => {
+      COST_MAP[m.value] = {
+        input: m.input,
+        output: m.output,
+      };
+    });
+  });
 
 export function countTokensDollar(
   tokens: number,

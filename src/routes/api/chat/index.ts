@@ -1,5 +1,5 @@
 import type { RequestHandler } from "@builder.io/qwik-city";
-import ProviderMap, { type IProvider } from "~/providers";
+import { fetchChat, type IFetchChatBody } from "~/providers/util";
 
 export const onPost: RequestHandler = async ({
   parseBody,
@@ -7,32 +7,21 @@ export const onPost: RequestHandler = async ({
   env,
   signal,
 }) => {
-  const body = (await parseBody()) as any;
-  const { provider, ...rest } = body as {
-    provider: IProvider;
-    [prop: string]: any;
-  };
-  const fetchChat = ProviderMap[provider].fetchChat;
-  const envMap = {
-    CF_KEY: env.get("CF_KEY"),
-    GOOGLE_KEY: env.get("GOOGLE_KEY"),
-    BAIDU_KEY: env.get("BAIDU_KEY"),
-    CHATGLM_KEY: env.get("CHATGLM_KEY"),
-    OPENROUTER_KEY: env.get("OPENROUTER_KEY"),
-    OPENAI_KEY: env.get("OPENAI_KEY"),
-    PASSWORD: env.get("PASSWORD"),
-    CLAUDE_KEY: env.get("CLAUDE_KEY"),
-    MOONSHOT_KEY: env.get("MOONSHOT_KEY"),
-    GROQ_KEY: env.get("GROQ_KEY"),
-    MISTRAL_KEY: env.get("MISTRAL_KEY"),
-    MINIMAXI_KEY: env.get("MINIMAXI_KEY"),
-    ZEROONE_KEY: env.get("ZEROONE_KEY"),
-    TOGETHER_KEY: env.get("TOGETHER_KEY"),
-  };
-  const abortSignal = new AbortController();
-  const response = await fetchChat(rest, envMap, abortSignal.signal);
-  if (signal.aborted) {
-    abortSignal.abort();
+  const body = (await parseBody()) as IFetchChatBody;
+  let key = body.key;
+  const password = body.password;
+  if (password && env.get("PASSWORD") === password) {
+    // 没有传key时才校验管理密码
+    key = (process.env[body.provider.toUpperCase() + "_API"] || "").replaceAll(
+      "-",
+      "_"
+    );
   }
+
+  const response = await fetchChat({
+    ...body,
+    key,
+    signal,
+  });
   send(response);
 };

@@ -1,6 +1,6 @@
 import { component$, Slot } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
-import "@unocss/reset/tailwind.css";
+// import "@unocss/reset/tailwind.css";
 import "uno.css";
 import "~/styles/main.css";
 // import "katex/dist/katex.min.css"; // 这个包会加载很多字体

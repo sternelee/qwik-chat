@@ -20,7 +20,6 @@ import { blobToBase64, isMobile, scrollToBottom } from "~/utils";
 import { countTokens } from "~/utils/tokens";
 import SettingAction from "./SettingAction";
 import SlashSelector from "./SlashSelector";
-import { COST_MAP, COST_DOLLAR } from "~/providers";
 
 export default component$<{
   width: string;
@@ -183,10 +182,6 @@ export default component$<{
     }
   });
 
-  const dollarLabel = COST_DOLLAR.includes(store.sessionSettings.provider)
-    ? "$"
-    : "¥";
-
   return (
     <div
       class="pb-2em px-2em fixed bottom-0 z-100"
@@ -208,7 +203,6 @@ export default component$<{
           >
             <span class="dark:text-slate text-slate-7">
               AI 正在思考 / {shownTokens(store.currentMessageToken)} /
-              {dollarLabel}
               {currentMessageToken$.value.toFixed(4)}
             </span>
           </div>
@@ -236,7 +230,7 @@ export default component$<{
               )}
               <textarea
                 ref={inputRef}
-                placeholder={`与 ta 对话吧 ${dollarLabel}[${COST_MAP[currentModel.value].input}/${COST_MAP[currentModel.value].output}]`}
+                placeholder="与 ta 对话吧"
                 autocomplete="off"
                 value={store.inputContent}
                 autoCapitalize="off"

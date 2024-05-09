@@ -11,6 +11,7 @@ import type { ParsedEvent, ReconnectInterval } from "eventsource-parser";
 import { createParser } from "eventsource-parser";
 import Chat from "~/components/chat";
 import ProviderMap from "~/providers";
+import { fetchChat } from "~/providers/util";
 import {
   defaultInputBoxHeight,
   FZFData,
@@ -101,18 +102,14 @@ export default component$(() => {
         });
       } else {
         // 前端请求
-        const fetchChat = ProviderMap[provider].fetchChat;
-        response = await fetchChat(
-          {
-            key: this.globalSettings.APIKeys[provider] || undefined,
-            messages,
-            temperature: this.sessionSettings.APITemperature,
-            model: this.sessionSettings.model,
-            stream: true,
-          },
-          {},
-          this.controller?.signal
-        );
+        response = await fetchChat({
+          provider,
+          key: this.globalSettings.APIKeys[provider] || undefined,
+          messages,
+          temperature: this.sessionSettings.APITemperature,
+          model: this.sessionSettings.model,
+          signal: this.controller?.signal as AbortSignal,
+        });
       }
 
       if (!response.ok) {
@@ -128,54 +125,35 @@ export default component$(() => {
         return;
       }
       const decoder = new TextDecoder();
-      const streamParser = (event: ParsedEvent | ReconnectInterval) => {
-        if (event.type === "event") {
-          try {
-            const [done, char] = ProviderMap[provider].parseData(event);
-            if (done) {
-              this.loading = false;
-            }
-            if (char) {
-              if (this.currentAssistantMessage) {
-                this.messageList = this.messageList.map((k) => {
-                  if (k.type === "temporary") {
-                    return { ...k, content: k.content + char };
-                  }
-                  return k;
-                });
-              } else {
-                this.messageList = [
-                  ...this.messageList,
-                  {
-                    role: "assistant",
-                    content: char,
-                    type: "temporary",
-                    provider: this.sessionSettings.provider,
-                    model: this.sessionSettings.model,
-                  },
-                ];
-              }
-              this.currentAssistantMessage += char;
-              // batch(() => {
-              // });
-            }
-          } catch (e) {
-            console.log(e);
-            this.loading = false;
-          }
-        }
-      };
-      const parser = createParser(streamParser);
       const rb = response.body as ReadableStream;
       const reader = rb.getReader();
       let done = false;
       while (!done) {
-        const { done: isDone, value } = await reader.read();
-        if (isDone) {
-          done = true;
-          return;
+        const { done: readerDone, value } = await reader.read();
+        if (value) {
+          const char = decoder.decode(value);
+          if (this.currentAssistantMessage) {
+            this.messageList = this.messageList.map((k) => {
+              if (k.type === "temporary") {
+                return { ...k, content: k.content + char };
+              }
+              return k;
+            });
+          } else {
+            this.messageList = [
+              ...this.messageList,
+              {
+                role: "assistant",
+                content: char,
+                type: "temporary",
+                provider: this.sessionSettings.provider,
+                model: this.sessionSettings.model,
+              },
+            ];
+          }
+          this.currentAssistantMessage += char;
         }
-        parser.feed(decoder.decode(value));
+        done = readerDone;
       }
     }),
     stopStreamFetch: $(function () {

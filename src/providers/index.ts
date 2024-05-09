@@ -1,100 +1,56 @@
-import baidu from "./baidu";
-import chatglm from "./chatglm";
-import google from "./google";
 import openai from "./openai";
 import openrouter from "./openrouter";
-import qwen from "./qwen";
-import groq from "./groq";
-import moonshot from "./moonshot";
-import mistral from "./mistral";
+import google from "./google";
 import claude from "./claude";
-import minimaxi from "./minimaxi";
-import togetherai from "./togetherai";
+import groq from "./groq";
+import mistralAi from "./mistral-ai";
+import togetherAi from "./together-ai";
+import moonshot from "./moonshot";
 import lingyi from "./lingyi";
-
-export default {
-  openai,
-  openrouter,
-  google,
-  baidu,
-  chatglm,
-  groq,
-  moonshot,
-  qwen,
-  mistral,
-  claude,
-  togetherai,
-  lingyi,
-  minimaxi,
-};
-
-export const COST_MAP = [
-  baidu,
-  chatglm,
-  google,
-  openai,
-  openrouter,
-  groq,
-  moonshot,
-  qwen,
-  mistral,
-  claude,
-  togetherai,
-  lingyi,
-  minimaxi,
-]
-  .map((p) => p.models)
-  .flat()
-  .reduce(
-    (c, m) => {
-      c[m.value] = { input: m.input, output: m.output };
-      return c;
-    },
-    {} as Record<string, { input: number; output: number }>
-  );
-
-export const COST_DOLLAR = [
-  "openai",
-  "openrouter",
-  "google",
-  "groq",
-  "mistral",
-  "claude",
-];
-
-export const PROVIDER_LIST = [
-  { value: "openai", label: openai.name },
-  { value: "openrouter", label: openrouter.name },
-  { value: "google", label: google.name },
-  { value: "groq", label: groq.name },
-  { value: "moonshot", label: moonshot.name },
-  { value: "claude", label: claude.name },
-  { value: "mistral", label: mistral.name },
-  { value: "chatglm", label: chatglm.name },
-  { value: "qwen", label: qwen.name },
-  { value: "minimaxi", label: minimaxi.name },
-  { value: "togetherai", label: togetherai.name },
-  { value: "lingyi", label: lingyi.name },
-  { value: "baidu", label: baidu.name },
-];
+import zhipu from "./zhipu";
+import workersAi from "./workers-ai";
+import deepseek from "./deepseek";
+import coze from "./coze";
+import atomLlama from "./atom-llama";
+import cohere from "./cohere";
 
 export const APIKeys = {
   openai: "",
   openrouter: "",
   google: "",
-  chatglm: "",
-  baidu: "",
-  qwen: "",
+  // baidu: "",
+  // qwen: "",
   groq: "",
   moonshot: "",
-  mistral: "",
+  zhipu: "",
+  deepseek: "",
+  "atom-llama": "",
+  "together-ai": "",
+  "mistral-ai": "",
+  cohere: "",
   claude: "",
-  minimaxi: "",
-  togetherai: "",
   lingyi: "",
-  // replicate: {
-  //   apikey: '',
-  // },
+  "workers-ai": "",
+  coze: "",
 };
 
+export const PROVIDER_LIST = Object.keys(APIKeys);
 export type IProvider = keyof typeof APIKeys;
+
+export default {
+  openai,
+  openrouter,
+  google,
+  claude,
+  groq,
+  "mistral-ai": mistralAi,
+  "together-ai": togetherAi,
+  moonshot,
+  lingyi,
+  zhipu,
+  "workers-ai": workersAi,
+  "atom-llama": atomLlama,
+  deepseek,
+  coze,
+  cohere,
+};

@@ -12,12 +12,10 @@ export const onPost: RequestHandler = async ({
   const password = body.password;
   if (password && env.get("PASSWORD") === password) {
     // 没有传key时才校验管理密码
-    key = (env.get(body.provider.toUpperCase() + "_KEY") || "").replaceAll(
-      "-",
-      "_"
-    );
+    const PROVIDER_KEY = body.provider.toUpperCase() + "_KEY";
+    key = (env.get(PROVIDER_KEY) || "").replaceAll("-", "_");
+    console.log(body.provider, PROVIDER_KEY, key);
   }
-  console.log(body.provider, key)
 
   const response = await fetchChat({
     ...body,

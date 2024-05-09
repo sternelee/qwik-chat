@@ -17,6 +17,7 @@ export const onPost: RequestHandler = async ({
       "_"
     );
   }
+  console.log(body.provider, key)
 
   const response = await fetchChat({
     ...body,

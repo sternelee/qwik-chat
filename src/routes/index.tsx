@@ -6,11 +6,8 @@ import {
   useVisibleTask$,
   noSerialize,
 } from "@builder.io/qwik";
-import { type DocumentHead, routeLoader$ } from "@builder.io/qwik-city";
-import type { ParsedEvent, ReconnectInterval } from "eventsource-parser";
-import { createParser } from "eventsource-parser";
+import { type DocumentHead } from "@builder.io/qwik-city";
 import Chat from "~/components/chat";
-import ProviderMap from "~/providers";
 import { fetchChat } from "~/providers/util";
 import {
   defaultInputBoxHeight,
@@ -26,11 +23,6 @@ import type { ChatMessage } from "~/types";
 import { scrollToBottom } from "~/utils";
 import { fetchAllSessions, getSession, setSession } from "~/utils/storage";
 import { useAuthSession } from "~/routes/plugin@auth";
-
-// export const useChatStore = routeLoader$(async (requestEvent) => {
-//   const res = await fetch(`/api/storage`);
-//   return await res.json();
-// });
 
 export default component$(() => {
   const session = useAuthSession();
@@ -124,7 +116,7 @@ export default component$(() => {
         ];
         return;
       }
-      const decoder = new TextDecoder();
+      const decoder = new TextDecoder("utf-8");
       const rb = response.body as ReadableStream;
       const reader = rb.getReader();
       let done = false;

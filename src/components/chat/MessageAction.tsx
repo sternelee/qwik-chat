@@ -20,7 +20,7 @@ export default component$<Props>(({ role, edit, del, copy, reAnswer }) => {
   });
   return (
     <div
-      class="flex absolute items-center justify-between <sm:top--4 <sm:right-0 top-2 right-2 text-sm group-hover:opacity-100 group-focus:opacity-100 opacity-0 rounded"
+      class="flex absolute items-center justify-between <sm:bottom--4 <sm:right-0 bottom-2 right-2 text-sm group-hover:opacity-100 group-focus:opacity-100 opacity-0 rounded"
       style={{
         background: "hsl(var(--b1) / var(--un-bg-opacity, 1))",
       }}

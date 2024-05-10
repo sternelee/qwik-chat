@@ -368,15 +368,15 @@ export default component$(() => {
     });
   });
 
-  useVisibleTask$(({ track }) => {
-    track(() => store.currentAssistantMessage);
-    scrollToBottom();
-  });
-
-  useVisibleTask$(({ track }) => {
-    track(() => store.messageList.length);
-    scrollToBottom();
-  });
+  // useVisibleTask$(({ track }) => {
+  //   track(() => store.currentAssistantMessage);
+  //   scrollToBottom();
+  // });
+  //
+  // useVisibleTask$(({ track }) => {
+  //   track(() => store.messageList.length);
+  //   scrollToBottom();
+  // });
 
   return <Chat user={session.value?.user} />;
 });

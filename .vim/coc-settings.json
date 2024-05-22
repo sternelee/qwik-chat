@@ -1,3 +1,4 @@
 {
-  "coc.preferences.formatOnSave": true
+  "coc.preferences.formatOnSave": true,
+  "eslint.enable": false
 }

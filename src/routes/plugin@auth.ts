@@ -1,9 +1,11 @@
+// @ts-ignore
 import { serverAuth$ } from "@builder.io/qwik-auth";
 import GitHub from "@auth/core/providers/github";
 import Google from "@auth/core/providers/google";
 import type { Provider } from "@auth/core/providers";
 
 export const { onRequest, useAuthSession, useAuthSignin, useAuthSignout } =
+  // @ts-ignore
   serverAuth$(({ env }) => ({
     secret: env.get("AUTH_SECRET"),
     trustHost: true,

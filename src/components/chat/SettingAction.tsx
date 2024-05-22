@@ -36,7 +36,9 @@ export default component$(() => {
   const currentModel = useComputed$(() => store.sessionSettings.model);
   const isFirst = useSignal(true);
   const inputImageRef = useSignal<HTMLImageElement>();
-  const models = useComputed$(() => ProviderMap[store.sessionSettings.provider].models)
+  const models = useComputed$(
+    () => ProviderMap[store.sessionSettings.provider].models
+  );
 
   const navigator = useNavigate();
 
@@ -106,13 +108,13 @@ export default component$(() => {
                 }))}
               />
             </SettingItem>
-            <SettingItem
-              icon="i-carbon:machine-learning-model"
-              label="模型"
-            >
+            <SettingItem icon="i-carbon:machine-learning-model" label="模型">
               <Selector
                 class="max-w-150px"
-                value={store.sessionSettings.model || ProviderMap[store.sessionSettings.provider].defaultModel}
+                value={
+                  store.sessionSettings.model ||
+                  ProviderMap[store.sessionSettings.provider].defaultModel
+                }
                 onChange={$((e: any) => {
                   store.sessionSettings.model = (e.target as HTMLSelectElement)
                     .value as SimpleModel;

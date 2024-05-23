@@ -6,7 +6,7 @@ import {
   useComputed$,
 } from "@builder.io/qwik";
 import { useThrottle, useCopyCode } from "~/hooks";
-import { useAutoAnimate } from "~/utils/auto-animate";
+// import { useAutoAnimate } from "~/utils/auto-animate";
 import { ChatContext } from "~/store";
 import type { ChatMessage } from "~/types";
 import { copyToClipboard } from "~/utils";
@@ -23,7 +23,7 @@ interface Props {
 export default component$<Props>((props) => {
   const renderedMarkdown = useSignal("");
   const store = useContext(ChatContext);
-  const [parentRef] = useAutoAnimate();
+  // const [parentRef] = useAutoAnimate();
   const roleClass = {
     error: "bg-gradient-to-r from-red-400 to-red-700",
     system: "bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300",
@@ -110,7 +110,7 @@ export default component$<Props>((props) => {
   );
 
   return (
-    <slot ref={parentRef}>
+    <slot>
       {renderedMarkdown.value && (
         <div
           style={{

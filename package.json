@@ -45,6 +45,7 @@
     "wrangler": "^3.0.0"
   },
   "dependencies": {
+    "@cloudflare/workers-types": "^4.20240512.0",
     "@formkit/auto-animate": "^0.8.2",
     "@iconify-json/carbon": "^1.1.33",
     "@iconify-json/ri": "^1.1.20",

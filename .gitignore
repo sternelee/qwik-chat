@@ -24,10 +24,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Editor
-.vscode/*
-!.vscode/launch.json
-!.vscode/*.code-snippets
-
 .idea
 .DS_Store
 *.suo
@@ -45,3 +41,4 @@ lerna-debug.log*
 
 # Cloudflare
 functions/**/*.js
+.wrangler

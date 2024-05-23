@@ -6,6 +6,7 @@ import {
   useComputed$,
 } from "@builder.io/qwik";
 import { useThrottle, useCopyCode } from "~/hooks";
+import { useAutoAnimate } from "~/utils/auto-animate";
 import { ChatContext } from "~/store";
 import type { ChatMessage } from "~/types";
 import { copyToClipboard } from "~/utils";
@@ -22,6 +23,7 @@ interface Props {
 export default component$<Props>((props) => {
   const renderedMarkdown = useSignal("");
   const store = useContext(ChatContext);
+  const [parentRef] = useAutoAnimate();
   const roleClass = {
     error: "bg-gradient-to-r from-red-400 to-red-700",
     system: "bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300",
@@ -46,7 +48,7 @@ export default component$<Props>((props) => {
               !(
                 i === props.index ||
                 (i === props.index! + 1 && _.role !== "user")
-              ),
+              )
           )
         : store.messageList.filter((_, i) => i !== props.index);
   });
@@ -57,12 +59,12 @@ export default component$<Props>((props) => {
       question = store.messageList[props.index!].content;
       store.messageList = store.messageList.filter(
         (_, i) =>
-          !(i === props.index || (i === props.index! + 1 && _.role !== "user")),
+          !(i === props.index || (i === props.index! + 1 && _.role !== "user"))
       );
     } else {
       question = store.messageList[props.index! - 1].content;
       store.messageList = store.messageList.filter(
-        (_, i) => !(i === props.index || i === props.index! - 1),
+        (_, i) => !(i === props.index || i === props.index! - 1)
       );
     }
     store.sendMessage(question);
@@ -104,11 +106,11 @@ export default component$<Props>((props) => {
       renderedMarkdown.value = md
         .render(content)
         .replaceAll("<kbd>", '<kbd class="kbd">');
-    }),
+    })
   );
 
   return (
-    <slot>
+    <slot ref={parentRef}>
       {renderedMarkdown.value && (
         <div
           style={{

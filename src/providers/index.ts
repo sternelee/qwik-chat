@@ -31,7 +31,7 @@ export const APIKeys = {
   claude: "",
   lingyi: "",
   "workers-ai": "",
-  coze: "",
+  // coze: "",
 };
 
 export const PROVIDER_LIST = Object.keys(APIKeys);

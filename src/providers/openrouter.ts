@@ -10,6 +10,7 @@ export default {
     label: v.name,
     input: Number(v.pricing.prompt),
     output: Number(v.pricing.completion),
+    context_length: Number(v.context_length),
   })),
   placeholder: "API Key",
 };

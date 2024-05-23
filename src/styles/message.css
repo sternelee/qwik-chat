@@ -1,6 +1,36 @@
 .message pre {
-  font-size: 0.8rem;
-  padding: 0.4rem 1rem;
+  position: relative;
+  min-width: 18rem;
+  margin: 1em 0;
+  overflow: hidden;
+  overflow-x: auto;
+  --un-bg-opacity: 1;
+  background-color: hsl(var(--n) / var(--un-bg-opacity));
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  --un-text-opacity: 1;
+  color: hsl(var(--nc) / var(--un-text-opacity));
+  border-radius: var(--rounded-box, 1rem);
+}
+
+.message pre::before {
+  content: "";
+  margin-bottom: 1rem;
+  display: block;
+  height: 0.75rem;
+  width: 0.75rem;
+  border-radius: 9999px;
+  opacity: 0.3;
+  box-shadow:
+    1.4em 0,
+    2.8em 0,
+    4.2em 0;
+}
+
+.message pre .lang {
+  color: #e6c07b;
+  margin-left: 12px;
+  font-weight: bolder;
 }
 
 pre code.hljs {
@@ -22,6 +52,7 @@ pre code.hljs {
 }
 
 .message table thead tr {
+  background-color: #64748b40;
   text-align: left;
 }
 
@@ -32,14 +63,6 @@ pre code.hljs {
 
 .message table tbody tr:last-of-type {
   border-bottom: 2px solid #64748b40;
-}
-
-.dark .message {
-  --c-text: rgba(255, 255, 255, 0.6);
-  --un-prose-invert-headings: var(--c-text);
-  --un-prose-invert-links: var(--c-text);
-  --un-prose-invert-code: var(--c-text);
-  --un-prose-invert-body: var(--c-text);
 }
 
 .message a {
@@ -55,9 +78,16 @@ pre code.hljs {
 .dark .message a:hover {
   color: rgba(255, 255, 255, 0.8);
 }
+
 .message ul {
   list-style: inside;
 }
+
 #message-container-img .avatar img {
-  transform: scale(1.6);
+  transform: scale(1.5);
+}
+
+.message img,
+.message video {
+  max-width: 60%;
 }

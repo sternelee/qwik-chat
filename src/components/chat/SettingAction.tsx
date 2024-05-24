@@ -13,7 +13,6 @@ import { defaultEnv } from "~/env";
 import ProviderMap, { PROVIDER_LIST, type IProvider } from "~/providers";
 import {
   type FakeRoleUnion,
-  roleIcons,
   imgIcons,
   ChatContext,
   SUPPORT_VISION,
@@ -30,6 +29,13 @@ import {
   setSession,
 } from "~/utils";
 import { Selector, Switch as SwitchButton } from "./Common";
+
+const roleIcons: Record<FakeRoleUnion, string> = {
+  system: "i-ri:robot-2-fill bg-gradient-to-r from-yellow-300 to-red-700 ",
+  assistant: "i-ri:android-fill bg-gradient-to-r from-yellow-300 to-red-700 ",
+  normal: "i-ri:user-3-line",
+  user: "i-ri:user-3-fill bg-gradient-to-r from-red-300 to-blue-700 ",
+};
 
 export default component$(() => {
   const store = useContext(ChatContext);
@@ -79,7 +85,6 @@ export default component$(() => {
         ...defaultEnv.CLIENT_SESSION_SETTINGS,
         title: "新的对话",
       },
-      provider: "openai",
       messages: [],
     });
     navigator(`/?session=${sessionID}`);
@@ -367,7 +372,7 @@ export default component$(() => {
                 ] as FakeRoleUnion[];
                 store.fakeRole = _[(_.indexOf(store.fakeRole) + 1) % _.length];
               })}
-              icon={roleIcons[store.fakeRole]}
+              icon={roleIcons[actionState.fakeRole]}
               label={
                 {
                   system: "系统角色",

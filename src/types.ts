@@ -31,7 +31,6 @@ export type Session = typeof defaultEnv.CLIENT_SESSION_SETTINGS & {
   lastVisit: number;
   messages: ChatMessage[];
   settings: SessionSettings;
-  provider: IProvider;
 };
 
 export interface Option {

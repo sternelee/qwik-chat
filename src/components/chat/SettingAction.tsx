@@ -372,7 +372,7 @@ export default component$(() => {
                 ] as FakeRoleUnion[];
                 store.fakeRole = _[(_.indexOf(store.fakeRole) + 1) % _.length];
               })}
-              icon={roleIcons[actionState.fakeRole]}
+              icon={roleIcons[store.fakeRole]}
               label={
                 {
                   system: "系统角色",

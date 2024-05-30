@@ -178,7 +178,11 @@ export default component$<IChatSession>(({ user }) => {
           {store.messageList.map((message, index) => (
             <MessageItem
               message={message}
-              hiddenAction={store.loading || message.type === "temporary"}
+              hiddenAction={
+                store.loading ||
+                message.type === "temporary" ||
+                message.role !== "assistant"
+              }
               key={index}
               avatar={avatar.value}
               index={index}

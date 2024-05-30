@@ -372,7 +372,7 @@ export default component$(() => {
                 ] as FakeRoleUnion[];
                 store.fakeRole = _[(_.indexOf(store.fakeRole) + 1) % _.length];
               })}
-              icon={roleIcons[actionState.fakeRole]}
+              icon={roleIcons[store.fakeRole]}
               label={
                 {
                   system: "系统角色",
@@ -461,13 +461,7 @@ export const ActionItem = component$<{
       // @ts-ignore
       data-tooltip={props.label}
     >
-      <button
-        class={`btn btn-outline btn-xs ${props.icon}`}
-        style={{
-          background: "hsl(var(--bc) / var(--un-text-opacity, 1))",
-        }}
-        title={props.label}
-      />
+      <button class={`${props.icon}`} title={props.label} />
     </div>
   );
 });

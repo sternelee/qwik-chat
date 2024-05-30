@@ -25,7 +25,7 @@
     {
       "id": "nousresearch/nous-capybara-7b:free",
       "name": "Nous: Capybara 7B (free)",
-      "description": "The Capybara series is a collection of datasets and models made by fine-tuning on data created by Nous, mostly in-house.\n\nV1.9 uses unalignment techniques for more consistent and dynamic control. It also leverages a significantly better foundation model, [Mistral 7B](/models/mistralai/mistral-7b-instruct).\n\nNote: this is a free, rate-limited version of [this model](/models/nousresearch/nous-capybara-7b). Outputs may be cached. Read about rate limits [here](/docs#limits).",
+      "description": "The Capybara series is a collection of datasets and models made by fine-tuning on data created by Nous, mostly in-house.\n\nV1.9 uses unalignment techniques for more consistent and dynamic control. It also leverages a significantly better foundation model, [Mistral 7B](/models/mistralai/mistral-7b-instruct-v0.1).\n\nNote: this is a free, rate-limited version of [this model](/models/nousresearch/nous-capybara-7b). Outputs may be cached. Read about rate limits [here](/docs#limits).",
       "pricing": {
         "prompt": "0",
         "completion": "0",
@@ -49,8 +49,8 @@
     },
     {
       "id": "mistralai/mistral-7b-instruct:free",
-      "name": "Mistral 7B Instruct (free)",
-      "description": "A 7.3B parameter model that outperforms Llama 2 13B on all benchmarks, with optimizations for speed and context length.\n\nThis is v0.1 of Mistral 7B Instruct. For v0.2, use [this model](/models/mistralai/mistral-7b-instruct:nitro).\n\nNote: this is a free, rate-limited version of [this model](/models/mistralai/mistral-7b-instruct). Outputs may be cached. Read about rate limits [here](/docs#limits).",
+      "name": "Mistral: Mistral 7B Instruct (free)",
+      "description": "A high-performing, industry-standard 7.3B parameter model, with optimizations for speed and context length.\n\nNote: this is a free, rate-limited version of [this model](/models/mistralai/mistral-7b-instruct). Outputs may be cached. Read about rate limits [here](/docs#limits).",
       "pricing": {
         "prompt": "0",
         "completion": "0",
@@ -62,6 +62,31 @@
         "modality": "text",
         "tokenizer": "Mistral",
         "instruct_type": "mistral"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
+    },
+    {
+      "id": "huggingfaceh4/zephyr-7b-beta:free",
+      "name": "Hugging Face: Zephyr 7B (free)",
+      "description": "Zephyr is a series of language models that are trained to act as helpful assistants. Zephyr-7B-β is the second model in the series, and is a fine-tuned version of [mistralai/Mistral-7B-v0.1](/models/mistralai/mistral-7b-instruct-v0.1) that was trained on a mix of publicly available, synthetic datasets using Direct Preference Optimization (DPO).\n\nNote: this is a free, rate-limited version of [this model](/models/huggingfaceh4/zephyr-7b-beta). Outputs may be cached. Read about rate limits [here](/docs#limits).",
+      "pricing": {
+        "prompt": "0",
+        "completion": "0",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 4096,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "zephyr"
       },
       "top_provider": {
         "max_completion_tokens": null,
@@ -223,20 +248,45 @@
       }
     },
     {
-      "id": "jetmoe/jetmoe-8b-chat:free",
-      "name": "JetMoE 8B (free)",
-      "description": "Coming from a broad set of teams, ranging from academic to industry veterans, Jet MoE is a combined effort from MIT, Princeton, IBM, Lepton, and MyShell.\n\nThis model is fully open source and trained only on public datasets, making it well suited for uses in academia or public research.\n\nNote: this is a free, rate-limited version of [this model](/models/jetmoe/jetmoe-8b-chat). Outputs may be cached. Read about rate limits [here](/docs#limits).",
+      "id": "microsoft/phi-3-mini-128k-instruct:free",
+      "name": "Phi-3 Mini Instruct (free)",
+      "description": "Phi-3 Mini is a powerful 3.8B parameter model designed for advanced language understanding, reasoning, and instruction following. Optimized through supervised fine-tuning and preference adjustments, it excels in tasks involving common sense, mathematics, logical reasoning, and code processing.\n\nAt time of release, Phi-3 Medium demonstrated state-of-the-art performance among lightweight models. This model is static, trained on an offline dataset with an October 2023 cutoff date.\n\nNote: this is a free, rate-limited version of [this model](/models/microsoft/phi-3-mini-128k-instruct). Outputs may be cached. Read about rate limits [here](/docs#limits).",
       "pricing": {
         "prompt": "0",
         "completion": "0",
         "image": "0",
         "request": "0"
       },
-      "context_length": 4096,
+      "context_length": 128000,
       "architecture": {
         "modality": "text",
         "tokenizer": "Other",
-        "instruct_type": "zephyr"
+        "instruct_type": "phi3"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
+    },
+    {
+      "id": "microsoft/phi-3-medium-128k-instruct:free",
+      "name": "Phi-3 Medium Instruct (free)",
+      "description": "Phi-3 Medium is a powerful 14-billion parameter model designed for advanced language understanding, reasoning, and instruction following. Optimized through supervised fine-tuning and preference adjustments, it excels in tasks involving common sense, mathematics, logical reasoning, and code processing.\n\nAt time of release, Phi-3 Medium demonstrated state-of-the-art performance among lightweight models. In the MMLU-Pro eval, the model even comes close to a Llama3 70B level of performance.\n\nNote: this is a free, rate-limited version of [this model](/models/microsoft/phi-3-medium-128k-instruct). Outputs may be cached. Read about rate limits [here](/docs#limits).",
+      "pricing": {
+        "prompt": "0",
+        "completion": "0",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 128000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Other",
+        "instruct_type": "phi3"
       },
       "top_provider": {
         "max_completion_tokens": null,
@@ -268,14 +318,14 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "38861092",
-        "completion_tokens": "38861092"
+        "prompt_tokens": "38804692",
+        "completion_tokens": "38804692"
       }
     },
     {
       "id": "intel/neural-chat-7b",
       "name": "Neural Chat 7B v3.1",
-      "description": "A fine-tuned model based on [mistralai/Mistral-7B-v0.1](/models/mistralai/mistral-7b-instruct) on the open source dataset [Open-Orca/SlimOrca](https://huggingface.co/datasets/Open-Orca/SlimOrca), aligned with DPO algorithm. For more details, refer to the blog: [The Practice of Supervised Fine-tuning and Direct Preference Optimization on Habana Gaudi2](https://medium.com/@NeuralCompressor/the-practice-of-supervised-finetuning-and-direct-preference-optimization-on-habana-gaudi2-a1197d8a3cd3).",
+      "description": "A fine-tuned model based on [mistralai/Mistral-7B-v0.1](/models/mistralai/mistral-7b-instruct-v0.1) on the open source dataset [Open-Orca/SlimOrca](https://huggingface.co/datasets/Open-Orca/SlimOrca), aligned with DPO algorithm. For more details, refer to the blog: [The Practice of Supervised Fine-tuning and Direct Preference Optimization on Habana Gaudi2](https://medium.com/@NeuralCompressor/the-practice-of-supervised-finetuning-and-direct-preference-optimization-on-habana-gaudi2-a1197d8a3cd3).",
       "pricing": {
         "prompt": "0.000005",
         "completion": "0.000005",
@@ -293,33 +343,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "7772218",
-        "completion_tokens": "7772218"
-      }
-    },
-    {
-      "id": "gryphe/mythomax-l2-13b:nitro",
-      "name": "MythoMax 13B (nitro)",
-      "description": "One of the highest performing and most popular fine-tunes of Llama 2 13B, with rich descriptions and roleplay. #merge\n\nNote: this is a higher-throughput version of [this model](/models/gryphe/mythomax-l2-13b), and may have higher prices and slightly different outputs.",
-      "pricing": {
-        "prompt": "0.00000018",
-        "completion": "0.00000018",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 4096,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Llama2",
-        "instruct_type": "alpaca"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "215894960",
-        "completion_tokens": "215894960"
+        "prompt_tokens": "7760938",
+        "completion_tokens": "7760938"
       }
     },
     {
@@ -343,8 +368,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "34543193",
-        "completion_tokens": "34543193"
+        "prompt_tokens": "34493059",
+        "completion_tokens": "34493059"
       }
     },
     {
@@ -368,8 +393,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "10362958",
-        "completion_tokens": "10362958"
+        "prompt_tokens": "10347917",
+        "completion_tokens": "10347917"
       }
     },
     {
@@ -393,8 +418,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4145183",
-        "completion_tokens": "4145183"
+        "prompt_tokens": "4139167",
+        "completion_tokens": "4139167"
       }
     },
     {
@@ -402,7 +427,7 @@
       "name": "Noromaid 20B",
       "description": "A collab between IkariDev and Undi. This merge is suitable for RP, ERP, and general knowledge.\n\n#merge #uncensored",
       "pricing": {
-        "prompt": "0.00000225",
+        "prompt": "0.0000015",
         "completion": "0.00000225",
         "image": "0",
         "request": "0"
@@ -418,8 +443,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "17271596",
-        "completion_tokens": "17271596"
+        "prompt_tokens": "25869794",
+        "completion_tokens": "17246529"
       }
     },
     {
@@ -443,8 +468,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "103629581",
-        "completion_tokens": "103629581"
+        "prompt_tokens": "103479179",
+        "completion_tokens": "103479179"
       }
     },
     {
@@ -468,8 +493,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4317899",
-        "completion_tokens": "4317899"
+        "prompt_tokens": "4311632",
+        "completion_tokens": "4311632"
       }
     },
     {
@@ -477,8 +502,8 @@
       "name": "Fimbulvetr 11B v2",
       "description": "Creative writing model, routed with permission. It's fast, it keeps the conversation going, and it stays in character.\n\nIf you submit a raw prompt, you can use Alpaca or Vicuna formats.",
       "pricing": {
-        "prompt": "0.0000005499375",
-        "completion": "0.000002825625",
+        "prompt": "0.000000375",
+        "completion": "0.0000015",
         "image": "0",
         "request": "0"
       },
@@ -493,8 +518,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "70664562",
-        "completion_tokens": "13753096"
+        "prompt_tokens": "103479179",
+        "completion_tokens": "25869794"
       }
     },
     {
@@ -502,8 +527,8 @@
       "name": "Llama 3 Lumimaid 8B",
       "description": "The NeverSleep team is back, with a Llama 3 8B finetune trained on their curated roleplay data. Striking a balance between eRP and RP, Lumimaid was designed to be serious, yet uncensored when necessary.\n\nTo enhance it's overall intelligence and chat capability, roughly 40% of the training data was not roleplay. This provides a breadth of knowledge to access, while still keeping roleplay as the primary strength.\n\nUsage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
       "pricing": {
-        "prompt": "0.000000225",
-        "completion": "0.00000225",
+        "prompt": "0.000000200625",
+        "completion": "0.000001125",
         "image": "0",
         "request": "0"
       },
@@ -518,8 +543,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "172715968",
-        "completion_tokens": "17271596"
+        "prompt_tokens": "193419027",
+        "completion_tokens": "34493059"
+      }
+    },
+    {
+      "id": "neversleep/llama-3-lumimaid-70b",
+      "name": "Llama 3 Lumimaid 70B",
+      "description": "The NeverSleep team is back, with a Llama 3 70B finetune trained on their curated roleplay data. Striking a balance between eRP and RP, Lumimaid was designed to be serious, yet uncensored when necessary.\n\nTo enhance it's overall intelligence and chat capability, roughly 40% of the training data was not roleplay. This provides a breadth of knowledge to access, while still keeping roleplay as the primary strength.\n\nUsage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
+      "pricing": {
+        "prompt": "0.000003375",
+        "completion": "0.0000045",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 8192,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama3",
+        "instruct_type": "llama3"
+      },
+      "top_provider": {
+        "max_completion_tokens": 2048,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "11497686",
+        "completion_tokens": "8623264"
       }
     },
     {
@@ -543,8 +593,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "34543193",
-        "completion_tokens": "34543193"
+        "prompt_tokens": "34493059",
+        "completion_tokens": "34493059"
       }
     },
     {
@@ -568,8 +618,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "34543193",
-        "completion_tokens": "34543193"
+        "prompt_tokens": "34493059",
+        "completion_tokens": "34493059"
       }
     },
     {
@@ -577,8 +627,8 @@
       "name": "Meta: Llama 3 8B Instruct (extended)",
       "description": "Meta's latest class of model (Llama 3) launched with a variety of sizes & flavors. This 8B instruct-tuned version was optimized for high quality dialogue usecases.\n\nIt has demonstrated strong performance compared to leading closed-source models in human evaluations.\n\nTo read more about the model release, [click here](https://ai.meta.com/blog/meta-llama-3/). Usage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).\n\nNote: this is an extended-context version of [this model](/models/meta-llama/llama-3-8b-instruct). It may have higher prices and different outputs.",
       "pricing": {
-        "prompt": "0.000000225",
-        "completion": "0.00000225",
+        "prompt": "0.000000200625",
+        "completion": "0.000001125",
         "image": "0",
         "request": "0"
       },
@@ -593,8 +643,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "172715968",
-        "completion_tokens": "17271596"
+        "prompt_tokens": "193419027",
+        "completion_tokens": "34493059"
       }
     },
     {
@@ -602,8 +652,8 @@
       "name": "Llama 3 Lumimaid 8B (extended)",
       "description": "The NeverSleep team is back, with a Llama 3 8B finetune trained on their curated roleplay data. Striking a balance between eRP and RP, Lumimaid was designed to be serious, yet uncensored when necessary.\n\nTo enhance it's overall intelligence and chat capability, roughly 40% of the training data was not roleplay. This provides a breadth of knowledge to access, while still keeping roleplay as the primary strength.\n\nUsage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).\n\nNote: this is an extended-context version of [this model](/models/neversleep/llama-3-lumimaid-8b). It may have higher prices and different outputs.",
       "pricing": {
-        "prompt": "0.000000225",
-        "completion": "0.00000225",
+        "prompt": "0.000000200625",
+        "completion": "0.000001125",
         "image": "0",
         "request": "0"
       },
@@ -618,8 +668,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "172715968",
-        "completion_tokens": "17271596"
+        "prompt_tokens": "193419027",
+        "completion_tokens": "34493059"
       }
     },
     {
@@ -627,8 +677,8 @@
       "name": "Mancer: Weaver (alpha)",
       "description": "An attempt to recreate Claude-style verbosity, but don't expect the same level of coherence or memory. Meant for use in roleplay/narrative situations.",
       "pricing": {
-        "prompt": "0.000003375",
-        "completion": "0.000003375",
+        "prompt": "0.000001875",
+        "completion": "0.00000225",
         "image": "0",
         "request": "0"
       },
@@ -643,14 +693,14 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "11514397",
-        "completion_tokens": "11514397"
+        "prompt_tokens": "20695835",
+        "completion_tokens": "17246529"
       }
     },
     {
       "id": "nousresearch/nous-capybara-7b",
       "name": "Nous: Capybara 7B",
-      "description": "The Capybara series is a collection of datasets and models made by fine-tuning on data created by Nous, mostly in-house.\n\nV1.9 uses unalignment techniques for more consistent and dynamic control. It also leverages a significantly better foundation model, [Mistral 7B](/models/mistralai/mistral-7b-instruct).",
+      "description": "The Capybara series is a collection of datasets and models made by fine-tuning on data created by Nous, mostly in-house.\n\nV1.9 uses unalignment techniques for more consistent and dynamic control. It also leverages a significantly better foundation model, [Mistral 7B](/models/mistralai/mistral-7b-instruct-v0.1).",
       "pricing": {
         "prompt": "0.00000018",
         "completion": "0.00000018",
@@ -668,8 +718,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "215894960",
-        "completion_tokens": "215894960"
+        "prompt_tokens": "215581624",
+        "completion_tokens": "215581624"
       }
     },
     {
@@ -693,8 +743,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "53973740",
-        "completion_tokens": "53973740"
+        "prompt_tokens": "53895406",
+        "completion_tokens": "53895406"
       }
     },
     {
@@ -718,8 +768,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "47976657",
-        "completion_tokens": "47976657"
+        "prompt_tokens": "47907027",
+        "completion_tokens": "47907027"
       }
     },
     {
@@ -743,8 +793,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "53973740",
-        "completion_tokens": "53973740"
+        "prompt_tokens": "53895406",
+        "completion_tokens": "53895406"
       }
     },
     {
@@ -768,8 +818,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "215894960",
-        "completion_tokens": "215894960"
+        "prompt_tokens": "215581624",
+        "completion_tokens": "215581624"
       }
     },
     {
@@ -793,8 +843,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "215894960",
-        "completion_tokens": "215894960"
+        "prompt_tokens": "215581624",
+        "completion_tokens": "215581624"
       }
     },
     {
@@ -818,8 +868,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "143929973",
-        "completion_tokens": "143929973"
+        "prompt_tokens": "143721082",
+        "completion_tokens": "143721082"
       }
     },
     {
@@ -843,8 +893,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "215894960",
-        "completion_tokens": "215894960"
+        "prompt_tokens": "215581624",
+        "completion_tokens": "215581624"
       }
     },
     {
@@ -868,8 +918,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "53973740",
-        "completion_tokens": "53973740"
+        "prompt_tokens": "53895406",
+        "completion_tokens": "53895406"
       }
     },
     {
@@ -893,8 +943,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "53973740",
-        "completion_tokens": "53973740"
+        "prompt_tokens": "53895406",
+        "completion_tokens": "53895406"
       }
     },
     {
@@ -918,8 +968,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "308421372",
-        "completion_tokens": "308421372"
+        "prompt_tokens": "307973749",
+        "completion_tokens": "307973749"
       }
     },
     {
@@ -943,8 +993,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "215894960",
-        "completion_tokens": "215894960"
+        "prompt_tokens": "215581624",
+        "completion_tokens": "215581624"
       }
     },
     {
@@ -968,8 +1018,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "215894960",
-        "completion_tokens": "215894960"
+        "prompt_tokens": "215581624",
+        "completion_tokens": "215581624"
       }
     },
     {
@@ -993,8 +1043,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "71964986",
-        "completion_tokens": "71964986"
+        "prompt_tokens": "71860541",
+        "completion_tokens": "71860541"
       }
     },
     {
@@ -1018,8 +1068,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "53973740",
-        "completion_tokens": "53973740"
+        "prompt_tokens": "53895406",
+        "completion_tokens": "53895406"
       }
     },
     {
@@ -1043,8 +1093,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "71964986",
-        "completion_tokens": "71964986"
+        "prompt_tokens": "71860541",
+        "completion_tokens": "71860541"
       }
     },
     {
@@ -1068,13 +1118,13 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "215894960",
-        "completion_tokens": "215894960"
+        "prompt_tokens": "215581624",
+        "completion_tokens": "215581624"
       }
     },
     {
       "id": "meta-llama/llama-3-8b",
-      "name": "Meta: Llama 3 8B",
+      "name": "Meta: Llama 3 8B (Base)",
       "description": "Meta's latest class of model (Llama 3) launched with a variety of sizes & flavors. This is the base 8B pre-trained version.\n\nIt has demonstrated strong performance compared to leading closed-source models in human evaluations.\n\nTo read more about the model release, [click here](https://ai.meta.com/blog/meta-llama-3/). Usage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
       "pricing": {
         "prompt": "0.00000018",
@@ -1093,13 +1143,13 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "215894960",
-        "completion_tokens": "215894960"
+        "prompt_tokens": "215581624",
+        "completion_tokens": "215581624"
       }
     },
     {
       "id": "meta-llama/llama-3-70b",
-      "name": "Meta: Llama 3 70B",
+      "name": "Meta: Llama 3 70B (Base)",
       "description": "Meta's latest class of model (Llama 3) launched with a variety of sizes & flavors. This is the base 70B pre-trained version.\n\nIt has demonstrated strong performance compared to leading closed-source models in human evaluations.\n\nTo read more about the model release, [click here](https://ai.meta.com/blog/meta-llama-3/). Usage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
       "pricing": {
         "prompt": "0.00000081",
@@ -1118,33 +1168,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "47976657",
-        "completion_tokens": "47976657"
+        "prompt_tokens": "47907027",
+        "completion_tokens": "47907027"
       }
     },
     {
-      "id": "meta-llama/llama-guard-2-8b",
-      "name": "Meta: LlamaGuard 2 8B",
-      "description": "This safeguard model has 8B parameters and is based on the Llama 3 family. Just like is predecessor, [LlamaGuard 1](https://huggingface.co/meta-llama/LlamaGuard-7b), it can do both prompt and response classification.\n\nLlamaGuard 2 acts as a normal LLM would, generating text that indicates whether the given input/output is safe/unsafe. If deemed unsafe, it will also share the content categories violated.\n\nFor best results, please use raw prompt input or the `/completions` endpoint, instead of the chat API.\n\nIt has demonstrated strong performance compared to leading closed-source models in human evaluations.\n\nTo read more about the model release, [click here](https://ai.meta.com/blog/meta-llama-3/). Usage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
+      "id": "databricks/dbrx-instruct",
+      "name": "Databricks: DBRX 132B Instruct",
+      "description": "DBRX is a new open source large language model developed by Databricks. At 132B, it outperforms existing open source LLMs like Llama 2 70B and [Mixtral-8x7b](/models/mistralai/mixtral-8x7b) on standard industry benchmarks for language understanding, programming, math, and logic.\n\nIt uses a fine-grained mixture-of-experts (MoE) architecture. 36B parameters are active on any input. It was pre-trained on 12T tokens of text and code data. Compared to other open MoE models like Mixtral-8x7B and Grok-1, DBRX is fine-grained, meaning it uses a larger number of smaller experts.\n\nSee the launch announcement and benchmark results [here](https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm).\n\n#moe",
       "pricing": {
-        "prompt": "0.00000018",
-        "completion": "0.00000018",
+        "prompt": "0.00000108",
+        "completion": "0.00000108",
         "image": "0",
         "request": "0"
       },
-      "context_length": 8192,
+      "context_length": 32768,
       "architecture": {
         "modality": "text",
-        "tokenizer": "Llama3",
-        "instruct_type": "none"
+        "tokenizer": "Other",
+        "instruct_type": "chatml"
       },
       "top_provider": {
         "max_completion_tokens": null,
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "215894960",
-        "completion_tokens": "215894960"
+        "prompt_tokens": "35930270",
+        "completion_tokens": "35930270"
       }
     },
     {
@@ -1168,8 +1218,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "215894960",
-        "completion_tokens": "215894960"
+        "prompt_tokens": "215581624",
+        "completion_tokens": "215581624"
       }
     },
     {
@@ -1193,8 +1243,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "17991246",
-        "completion_tokens": "17991246"
+        "prompt_tokens": "17965135",
+        "completion_tokens": "17965135"
       }
     },
     {
@@ -1218,33 +1268,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "23988328",
-        "completion_tokens": "23988328"
-      }
-    },
-    {
-      "id": "qwen/qwen-32b-chat",
-      "name": "Qwen 1.5 32B Chat",
-      "description": "Qwen1.5 32B is the beta version of Qwen2, a transformer-based decoder-only language model pretrained on a large amount of data. In comparison with the previous released Qwen, the improvements include:\n\n- Significant performance improvement in human preference for chat models\n- Multilingual support of both base and chat models\n- Stable support of 32K context length for models of all sizes\n\nFor more details, see this [blog post](https://qwenlm.github.io/blog/qwen1.5/) and [GitHub repo](https://github.com/QwenLM/Qwen1.5).\n\nUsage of this model is subject to [Tongyi Qianwen LICENSE AGREEMENT](https://huggingface.co/Qwen/Qwen1.5-110B-Chat/blob/main/LICENSE).",
-      "pricing": {
-        "prompt": "0.00000072",
-        "completion": "0.00000072",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 32768,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Qwen",
-        "instruct_type": "chatml"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "53973740",
-        "completion_tokens": "53973740"
+        "prompt_tokens": "23953513",
+        "completion_tokens": "23953513"
       }
     },
     {
@@ -1268,8 +1293,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "143929973",
-        "completion_tokens": "143929973"
+        "prompt_tokens": "143721082",
+        "completion_tokens": "143721082"
       }
     },
     {
@@ -1293,8 +1318,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "215894960",
-        "completion_tokens": "215894960"
+        "prompt_tokens": "215581624",
+        "completion_tokens": "215581624"
       }
     },
     {
@@ -1318,8 +1343,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "431789921",
-        "completion_tokens": "431789921"
+        "prompt_tokens": "431163248",
+        "completion_tokens": "431163248"
       }
     },
     {
@@ -1343,8 +1368,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "71964986",
-        "completion_tokens": "71964986"
+        "prompt_tokens": "71860541",
+        "completion_tokens": "71860541"
       }
     },
     {
@@ -1368,8 +1393,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "77722185",
-        "completion_tokens": "25907395"
+        "prompt_tokens": "77609384",
+        "completion_tokens": "25869794"
       }
     },
     {
@@ -1393,8 +1418,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "77722185",
-        "completion_tokens": "25907395"
+        "prompt_tokens": "77609384",
+        "completion_tokens": "25869794"
       }
     },
     {
@@ -1418,8 +1443,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "38861092",
-        "completion_tokens": "19430546"
+        "prompt_tokens": "38804692",
+        "completion_tokens": "19402346"
       }
     },
     {
@@ -1443,8 +1468,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "38861092",
-        "completion_tokens": "19430546"
+        "prompt_tokens": "38804692",
+        "completion_tokens": "19402346"
       }
     },
     {
@@ -1468,8 +1493,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "38861092",
-        "completion_tokens": "19430546"
+        "prompt_tokens": "38804692",
+        "completion_tokens": "19402346"
       }
     },
     {
@@ -1493,8 +1518,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "12953697",
-        "completion_tokens": "9715273"
+        "prompt_tokens": "12934897",
+        "completion_tokens": "9701173"
       }
     },
     {
@@ -1518,8 +1543,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "7772218",
-        "completion_tokens": "2590739"
+        "prompt_tokens": "7760938",
+        "completion_tokens": "2586979"
       }
     },
     {
@@ -1543,8 +1568,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "7772218",
-        "completion_tokens": "2590739"
+        "prompt_tokens": "7760938",
+        "completion_tokens": "2586979"
       }
     },
     {
@@ -1568,8 +1593,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3886109",
-        "completion_tokens": "1295369"
+        "prompt_tokens": "3880469",
+        "completion_tokens": "1293489"
       }
     },
     {
@@ -1593,8 +1618,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3886109",
-        "completion_tokens": "1295369"
+        "prompt_tokens": "3880469",
+        "completion_tokens": "1293489"
       }
     },
     {
@@ -1618,8 +1643,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3886109",
-        "completion_tokens": "1295369"
+        "prompt_tokens": "3880469",
+        "completion_tokens": "1293489"
       }
     },
     {
@@ -1643,8 +1668,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "1295369",
-        "completion_tokens": "647684"
+        "prompt_tokens": "1293489",
+        "completion_tokens": "646744"
       }
     },
     {
@@ -1668,8 +1693,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "1295369",
-        "completion_tokens": "647684"
+        "prompt_tokens": "1293489",
+        "completion_tokens": "646744"
       }
     },
     {
@@ -1693,8 +1718,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "647684",
-        "completion_tokens": "323842"
+        "prompt_tokens": "646744",
+        "completion_tokens": "323372"
       }
     },
     {
@@ -1718,8 +1743,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "647684",
-        "completion_tokens": "323842"
+        "prompt_tokens": "646744",
+        "completion_tokens": "323372"
       }
     },
     {
@@ -1743,8 +1768,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "3886109",
-        "completion_tokens": "1295369"
+        "prompt_tokens": "3880469",
+        "completion_tokens": "1293489"
       }
     },
     {
@@ -1768,8 +1793,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "25907395",
-        "completion_tokens": "19430546"
+        "prompt_tokens": "25869794",
+        "completion_tokens": "19402346"
       }
     },
     {
@@ -1793,8 +1818,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155444371",
-        "completion_tokens": "77722185"
+        "prompt_tokens": "155218769",
+        "completion_tokens": "77609384"
       }
     },
     {
@@ -1818,8 +1843,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155444371",
-        "completion_tokens": "77722185"
+        "prompt_tokens": "155218769",
+        "completion_tokens": "77609384"
       }
     },
     {
@@ -1843,8 +1868,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155444371",
-        "completion_tokens": "77722185"
+        "prompt_tokens": "155218769",
+        "completion_tokens": "77609384"
       }
     },
     {
@@ -1868,8 +1893,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155444371",
-        "completion_tokens": "77722185"
+        "prompt_tokens": "155218769",
+        "completion_tokens": "77609384"
       }
     },
     {
@@ -1893,8 +1918,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "310888743",
-        "completion_tokens": "103629581"
+        "prompt_tokens": "310437539",
+        "completion_tokens": "103479179"
       }
     },
     {
@@ -1918,8 +1943,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "310888743",
-        "completion_tokens": "103629581"
+        "prompt_tokens": "310437539",
+        "completion_tokens": "103479179"
       }
     },
     {
@@ -1943,8 +1968,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "15544437",
-        "completion_tokens": "5181479"
+        "prompt_tokens": "15521876",
+        "completion_tokens": "5173958"
       }
     },
     {
@@ -1968,8 +1993,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155444371",
-        "completion_tokens": "51814790"
+        "prompt_tokens": "155218769",
+        "completion_tokens": "51739589"
       }
     },
     {
@@ -1993,8 +2018,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194305464",
-        "completion_tokens": "194305464"
+        "prompt_tokens": "194023462",
+        "completion_tokens": "194023462"
       }
     },
     {
@@ -2018,8 +2043,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194305464",
-        "completion_tokens": "194305464"
+        "prompt_tokens": "194023462",
+        "completion_tokens": "194023462"
       }
     },
     {
@@ -2043,8 +2068,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "38861092",
-        "completion_tokens": "38861092"
+        "prompt_tokens": "38804692",
+        "completion_tokens": "38804692"
       }
     },
     {
@@ -2068,14 +2093,14 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "38861092",
-        "completion_tokens": "38861092"
+        "prompt_tokens": "38804692",
+        "completion_tokens": "38804692"
       }
     },
     {
       "id": "fireworks/firellava-13b",
       "name": "FireLLaVA 13B",
-      "description": "A blazing fast vision-language model, FireLLaVA quickly understands both text and images. It achieves impressive chat skills in tests, and was designed to mimic multimodal GPT-4. \n\nThe first commercially permissive open source LLaVA model, trained entirely on open source LLM generated instruction following data.",
+      "description": "A blazing fast vision-language model, FireLLaVA quickly understands both text and images. It achieves impressive chat skills in tests, and was designed to mimic multimodal GPT-4.\n\nThe first commercially permissive open source LLaVA model, trained entirely on open source LLM generated instruction following data.",
       "pricing": {
         "prompt": "0.0000002",
         "completion": "0.0000002",
@@ -2093,8 +2118,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194305464",
-        "completion_tokens": "194305464"
+        "prompt_tokens": "194023462",
+        "completion_tokens": "194023462"
       }
     },
     {
@@ -2118,8 +2143,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "2590739",
-        "completion_tokens": "518147"
+        "prompt_tokens": "2586979",
+        "completion_tokens": "517395"
       }
     },
     {
@@ -2143,8 +2168,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "12953697",
-        "completion_tokens": "2590739"
+        "prompt_tokens": "12934897",
+        "completion_tokens": "2586979"
       }
     },
     {
@@ -2168,8 +2193,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "155444371",
-        "completion_tokens": "31088874"
+        "prompt_tokens": "155218769",
+        "completion_tokens": "31043753"
       }
     },
     {
@@ -2193,8 +2218,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4857636",
-        "completion_tokens": "1619212"
+        "prompt_tokens": "4850586",
+        "completion_tokens": "1616862"
       }
     },
     {
@@ -2218,8 +2243,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4857636",
-        "completion_tokens": "1619212"
+        "prompt_tokens": "4850586",
+        "completion_tokens": "1616862"
       }
     },
     {
@@ -2243,8 +2268,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4857636",
-        "completion_tokens": "1619212"
+        "prompt_tokens": "4850586",
+        "completion_tokens": "1616862"
       }
     },
     {
@@ -2268,8 +2293,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48576366",
-        "completion_tokens": "16192122"
+        "prompt_tokens": "48505865",
+        "completion_tokens": "16168621"
       }
     },
     {
@@ -2293,8 +2318,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "2590739",
-        "completion_tokens": "518147"
+        "prompt_tokens": "2586979",
+        "completion_tokens": "517395"
       }
     },
     {
@@ -2318,8 +2343,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "12953697",
-        "completion_tokens": "2590739"
+        "prompt_tokens": "12934897",
+        "completion_tokens": "2586979"
       }
     },
     {
@@ -2343,8 +2368,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155444371",
-        "completion_tokens": "31088874"
+        "prompt_tokens": "155218769",
+        "completion_tokens": "31043753"
       }
     },
     {
@@ -2368,8 +2393,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4857636",
-        "completion_tokens": "1619212"
+        "prompt_tokens": "4850586",
+        "completion_tokens": "1616862"
       }
     },
     {
@@ -2393,8 +2418,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4857636",
-        "completion_tokens": "1619212"
+        "prompt_tokens": "4850586",
+        "completion_tokens": "1616862"
       }
     },
     {
@@ -2418,8 +2443,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4857636",
-        "completion_tokens": "1619212"
+        "prompt_tokens": "4850586",
+        "completion_tokens": "1616862"
       }
     },
     {
@@ -2443,8 +2468,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "48576366",
-        "completion_tokens": "16192122"
+        "prompt_tokens": "48505865",
+        "completion_tokens": "16168621"
       }
     },
     {
@@ -2468,8 +2493,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "298931483",
-        "completion_tokens": "298931483"
+        "prompt_tokens": "298497633",
+        "completion_tokens": "298497633"
       }
     },
     {
@@ -2493,8 +2518,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "60720457",
-        "completion_tokens": "48576366"
+        "prompt_tokens": "60632331",
+        "completion_tokens": "48505865"
       }
     },
     {
@@ -2502,8 +2527,8 @@
       "name": "Nous: Hermes 13B",
       "description": "A state-of-the-art language model fine-tuned on over 300k instructions by Nous Research, with Teknium and Emozilla leading the fine tuning process.",
       "pricing": {
-        "prompt": "0.00000026",
-        "completion": "0.00000026",
+        "prompt": "0.00000018",
+        "completion": "0.00000018",
         "image": "0",
         "request": "0"
       },
@@ -2518,8 +2543,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "149465741",
-        "completion_tokens": "149465741"
+        "prompt_tokens": "215581624",
+        "completion_tokens": "215581624"
       }
     },
     {
@@ -2543,8 +2568,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43178992",
-        "completion_tokens": "43178992"
+        "prompt_tokens": "43116324",
+        "completion_tokens": "43116324"
       }
     },
     {
@@ -2568,8 +2593,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "55515847",
-        "completion_tokens": "43178992"
+        "prompt_tokens": "55435274",
+        "completion_tokens": "43116324"
       }
     },
     {
@@ -2615,33 +2640,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "298931483",
-        "completion_tokens": "298931483"
-      }
-    },
-    {
-      "id": "mistralai/mistral-7b-instruct",
-      "name": "Mistral 7B Instruct",
-      "description": "A 7.3B parameter model that outperforms Llama 2 13B on all benchmarks, with optimizations for speed and context length.\n\nThis is v0.1 of Mistral 7B Instruct. For v0.2, use [this model](/models/mistralai/mistral-7b-instruct:nitro).",
-      "pricing": {
-        "prompt": "0.00000007",
-        "completion": "0.00000007",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 32768,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Mistral",
-        "instruct_type": "mistral"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "555158470",
-        "completion_tokens": "555158470"
+        "prompt_tokens": "298497633",
+        "completion_tokens": "298497633"
       }
     },
     {
@@ -2665,8 +2665,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "228594664",
-        "completion_tokens": "228594664"
+        "prompt_tokens": "228262896",
+        "completion_tokens": "228262896"
       }
     },
     {
@@ -2690,19 +2690,19 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "298931483",
-        "completion_tokens": "298931483"
+        "prompt_tokens": "298497633",
+        "completion_tokens": "298497633"
       }
     },
     {
       "id": "huggingfaceh4/zephyr-7b-beta",
       "name": "Hugging Face: Zephyr 7B",
-      "description": "Zephyr is a series of language models that are trained to act as helpful assistants. Zephyr-7B-β is the second model in the series, and is a fine-tuned version of [mistralai/Mistral-7B-v0.1](/models/mistralai/mistral-7b-instruct) that was trained on a mix of publicly available, synthetic datasets using Direct Preference Optimization (DPO).",
+      "description": "Zephyr is a series of language models that are trained to act as helpful assistants. Zephyr-7B-β is the second model in the series, and is a fine-tuned version of [mistralai/Mistral-7B-v0.1](/models/mistralai/mistral-7b-instruct-v0.1) that was trained on a mix of publicly available, synthetic datasets using Direct Preference Optimization (DPO).",
       "pricing": {
-        "prompt": "0.0000002",
-        "completion": "0.0000002",
-        "image": "0",
-        "request": "0"
+        "prompt": "-1",
+        "completion": "-1",
+        "request": "-1",
+        "image": "-1"
       },
       "context_length": 4096,
       "architecture": {
@@ -2714,10 +2714,7 @@
         "max_completion_tokens": null,
         "is_moderated": false
       },
-      "per_request_limits": {
-        "prompt_tokens": "194305464",
-        "completion_tokens": "194305464"
-      }
+      "per_request_limits": null
     },
     {
       "id": "openchat/openchat-7b",
@@ -2740,8 +2737,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "555158470",
-        "completion_tokens": "555158470"
+        "prompt_tokens": "554352748",
+        "completion_tokens": "554352748"
       }
     },
     {
@@ -2765,8 +2762,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "555158470",
-        "completion_tokens": "555158470"
+        "prompt_tokens": "554352748",
+        "completion_tokens": "554352748"
       }
     },
     {
@@ -2790,8 +2787,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "65866259",
-        "completion_tokens": "49191256"
+        "prompt_tokens": "65770665",
+        "completion_tokens": "49119863"
       }
     },
     {
@@ -2837,8 +2834,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "161921220",
-        "completion_tokens": "161921220"
+        "prompt_tokens": "161686218",
+        "completion_tokens": "161686218"
       }
     },
     {
@@ -2862,8 +2859,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4857636",
-        "completion_tokens": "4857636"
+        "prompt_tokens": "4850586",
+        "completion_tokens": "4850586"
       }
     },
     {
@@ -2887,8 +2884,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "143929973",
-        "completion_tokens": "143929973"
+        "prompt_tokens": "143721082",
+        "completion_tokens": "143721082"
       }
     },
     {
@@ -2987,8 +2984,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "555158470",
-        "completion_tokens": "555158470"
+        "prompt_tokens": "554352748",
+        "completion_tokens": "554352748"
       }
     },
     {
@@ -3012,8 +3009,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "555158470",
-        "completion_tokens": "555158470"
+        "prompt_tokens": "554352748",
+        "completion_tokens": "554352748"
       }
     },
     {
@@ -3037,8 +3034,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "65866259",
-        "completion_tokens": "49191256"
+        "prompt_tokens": "65770665",
+        "completion_tokens": "49119863"
+      }
+    },
+    {
+      "id": "meta-llama/llama-guard-2-8b",
+      "name": "Meta: LlamaGuard 2 8B",
+      "description": "This safeguard model has 8B parameters and is based on the Llama 3 family. Just like is predecessor, [LlamaGuard 1](https://huggingface.co/meta-llama/LlamaGuard-7b), it can do both prompt and response classification.\n\nLlamaGuard 2 acts as a normal LLM would, generating text that indicates whether the given input/output is safe/unsafe. If deemed unsafe, it will also share the content categories violated.\n\nFor best results, please use raw prompt input or the `/completions` endpoint, instead of the chat API.\n\nIt has demonstrated strong performance compared to leading closed-source models in human evaluations.\n\nTo read more about the model release, [click here](https://ai.meta.com/blog/meta-llama-3/). Usage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
+      "pricing": {
+        "prompt": "0.0000002",
+        "completion": "0.0000002",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 8192,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama3",
+        "instruct_type": "none"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "194023462",
+        "completion_tokens": "194023462"
       }
     },
     {
@@ -3062,8 +3084,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "59786296",
-        "completion_tokens": "59786296"
+        "prompt_tokens": "59699526",
+        "completion_tokens": "59699526"
       }
     },
     {
@@ -3087,8 +3109,58 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "555158470",
-        "completion_tokens": "555158470"
+        "prompt_tokens": "554352748",
+        "completion_tokens": "554352748"
+      }
+    },
+    {
+      "id": "microsoft/phi-3-mini-128k-instruct",
+      "name": "Phi-3 Mini Instruct",
+      "description": "Phi-3 Mini is a powerful 3.8B parameter model designed for advanced language understanding, reasoning, and instruction following. Optimized through supervised fine-tuning and preference adjustments, it excels in tasks involving common sense, mathematics, logical reasoning, and code processing.\n\nAt time of release, Phi-3 Medium demonstrated state-of-the-art performance among lightweight models. This model is static, trained on an offline dataset with an October 2023 cutoff date.",
+      "pricing": {
+        "prompt": "0.0000001",
+        "completion": "0.0000001",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 128000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Other",
+        "instruct_type": "phi3"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "388046924",
+        "completion_tokens": "388046924"
+      }
+    },
+    {
+      "id": "microsoft/phi-3-medium-128k-instruct",
+      "name": "Phi-3 Medium Instruct",
+      "description": "Phi-3 Medium is a powerful 14-billion parameter model designed for advanced language understanding, reasoning, and instruction following. Optimized through supervised fine-tuning and preference adjustments, it excels in tasks involving common sense, mathematics, logical reasoning, and code processing.\n\nAt time of release, Phi-3 Medium demonstrated state-of-the-art performance among lightweight models. In the MMLU-Pro eval, the model even comes close to a Llama3 70B level of performance.",
+      "pricing": {
+        "prompt": "0.000001",
+        "completion": "0.000001",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 128000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Other",
+        "instruct_type": "phi3"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "38804692",
+        "completion_tokens": "38804692"
       }
     },
     {
@@ -3112,8 +3184,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43178992",
-        "completion_tokens": "43178992"
+        "prompt_tokens": "43116324",
+        "completion_tokens": "43116324"
       }
     },
     {
@@ -3137,8 +3209,108 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "59786296",
-        "completion_tokens": "59786296"
+        "prompt_tokens": "59699526",
+        "completion_tokens": "59699526"
+      }
+    },
+    {
+      "id": "mistralai/mistral-7b-instruct-v0.1",
+      "name": "Mistral: Mistral 7B Instruct v0.1",
+      "description": "A 7.3B parameter model that outperforms Llama 2 13B on all benchmarks, with optimizations for speed and context length.",
+      "pricing": {
+        "prompt": "0.0000002",
+        "completion": "0.0000002",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 8000,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "mistral"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "194023462",
+        "completion_tokens": "194023462"
+      }
+    },
+    {
+      "id": "mistralai/mistral-7b-instruct-v0.2",
+      "name": "Mistral: Mistral 7B Instruct v0.2",
+      "description": "A high-performing, industry-standard 7.3B parameter model, with optimizations for speed and context length.\n\nAn improved version of [Mistral 7B Instruct](/modelsmistralai/mistral-7b-instruct-v0.1), with the following changes:\n\n- 32k context window (vs 8k context in v0.1)\n- Rope-theta = 1e6\n- No Sliding-Window Attention",
+      "pricing": {
+        "prompt": "0.00000007",
+        "completion": "0.00000007",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 32768,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "mistral"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "554352748",
+        "completion_tokens": "554352748"
+      }
+    },
+    {
+      "id": "mistralai/mistral-7b-instruct",
+      "name": "Mistral: Mistral 7B Instruct",
+      "description": "A high-performing, industry-standard 7.3B parameter model, with optimizations for speed and context length.",
+      "pricing": {
+        "prompt": "0.00000007",
+        "completion": "0.00000007",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 32768,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "mistral"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "554352748",
+        "completion_tokens": "554352748"
+      }
+    },
+    {
+      "id": "mistralai/mistral-7b-instruct-v0.3",
+      "name": "Mistral: Mistral 7B Instruct v0.3",
+      "description": "A high-performing, industry-standard 7.3B parameter model, with optimizations for speed and context length.\n\nAn improved version of [Mistral 7B Instruct v0.2](/models/mistralai/mistral-7b-instruct-v0.2), with the following changes:\n\n- Extended vocabulary to 32768\n- Supports v3 Tokenizer\n- Supports function calling\n\nNOTE: Support for function calling depends on the provider.",
+      "pricing": {
+        "prompt": "0.00000007",
+        "completion": "0.00000007",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 32768,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Mistral",
+        "instruct_type": "mistral"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "554352748",
+        "completion_tokens": "554352748"
       }
     },
     {
@@ -3162,8 +3334,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "777221858",
-        "completion_tokens": "777221858"
+        "prompt_tokens": "776093848",
+        "completion_tokens": "776093848"
       }
     },
     {
@@ -3187,58 +3359,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "77722185",
-        "completion_tokens": "77722185"
-      }
-    },
-    {
-      "id": "databricks/dbrx-instruct",
-      "name": "Databricks: DBRX 132B Instruct",
-      "description": "DBRX is a new open source large language model developed by Databricks. At 132B, it outperforms existing open source LLMs like Llama 2 70B and [Mixtral-8x7b](/models/mistralai/mixtral-8x7b) on standard industry benchmarks for language understanding, programming, math, and logic.\n\nIt uses a fine-grained mixture-of-experts (MoE) architecture. 36B parameters are active on any input. It was pre-trained on 12T tokens of text and code data. Compared to other open MoE models like Mixtral-8x7B and Grok-1, DBRX is fine-grained, meaning it uses a larger number of smaller experts.\n\nSee the launch announcement and benchmark results [here](https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm).\n\n#moe",
-      "pricing": {
-        "prompt": "0.0000006",
-        "completion": "0.0000006",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 32768,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Other",
-        "instruct_type": "chatml"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "64768488",
-        "completion_tokens": "64768488"
-      }
-    },
-    {
-      "id": "jetmoe/jetmoe-8b-chat",
-      "name": "JetMoE 8B",
-      "description": "Coming from a broad set of teams, ranging from academic to industry veterans, Jet MoE is a combined effort from MIT, Princeton, IBM, Lepton, and MyShell.\n\nThis model is fully open source and trained only on public datasets, making it well suited for uses in academia or public research.",
-      "pricing": {
-        "prompt": "0.0000001",
-        "completion": "0.0000001",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 4096,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Other",
-        "instruct_type": "zephyr"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "388610929",
-        "completion_tokens": "388610929"
+        "prompt_tokens": "77609384",
+        "completion_tokens": "77609384"
       }
     },
     {
@@ -3262,8 +3384,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43178992",
-        "completion_tokens": "43178992"
+        "prompt_tokens": "43116324",
+        "completion_tokens": "43116324"
+      }
+    },
+    {
+      "id": "nousresearch/hermes-2-pro-llama-3-8b",
+      "name": "NousResearch: Hermes 2 Pro - Llama-3 8B",
+      "description": "Hermes 2 Pro is an upgraded, retrained version of Nous Hermes 2, consisting of an updated and cleaned version of the OpenHermes 2.5 Dataset, as well as a newly introduced Function Calling and JSON Mode dataset developed in-house.",
+      "pricing": {
+        "prompt": "0.00000015",
+        "completion": "0.00000015",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 8192,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama3",
+        "instruct_type": "chatml"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "258697949",
+        "completion_tokens": "258697949"
       }
     },
     {
@@ -3287,8 +3434,33 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43178992",
-        "completion_tokens": "43178992"
+        "prompt_tokens": "43116324",
+        "completion_tokens": "43116324"
+      }
+    },
+    {
+      "id": "qwen/qwen-32b-chat",
+      "name": "Qwen 1.5 32B Chat",
+      "description": "Qwen1.5 32B is the beta version of Qwen2, a transformer-based decoder-only language model pretrained on a large amount of data. In comparison with the previous released Qwen, the improvements include:\n\n- Significant performance improvement in human preference for chat models\n- Multilingual support of both base and chat models\n- Stable support of 32K context length for models of all sizes\n\nFor more details, see this [blog post](https://qwenlm.github.io/blog/qwen1.5/) and [GitHub repo](https://github.com/QwenLM/Qwen1.5).\n\nUsage of this model is subject to [Tongyi Qianwen LICENSE AGREEMENT](https://huggingface.co/Qwen/Qwen1.5-110B-Chat/blob/main/LICENSE).",
+      "pricing": {
+        "prompt": "0.00000075",
+        "completion": "0.00000075",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 32768,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Qwen",
+        "instruct_type": "chatml"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "51739589",
+        "completion_tokens": "51739589"
       }
     },
     {
@@ -3312,8 +3484,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "277579235",
-        "completion_tokens": "138789617"
+        "prompt_tokens": "277176374",
+        "completion_tokens": "138588187"
       }
     },
     {
@@ -3337,8 +3509,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "277579235",
-        "completion_tokens": "138789617"
+        "prompt_tokens": "277176374",
+        "completion_tokens": "138588187"
       }
     },
     {
@@ -3362,8 +3534,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4857636",
-        "completion_tokens": "1619212"
+        "prompt_tokens": "4850586",
+        "completion_tokens": "1616862"
       }
     },
     {
@@ -3387,8 +3559,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "4857636",
-        "completion_tokens": "1619212"
+        "prompt_tokens": "4850586",
+        "completion_tokens": "1616862"
       }
     },
     {
@@ -3412,8 +3584,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48576366",
-        "completion_tokens": "16192122"
+        "prompt_tokens": "48505865",
+        "completion_tokens": "16168621"
       }
     },
     {
@@ -3437,33 +3609,8 @@
         "is_moderated": true
       },
       "per_request_limits": {
-        "prompt_tokens": "48576366",
-        "completion_tokens": "16192122"
-      }
-    },
-    {
-      "id": "huggingfaceh4/zephyr-7b-beta:free",
-      "name": "Hugging Face: Zephyr 7B (free)",
-      "description": "Zephyr is a series of language models that are trained to act as helpful assistants. Zephyr-7B-β is the second model in the series, and is a fine-tuned version of [mistralai/Mistral-7B-v0.1](/models/mistralai/mistral-7b-instruct) that was trained on a mix of publicly available, synthetic datasets using Direct Preference Optimization (DPO).\n\nNote: this is a free, rate-limited version of [this model](/models/huggingfaceh4/zephyr-7b-beta). Outputs may be cached. Read about rate limits [here](/docs#limits).",
-      "pricing": {
-        "prompt": "0",
-        "completion": "0",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 4096,
-      "architecture": {
-        "modality": "text",
-        "tokenizer": "Mistral",
-        "instruct_type": "zephyr"
-      },
-      "top_provider": {
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "per_request_limits": {
-        "prompt_tokens": "Infinity",
-        "completion_tokens": "Infinity"
+        "prompt_tokens": "48505865",
+        "completion_tokens": "16168621"
       }
     },
     {
@@ -3487,17 +3634,42 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43178992",
-        "completion_tokens": "43178992"
+        "prompt_tokens": "43116324",
+        "completion_tokens": "43116324"
+      }
+    },
+    {
+      "id": "gryphe/mythomax-l2-13b:nitro",
+      "name": "MythoMax 13B (nitro)",
+      "description": "One of the highest performing and most popular fine-tunes of Llama 2 13B, with rich descriptions and roleplay. #merge\n\nNote: this is a higher-throughput version of [this model](/models/gryphe/mythomax-l2-13b), and may have higher prices and slightly different outputs.",
+      "pricing": {
+        "prompt": "0.0000002",
+        "completion": "0.0000002",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 4096,
+      "architecture": {
+        "modality": "text",
+        "tokenizer": "Llama2",
+        "instruct_type": "alpaca"
+      },
+      "top_provider": {
+        "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "194023462",
+        "completion_tokens": "194023462"
       }
     },
     {
       "id": "mistralai/mistral-7b-instruct:nitro",
-      "name": "Mistral 7B Instruct (nitro)",
-      "description": "A 7.3B parameter model that outperforms Llama 2 13B on all benchmarks, with optimizations for speed and context length.\n\nThis is v0.2 of Mistral 7B Instruct. For v0.1, use [this model](/models/mistralai/mistral-7b-instruct).\n\nNote: this is a higher-throughput version of [this model](/models/mistralai/mistral-7b-instruct), and may have higher prices and slightly different outputs.",
+      "name": "Mistral: Mistral 7B Instruct (nitro)",
+      "description": "A high-performing, industry-standard 7.3B parameter model, with optimizations for speed and context length.\n\nNote: this is a higher-throughput version of [this model](/models/mistralai/mistral-7b-instruct), and may have higher prices and slightly different outputs.",
       "pricing": {
-        "prompt": "0.0000002",
-        "completion": "0.0000002",
+        "prompt": "0.00000007",
+        "completion": "0.00000007",
         "image": "0",
         "request": "0"
       },
@@ -3512,8 +3684,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194305464",
-        "completion_tokens": "194305464"
+        "prompt_tokens": "554352748",
+        "completion_tokens": "554352748"
       }
     },
     {
@@ -3537,8 +3709,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194305464",
-        "completion_tokens": "194305464"
+        "prompt_tokens": "194023462",
+        "completion_tokens": "194023462"
       }
     },
     {
@@ -3562,8 +3734,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "555158470",
-        "completion_tokens": "555158470"
+        "prompt_tokens": "554352748",
+        "completion_tokens": "554352748"
       }
     },
     {
@@ -3587,8 +3759,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "194305464",
-        "completion_tokens": "194305464"
+        "prompt_tokens": "194023462",
+        "completion_tokens": "194023462"
       }
     },
     {
@@ -3612,8 +3784,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "43178992",
-        "completion_tokens": "43178992"
+        "prompt_tokens": "43116324",
+        "completion_tokens": "43116324"
       }
     },
     {
@@ -3637,8 +3809,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "3886109",
-        "completion_tokens": "3886109"
+        "prompt_tokens": "3880469",
+        "completion_tokens": "3880469"
       }
     },
     {
@@ -3662,14 +3834,14 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "3886109",
-        "completion_tokens": "3886109"
+        "prompt_tokens": "3880469",
+        "completion_tokens": "3880469"
       }
     },
     {
       "id": "mistralai/mistral-tiny",
       "name": "Mistral Tiny",
-      "description": "This model is currently powered by Mistral-7B-v0.2, and incorporates a \"better\" fine-tuning than [Mistral 7B](/models/mistralai/mistral-7b-instruct), inspired by community work. It's best used for large batch processing tasks where cost is a significant factor but reasoning capabilities are not crucial.",
+      "description": "This model is currently powered by Mistral-7B-v0.2, and incorporates a \"better\" fine-tuning than [Mistral 7B](/models/mistralai/mistral-7b-instruct-v0.1), inspired by community work. It's best used for large batch processing tasks where cost is a significant factor but reasoning capabilities are not crucial.",
       "pricing": {
         "prompt": "0.00000025",
         "completion": "0.00000025",
@@ -3687,8 +3859,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "155444371",
-        "completion_tokens": "155444371"
+        "prompt_tokens": "155218769",
+        "completion_tokens": "155218769"
       }
     },
     {
@@ -3712,8 +3884,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "19430546",
-        "completion_tokens": "6476848"
+        "prompt_tokens": "19402346",
+        "completion_tokens": "6467448"
       }
     },
     {
@@ -3737,8 +3909,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "14392997",
-        "completion_tokens": "4797665"
+        "prompt_tokens": "14372108",
+        "completion_tokens": "4790702"
       }
     },
     {
@@ -3762,8 +3934,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "4857636",
-        "completion_tokens": "1619212"
+        "prompt_tokens": "4850586",
+        "completion_tokens": "1616862"
       }
     },
     {
@@ -3787,8 +3959,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "38861092",
-        "completion_tokens": "19430546"
+        "prompt_tokens": "38804692",
+        "completion_tokens": "19402346"
       }
     },
     {
@@ -3812,8 +3984,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "77722185",
-        "completion_tokens": "25907395"
+        "prompt_tokens": "77609384",
+        "completion_tokens": "25869794"
       }
     },
     {
@@ -3837,8 +4009,8 @@
         "is_moderated": false
       },
       "per_request_limits": {
-        "prompt_tokens": "12953697",
-        "completion_tokens": "2590739"
+        "prompt_tokens": "12934897",
+        "completion_tokens": "2586979"
       }
     }
   ]

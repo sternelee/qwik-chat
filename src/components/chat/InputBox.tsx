@@ -181,6 +181,7 @@ export default component$<{
       candidateOptions.value = [];
     }
   });
+  // console.log("inputBoxHeight:", store.inputBoxHeight, defaultInputBoxHeight);
 
   return (
     <div
@@ -289,9 +290,9 @@ export default component$<{
                   class={{
                     "absolute flex text-1em items-center": true,
                     "right-2.5em bottom-1em":
-                      store.inputBoxHeight === defaultInputBoxHeight,
+                      store.inputBoxHeight <= defaultInputBoxHeight,
                     "right-0.8em top-0.8em":
-                      store.inputBoxHeight !== defaultInputBoxHeight,
+                      store.inputBoxHeight > defaultInputBoxHeight,
                   }}
                 >
                   <button

@@ -110,52 +110,53 @@ export default component$<Props>((props) => {
   );
 
   return (
-    <slot>
-      {renderedMarkdown.value && (
+    <div
+      style={{
+        transition: "all 0.3s",
+      }}
+      class={{
+        "group flex gap-3 px-4 mx--4 mt-36px rounded-lg transition-colors animated animated-fade-in animated-faster sm:hover:bg-slate/6 dark:sm:hover:bg-slate/5 relative message-item":
+          true,
+        temporary: props.message.type === "temporary",
+      }}
+    >
+      {props.avatar && props.message.role === "user" ? (
+        <div class="avatar cursor-pointer" onClick$={lockMessage}>
+          <div class="w-6 h-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <img src={props.avatar} width={24} height={24} />
+          </div>
+        </div>
+      ) : (
         <div
-          style={{
-            transition: "all 0.3s",
-          }}
-          class={{
-            "group flex gap-3 px-4 mx--4 mt-4 rounded-lg transition-colors animated animated-fade-in animated-faster sm:hover:bg-slate/6 dark:sm:hover:bg-slate/5 relative message-item":
-              true,
-            temporary: props.message.type === "temporary",
-          }}
+          class={`shadow-slate-5 shadow-sm dark:shadow-none shrink-0 w-7 h-7 rounded-full op-80 flex items-center justify-center cursor-pointer ${
+            roleClass[props.message.role]
+          } ${props.message.type === "temporary" ? "animate-spin" : ""}`}
+          onClick$={lockMessage}
         >
-          {props.avatar && props.message.role === "user" ? (
-            <div class="avatar cursor-pointer" onClick$={lockMessage}>
-              <div class="w-6 h-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <img src={props.avatar} width={24} height={24} />
-              </div>
-            </div>
-          ) : (
-            <div
-              class={`shadow-slate-5 shadow-sm dark:shadow-none shrink-0 w-7 h-7 rounded-full op-80 flex items-center justify-center cursor-pointer ${
-                roleClass[props.message.role]
-              } ${props.message.type === "temporary" ? "animate-spin" : ""}`}
-              onClick$={lockMessage}
-            >
-              {props.message.type === "locked" && (
-                <div class="i-carbon:locked text-white" />
-              )}
-            </div>
-          )}
-          <div
-            class="message prose prose-slate break-all dark:prose-invert dark:text-slate break-words overflow-hidden"
-            style="max-width:100%"
-            dangerouslySetInnerHTML={renderedMarkdown.value}
-          />
-          {!props.hiddenAction && (
-            <MessageAction
-              del={del}
-              copy={copy}
-              edit={edit}
-              reAnswer={reAnswer}
-              role={props.message.role}
-            />
+          {props.message.type === "locked" && (
+            <div class="i-carbon:locked text-white" />
           )}
         </div>
       )}
-    </slot>
+      <div
+        class="message prose prose-slate break-all dark:prose-invert dark:text-slate break-words overflow-hidden"
+        style="max-width:100%"
+        dangerouslySetInnerHTML={renderedMarkdown.value}
+      />
+      {!props.hiddenAction && (
+        <div class="absolute bottom-[-22px] left-50px badge badge-neutral">
+          {props.message.provider}: {props.message.model}
+        </div>
+      )}
+      {!props.hiddenAction && (
+        <MessageAction
+          del={del}
+          copy={copy}
+          edit={edit}
+          reAnswer={reAnswer}
+          role={props.message.role}
+        />
+      )}
+    </div>
   );
 });

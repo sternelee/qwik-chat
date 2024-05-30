@@ -7,7 +7,6 @@
   --un-bg-opacity: 1;
   background-color: hsl(var(--n) / var(--un-bg-opacity));
   padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
   --un-text-opacity: 1;
   color: hsl(var(--nc) / var(--un-text-opacity));
   border-radius: var(--rounded-box, 1rem);

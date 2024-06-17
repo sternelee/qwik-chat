@@ -239,7 +239,7 @@ export default component$<{
                 wrap="hard"
                 spellcheck={false}
                 class={{
-                  "textarea textarea-bordered self-end pr-2.2em resize-none w-full":
+                  "textarea textarea-bordered self-end p-3 pr-2.2em resize-none w-full":
                     true,
                   "rounded-t": candidateOptions.value.length === 0,
                   "rounded-b": true,

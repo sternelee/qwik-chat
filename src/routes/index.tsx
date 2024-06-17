@@ -209,14 +209,10 @@ export default component$(() => {
                 role: "user",
                 content: inputValue,
                 images: [this.inputImage],
-                provider: this.sessionSettings.provider,
-                model: this.sessionSettings.model,
               }
             : {
                 role: "user",
                 content: inputValue,
-                provider: this.sessionSettings.provider,
-                model: this.sessionSettings.model,
               };
           this.messageList = [...this.messageList, currentMessage];
           const remainingToken = await this.remainingToken$();

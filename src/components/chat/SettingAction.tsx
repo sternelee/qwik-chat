@@ -339,7 +339,7 @@ export default component$(() => {
           </div>
         )}
         {store.showSetting === "none" && (
-          <div class="flex w-110px">
+          <div class="flex ml-auto">
             <input
               type="file"
               accept="image/*"

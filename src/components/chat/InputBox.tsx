@@ -98,13 +98,14 @@ export default component$<{
     if (!isMobile() && !store.loading) inputRef.value?.focus();
   });
 
-  const setSuitableHeight = $(() => {
+  const setSuitableHeight = $(async () => {
     const scrollHeight = inputRef.value?.scrollHeight;
     if (scrollHeight) {
-      store.inputBoxHeight =
+      const inputBoxHeight =
         scrollHeight > window.innerHeight / 2
           ? window.innerHeight / 2
           : scrollHeight;
+      store.inputBoxHeight = Math.max(inputBoxHeight, defaultInputBoxHeight);
     }
   });
 
@@ -170,7 +171,7 @@ export default component$<{
 
   const handleInput = $(() => {
     // 重新设置高度，让输入框可以自适应高度，-1 是为了标记不是初始状态
-    store.inputBoxHeight = defaultInputBoxHeight - 1;
+    store.inputBoxHeight = defaultInputBoxHeight;
     if (!compositionEnd.value) return;
     const value = inputRef.value?.value;
     if (value) {
@@ -181,7 +182,6 @@ export default component$<{
       candidateOptions.value = [];
     }
   });
-  // console.log("inputBoxHeight:", store.inputBoxHeight, defaultInputBoxHeight);
 
   return (
     <div

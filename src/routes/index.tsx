@@ -124,6 +124,7 @@ export default component$(() => {
         const { done: readerDone, value } = await reader.read();
         if (value) {
           const char = decoder.decode(value);
+          if (char.length <= 0) return;
           if (this.currentAssistantMessage) {
             this.messageList = this.messageList.map((k) => {
               if (k.type === "temporary") {
@@ -269,6 +270,8 @@ export default component$(() => {
               {
                 role: "error",
                 content: error.message.replace(/(sk-\w{5})\w+/g, "$1"),
+                provider: this.sessionSettings.provider,
+                model: this.sessionSettings.model,
               },
             ];
           }
@@ -368,10 +371,10 @@ export default component$(() => {
     });
   });
 
-  useVisibleTask$(({ track }) => {
-    track(() => store.currentAssistantMessage);
-    scrollToBottom();
-  });
+  // useVisibleTask$(({ track }) => {
+  //   track(() => store.currentAssistantMessage);
+  //   scrollToBottom();
+  // });
 
   useVisibleTask$(({ track }) => {
     track(() => store.messageList.length);

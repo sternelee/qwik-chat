@@ -141,13 +141,14 @@ export default component$<Props>((props) => {
       <div
         class="message prose prose-slate break-all dark:prose-invert dark:text-slate break-words overflow-hidden"
         style="max-width:100%"
-        dangerouslySetInnerHTML={renderedMarkdown.value}
-      />
-      {!props.hiddenAction && (
-        <div class="absolute bottom-[-22px] left-50px badge badge-neutral">
-          {props.message.provider}: {props.message.model}
-        </div>
-      )}
+      >
+        {!props.hiddenAction && (
+          <div class="badge badge-neutral mb-2px">
+            {props.message.provider}: {props.message.model}
+          </div>
+        )}
+        <div dangerouslySetInnerHTML={renderedMarkdown.value} />
+      </div>
       {!props.hiddenAction && (
         <MessageAction
           del={del}

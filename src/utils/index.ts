@@ -1,5 +1,8 @@
 export * from "./storage";
 
+export const sleep = (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
+
 export async function copyToClipboard(text: string) {
   if (!text) return;
   try {

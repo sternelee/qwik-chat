@@ -16,6 +16,7 @@ import { md } from "~/markdown-it";
 interface Props {
   message: ChatMessage;
   hiddenAction: boolean;
+  hiddenModel: boolean;
   avatar?: string;
   index?: number;
 }
@@ -142,7 +143,7 @@ export default component$<Props>((props) => {
         class="message prose prose-slate break-all dark:prose-invert dark:text-slate break-words overflow-hidden"
         style="max-width:100%"
       >
-        {!props.hiddenAction && (
+        {!props.hiddenModel && (
           <div class="badge badge-neutral mb-2px">
             {props.message.provider}: {props.message.model}
           </div>

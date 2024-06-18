@@ -172,7 +172,7 @@ export default component$<IChatSession>(({ user }) => {
       >
         <div id="message-container-img" class="px-1em">
           {!store.messageList.length && (
-            <MessageItem hiddenAction={true} message={defaultMessage$.value} />
+            <MessageItem hiddenAction={true} hiddenModel={true} message={defaultMessage$.value} />
           )}
           {store.messageList.map((message, index) => (
             <MessageItem
@@ -181,6 +181,7 @@ export default component$<IChatSession>(({ user }) => {
                 store.loading ||
                 message.type === "temporary"
               }
+              hiddenModel={message.role !== 'assistant'}
               key={index}
               avatar={avatar.value}
               index={index}

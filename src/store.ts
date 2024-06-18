@@ -145,7 +145,7 @@ export interface IChatStore {
 
 export const ChatContext = createContextId<IChatStore>("chatContext");
 // 3em
-export const defaultInputBoxHeight = 52;
+export const defaultInputBoxHeight = 54;
 
 export const shownTokens = (token: number) => {
   if (token > 1000) return (token / 1000).toFixed(1) + "k";

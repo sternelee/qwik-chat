@@ -1,3 +1,4 @@
+import { throttle } from "lodash";
 export * from "./storage";
 
 export async function copyToClipboard(text: string) {
@@ -82,32 +83,32 @@ export function randomKey(keys: string[]) {
   return keys.length ? keys[Math.floor(Math.random() * keys.length)] : "";
 }
 
-export const throttle = <R, A extends any[]>(
-  fn: (...args: A) => R,
-  delay: number
-): [(...args: A) => R | undefined, () => void] => {
-  let wait = false;
-  let timeout: any;
-  let cancelled = false;
-  return [
-    (...args: A) => {
-      if (cancelled) return undefined;
-      if (wait) return undefined;
-      const val = fn(...args);
-      wait = true;
-      timeout = setTimeout(() => {
-        wait = false;
-      }, delay);
-      return val;
-    },
-    () => {
-      cancelled = true;
-      clearTimeout(timeout);
-    },
-  ];
-};
+// export const throttle = <R, A extends any[]>(
+//   fn: (...args: A) => R,
+//   delay: number
+// ): [(...args: A) => R | undefined, () => void] => {
+//   let wait = false;
+//   let timeout: any;
+//   let cancelled = false;
+//   return [
+//     (...args: A) => {
+//       if (cancelled) return undefined;
+//       if (wait) return undefined;
+//       const val = fn(...args);
+//       wait = true;
+//       timeout = setTimeout(() => {
+//         wait = false;
+//       }, delay);
+//       return val;
+//     },
+//     () => {
+//       cancelled = true;
+//       clearTimeout(timeout);
+//     },
+//   ];
+// };
 
-export const [scrollToBottom] = throttle((top = document.body.scrollHeight) => {
+export const scrollToBottom = throttle((top = document.body.scrollHeight) => {
   window.scrollTo({
     top,
     behavior: "smooth",

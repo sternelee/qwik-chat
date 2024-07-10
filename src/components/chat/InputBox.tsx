@@ -98,13 +98,14 @@ export default component$<{
     if (!isMobile() && !store.loading) inputRef.value?.focus();
   });
 
-  const setSuitableHeight = $(() => {
+  const setSuitableHeight = $(async () => {
     const scrollHeight = inputRef.value?.scrollHeight;
     if (scrollHeight) {
-      store.inputBoxHeight =
+      const inputBoxHeight =
         scrollHeight > window.innerHeight / 2
           ? window.innerHeight / 2
           : scrollHeight;
+      store.inputBoxHeight = Math.max(inputBoxHeight, defaultInputBoxHeight);
     }
   });
 
@@ -170,7 +171,7 @@ export default component$<{
 
   const handleInput = $(() => {
     // 重新设置高度，让输入框可以自适应高度，-1 是为了标记不是初始状态
-    store.inputBoxHeight = defaultInputBoxHeight - 1;
+    store.inputBoxHeight = defaultInputBoxHeight;
     if (!compositionEnd.value) return;
     const value = inputRef.value?.value;
     if (value) {
@@ -238,7 +239,7 @@ export default component$<{
                 wrap="hard"
                 spellcheck={false}
                 class={{
-                  "textarea textarea-bordered self-end pr-2.2em resize-none w-full":
+                  "textarea textarea-bordered self-end p-3 pr-2.2em resize-none w-full":
                     true,
                   "rounded-t": candidateOptions.value.length === 0,
                   "rounded-b": true,
@@ -289,9 +290,9 @@ export default component$<{
                   class={{
                     "absolute flex text-1em items-center": true,
                     "right-2.5em bottom-1em":
-                      store.inputBoxHeight === defaultInputBoxHeight,
+                      store.inputBoxHeight <= defaultInputBoxHeight,
                     "right-0.8em top-0.8em":
-                      store.inputBoxHeight !== defaultInputBoxHeight,
+                      store.inputBoxHeight > defaultInputBoxHeight,
                   }}
                 >
                   <button

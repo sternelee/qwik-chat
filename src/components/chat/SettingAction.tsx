@@ -339,7 +339,7 @@ export default component$(() => {
           </div>
         )}
         {store.showSetting === "none" && (
-          <div class="flex w-110px">
+          <div class="flex ml-auto">
             <input
               type="file"
               accept="image/*"
@@ -461,13 +461,7 @@ export const ActionItem = component$<{
       // @ts-ignore
       data-tooltip={props.label}
     >
-      <button
-        class={`btn btn-outline btn-xs ${props.icon}`}
-        style={{
-          background: "hsl(var(--bc) / var(--un-text-opacity, 1))",
-        }}
-        title={props.label}
-      />
+      <button class={`${props.icon}`} title={props.label} />
     </div>
   );
 });

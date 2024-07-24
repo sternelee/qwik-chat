@@ -1,6 +1,81 @@
 {
   "data": [
     {
+      "id": "meta-llama/llama-3.1-70b-instruct",
+      "name": "Meta: Llama 3.1 70B Instruct",
+      "description": "Meta's latest class of model (Llama 3.1) launched with a variety of sizes & flavors. This 70B instruct-tuned version is optimized for high quality dialogue usecases.\n\nIt has demonstrated strong performance compared to leading closed-source models in human evaluations.\n\nTo read more about the model release, [click here](https://ai.meta.com/blog/meta-llama-3-1/). Usage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
+      "pricing": {
+        "prompt": "0.00000052",
+        "completion": "0.00000075",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 131072,
+      "architecture": {
+        "modality": "text->text",
+        "tokenizer": "Llama3",
+        "instruct_type": "llama3"
+      },
+      "top_provider": {
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "74528736",
+        "completion_tokens": "51673257"
+      }
+    },
+    {
+      "id": "meta-llama/llama-3.1-8b-instruct",
+      "name": "Meta: Llama 3.1 8B Instruct",
+      "description": "Meta's latest class of model (Llama 3.1) launched with a variety of sizes & flavors. This 8B instruct-tuned version is fast and efficient.\n\nIt has demonstrated strong performance compared to leading closed-source models in human evaluations.\n\nTo read more about the model release, [click here](https://ai.meta.com/blog/meta-llama-3-1/). Usage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
+      "pricing": {
+        "prompt": "0.00000009",
+        "completion": "0.00000009",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 131072,
+      "architecture": {
+        "modality": "text->text",
+        "tokenizer": "Llama3",
+        "instruct_type": "llama3"
+      },
+      "top_provider": {
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "430610479",
+        "completion_tokens": "430610479"
+      }
+    },
+    {
+      "id": "meta-llama/llama-3.1-405b-instruct",
+      "name": "Meta: Llama 3.1 405B Instruct",
+      "description": "The highly anticipated 400B class of Llama3 is here! Clocking in at 128k context with impressive eval scores, the Meta AI team continues to push the frontier of open-source LLMs.\n\nMeta's latest class of model (Llama 3.1) launched with a variety of sizes & flavors. This 405B instruct-tuned version is optimized for high quality dialogue usecases.\n\nIt has demonstrated strong performance compared to leading closed-source models including GPT-4o and Claude 3.5 Sonnet in evaluations.\n\nTo read more about the model release, [click here](https://ai.meta.com/blog/meta-llama-3-1/). Usage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
+      "pricing": {
+        "prompt": "0.000003",
+        "completion": "0.000003",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 131072,
+      "architecture": {
+        "modality": "text->text",
+        "tokenizer": "Llama3",
+        "instruct_type": "llama3"
+      },
+      "top_provider": {
+        "max_completion_tokens": 0,
+        "is_moderated": false
+      },
+      "per_request_limits": {
+        "prompt_tokens": "12918314",
+        "completion_tokens": "12918314"
+      }
+    },
+    {
       "id": "cognitivecomputations/dolphin-llama-3-70b",
       "name": "Dolphin Llama 3 70B 🐬",
       "description": "Dolphin 2.9 is designed for instruction following, conversational, and coding. This model is a fine-tune of [Llama 3 70B](/models/meta-llama/llama-3-70b-instruct). It demonstrates improvements in instruction, conversation, coding, and function calling abilities, when compared to the original.\n\nUncensored and is stripped of alignment and bias, it requires an external alignment layer for ethical use. Users are cautioned to use this highly compliant model responsibly, as detailed in a blog post about uncensored models at [erichartford.com/uncensored-models](https://erichartford.com/uncensored-models).\n\nUsage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
@@ -20,7 +95,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "65686344",
+        "completion_tokens": "49056890"
+      }
     },
     {
       "id": "mistralai/codestral-mamba",
@@ -42,7 +120,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "155019772",
+        "completion_tokens": "155019772"
+      }
     },
     {
       "id": "mistralai/mistral-nemo",
@@ -64,7 +145,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "215305239",
+        "completion_tokens": "215305239"
+      }
     },
     {
       "id": "openai/gpt-4o-mini-2024-07-18",
@@ -86,7 +170,10 @@
         "max_completion_tokens": 16384,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "258366287",
+        "completion_tokens": "64591571"
+      }
     },
     {
       "id": "openai/gpt-4o-mini",
@@ -108,7 +195,10 @@
         "max_completion_tokens": 16384,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "258366287",
+        "completion_tokens": "64591571"
+      }
     },
     {
       "id": "qwen/qwen-2-7b-instruct",
@@ -130,7 +220,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "553642045",
+        "completion_tokens": "553642045"
+      }
     },
     {
       "id": "google/gemma-2-27b-it",
@@ -152,7 +245,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "143536826",
+        "completion_tokens": "143536826"
+      }
     },
     {
       "id": "alpindale/magnum-72b",
@@ -174,7 +270,10 @@
         "max_completion_tokens": 1024,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "10334651",
+        "completion_tokens": "8612209"
+      }
     },
     {
       "id": "nousresearch/hermes-2-theta-llama-3-8b",
@@ -196,7 +295,10 @@
         "max_completion_tokens": 2048,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "206693030",
+        "completion_tokens": "34448838"
+      }
     },
     {
       "id": "google/gemma-2-9b-it:free",
@@ -218,7 +320,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "google/gemma-2-9b-it",
@@ -240,7 +345,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "484436789",
+        "completion_tokens": "484436789"
+      }
     },
     {
       "id": "openrouter/flavor-of-the-week",
@@ -284,7 +392,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "155019772",
+        "completion_tokens": "25836628"
+      }
     },
     {
       "id": "ai21/jamba-instruct",
@@ -306,7 +417,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "77509886",
+        "completion_tokens": "55364204"
+      }
     },
     {
       "id": "01-ai/yi-large",
@@ -328,7 +442,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "12918314",
+        "completion_tokens": "12918314"
+      }
     },
     {
       "id": "nvidia/nemotron-4-340b-instruct",
@@ -350,7 +467,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "9227367",
+        "completion_tokens": "9227367"
+      }
     },
     {
       "id": "anthropic/claude-3.5-sonnet:beta",
@@ -372,7 +492,10 @@
         "max_completion_tokens": 8192,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "12918314",
+        "completion_tokens": "2583662"
+      }
     },
     {
       "id": "anthropic/claude-3.5-sonnet",
@@ -394,7 +517,10 @@
         "max_completion_tokens": 8192,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "12918314",
+        "completion_tokens": "2583662"
+      }
     },
     {
       "id": "sao10k/l3-euryale-70b",
@@ -416,7 +542,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "65686344",
+        "completion_tokens": "49056890"
+      }
     },
     {
       "id": "qwen/qwen-2-7b-instruct:free",
@@ -438,7 +567,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "microsoft/phi-3-medium-4k-instruct",
@@ -460,7 +592,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "276821022",
+        "completion_tokens": "276821022"
+      }
     },
     {
       "id": "cognitivecomputations/dolphin-mixtral-8x22b",
@@ -482,7 +617,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "43061047",
+        "completion_tokens": "43061047"
+      }
     },
     {
       "id": "qwen/qwen-2-72b-instruct",
@@ -504,7 +642,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "69205255",
+        "completion_tokens": "50331095"
+      }
     },
     {
       "id": "openchat/openchat-8b",
@@ -526,7 +667,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "605545986",
+        "completion_tokens": "605545986"
+      }
     },
     {
       "id": "nousresearch/hermes-2-pro-llama-3-8b",
@@ -548,7 +692,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "276821022",
+        "completion_tokens": "276821022"
+      }
     },
     {
       "id": "mistralai/mistral-7b-instruct-v0.3",
@@ -570,7 +717,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "645915719",
+        "completion_tokens": "645915719"
+      }
     },
     {
       "id": "mistralai/mistral-7b-instruct",
@@ -592,7 +742,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "645915719",
+        "completion_tokens": "645915719"
+      }
     },
     {
       "id": "microsoft/phi-3-mini-128k-instruct:free",
@@ -614,7 +767,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "microsoft/phi-3-mini-128k-instruct",
@@ -636,7 +792,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "387549431",
+        "completion_tokens": "387549431"
+      }
     },
     {
       "id": "microsoft/phi-3-medium-128k-instruct:free",
@@ -658,7 +817,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "microsoft/phi-3-medium-128k-instruct",
@@ -680,7 +842,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "38754943",
+        "completion_tokens": "38754943"
+      }
     },
     {
       "id": "neversleep/llama-3-lumimaid-70b",
@@ -702,7 +867,10 @@
         "max_completion_tokens": 2048,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "11482946",
+        "completion_tokens": "8612209"
+      }
     },
     {
       "id": "deepseek/deepseek-coder",
@@ -724,7 +892,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "276821022",
+        "completion_tokens": "138410511"
+      }
     },
     {
       "id": "deepseek/deepseek-chat",
@@ -746,7 +917,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "276821022",
+        "completion_tokens": "138410511"
+      }
     },
     {
       "id": "perplexity/llama-3-sonar-large-32k-online",
@@ -768,7 +942,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "38754943",
+        "completion_tokens": "38754943"
+      }
     },
     {
       "id": "perplexity/llama-3-sonar-large-32k-chat",
@@ -790,7 +967,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "38754943",
+        "completion_tokens": "38754943"
+      }
     },
     {
       "id": "perplexity/llama-3-sonar-small-32k-online",
@@ -812,7 +992,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "193774715",
+        "completion_tokens": "193774715"
+      }
     },
     {
       "id": "perplexity/llama-3-sonar-small-32k-chat",
@@ -834,7 +1017,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "193774715",
+        "completion_tokens": "193774715"
+      }
     },
     {
       "id": "google/gemini-flash-1.5",
@@ -856,7 +1042,10 @@
         "max_completion_tokens": 22937,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "155019772",
+        "completion_tokens": "51673257"
+      }
     },
     {
       "id": "meta-llama/llama-guard-2-8b",
@@ -878,7 +1067,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "258366287",
+        "completion_tokens": "258366287"
+      }
     },
     {
       "id": "meta-llama/llama-3-70b",
@@ -900,7 +1092,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "47845608",
+        "completion_tokens": "47845608"
+      }
     },
     {
       "id": "meta-llama/llama-3-8b",
@@ -922,7 +1117,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "215305239",
+        "completion_tokens": "215305239"
+      }
     },
     {
       "id": "openai/gpt-4o-2024-05-13",
@@ -944,7 +1142,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "7750988",
+        "completion_tokens": "2583662"
+      }
     },
     {
       "id": "openai/gpt-4o",
@@ -966,7 +1167,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "7750988",
+        "completion_tokens": "2583662"
+      }
     },
     {
       "id": "allenai/olmo-7b-instruct",
@@ -988,7 +1192,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "215305239",
+        "completion_tokens": "215305239"
+      }
     },
     {
       "id": "qwen/qwen-4b-chat",
@@ -1010,7 +1217,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "430610479",
+        "completion_tokens": "430610479"
+      }
     },
     {
       "id": "qwen/qwen-7b-chat",
@@ -1032,7 +1242,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "215305239",
+        "completion_tokens": "215305239"
+      }
     },
     {
       "id": "qwen/qwen-14b-chat",
@@ -1054,7 +1267,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "143536826",
+        "completion_tokens": "143536826"
+      }
     },
     {
       "id": "qwen/qwen-32b-chat",
@@ -1076,7 +1292,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "53826309",
+        "completion_tokens": "53826309"
+      }
     },
     {
       "id": "qwen/qwen-72b-chat",
@@ -1098,7 +1317,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "47845608",
+        "completion_tokens": "47845608"
+      }
     },
     {
       "id": "qwen/qwen-110b-chat",
@@ -1120,7 +1342,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "23922804",
+        "completion_tokens": "23922804"
+      }
     },
     {
       "id": "meta-llama/llama-3-8b-instruct:free",
@@ -1142,7 +1367,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "neversleep/llama-3-lumimaid-8b:extended",
@@ -1164,7 +1392,10 @@
         "max_completion_tokens": 2048,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "206693030",
+        "completion_tokens": "34448838"
+      }
     },
     {
       "id": "neversleep/llama-3-lumimaid-8b",
@@ -1186,7 +1417,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "206693030",
+        "completion_tokens": "34448838"
+      }
     },
     {
       "id": "snowflake/snowflake-arctic-instruct",
@@ -1208,7 +1442,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "17942103",
+        "completion_tokens": "17942103"
+      }
     },
     {
       "id": "fireworks/firellava-13b",
@@ -1230,7 +1467,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "193774715",
+        "completion_tokens": "193774715"
+      }
     },
     {
       "id": "lynn/soliloquy-l3",
@@ -1252,7 +1492,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "775098863",
+        "completion_tokens": "775098863"
+      }
     },
     {
       "id": "meta-llama/llama-3-8b-instruct:extended",
@@ -1274,7 +1517,10 @@
         "max_completion_tokens": 2048,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "206693030",
+        "completion_tokens": "34448838"
+      }
     },
     {
       "id": "sao10k/fimbulvetr-11b-v2",
@@ -1296,15 +1542,18 @@
         "max_completion_tokens": 2048,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "103346515",
+        "completion_tokens": "25836628"
+      }
     },
     {
       "id": "meta-llama/llama-3-70b-instruct:nitro",
       "name": "Meta: Llama 3 70B Instruct (nitro)",
       "description": "Meta's latest class of model (Llama 3) launched with a variety of sizes & flavors. This 70B instruct-tuned version was optimized for high quality dialogue usecases.\n\nIt has demonstrated strong performance compared to leading closed-source models in human evaluations.\n\nTo read more about the model release, [click here](https://ai.meta.com/blog/meta-llama-3/). Usage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).\n\nNote: this is a higher-throughput version of [Llama 3 70B Instruct](/models/meta-llama/llama-3-70b-instruct). It may have higher prices and slightly different outputs.",
       "pricing": {
-        "prompt": "0.00000081",
-        "completion": "0.00000081",
+        "prompt": "0.000000792",
+        "completion": "0.000000792",
         "image": "0",
         "request": "0"
       },
@@ -1318,7 +1567,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "48933009",
+        "completion_tokens": "48933009"
+      }
     },
     {
       "id": "meta-llama/llama-3-8b-instruct:nitro",
@@ -1340,7 +1592,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "239228044",
+        "completion_tokens": "239228044"
+      }
     },
     {
       "id": "meta-llama/llama-3-70b-instruct",
@@ -1362,7 +1617,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "74528736",
+        "completion_tokens": "51673257"
+      }
     },
     {
       "id": "meta-llama/llama-3-8b-instruct",
@@ -1384,7 +1642,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "645915719",
+        "completion_tokens": "645915719"
+      }
     },
     {
       "id": "mistralai/mixtral-8x22b-instruct",
@@ -1406,7 +1667,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "59622989",
+        "completion_tokens": "59622989"
+      }
     },
     {
       "id": "microsoft/wizardlm-2-7b",
@@ -1428,7 +1692,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "553642045",
+        "completion_tokens": "553642045"
+      }
     },
     {
       "id": "microsoft/wizardlm-2-8x22b",
@@ -1450,7 +1717,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "61515782",
+        "completion_tokens": "61515782"
+      }
     },
     {
       "id": "undi95/toppy-m-7b:nitro",
@@ -1472,7 +1742,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "553642045",
+        "completion_tokens": "553642045"
+      }
     },
     {
       "id": "mistralai/mixtral-8x22b",
@@ -1494,7 +1767,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "35884206",
+        "completion_tokens": "35884206"
+      }
     },
     {
       "id": "google/gemini-pro-1.5",
@@ -1516,7 +1792,10 @@
         "max_completion_tokens": 22937,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "15501977",
+        "completion_tokens": "5167325"
+      }
     },
     {
       "id": "openai/gpt-4-turbo",
@@ -1538,7 +1817,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "3875494",
+        "completion_tokens": "1291831"
+      }
     },
     {
       "id": "cohere/command-r-plus",
@@ -1560,7 +1842,10 @@
         "max_completion_tokens": 4000,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "12918314",
+        "completion_tokens": "2583662"
+      }
     },
     {
       "id": "databricks/dbrx-instruct",
@@ -1582,7 +1867,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "35884206",
+        "completion_tokens": "35884206"
+      }
     },
     {
       "id": "sophosympatheia/midnight-rose-70b",
@@ -1604,7 +1892,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "48443678",
+        "completion_tokens": "48443678"
+      }
     },
     {
       "id": "cohere/command-r",
@@ -1626,7 +1917,10 @@
         "max_completion_tokens": 4000,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "77509886",
+        "completion_tokens": "25836628"
+      }
     },
     {
       "id": "cohere/command",
@@ -1648,7 +1942,10 @@
         "max_completion_tokens": 4000,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "38754943",
+        "completion_tokens": "19377471"
+      }
     },
     {
       "id": "anthropic/claude-3-haiku:beta",
@@ -1670,7 +1967,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "155019772",
+        "completion_tokens": "31003954"
+      }
     },
     {
       "id": "anthropic/claude-3-haiku",
@@ -1692,7 +1992,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "155019772",
+        "completion_tokens": "31003954"
+      }
     },
     {
       "id": "google/gemma-7b-it:nitro",
@@ -1714,7 +2017,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "553642045",
+        "completion_tokens": "553642045"
+      }
     },
     {
       "id": "mistralai/mistral-7b-instruct:nitro",
@@ -1736,7 +2042,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "553642045",
+        "completion_tokens": "553642045"
+      }
     },
     {
       "id": "mistralai/mixtral-8x7b-instruct:nitro",
@@ -1758,7 +2067,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "71768413",
+        "completion_tokens": "71768413"
+      }
     },
     {
       "id": "gryphe/mythomax-l2-13b:nitro",
@@ -1780,7 +2092,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "193774715",
+        "completion_tokens": "193774715"
+      }
     },
     {
       "id": "anthropic/claude-3-sonnet:beta",
@@ -1802,7 +2117,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "12918314",
+        "completion_tokens": "2583662"
+      }
     },
     {
       "id": "anthropic/claude-3-opus:beta",
@@ -1824,7 +2142,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "2583662",
+        "completion_tokens": "516732"
+      }
     },
     {
       "id": "anthropic/claude-3-sonnet",
@@ -1846,7 +2167,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "12918314",
+        "completion_tokens": "2583662"
+      }
     },
     {
       "id": "anthropic/claude-3-opus",
@@ -1868,7 +2192,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "2583662",
+        "completion_tokens": "516732"
+      }
     },
     {
       "id": "mistralai/mistral-large",
@@ -1890,7 +2217,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "4844367",
+        "completion_tokens": "1614789"
+      }
     },
     {
       "id": "google/gemma-7b-it:free",
@@ -1912,7 +2242,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "google/gemma-7b-it",
@@ -1934,7 +2267,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "553642045",
+        "completion_tokens": "553642045"
+      }
     },
     {
       "id": "nousresearch/nous-hermes-2-mistral-7b-dpo",
@@ -1956,7 +2292,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "215305239",
+        "completion_tokens": "215305239"
+      }
     },
     {
       "id": "meta-llama/codellama-70b-instruct",
@@ -1978,7 +2317,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "47845608",
+        "completion_tokens": "47845608"
+      }
     },
     {
       "id": "recursal/eagle-7b",
@@ -2000,7 +2342,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "openai/gpt-4-turbo-preview",
@@ -2022,7 +2367,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "3875494",
+        "completion_tokens": "1291831"
+      }
     },
     {
       "id": "openai/gpt-3.5-turbo-0613",
@@ -2044,7 +2392,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "38754943",
+        "completion_tokens": "19377471"
+      }
     },
     {
       "id": "undi95/remm-slerp-l2-13b:extended",
@@ -2066,7 +2417,10 @@
         "max_completion_tokens": 400,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "34448838",
+        "completion_tokens": "34448838"
+      }
     },
     {
       "id": "nousresearch/nous-hermes-2-mixtral-8x7b-sft",
@@ -2088,7 +2442,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "71768413",
+        "completion_tokens": "71768413"
+      }
     },
     {
       "id": "nousresearch/nous-hermes-2-mixtral-8x7b-dpo",
@@ -2110,7 +2467,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "86122095",
+        "completion_tokens": "86122095"
+      }
     },
     {
       "id": "mistralai/mistral-medium",
@@ -2132,7 +2492,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "14353682",
+        "completion_tokens": "4784560"
+      }
     },
     {
       "id": "mistralai/mistral-small",
@@ -2154,7 +2517,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "19377471",
+        "completion_tokens": "6459157"
+      }
     },
     {
       "id": "mistralai/mistral-tiny",
@@ -2176,7 +2542,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "155019772",
+        "completion_tokens": "155019772"
+      }
     },
     {
       "id": "austism/chronos-hermes-13b",
@@ -2198,7 +2567,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "298114947",
+        "completion_tokens": "298114947"
+      }
     },
     {
       "id": "nousresearch/nous-hermes-yi-34b",
@@ -2220,29 +2592,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
-    },
-    {
-      "id": "neversleep/noromaid-mixtral-8x7b-instruct",
-      "name": "Noromaid Mixtral 8x7B Instruct",
-      "description": "This model was trained for 8h(v1) + 8h(v2) + 12h(v3) on customized modified datasets, focusing on RP, uncensoring, and a modified version of the Alpaca prompting (that was already used in LimaRP), which should be at the same conversational level as ChatLM or Llama2-Chat without adding any additional special tokens.",
-      "pricing": {
-        "prompt": "0.000008",
-        "completion": "0.000008",
-        "image": "0",
-        "request": "0"
-      },
-      "context_length": 8000,
-      "architecture": {
-        "modality": "text->text",
-        "tokenizer": "Mistral",
-        "instruct_type": "alpaca-modif"
-      },
-      "top_provider": {
-        "max_completion_tokens": 0,
-        "is_moderated": false
-      },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "53826309",
+        "completion_tokens": "53826309"
+      }
     },
     {
       "id": "mistralai/mistral-7b-instruct-v0.2",
@@ -2264,7 +2617,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "645915719",
+        "completion_tokens": "645915719"
+      }
     },
     {
       "id": "cognitivecomputations/dolphin-mixtral-8x7b",
@@ -2286,7 +2642,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "77509886",
+        "completion_tokens": "77509886"
+      }
     },
     {
       "id": "google/gemini-pro-vision",
@@ -2308,7 +2667,10 @@
         "max_completion_tokens": 5734,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "310039545",
+        "completion_tokens": "103346515"
+      }
     },
     {
       "id": "google/gemini-pro",
@@ -2330,7 +2692,10 @@
         "max_completion_tokens": 22937,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "310039545",
+        "completion_tokens": "103346515"
+      }
     },
     {
       "id": "recursal/rwkv-5-3b-ai-town",
@@ -2352,7 +2717,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "rwkv/rwkv-5-world-3b",
@@ -2374,7 +2742,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "mistralai/mixtral-8x7b-instruct",
@@ -2396,7 +2767,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "161478929",
+        "completion_tokens": "161478929"
+      }
     },
     {
       "id": "mistralai/mixtral-8x7b",
@@ -2418,7 +2792,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "71768413",
+        "completion_tokens": "71768413"
+      }
     },
     {
       "id": "togethercomputer/stripedhyena-hessian-7b",
@@ -2440,7 +2817,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "215305239",
+        "completion_tokens": "215305239"
+      }
     },
     {
       "id": "togethercomputer/stripedhyena-nous-7b",
@@ -2462,7 +2842,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "215305239",
+        "completion_tokens": "215305239"
+      }
     },
     {
       "id": "koboldai/psyfighter-13b-2",
@@ -2484,7 +2867,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "38754943",
+        "completion_tokens": "38754943"
+      }
     },
     {
       "id": "gryphe/mythomist-7b",
@@ -2506,7 +2892,10 @@
         "max_completion_tokens": 2048,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "103346515",
+        "completion_tokens": "103346515"
+      }
     },
     {
       "id": "01-ai/yi-6b",
@@ -2528,7 +2917,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "215305239",
+        "completion_tokens": "215305239"
+      }
     },
     {
       "id": "01-ai/yi-34b",
@@ -2550,7 +2942,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "53826309",
+        "completion_tokens": "53826309"
+      }
     },
     {
       "id": "01-ai/yi-34b-chat",
@@ -2572,7 +2967,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "53826309",
+        "completion_tokens": "53826309"
+      }
     },
     {
       "id": "nousresearch/nous-capybara-7b:free",
@@ -2594,7 +2992,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "nousresearch/nous-capybara-7b",
@@ -2616,7 +3017,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "215305239",
+        "completion_tokens": "215305239"
+      }
     },
     {
       "id": "openchat/openchat-7b:free",
@@ -2638,7 +3042,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "openchat/openchat-7b",
@@ -2660,7 +3067,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "553642045",
+        "completion_tokens": "553642045"
+      }
     },
     {
       "id": "gryphe/mythomist-7b:free",
@@ -2682,7 +3092,10 @@
         "max_completion_tokens": 2048,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "neversleep/noromaid-20b",
@@ -2704,7 +3117,10 @@
         "max_completion_tokens": 2048,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "25836628",
+        "completion_tokens": "17224419"
+      }
     },
     {
       "id": "intel/neural-chat-7b",
@@ -2726,7 +3142,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "7750988",
+        "completion_tokens": "7750988"
+      }
     },
     {
       "id": "anthropic/claude-2.1:beta",
@@ -2748,7 +3167,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "4844367",
+        "completion_tokens": "1614789"
+      }
     },
     {
       "id": "anthropic/claude-2:beta",
@@ -2770,7 +3192,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "4844367",
+        "completion_tokens": "1614789"
+      }
     },
     {
       "id": "anthropic/claude-instant-1.1",
@@ -2792,7 +3217,10 @@
         "max_completion_tokens": 2048,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "48443678",
+        "completion_tokens": "16147892"
+      }
     },
     {
       "id": "anthropic/claude-2.1",
@@ -2814,7 +3242,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "4844367",
+        "completion_tokens": "1614789"
+      }
     },
     {
       "id": "anthropic/claude-2",
@@ -2836,7 +3267,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "4844367",
+        "completion_tokens": "1614789"
+      }
     },
     {
       "id": "teknium/openhermes-2.5-mistral-7b",
@@ -2858,7 +3292,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "227970253",
+        "completion_tokens": "227970253"
+      }
     },
     {
       "id": "openai/gpt-4-vision-preview",
@@ -2880,7 +3317,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "3875494",
+        "completion_tokens": "1291831"
+      }
     },
     {
       "id": "lizpreciatior/lzlv-70b-fp16-hf",
@@ -2902,7 +3342,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "66818867",
+        "completion_tokens": "49685824"
+      }
     },
     {
       "id": "undi95/toppy-m-7b:free",
@@ -2924,7 +3367,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "alpindale/goliath-120b",
@@ -2946,7 +3392,10 @@
         "max_completion_tokens": 400,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "4133860",
+        "completion_tokens": "4133860"
+      }
     },
     {
       "id": "undi95/toppy-m-7b",
@@ -2968,7 +3417,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "553642045",
+        "completion_tokens": "553642045"
+      }
     },
     {
       "id": "openrouter/auto",
@@ -3012,7 +3464,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "3875494",
+        "completion_tokens": "1291831"
+      }
     },
     {
       "id": "openai/gpt-3.5-turbo-1106",
@@ -3034,7 +3489,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "38754943",
+        "completion_tokens": "19377471"
+      }
     },
     {
       "id": "huggingfaceh4/zephyr-7b-beta:free",
@@ -3056,7 +3514,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "google/palm-2-codechat-bison-32k",
@@ -3078,7 +3539,10 @@
         "max_completion_tokens": 22937,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "155019772",
+        "completion_tokens": "77509886"
+      }
     },
     {
       "id": "google/palm-2-chat-bison-32k",
@@ -3100,7 +3564,10 @@
         "max_completion_tokens": 22937,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "155019772",
+        "completion_tokens": "77509886"
+      }
     },
     {
       "id": "teknium/openhermes-2-mistral-7b",
@@ -3122,7 +3589,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "215305239",
+        "completion_tokens": "215305239"
+      }
     },
     {
       "id": "open-orca/mistral-7b-openorca",
@@ -3144,7 +3614,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "215305239",
+        "completion_tokens": "215305239"
+      }
     },
     {
       "id": "jondurbin/airoboros-l2-70b",
@@ -3166,7 +3639,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "77509886",
+        "completion_tokens": "77509886"
+      }
     },
     {
       "id": "gryphe/mythomax-l2-13b:extended",
@@ -3188,7 +3664,10 @@
         "max_completion_tokens": 400,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "34448838",
+        "completion_tokens": "34448838"
+      }
     },
     {
       "id": "xwin-lm/xwin-lm-70b",
@@ -3210,7 +3689,10 @@
         "max_completion_tokens": 400,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "10334651",
+        "completion_tokens": "10334651"
+      }
     },
     {
       "id": "mistralai/mistral-7b-instruct:free",
@@ -3232,7 +3714,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "Infinity",
+        "completion_tokens": "Infinity"
+      }
     },
     {
       "id": "mistralai/mistral-7b-instruct-v0.1",
@@ -3254,7 +3739,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "645915719",
+        "completion_tokens": "645915719"
+      }
     },
     {
       "id": "openai/gpt-3.5-turbo-instruct",
@@ -3276,7 +3764,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "25836628",
+        "completion_tokens": "19377471"
+      }
     },
     {
       "id": "pygmalionai/mythalion-13b",
@@ -3298,7 +3789,10 @@
         "max_completion_tokens": 400,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "34448838",
+        "completion_tokens": "34448838"
+      }
     },
     {
       "id": "openai/gpt-4-32k-0314",
@@ -3320,7 +3814,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "645915",
+        "completion_tokens": "322957"
+      }
     },
     {
       "id": "openai/gpt-4-32k",
@@ -3342,7 +3839,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "645915",
+        "completion_tokens": "322957"
+      }
     },
     {
       "id": "openai/gpt-3.5-turbo-16k",
@@ -3364,7 +3864,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "12918314",
+        "completion_tokens": "9688735"
+      }
     },
     {
       "id": "nousresearch/nous-hermes-llama2-13b",
@@ -3386,7 +3889,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "227970253",
+        "completion_tokens": "227970253"
+      }
     },
     {
       "id": "phind/phind-codellama-34b",
@@ -3408,7 +3914,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "53826309",
+        "completion_tokens": "53826309"
+      }
     },
     {
       "id": "meta-llama/codellama-34b-instruct",
@@ -3430,7 +3939,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "53826309",
+        "completion_tokens": "53826309"
+      }
     },
     {
       "id": "mancer/weaver",
@@ -3452,7 +3964,10 @@
         "max_completion_tokens": 1000,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "20669303",
+        "completion_tokens": "17224419"
+      }
     },
     {
       "id": "anthropic/claude-instant-1:beta",
@@ -3474,7 +3989,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "48443678",
+        "completion_tokens": "16147892"
+      }
     },
     {
       "id": "anthropic/claude-2.0:beta",
@@ -3496,7 +4014,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "4844367",
+        "completion_tokens": "1614789"
+      }
     },
     {
       "id": "anthropic/claude-instant-1.0",
@@ -3518,7 +4039,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "48443678",
+        "completion_tokens": "16147892"
+      }
     },
     {
       "id": "anthropic/claude-1.2",
@@ -3540,7 +4064,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "4844367",
+        "completion_tokens": "1614789"
+      }
     },
     {
       "id": "anthropic/claude-1",
@@ -3562,7 +4089,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "4844367",
+        "completion_tokens": "1614789"
+      }
     },
     {
       "id": "anthropic/claude-instant-1",
@@ -3584,7 +4114,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "48443678",
+        "completion_tokens": "16147892"
+      }
     },
     {
       "id": "anthropic/claude-2.0",
@@ -3606,7 +4139,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "4844367",
+        "completion_tokens": "1614789"
+      }
     },
     {
       "id": "undi95/remm-slerp-l2-13b",
@@ -3628,7 +4164,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "143536826",
+        "completion_tokens": "143536826"
+      }
     },
     {
       "id": "google/palm-2-codechat-bison",
@@ -3650,7 +4189,10 @@
         "max_completion_tokens": 2867,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "155019772",
+        "completion_tokens": "77509886"
+      }
     },
     {
       "id": "google/palm-2-chat-bison",
@@ -3672,7 +4214,10 @@
         "max_completion_tokens": 2867,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "155019772",
+        "completion_tokens": "77509886"
+      }
     },
     {
       "id": "gryphe/mythomax-l2-13b",
@@ -3694,15 +4239,18 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "387549431",
+        "completion_tokens": "387549431"
+      }
     },
     {
       "id": "meta-llama/llama-2-70b-chat",
       "name": "Meta: Llama v2 70B Chat",
       "description": "The flagship, 70 billion parameter language model from Meta, fine tuned for chat completions. Llama 2 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align to human preferences for helpfulness and safety.",
       "pricing": {
-        "prompt": "0.000000792",
-        "completion": "0.000000792",
+        "prompt": "0.00000081",
+        "completion": "0.00000081",
         "image": "0",
         "request": "0"
       },
@@ -3716,7 +4264,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "47845608",
+        "completion_tokens": "47845608"
+      }
     },
     {
       "id": "meta-llama/llama-2-13b-chat",
@@ -3738,7 +4289,10 @@
         "max_completion_tokens": 0,
         "is_moderated": false
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "163178708",
+        "completion_tokens": "163178708"
+      }
     },
     {
       "id": "openai/gpt-4-0314",
@@ -3760,7 +4314,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "1291831",
+        "completion_tokens": "645915"
+      }
     },
     {
       "id": "openai/gpt-4",
@@ -3782,7 +4339,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "1291831",
+        "completion_tokens": "645915"
+      }
     },
     {
       "id": "openai/gpt-3.5-turbo-0301",
@@ -3804,7 +4364,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "38754943",
+        "completion_tokens": "19377471"
+      }
     },
     {
       "id": "openai/gpt-3.5-turbo-0125",
@@ -3826,7 +4389,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "77509886",
+        "completion_tokens": "25836628"
+      }
     },
     {
       "id": "openai/gpt-3.5-turbo",
@@ -3848,7 +4414,10 @@
         "max_completion_tokens": 4096,
         "is_moderated": true
       },
-      "per_request_limits": null
+      "per_request_limits": {
+        "prompt_tokens": "77509886",
+        "completion_tokens": "25836628"
+      }
     }
   ]
 }

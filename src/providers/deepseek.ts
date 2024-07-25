@@ -12,7 +12,7 @@ export default {
       context_length: 32000,
     },
     {
-      value: "deepseek-coder ",
+      value: "deepseek-coder",
       label: "coder",
       input: 0.0001,
       output: 0.0002,

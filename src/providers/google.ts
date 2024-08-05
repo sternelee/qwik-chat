@@ -6,6 +6,13 @@ export default {
   models: [
     { value: "gemini-pro", label: "Gemini-Pro", input: 0, output: 0 },
     {
+      value: "gemini-1.5-pro-exp-0801",
+      label: "Gemini-Pro-1.5-Exp",
+      input: 0,
+      output: 0,
+      context_length: 320000,
+    },
+    {
       value: "gemini-1.5-pro-latest",
       label: "Gemini-Pro-1.5",
       input: 0,

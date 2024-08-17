@@ -13,6 +13,7 @@ import deepseek from "./deepseek";
 import coze from "./coze";
 import atomLlama from "./atom-llama";
 import cohere from "./cohere";
+import siliconflow from "./siliconflow";
 
 export const APIKeys = {
   openai: "",
@@ -24,6 +25,7 @@ export const APIKeys = {
   moonshot: "",
   zhipu: "",
   deepseek: "",
+  siliconflow: "",
   "atom-llama": "",
   "together-ai": "",
   "mistral-ai": "",
@@ -48,6 +50,7 @@ export default {
   moonshot,
   lingyi,
   zhipu,
+  siliconflow,
   "workers-ai": workersAi,
   "atom-llama": atomLlama,
   deepseek,

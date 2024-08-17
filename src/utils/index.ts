@@ -1,5 +1,25 @@
-import { throttle } from "lodash";
 export * from "./storage";
+
+export function throttle<T extends (...args: any[]) => any>(func: T, wait: number): T {
+  let timeout: ReturnType<typeof setTimeout> | null = null;
+  let lastArgs: Parameters<T> | null = null;
+  let lastThis: ThisParameterType<T> | null = null;
+  const throttled = function (this: ThisParameterType<T>, ...args: Parameters<T>) {
+    lastArgs = args;
+    lastThis = this;
+    if (!timeout) {
+      timeout = setTimeout(() => {
+        if (lastArgs) {
+          func.apply(lastThis, lastArgs);
+          lastArgs = null;
+          lastThis = null;
+        }
+        timeout = null;
+      }, wait);
+    }
+  };
+  return throttled as T;
+}
 
 export const sleep = (ms: number) =>
   new Promise((resolve) => setTimeout(resolve, ms));

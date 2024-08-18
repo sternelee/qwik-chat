@@ -369,19 +369,18 @@ export default component$(() => {
     });
   });
 
-  const messageLen = useComputed$(() => store.currentAssistantMessage);
+  const currentMessageLength = useComputed$(() => store.currentAssistantMessage.length + store.messageList.length);
+  useThrottle(currentMessageLength, 500, $(() => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+    });
+  }));
 
-  // useThrottle(messageLen, 250, (value) => {
-  //   window.scrollTo({
-  //     document.body.scrollHeight,
-  //     behavior: "smooth",
-  //   });
+  // useVisibleTask$(({ track }) => {
+  //   track(() => store.currentAssistantMessage);
+  //   scrollToBottom();
   // });
-
-  useVisibleTask$(({ track }) => {
-    track(() => store.currentAssistantMessage);
-    scrollToBottom();
-  });
 
   // useVisibleTask$(({ track }) => {
   //   track(() => store.messageList.length);

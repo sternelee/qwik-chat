@@ -2,7 +2,7 @@ export default {
   icon: "i-carbon-navaid-ndb",
   name: "智谱清言",
   href: "https://open.bigmodel.cn/usercenter/apikeys",
-  defaultModel: "glm-3-turbo",
+  defaultModel: "glm-4-air",
   placeholder: "API Key",
   models: [
     {

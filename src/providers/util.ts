@@ -1,6 +1,5 @@
 import type { ParsedEvent, ReconnectInterval } from "eventsource-parser";
 import { createParser } from "eventsource-parser";
-import { SignJWT } from "jose";
 import type { ChatMessage, Model } from "~/types";
 import { type IProvider } from "~/providers";
 
@@ -35,38 +34,10 @@ export async function fetchChat(body: IFetchChatBody) {
 
   const encoder = new TextEncoder();
   const decoder = new TextDecoder();
-  if (provider === "zhipu") {
-    const [id, secret] = key.split(".");
-    let token = "";
-    const cacheToken = cache.get(id);
-    if (cacheToken) {
-      if (cacheToken.exp <= Date.now()) {
-        cache.delete(id);
-      } else {
-        token = cacheToken.token;
-      }
-    }
-    if (!token) {
-      const timestamp = Date.now();
-      const exp = timestamp + 3600 * 1000;
-      token = await new SignJWT({
-        api_key: id,
-        exp,
-        timestamp,
-      })
-        .setProtectedHeader({ alg: "HS256", sign_type: "SIGN" })
-        .sign(encoder.encode(secret));
-      cache.set(id, {
-        token,
-        exp,
-      });
-    }
-    key = token;
-  }
 
   const headers: { [key: string]: string } = {
     "Content-Type": "application/json",
-    "HTTP-Referer": "https://qwik-chat.leeapps.cn/",
+    "HTTP-Referer": "https://qwik.leeapps.cn/",
     "x-portkey-provider": provider,
     Authorization: `Bearer ${key}`,
   };

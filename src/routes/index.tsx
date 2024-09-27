@@ -2,7 +2,7 @@ import {
   $,
   component$,
   useContextProvider,
-  useComputed$,
+  // useComputed$,
   useStore,
   useVisibleTask$,
   noSerialize,
@@ -21,10 +21,9 @@ import {
 } from "~/store";
 import { LocalStorageKey } from "~/types";
 import type { ChatMessage } from "~/types";
-import { scrollToBottom } from "~/utils";
+// import { scrollToBottom } from "~/utils";
 import { fetchAllSessions, getSession, setSession } from "~/utils/storage";
 import { useAuthSession } from "~/routes/plugin@auth";
-import { useThrottle } from "~/hooks"
 
 export default component$(() => {
   const session = useAuthSession();
@@ -208,14 +207,14 @@ export default component$(() => {
         try {
           const currentMessage: ChatMessage = this.inputImage
             ? {
-              role: "user",
-              content: inputValue,
-              images: [this.inputImage],
-            }
+                role: "user",
+                content: inputValue,
+                images: [this.inputImage],
+              }
             : {
-              role: "user",
-              content: inputValue,
-            };
+                role: "user",
+                content: inputValue,
+              };
           this.messageList = [...this.messageList, currentMessage];
           const remainingToken = await this.remainingToken$();
           if (remainingToken < 0) {
@@ -230,17 +229,17 @@ export default component$(() => {
           // 在关闭连续对话时，有效上下文只包含了锁定的对话。
           this.validContext = this.sessionSettings.continuousDialogue
             ? this.messageList.filter(
-              (k, i, _) =>
-                (["assistant", "system"].includes(k.role) &&
-                  k.type !== "temporary" &&
-                  _[i - 1]?.role === "user") ||
-                (k.role === "user" &&
-                  _[i + 1]?.role !== "error" &&
-                  _[i + 1]?.type !== "temporary")
-            )
+                (k, i, _) =>
+                  (["assistant", "system"].includes(k.role) &&
+                    k.type !== "temporary" &&
+                    _[i - 1]?.role === "user") ||
+                  (k.role === "user" &&
+                    _[i + 1]?.role !== "error" &&
+                    _[i + 1]?.type !== "temporary")
+              )
             : this.messageList.filter(
-              (k) => k.role === "system" || k.type === "locked"
-            );
+                (k) => k.role === "system" || k.type === "locked"
+              );
           const messages = (
             this.sessionSettings.continuousDialogue
               ? this.validContext
@@ -323,10 +322,10 @@ export default component$(() => {
             title: "回到主对话",
             desc:
               "其实点击顶部 Logo 也可以直接回到主对话。" +
-              sessions
-                .find((k) => k.id === "index")
-                ?.messages.map((k) => k.content)
-                .join("\n") ?? "",
+                sessions
+                  .find((k) => k.id === "index")
+                  ?.messages.map((k) => k.content)
+                  .join("\n") ?? "",
             extra: {
               id: "index",
             },
@@ -369,19 +368,11 @@ export default component$(() => {
     });
   });
 
-  const currentMessageLength = useComputed$(() => store.currentAssistantMessage.length + store.messageList.length);
-  useThrottle(currentMessageLength, 500, $(() => {
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: "smooth",
-    });
-  }));
-
   // useVisibleTask$(({ track }) => {
   //   track(() => store.currentAssistantMessage);
   //   scrollToBottom();
   // });
-
+  //
   // useVisibleTask$(({ track }) => {
   //   track(() => store.messageList.length);
   //   scrollToBottom();

@@ -37,8 +37,6 @@ export async function fetchChat(body: IFetchChatBody) {
 
   const headers: { [key: string]: string } = {
     "Content-Type": "application/json",
-    "HTTP-Referer": "https://qwik.leeapps.cn/",
-    "x-portkey-provider": provider,
     Authorization: `Bearer ${key}`,
   };
 
@@ -48,12 +46,12 @@ export async function fetchChat(body: IFetchChatBody) {
 
   const abortController = new AbortController();
   try {
-    const rawRes = await fetch("https://api.leechat.app/v1/chat/completions", {
+    const rawRes = await fetch("https://ai.leeapp.dev/v1/chat/completions", {
       headers,
       method: "POST",
       signal: abortController.signal,
       body: JSON.stringify({
-        model,
+        model: `${provider}#${model}`,
         messages: messages.map((k) => ({ role: k.role, content: k.content })),
         temperature,
         stream: true,
@@ -97,7 +95,7 @@ export async function fetchChat(body: IFetchChatBody) {
             body: await rawRes.text(),
           };
           console.log(
-            `Error: recieved non-200 status code, ${JSON.stringify(data)}`,
+            `Error: recieved non-200 status code, ${JSON.stringify(data)}`
           );
           controller.close();
           return;
@@ -134,7 +132,7 @@ export async function fetchChat(body: IFetchChatBody) {
           // https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format
           controller.enqueue(
             // encoder.encode(`data: ${JSON.stringify(payload)}\n\n`),
-            encoder.encode(text),
+            encoder.encode(text)
           );
           counter++;
         } catch (e) {

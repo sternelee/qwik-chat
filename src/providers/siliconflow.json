@@ -1,0 +1,389 @@
+{
+	"object": "list",
+	"data": [
+		{
+			"id": "stabilityai/stable-diffusion-xl-base-1.0",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "stabilityai/stable-diffusion-2-1",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "meta-llama/Meta-Llama-3-70B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "meta-llama/Meta-Llama-3-8B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "01-ai/Yi-1.5-6B-Chat",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "01-ai/Yi-1.5-9B-Chat-16K",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "01-ai/Yi-1.5-34B-Chat-16K",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "THUDM/chatglm3-6b",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "deepseek-ai/DeepSeek-V2-Chat",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "THUDM/glm-4-9b-chat",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Qwen/Qwen2-72B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Qwen/Qwen2-7B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Qwen/Qwen2-57B-A14B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "stabilityai/stable-diffusion-3-medium",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "deepseek-ai/DeepSeek-Coder-V2-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Qwen/Qwen2-1.5B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "google/gemma-2-9b-it",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "google/gemma-2-27b-it",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "internlm/internlm2_5-7b-chat",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "BAAI/bge-large-en-v1.5",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "BAAI/bge-large-zh-v1.5",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Pro/Qwen/Qwen2-7B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Pro/Qwen/Qwen2-1.5B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Pro/THUDM/glm-4-9b-chat",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Pro/THUDM/chatglm3-6b",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Pro/01-ai/Yi-1.5-9B-Chat-16K",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Pro/01-ai/Yi-1.5-6B-Chat",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Pro/google/gemma-2-9b-it",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Pro/internlm/internlm2_5-7b-chat",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Pro/meta-llama/Meta-Llama-3-8B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Pro/meta-llama/Meta-Llama-3.1-8B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "meta-llama/Meta-Llama-3.1-70B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "black-forest-labs/FLUX.1-schnell",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "black-forest-labs/FLUX.1-dev",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "meta-llama/Meta-Llama-3.1-405B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "FunAudioLLM/SenseVoiceSmall",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "netease-youdao/bce-embedding-base_v1",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "BAAI/bge-m3",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "internlm/internlm2_5-20b-chat",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "netease-youdao/bce-reranker-base_v1",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "BAAI/bge-reranker-v2-m3",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "deepseek-ai/DeepSeek-V2.5",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Vendor-A/Qwen/Qwen2-72B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Qwen/Qwen2.5-72B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Qwen/Qwen2.5-7B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Qwen/Qwen2.5-14B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Qwen/Qwen2.5-32B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Pro/black-forest-labs/FLUX.1-schnell",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Qwen/Qwen2.5-Math-72B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Qwen/Qwen2.5-Coder-7B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "TeleAI/TeleChat2",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Pro/Qwen/Qwen2.5-7B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Qwen/Qwen2.5-72B-Instruct-128K",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Qwen/Qwen2-VL-72B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "OpenGVLab/InternVL2-26B",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Pro/BAAI/bge-m3",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "OpenGVLab/InternVL2-Llama3-76B",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Pro/OpenGVLab/InternVL2-8B",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Vendor-A/Qwen/Qwen2.5-72B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "Pro/Qwen/Qwen2-VL-7B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "nvidia/Llama-3.1-Nemotron-70B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "stabilityai/stable-diffusion-3-5-large",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		},
+		{
+			"id": "LoRA/Qwen/Qwen2.5-7B-Instruct",
+			"object": "model",
+			"created": 0,
+			"owned_by": ""
+		}
+	]
+}

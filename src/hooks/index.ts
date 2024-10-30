@@ -2,9 +2,11 @@ import {
   $,
   type PropFunction,
   type Signal,
+  type QRL,
   useOnWindow,
   useSignal,
   useTask$,
+  implicit$FirstArg,
 } from "@builder.io/qwik";
 import { copyToClipboard } from "~/utils";
 
@@ -146,3 +148,46 @@ export function observerEl(options: {
   io.observe(target);
   // onCleanup(() => io.disconnect())
 }
+
+export const useDebouncerQrl = <A extends readonly unknown[], R>(
+  fn: QRL<(...args: A) => R>,
+  delay: number,
+): QRL<(...args: A) => void> => {
+  const timeoutId = useSignal<number>();
+
+  return $((...args: A): void => {
+    window.clearTimeout(timeoutId.value);
+    timeoutId.value = window.setTimeout((): void => {
+      // @ts-ignore
+      void fn(...args);
+    }, delay);
+  });
+};
+
+export const useDebouncer$ = implicit$FirstArg(useDebouncerQrl);
+
+export const useThrottleQrl = <A extends readonly unknown[], R>(
+  fn: QRL<(...args: A) => R>,
+  delay: number,
+): QRL<(...args: A) => void> => {
+  const timeoutId = useSignal<number>();
+  const lastTime = useSignal(0);
+
+  return $((...args: A): void => {
+    const currentTime = Date.now();
+    if (timeoutId.value && currentTime >= lastTime.value + delay) {
+      window.clearTimeout(timeoutId.value);
+      lastTime.value = currentTime;
+      // @ts-ignore
+      void fn(...args);
+    } else {
+      window.clearTimeout(timeoutId.value);
+      timeoutId.value = window.setTimeout((): void => {
+        // @ts-ignore
+        void fn(...args);
+      }, delay);
+    }
+  });
+};
+
+export const useThrottle$ = implicit$FirstArg(useDebouncerQrl);

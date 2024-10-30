@@ -144,7 +144,7 @@ export default component$<Props>((props) => {
         style="max-width:100%"
       >
         {!props.hiddenModel && (
-          <div class="badge badge-neutral mb-2px">
+          <div class="badge badge-neutral mb-2px h-auto">
             {props.message.provider}: {props.message.model}
           </div>
         )}
